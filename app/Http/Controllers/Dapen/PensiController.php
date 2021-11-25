@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dapen;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class PensiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,15 @@ class HomeController extends Controller
     public function index()
     {
         //
+        $menu = 'kontakkami';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.dapen.home', $data);
     }
 
     /**
@@ -81,5 +90,61 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function profil()
+    {
+        //
+        $menu = 'profil';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.dapen.profil', $data);
+    }
+
+    public function uploadfoto()
+    {
+        //
+        $menu = 'profil';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.dapen.uploadfoto', $data);
+    }
+
+    public function faq()
+    {
+        //
+        $menu = 'faq';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.dapen.faq', $data);
+    }
+
+    public function datainfo()
+    {
+        //
+        $menu = 'datainfo';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.dapen.datainfo', $data);
     }
 }

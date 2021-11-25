@@ -86,7 +86,7 @@ class KontenController extends Controller
     public function visimisi()
     {
         //
-        $menu = 'kontakkami';
+        $menu = 'visimisi';
         $edit = false;
 
         $data = [
@@ -94,6 +94,48 @@ class KontenController extends Controller
             'edit' => $edit
         ];
 
-        return view('admin.home.index', $data);
+        return view('admin.konten.visimisi', $data);
+    }
+
+    public function sejarahpendirian()
+    {
+        //
+        $menu = 'sejarahpendirian';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.konten.sejarahpendirian', $data);
+    }
+
+    public function pendiri()
+    {
+        //
+        $menu = 'pendiri';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.konten.pendiri', $data);
+    }
+
+    public function strukturorganisasi()
+    {
+        //
+        $menu = 'strukturorganisasi';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.konten.strukturorganisasi', $data);
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 15, 2021 at 01:45 AM
+-- Generation Time: Nov 25, 2021 at 08:57 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -39,34 +39,35 @@ CREATE TABLE `biodata` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
-  `no_pegawai` varchar(255) DEFAULT NULL
+  `no_pegawai` varchar(255) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `biodata`
 --
 
-INSERT INTO `biodata` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`, `alamat`, `created_at`, `updated_at`, `status`, `no_pegawai`) VALUES
-(1, 1, 'Admin', '12381293', 'Administrator', '1', 'Jl. Ikan', NULL, NULL, NULL, NULL),
-(3, 3, 'Rima Ningsih', '081', 'Kabag. Investasi', '2', NULL, '2021-07-02 07:46:41', '2021-10-21 21:54:04', NULL, 'PK19006'),
-(4, 4, 'Achmad Sobirin', '081330763210', 'Kabag. Kepesertaan', '4', NULL, '2021-07-02 07:48:59', '2021-10-21 21:46:10', NULL, '6687011'),
-(5, 5, 'Isrohman', '081230853129', 'Kasi. Verifikasi', '3', NULL, '2021-07-02 07:50:19', '2021-10-21 21:54:56', NULL, '6688015'),
-(6, 6, 'Amir Yusuf', '081234411167', 'Kasi. Keuangan', '3', NULL, '2021-07-02 07:51:11', '2021-10-21 21:49:46', NULL, '6788014'),
-(7, 7, 'Agus Suhelmi', '081330652472', 'Kasi. Umum', '4', NULL, '2021-07-02 07:56:23', '2021-10-21 21:52:09', NULL, '6889022'),
-(8, 8, 'Andreas Otong Jaya', '082132909500', 'Kasi. Sumber Daya Manusia', '4', NULL, '2021-07-02 07:57:02', '2021-10-21 21:52:01', NULL, '6810023'),
-(9, 9, 'Endang Sri Hartati W.', '08121720926', 'Kabag. Akuntansi & Keuangan', '3', NULL, '2021-07-02 07:57:42', '2021-10-21 21:53:28', NULL, '7513026'),
-(10, 12, 'Ahmad Jeffry Zahidi', '082132277774', 'Kasi. Investasi', '2', NULL, '2021-07-02 07:59:26', '2021-10-21 21:49:05', NULL, '8712025'),
-(11, 14, 'Nur Indah Kurnia Sari', '081233647504', 'Staf Investasi', '2', NULL, '2021-07-02 08:00:23', '2021-10-21 21:56:44', NULL, '9319302'),
-(12, 15, 'Adelia Kumara Alvionita', '081216287546', 'Kasi. Akuntansi & Pelaporan', '3', NULL, '2021-07-02 08:00:54', '2021-10-21 21:46:52', NULL, '9417301'),
-(13, 16, 'Ellen Triana M.', '082231045103', 'Staf Kepesertaan', '4', NULL, '2021-07-02 08:01:51', '2021-10-21 21:52:49', NULL, 'CP20121'),
-(14, 17, 'Misha Primaresty', '082233771556', 'Staf Kepesertaan', '4', NULL, '2021-07-02 08:02:31', '2021-10-21 21:55:29', NULL, 'CP90172'),
-(16, 19, 'Nur Widjajanti, SE.', '081330080911', 'Plt. Direktur Utama', '7', NULL, '2021-10-20 05:13:35', '2021-10-20 05:13:35', NULL, '-'),
-(17, 20, 'Silva Astri', '089694849157', 'Staf Perpajakan', '3', NULL, '2021-10-21 21:59:56', '2021-10-21 21:59:56', NULL, 'PK19003'),
-(18, 21, 'Sudartini, SE.', '08123530362', 'Direktur', '7', NULL, '2021-10-21 22:13:10', '2021-10-21 22:13:10', NULL, '-'),
-(19, 22, 'Arif Kurniawan', NULL, 'Staf Legal', '6', NULL, '2021-10-21 22:23:12', '2021-10-21 22:23:12', NULL, 'PK19005'),
-(20, 23, 'Istiqomah Nurul Aini', NULL, 'Staf Manajemen Risiko', '5', NULL, '2021-10-21 22:24:06', '2021-10-21 22:24:06', NULL, 'PK19004'),
-(21, 24, 'Farendi Gio James', '67567767567', 'Puncher Man', '3', NULL, '2021-10-22 05:57:06', '2021-10-22 05:57:06', NULL, '123'),
-(22, 25, 'Farendi Gio James', '67567767567', 'Puncher Man', '2', NULL, '2021-10-22 06:02:40', '2021-10-22 06:02:40', NULL, '123');
+INSERT INTO `biodata` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`, `alamat`, `created_at`, `updated_at`, `status`, `no_pegawai`, `file`) VALUES
+(1, 1, 'Admin', '12381293', 'Administrator', '1', 'Jl. Ikan', NULL, NULL, NULL, NULL, ''),
+(3, 3, 'Rima Ningsih', '081', 'Kabag. Investasi', '2', NULL, '2021-07-02 07:46:41', '2021-10-21 21:54:04', NULL, 'PK19006', ''),
+(4, 4, 'Achmad Sobirin', '081330763210', 'Kabag. Kepesertaan', '4', NULL, '2021-07-02 07:48:59', '2021-10-21 21:46:10', NULL, '6687011', ''),
+(5, 5, 'Isrohman', '081230853129', 'Kasi. Verifikasi', '3', NULL, '2021-07-02 07:50:19', '2021-10-21 21:54:56', NULL, '6688015', ''),
+(6, 6, 'Amir Yusuf', '081234411167', 'Kasi. Keuangan', '3', NULL, '2021-07-02 07:51:11', '2021-10-21 21:49:46', NULL, '6788014', ''),
+(7, 7, 'Agus Suhelmi', '081330652472', 'Kasi. Umum', '4', NULL, '2021-07-02 07:56:23', '2021-10-21 21:52:09', NULL, '6889022', ''),
+(8, 8, 'Andreas Otong Jaya', '082132909500', 'Kasi. Sumber Daya Manusia', '4', NULL, '2021-07-02 07:57:02', '2021-10-21 21:52:01', NULL, '6810023', ''),
+(9, 9, 'Endang Sri Hartati W.', '08121720926', 'Kabag. Akuntansi & Keuangan', '3', NULL, '2021-07-02 07:57:42', '2021-10-21 21:53:28', NULL, '7513026', ''),
+(10, 12, 'Ahmad Jeffry Zahidi', '082132277774', 'Kasi. Investasi', '2', NULL, '2021-07-02 07:59:26', '2021-10-21 21:49:05', NULL, '8712025', ''),
+(11, 14, 'Nur Indah Kurnia Sari', '081233647504', 'Staf Investasi', '2', NULL, '2021-07-02 08:00:23', '2021-10-21 21:56:44', NULL, '9319302', ''),
+(12, 15, 'Adelia Kumara Alvionita', '081216287546', 'Kasi. Akuntansi & Pelaporan', '3', NULL, '2021-07-02 08:00:54', '2021-10-21 21:46:52', NULL, '9417301', ''),
+(13, 16, 'Ellen Triana M.', '082231045103', 'Staf Kepesertaan', '4', NULL, '2021-07-02 08:01:51', '2021-10-21 21:52:49', NULL, 'CP20121', ''),
+(14, 17, 'Misha Primaresty', '082233771556', 'Staf Kepesertaan', '4', NULL, '2021-07-02 08:02:31', '2021-10-21 21:55:29', NULL, 'CP90172', ''),
+(16, 19, 'Nur Widjajanti, SE.', '081330080911', 'Plt. Direktur Utama', '7', NULL, '2021-10-20 05:13:35', '2021-10-20 05:13:35', NULL, '-', ''),
+(17, 20, 'Silva Astri', '089694849157', 'Staf Perpajakan', '3', NULL, '2021-10-21 21:59:56', '2021-10-21 21:59:56', NULL, 'PK19003', ''),
+(18, 21, 'Sudartini, SE.', '08123530362', 'Direktur', '7', NULL, '2021-10-21 22:13:10', '2021-10-21 22:13:10', NULL, '-', ''),
+(19, 22, 'Arif Kurniawan', NULL, 'Staf Legal', '6', NULL, '2021-10-21 22:23:12', '2021-10-21 22:23:12', NULL, 'PK19005', ''),
+(20, 23, 'Istiqomah Nurul Aini', NULL, 'Staf Manajemen Risiko', '5', NULL, '2021-10-21 22:24:06', '2021-10-21 22:24:06', NULL, 'PK19004', ''),
+(21, 24, 'Farendi Gio James', '67567767567', 'Puncher Man', '3', NULL, '2021-10-22 05:57:06', '2021-10-22 05:57:06', NULL, '123', ''),
+(22, 25, 'Farendi Gio James', '67567767567', 'Puncher Man', '2', NULL, '2021-10-22 06:02:40', '2021-10-22 06:02:40', NULL, '123', '');
 
 -- --------------------------------------------------------
 
@@ -83,6 +84,24 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konten`
+--
+
+CREATE TABLE `konten` (
+  `id` int(10) NOT NULL,
+  `konten` varchar(255) DEFAULT NULL,
+  `keterangan` varchar(255) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `create_by` varchar(255) DEFAULT NULL,
+  `update_by` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -157,9 +176,9 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (2, 'App\\Models\\User', 21),
 (2, 'App\\Models\\User', 22),
 (2, 'App\\Models\\User', 23),
-(2, 'App\\Models\\User', 24),
 (2, 'App\\Models\\User', 25),
-(2, 'App\\Models\\User', 38);
+(2, 'App\\Models\\User', 38),
+(3, 'App\\Models\\User', 24);
 
 -- --------------------------------------------------------
 
@@ -224,8 +243,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'web', '2021-05-07 01:20:47', '2021-05-07 01:20:47'),
-(2, 'user', 'web', '2021-05-07 01:20:47', '2021-05-07 01:20:47');
+(1, 'Admin', 'web', '2021-05-07 01:20:47', '2021-05-07 01:20:47'),
+(2, 'User', 'web', '2021-05-07 01:20:47', '2021-05-07 01:20:47'),
+(3, 'Pensiunan', 'web', '2021-11-16 04:17:01', '2021-11-16 04:17:05');
 
 -- --------------------------------------------------------
 
@@ -258,9 +278,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('bulRa189gxnpJj8ZcjCSr2gVATYh2EDmEdWZKBxl', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZExCNlpaNlhyZ1dycHBXZVhqZm42bUlpVU56Sjhja3ZQakN4UExuRyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9wcm9maWwvdmlzaW1pc2kiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1636938841),
-('d8KtSrLS64a6I0XuuUucZZv13wEIiznPRXZsFO2F', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidUJtOVM4M2dETzV1dlA5MmNlTFllRXRpM0tUQ250YlVCV2hleW1IMSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1636774169),
-('F5u5ULdwr9JLYBosgkgTMpzG6k6E2rr09QLGFVWU', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTUJ6MVU4QWoyb2NPQ3I5dml1ZUFiRUk4dm5yN2wwZEVzYXh6QkZBMSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9hZG1pbi91c2VyL2NyZWF0ZSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1636705458);
+('6zxTVM8zXLg1IYs1Elwb5vxEAP3DbO6yyVlRwAIM', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRlR4TFBxazN5SlJBckMwZ204elYyQWpSNlFWR0pCSlhNQlJ3RDNzdCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1637830575);
 
 -- --------------------------------------------------------
 
@@ -332,7 +350,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `tw
 (21, 'Sudartini, SE.', 'sudartini@sig.id', NULL, '$2y$10$6EkdL6NL5j/p4rTmHDvReu/8yEz4KiBUeNpeYB6oc1p1NHx2Vt1rm', NULL, NULL, NULL, '2021-10-21 22:13:10', '2021-10-21 22:18:15', NULL),
 (22, 'Arif Kurniawan', 'arif@dapensg.com', NULL, '$2y$10$wQjdvRfgp83nmI9uIaQHb.CLGSC3y2OorrOolSYAKDEwUuFE/a8Gu', NULL, NULL, NULL, '2021-10-21 22:23:12', '2021-10-21 22:23:21', NULL),
 (23, 'Istiqomah Nurul Aini', 'nurul@dapensg.com', NULL, '$2y$10$nOLAgbzmdDtymsYbxi6Ba.rzFojhjOxHqw5P5qxZHaKWiO0FKXnlq', NULL, NULL, NULL, '2021-10-21 22:24:06', '2021-10-21 22:24:18', NULL),
-(24, 'Farendi Gio James', 'epc.tju@gmail.com', NULL, '$2y$10$B5rZRZYQp4FPLGwOJ./cLeu8ywUGHjL7OkdgHvuMkJE8AKk9Gb3dm', NULL, NULL, NULL, '2021-10-22 05:57:06', '2021-10-22 05:57:06', NULL),
+(24, 'Mukhils James', 'epc.tju@gmail.com', NULL, '$2y$10$15bjH..7kABXtmLOFobLgujOpyueHZzuMJioMYHzAeSxj2yYhinN.', NULL, NULL, NULL, '2021-10-22 05:57:06', '2021-10-22 05:57:06', NULL),
 (25, 'Farendi Gio James', 'farendigiotivano@unesa.ac.id', NULL, '$2y$10$3tiiequg0Fuw7RJxUl2s/.6DrcqFMD732OsWLFyoPeSvuWnC7wYsS', NULL, NULL, NULL, '2021-10-22 06:02:40', '2021-10-22 06:02:40', 'Farendi Gio');
 
 --
@@ -351,6 +369,12 @@ ALTER TABLE `biodata`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`) USING BTREE;
+
+--
+-- Indexes for table `konten`
+--
+ALTER TABLE `konten`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -466,7 +490,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

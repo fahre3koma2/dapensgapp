@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\BeritaController as BeradminController;
+use App\Http\Controllers\Admin\KontenController;
 
 use App\Http\Controllers\Webp\BerandaController;
 use App\Http\Controllers\Webp\ProfilController;
@@ -10,6 +12,7 @@ use App\Http\Controllers\Webp\BeritaController;
 use App\Http\Controllers\Webp\InformasiController;
 use App\Http\Controllers\Webp\LayananController;
 
+use App\Http\Controllers\Dapen\PensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,20 +55,31 @@ use App\Http\Controllers\Webp\LayananController;
 
     Route::get('kontakkami', [BerandaController::class, 'kontakkami'])->name('kontakkami');
 
-    Route::resource('/admin/home', HomeController::class);
-
-    Route::resource('/admin/user', UserController::class);
-
-//Route::name('admin.')->prefix('admin')->middleware(['role:admin'])->group( function () {
-    Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
-    Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
-    // Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
-    // Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
-//});
-
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+    Route::name('admin.')->prefix('admin')->middleware(['role:Admin|User'])->group( function () {
 
+        Route::resource('/user', UserController::class);
 
+        Route::get('/konten/visimisi', [KontenController::class, 'visimisi'])->name('visimisi');
+        Route::get('/konten/sejarahpendirian', [KontenController::class, 'sejarahpendirian'])->name('sejarahpendirian');
+        Route::get('/konten/pendiri', [KontenController::class, 'pendiri'])->name('pendiri');
+        Route::get('/konten/strukturorganisasi', [KontenController::class, 'strukturorganisasi'])->name('strukturorganisasi');
+
+        Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
+        Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
+        // Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
+        // Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
+    });
+
+    Route::name('pensi.')->prefix('pensi')->middleware(['role:Pensiunan'])->group(function () {
+
+        Route::get('/profil', [PensiController::class, 'profil'])->name('profil');
+        Route::get('/faq', [PensiController::class, 'faq'])->name('faq');
+        Route::get('/datainfo', [PensiController::class, 'datainfo'])->name('datainfo');
+
+        Route::get('/uploadfoto', [PensiController::class, 'uploadfoto'])->name('uploadfoto');
+    });
 });

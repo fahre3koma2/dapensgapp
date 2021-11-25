@@ -126,4 +126,18 @@ class ProfilController extends Controller
         return view('webprofil.profil.pengajuanpensiun', $data);
     }
 
+    public function pendiri()
+    {
+        //
+        $menu = 'pendiri';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('webprofil.profil.pendiri', $data);
+    }
+
 }

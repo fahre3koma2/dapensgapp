@@ -20,8 +20,17 @@
 <link rel="stylesheet" href="{{ url('dist/css/themify-icons/themify-icons.css') }}">
 <link rel="stylesheet" href="{{ url('dist/css/simple-lineicon/simple-line-icons.css') }}">
 
+<!-- Chartist CSS -->
+<link rel="stylesheet" href="{{ url('dist/plugins/chartist-js/chartist.min.css') }}">
+<link rel="stylesheet" href="{{ url('dist/plugins/chartist-js/chartist-plugin-tooltip.css') }}">
+
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ url('dist/plugins/datatables/css/dataTables.bootstrap.min.css') }}">
+
+<!-- dropify -->
+<link rel="stylesheet" href="{{ url('dist/plugins/dropify/dropify.min.css') }}">
+
+<link href="{{ url('asset/plugins/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

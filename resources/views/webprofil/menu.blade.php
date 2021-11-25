@@ -26,7 +26,7 @@
             </div>
           </div>
           <div class="float-right">
-            <div class="make_appo"> <a class="btn white_btn" href="make_appointment.html">Login</a> </div>
+            <div class="make_appo"> <a class="btn white_btn" target="_blank" href="{!! url('login') !!}">Login</a> </div>
           </div>
         </div>
       </div>

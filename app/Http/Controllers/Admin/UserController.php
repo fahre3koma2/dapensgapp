@@ -34,7 +34,7 @@ class UserController extends Controller
 
         //dd(Carbon::parse('2019-03-01')->translatedFormat('d F Y'));
         $users = User::query()->with(['biodata', 'RolesUser'])->where('name', '!=', 'Admin')->orderBy('name')->get();
-        $roles = Role::query()->orderBy('name')->get();
+        $roles = Role::query()->orderBy('name')->where('name', '!=', 'Pensiunan')->get();
 
         $data = [
             'menu' => $menu,
@@ -107,7 +107,7 @@ class UserController extends Controller
             'user' => $user->id,
         ];
 
-        return redirect()->route('user.index', $data);
+        return redirect()->route('admin.user.index', $data);
     }
 
     /**
@@ -131,7 +131,7 @@ class UserController extends Controller
                     'user' => $user,
                 ];
 
-            return view('user.detail', $data);
+            return view('admin.user.detail', $data);
         } catch (Exception $ex) {
             return redirect()->back();
         }
@@ -158,7 +158,7 @@ class UserController extends Controller
                     'user' => $user,
                 ];
 
-            return view('user.create', $data);
+            return view('admin.user.create', $data);
         } catch (Exception $ex) {
             return redirect()->back();
         }
@@ -221,7 +221,7 @@ class UserController extends Controller
         alert()->success('Berhasil', 'User Berhasil di Update')->persistent('Ok');
         Alert::success('Data berhasil dihapus')->persistent('Ok');
 
-        return redirect()->route('user.index');
+        return redirect()->route('admin.user.index');
     }
 
     public function removeRole(Request $request)

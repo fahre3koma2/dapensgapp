@@ -7,5 +7,9 @@
 <!-- template -->
 <script src="{{ url('dist/js/adminkit.js') }}"></script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@include('sweet::alert')
+
 @yield('injs')
 

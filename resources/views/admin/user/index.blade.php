@@ -43,10 +43,10 @@
                     </td>
                     <td>@if($value->biodata->units) {{ $value->biodata->units->nama }} @else - @endif </td>
                     <td>
-                        <a class="btn btn-sm btn-primary" href="{{ route('user.show', ['user' => encrypt($value->id)]) }}"><i class="fa fa-list"></i> Detail</a> |
+                        <a class="btn btn-sm btn-primary" href="{{ route('admin.user.show', ['user' => encrypt($value->id)]) }}"><i class="fa fa-list"></i> Detail</a> |
                         {{--  <a class="btn btn-sm btn-warning" href="{{ route('user.edit', ['user' => encrypt($value->id)]) }}"><i class="fa fa-edit"></i> Edit</a> |  --}}
                         <button type="button" class="btn btn-sm btn-danger delete" data-id="{{ $value->id }}" data-file="{{$value->id}}"><i class="fa fa-trash"></i> Hapus</button>
-                        {{ Form::open(['url'=>route('user.destroy', [Crypt::encrypt($value->id)]), 'method'=>'delete', 'id' => $value->id, 'style' => 'display: none;']) }}
+                        {{ Form::open(['url'=>route('admin.user.destroy', [Crypt::encrypt($value->id)]), 'method'=>'delete', 'id' => $value->id, 'style' => 'display: none;']) }}
                         {{ csrf_field() }}
                         {{ Form::close() }}
                     </td>
@@ -136,7 +136,7 @@
             function removeRole(user_id, role_id, element){
                 var token = "{{ csrf_token() }}";
                 var request = $.ajax({
-                    url:"{{ route('remove-role') }}",
+                    url:"{{ route('admin.remove-role') }}",
                     type:"POST",
                     dataType:"html",
                     data:{
@@ -153,7 +153,7 @@
                 var token = "{{ csrf_token() }}";
                 var role_id = $('#select_'+user_token).val();
                 var request = $.ajax({
-                    url:"{{ route('add-role') }}",
+                    url:"{{ route('admin.add-role') }}",
                     type:"POST",
                     dataType:"html",
                     data:{

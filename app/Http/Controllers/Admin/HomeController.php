@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,12 @@ class HomeController extends Controller
             'edit' => $edit
         ];
 
-        return view('admin.home.index', $data);
+        if(Auth::user()->roles[0]->name == 'Pensiunan'){
+            return view('admin.dapen.home', $data);
+        } else {
+            return view('admin.home.index', $data);
+        }
+
     }
 
     /**
