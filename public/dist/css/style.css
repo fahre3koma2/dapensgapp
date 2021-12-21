@@ -69,7 +69,6 @@ body {
 	-moz-transition: -moz-transform .3s ease-in-out, margin .3s ease-in-out;
 	-o-transition: -o-transform .3s ease-in-out, margin .3s ease-in-out;
 	transition: transform .3s ease-in-out, margin .3s ease-in-out;
-	margin-left: 230px;
 	z-index: 820
 }
 .layout-top-nav .content-wrapper, .layout-top-nav .main-footer {
@@ -104,7 +103,9 @@ a:hover, a:active, a:focus {
 .content-wrapper {
 	min-height: 100%;
 	background-color: #f0f4f8;
-	z-index: 800
+	z-index: 800;
+	float:left;
+	width:100%;
 }
 .main-footer {
 	background: #fff;
@@ -207,7 +208,7 @@ b {
 	display: inherit;
 }
 .main-header .navbar.blue-bg {
-	background: #5a41d8;
+	background: #4164d8;
 	border-bottom: solid 0px #ebebeb;
 }
 .layout-top-nav .main-header .navbar {
@@ -430,7 +431,7 @@ color:#ccc
 }
 .main-header .logo.blue-bg {
 	background: #4164d8;
-	border-bottom: solid 1px #3255c7;
+	border-bottom: solid 0px #3255c7;
 }
 .main-header .navbar-brand {
 	color: #fff
@@ -474,13 +475,11 @@ color:#ccc
 	position: relative;
 	padding: 20px 15px 15px 15px;
 	box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
-	background: #4164d8;
 	margin: 0 0 0px;
 }
 .content-header>h1 {
 	margin: 0;
 	font-size: 18px;
-	color:#FFF;
 }
 .content-header>h1>small {
 	font-size: 15px;
@@ -505,7 +504,6 @@ color:#ccc
 	color: #8fa5ec;
 }
 .content-header>.breadcrumb>li>a {
-	color: #fff;
 	text-decoration: none;
 	display: inline-block;
 	padding-right: 5px;
@@ -567,7 +565,7 @@ ul.fa-ul {
 .tab-style1 ul li a, .customtab li a {
 	background-color: transparent;
 	color: #8d8d8d;
-	padding: 10px 18px;
+	padding: 10px 20px;
 }
 .tab-style1 ul li a:hover, .customtab li a.nav-link:hover {
 	background-color: transparent;
@@ -796,7 +794,7 @@ ul.fa-ul {
 	top: 0;
 	right: 0;
 	float: none;
-	background: #000;
+	background: #d2d6de;
 	padding-left: 10px
 }
 .content-header>.breadcrumb li:before {
@@ -5815,6 +5813,9 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e73f7c', endCo
 .main-header .navbar .navbar-nav > li.p-ph-res > a {
 	padding: 22px 18px 21px 18px;
 }
+.content {
+    padding: 20px;
+}
 }
 @media only screen and (min-width: 480px) and (max-width: 639px) {
 .hidden-xs {
@@ -5825,6 +5826,9 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e73f7c', endCo
 }
 .main-header .navbar .navbar-nav > li.p-ph-res > a {
 	padding: 22px 18px 21px 18px;
+}
+.content {
+    padding: 20px;
 }
 }
 @media only screen and (max-width: 479px) {

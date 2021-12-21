@@ -4,14 +4,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <div class="full">
+          {{--  <div class="full">
             <div class="topbar-left">
               <ul class="list-inline">
-                <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">540 Lorem Ipsum New York, AB 90218</span> </li>
-                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></span> </li>
+                <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">Jalan RA. Kartini No. 23 Gresik, 61122</span> </li>
+                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:dpsg@indo.net.id">dpsg@indo.net.id</a></span> </li>
               </ul>
             </div>
-          </div>
+          </div>  --}}
         </div>
         <div class="col-md-4 right_section_header_top">
           <div class="float-left">
@@ -19,14 +19,12 @@
               <ul class="list-inline">
                 <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
                 <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
-                <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
-                <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
                 <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
               </ul>
             </div>
           </div>
           <div class="float-right">
-            <div class="make_appo"> <a class="btn white_btn" target="_blank" href="{!! url('login') !!}">Login</a> </div>
+            <div class="make_appo"> <button type="button" data-toggle="modal" data-target="#myModal" class="btn white_btn" >Login</button> </div>
           </div>
         </div>
       </div>
@@ -54,6 +52,7 @@
                         <li><a href="{!! url('profil/sejarah') !!}">Sejarah Pendirian</a></li>
                         <li><a href="{!! url('profil/pendiri') !!}">Pendiri</a></li>
                         <li><a href="{!! url('profil/struktur') !!}">Struktur Organisasi</a></li>
+                        <li><a href="{!! url('profil/budaya') !!}">Budaya Kerja</a></li>
                     </ul>
                 </li>
                 <li> <a href="#">Layanan</a>
@@ -68,15 +67,21 @@
                 </li>
                 <li> <a href="#">Berita</a>
                     <ul>
-                        <li><a href="{!! url('berita/galeri') !!}">Galeri</a></li>
-                        <li><a href="{!! url('berita/artikel') !!}">Artikel</a></li>
+                        <li><a href="{!! url('berita/artikel') !!}">Artikel Umum</a></li>
+                        <li><a href="{!! url('berita/artikel') !!}">Artikel Khusus</a></li>
                     </ul>
                 </li>
                 <li> <a href="#">Informasi</a>
                     <ul>
                         <li><a href="{!! url('informasi/pdp') !!}">PDP</a></li>
                         <li><a href="{!! url('informasi/laporankeuangan') !!}">Laporan Keuangan</a></li>
-                        <li><a href="{!! url('informasi/panduan') !!}">Panduan</a></li>
+                        <li><a href="{!! url('informasi/panduan') !!}">Panduan</a>
+                            {{-- <ul>
+                                <li><a href="{!! url('informasi/pdp') !!}">PDP</a></li>
+                                <li><a href="{!! url('informasi/laporankeuangan') !!}">Laporan Keuangan</a></li>
+                                <li><a href="{!! url('informasi/panduan') !!}">Panduan</a></li>
+                            </ul> --}}
+                        </li>
                     </ul>
                 </li>
                 <li> <a href="{!! url('kontakkami/') !!}">Kontak Kami</a></li>

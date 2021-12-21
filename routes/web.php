@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
         Route::resource('/user', UserController::class);
 
+        Route::get('/konten/profilgambar', [KontenController::class, 'profilgambar'])->name('profilgambar');
         Route::get('/konten/visimisi', [KontenController::class, 'visimisi'])->name('visimisi');
         Route::get('/konten/sejarahpendirian', [KontenController::class, 'sejarahpendirian'])->name('sejarahpendirian');
         Route::get('/konten/pendiri', [KontenController::class, 'pendiri'])->name('pendiri');
@@ -81,5 +82,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/datainfo', [PensiController::class, 'datainfo'])->name('datainfo');
 
         Route::get('/uploadfoto', [PensiController::class, 'uploadfoto'])->name('uploadfoto');
+
+        Route::get('/register', [PensiController::class, 'register'])->name('register');
+
+        Route::get('/geoloc', [PensiController::class, 'geoloc'])->name('geoloc');
     });
 });

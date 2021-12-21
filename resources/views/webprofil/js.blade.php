@@ -1,3 +1,6 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <script src="{{ url('webprof/js/jquery.min.js') }}"></script>
 <script src="{{ url('webprof/js/bootstrap.min.js') }}"></script>
 <!-- menu js -->
@@ -114,3 +117,19 @@
            });
          }
       </script>
+
+    {{--  <script type="text/javascript">
+        $(function () {
+            $('#myButton').floatingWhatsApp({
+                phone: '5491133359850',
+                popupMessage: 'Hello, how can we help you?',
+                message: "I'd like to order a pizza",
+                showPopup: true,
+                showOnIE: false,
+                headerTitle: 'Welcome!',
+                headerColor: 'crimson',
+                backgroundColor: 'crimson',
+                buttonImage: '<img src="{{ url('webprof/floatwa/whatsapp.svg') }}" />'
+            });
+        });
+    </script>  --}}

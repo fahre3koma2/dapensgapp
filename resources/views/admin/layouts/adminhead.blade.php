@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Adminkit - Multipurpose bootstrap 4.0 admin templates</title>
+<title>Dana Pensiun Semen Gresik</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,6 +22,9 @@
 <link rel="stylesheet" href="{{ url('dist/css/themify-icons/themify-icons.css') }}">
 <link rel="stylesheet" href="{{ url('dist/css/simple-lineicon/simple-line-icons.css') }}">
 
+<!-- hmenu -->
+<link rel="stylesheet" href="{{ url('dist/plugins/hmenu/ace-responsive-menu.css') }}">
+
 <!-- Chartist CSS -->
 <link rel="stylesheet" href="{{ url('dist/plugins/chartist-js/chartist.min.css') }}">
 <link rel="stylesheet" href="{{ url('dist/plugins/chartist-js/chartist-plugin-tooltip.css') }}">
@@ -31,6 +36,11 @@
 <link rel="stylesheet" href="{{ url('dist/plugins/dropify/dropify.min.css') }}">
 
 <link href="{{ url('asset/plugins/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+
+<!-- form wizard -->
+<link rel="stylesheet" href="{{ url('dist/plugins/formwizard/jquery-steps.css') }}">
+
+<link rel="stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

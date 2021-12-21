@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Webp;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Admin\Konten;
 
 class BerandaController extends Controller
 {
@@ -15,12 +16,14 @@ class BerandaController extends Controller
     public function index()
     {
         //
+        $konten = konten::where('status', 'home')->get();
         $menu = 'beranda';
         $edit = false;
 
         $data = [
             'menu' => $menu,
-            'edit' => $edit
+            'edit' => $edit,
+            'konten' => $konten,
         ];
 
         return view('webprofil.index', $data);

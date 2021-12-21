@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Admin\Konten;
+
 class KontenController extends Controller
 {
     /**
@@ -137,5 +139,22 @@ class KontenController extends Controller
         ];
 
         return view('admin.konten.strukturorganisasi', $data);
+    }
+
+    public function profilgambar()
+    {
+        //
+        $konten = konten::where('status', 'home')->get();
+
+        $menu = 'profilgambar';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'konten' => $konten,
+        ];
+
+        return view('admin.konten.profilgambar', $data);
     }
 }

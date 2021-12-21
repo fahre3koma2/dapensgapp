@@ -21,7 +21,7 @@ class HomeController extends Controller
 
         $data = [
             'menu' => $menu,
-            'edit' => $edit
+            'edit' => $edit,
         ];
 
         if(Auth::user()->roles[0]->name == 'Pensiunan'){

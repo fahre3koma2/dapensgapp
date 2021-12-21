@@ -67,3 +67,28 @@
     </div>
   </div>
 </footer>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content clearfix">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <div class="modal-body">
+                <h3 class="title">Login</h3>
+                <p class="description">Login here Using Email & Password</p>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="form-group">
+                        <span class="input-icon"><i class="fa fa-user"></i></span>
+                        <input type="email" class="form-control" placeholder="Enter email" name="email" required="required">
+                    </div>
+                    <div class="form-group">
+                        <span class="input-icon"><i class="fas fa-key"></i></span>
+                        <input type="password" class="form-control" placeholder="Password" name="password" required="required">
+                    </div>
+                {{-- <a href="" class="forgot-pass">Forgot Password?</a> --}}
+                <button class="btn" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

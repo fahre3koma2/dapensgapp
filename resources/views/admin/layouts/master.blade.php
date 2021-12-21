@@ -12,13 +12,11 @@
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><img src="{{ url('dist/img/logo-n.png') }}" alt=""></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><img src="{{ url('dist/img/logo_.png') }}" alt=""></span> </a>
+    <span class="logo-lg"><img src="{{ url('dist/img/logo.png') }}" alt=""></span> </a>
     <!-- Header Navbar -->
     <nav class="navbar blue-bg navbar-static-top">
       <!-- Sidebar toggle button-->
-      <ul class="nav navbar-nav pull-left">
-        <li><a class="sidebar-toggle" data-toggle="push-menu" href="#"></a> </li>
-      </ul>
+
       {{--  <div class="pull-left search-box">
         <form action="#" method="get" class="search-form">
           <div class="input-group">
@@ -52,26 +50,34 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+  {{-- <aside class="main-sidebar">
     <!-- sidebar -->
     <div class="sidebar">
       <!-- sidebar menu -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu" data-widget="tree"> --}}
+    <div class="main-nav">
+        <nav>
+        <!-- Menu Toggle btn-->
+        <div class="menu-toggle">
+            <h3>Menu</h3>
+            <button type="button" id="menu-btn"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
 
-    @if (Auth::user()->roles[0]->name == 'Admin')
-        @include('admin.layouts.menuadmin')
-    @endif
-    @if (Auth::user()->roles[0]->name == 'User')
-        @include('admin.layouts.menuuser')
-    @endif
-    @if (Auth::user()->roles[0]->name == 'Pensiunan')
-        @include('admin.layouts.menupensi')
-    @endif
+            <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
 
-        </ul>
+            @if (Auth::user()->roles[0]->name == 'Admin')
+                @include('admin.layouts.menuadmin')
+            @endif
+            @if (Auth::user()->roles[0]->name == 'User')
+                @include('admin.layouts.menuuser')
+            @endif
+            @if (Auth::user()->roles[0]->name == 'Pensiunan')
+                @include('admin.layouts.menupensi')
+            @endif
+
+            </ul>
+        </nav>
     </div>
-    <!-- /.sidebar -->
-  </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

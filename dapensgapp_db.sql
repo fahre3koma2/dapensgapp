@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 25, 2021 at 08:57 AM
+-- Generation Time: Dec 21, 2021 at 10:24 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -95,6 +95,8 @@ CREATE TABLE `konten` (
   `id` int(10) NOT NULL,
   `konten` varchar(255) DEFAULT NULL,
   `keterangan` varchar(255) DEFAULT NULL,
+  `keterangan2` varchar(255) DEFAULT NULL,
+  `keterangan3` varchar(255) DEFAULT NULL,
   `file` varchar(255) DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -102,6 +104,15 @@ CREATE TABLE `konten` (
   `create_by` varchar(255) DEFAULT NULL,
   `update_by` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `konten`
+--
+
+INSERT INTO `konten` (`id`, `konten`, `keterangan`, `keterangan2`, `keterangan3`, `file`, `status`, `created_at`, `updated_at`, `create_by`, `update_by`) VALUES
+(1, 'Gambar Home', 'Meraih Masa Depan Lebih Baik', 'Semen Gresik', NULL, 'slide1.jpg', 'home', '2021-12-21 07:50:09', '2021-12-21 07:50:11', NULL, NULL),
+(2, 'Gambar Home', 'Meraih Masa Depan Lebih Baik', 'Semen Gresik', NULL, 'slide2.jpg', 'home', '2021-12-21 07:50:09', '2021-12-21 07:50:11', NULL, NULL),
+(3, 'Gambar Home', 'Meraih Masa Depan Lebih Baik', 'Semen Gresik', NULL, 'slide3.jpg', 'home', '2021-12-21 07:50:09', '2021-12-21 07:50:11', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -278,7 +289,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('6zxTVM8zXLg1IYs1Elwb5vxEAP3DbO6yyVlRwAIM', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRlR4TFBxazN5SlJBckMwZ204elYyQWpSNlFWR0pCSlhNQlJ3RDNzdCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1637830575);
+('5tvaRS8ISe4DGRs4LXRt45TJp4vYvrevCJmJ3Qcu', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQ0tUeUZLZ1huZmE5YzdhRlFvZmVhSVhRRXR2dWp4OW1UNWR4OVFpaCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1640077512),
+('aIhz7s2mkkZh4RK3r2GCP0FmbbIiH90sGXq1Mrtr', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiNndLTmRtVXl4NlFzUThaYk9OZXNmZUI4bzNjVVVnTkdwYjBRNmJTUSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMjoiaHR0cDovL2RhcGVuc2dhcHAuZmFyL2FkbWluL3VzZXIiO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozNjoiaHR0cDovL2RhcGVuc2dhcHAuZmFyL2Jlcml0YS9hcnRpa2VsIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1640082173);
 
 -- --------------------------------------------------------
 

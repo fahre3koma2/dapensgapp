@@ -147,4 +147,32 @@ class PensiController extends Controller
 
         return view('admin.dapen.datainfo', $data);
     }
+
+    public function register()
+    {
+        //
+        $menu = 'register';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.dapen.register.form1', $data);
+    }
+
+    public function geoloc()
+    {
+        //
+        $menu = 'register';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.dapen.geoloc', $data);
+    }
 }
