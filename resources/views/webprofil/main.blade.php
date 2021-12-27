@@ -10,7 +10,7 @@
         <body id="default_theme" class="it_service">
     @endif
 <!-- loader -->
-<div class="bg_load"> <img class="loader_animation" src="{{ url('webprof/images/loaders/video.png') }}" alt="#" /> </div>
+{{--  <div class="bg_load"> <img class="loader_animation" src="{{ url('webprof/images/loaders/video.png') }}" alt="#" /> </div>  --}}
 <!-- end loader -->
   <a href="https://api.whatsapp.com/send?phone=0987654321&text=Hello%21%20." class="floating" target="_blank">
     <i class="fa fa-whatsapp float-button"></i>

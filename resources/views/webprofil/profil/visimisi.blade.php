@@ -29,8 +29,8 @@
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_center">
-            <h2>We are Leading Company</h2>
-            <p class="large">Fastest repair service with best price!</p>
+            <h2>Visi Misi Perusahaan</h2>
+            <p class="large">Profil Dana Pensiun Semen Gresik</p>
           </div>
         </div>
       </div>

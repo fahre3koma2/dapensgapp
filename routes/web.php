@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\BeritaController as BeradminController;
 use App\Http\Controllers\Admin\KontenController;
+use App\Http\Controllers\Admin\ArtikelController;
 
 use App\Http\Controllers\Webp\BerandaController;
 use App\Http\Controllers\Webp\ProfilController;
@@ -57,11 +58,12 @@ use App\Http\Controllers\Dapen\PensiController;
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
-        Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::name('admin.')->prefix('admin')->middleware(['role:Admin|User'])->group( function () {
 
         Route::resource('/user', UserController::class);
+        Route::get('/pensi', [UserController::class, 'pensi'])->name('pensi');
 
         Route::get('/konten/profilgambar', [KontenController::class, 'profilgambar'])->name('profilgambar');
         Route::get('/konten/visimisi', [KontenController::class, 'visimisi'])->name('visimisi');
@@ -69,13 +71,20 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/konten/pendiri', [KontenController::class, 'pendiri'])->name('pendiri');
         Route::get('/konten/strukturorganisasi', [KontenController::class, 'strukturorganisasi'])->name('strukturorganisasi');
 
+        Route::resource('/artikel', ArtikelController::class);
+
         Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
         Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
         // Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
         // Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
+
+        Route::get('importfile', [UserController::class, 'importfile']);
+        Route::post('file-import', [UserController::class, 'fileImport'])->name('file-import');
     });
 
     Route::name('pensi.')->prefix('pensi')->middleware(['role:Pensiunan'])->group(function () {
+
+        Route::resource('/pensiun', PensiController::class);
 
         Route::get('/profil', [PensiController::class, 'profil'])->name('profil');
         Route::get('/faq', [PensiController::class, 'faq'])->name('faq');

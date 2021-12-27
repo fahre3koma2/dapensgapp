@@ -2,7 +2,8 @@
   <div class="container-fuild">
     <div class="row">
       <div class="map_section">
-        <div id="map"></div>
+        {{--  <div id="map"></div>  --}}
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3958.611533802179!2d112.649644!3d-7.1708242!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd80047633bdffd%3A0x25bd39dccd3b5da7!2sJl.%20R.A.%20Kartini%20No.23%2C%20Injen%20Timur%2C%20Gapurosukolilo%2C%20Kec.%20Gresik%2C%20Kabupaten%20Gresik%2C%20Jawa%20Timur%2061122!5e0!3m2!1sen!2sid!4v1640351656740!5m2!1sen!2sid" width="600" height="610" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
       <div class="footer_blog">
         <div class="row">
@@ -13,7 +14,6 @@
             <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
             <ul class="social_icons">
               <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
               <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
             </ul>
           </div>
@@ -31,14 +31,12 @@
           </div>
           <div class="col-md-6">
             <div class="main-heading left_text">
-              <h2>Services</h2>
+              <h2>Pelayanan</h2>
             </div>
             <ul class="footer-menu">
-              <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Data recovery</a></li>
-              <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Computer repair</a></li>
-              <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i> Mobile service</a></li>
-              <li><a href="it_network_solution.html"><i class="fa fa-angle-right"></i> Network solutions</a></li>
-              <li><a href="it_techn_support.html"><i class="fa fa-angle-right"></i> Technical support</a></li>
+              <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Customer Service</a></li>
+              <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Product Knowledge</a></li>
+              <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i>Aplication</a></li>
             </ul>
           </div>
           <div class="col-md-6">
@@ -68,18 +66,23 @@
   </div>
 </footer>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content clearfix">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             <div class="modal-body">
                 <h3 class="title">Login</h3>
-                <p class="description">Login here Using Email & Password</p>
+                @foreach( $errors->all() as $message )
+                <div class="alert alert-danger display-hide">
+                    <span>{{ $message }}</span>
+                </div>
+                @endforeach
+                <p class="description">Login dengan Email & Password</p>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">
                         <span class="input-icon"><i class="fa fa-user"></i></span>
-                        <input type="email" class="form-control" placeholder="Enter email" name="email" required="required">
+                        <input type="text" class="form-control" placeholder="Enter email" name="email" required="required">
                     </div>
                     <div class="form-group">
                         <span class="input-icon"><i class="fas fa-key"></i></span>

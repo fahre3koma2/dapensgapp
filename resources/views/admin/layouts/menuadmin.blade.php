@@ -3,9 +3,9 @@
 
         <li> <a href="#"> <i class="icon-home"></i> <span>Data Master</span> </a>
           <ul>
-            <li class="{{ $menu == 'user' ? 'active' : '' }}"><a href="{!! url('admin/user') !!}"><i class="fa fa-angle-right"></i> User</a></li>
-            <li class="{{ $menu == 'user' ? 'active' : '' }}"><a href="{!! url('admin/konten/profilgambar') !!}"><i class="fa fa-angle-right"></i> Konten Gambar</a></li>
-          </ul>
+            <li class="{{ $menu == 'pegawai' ? 'active' : '' }}"><a href="{!! url('admin/user') !!}"><i class="fa fa-angle-right"></i> Pegawai</a></li>
+            <li class="{{ $menu == 'pensi' ? 'active' : '' }}"><a href="{!! url('admin/pensi') !!}"><i class="fa fa-angle-right"></i> Pensiunan</a></li>
+        </ul>
         </li>
 
         <li> <a href="#"> <i class="icon-speech"></i> <span>Profil</span> </a>
@@ -21,10 +21,10 @@
             <li class="{{ $menu == 'beritaduka' ? 'active' : '' }}"><a href="{!! url('admin/laporberitaduka') !!}"><i class="fa fa-angle-right"></i> Laporan Berita Duka</a></li>
           </ul>
         </li>
-        <li> <a href="#"> <i class="icon-book-open"></i> <span>Berita</span> </a>
+        <li> <a href="#"> <i class="icon-book-open"></i> <span>Konten</span> </a>
           <ul>
-            <li class="{{ $menu == 'galeri' ? 'active' : '' }}"><a href="{!! url('admin/konten/galeri') !!}"><i class="fa fa-angle-right"></i> Galeri</a></li>
-            <li class="{{ $menu == 'artikel' ? 'active' : '' }}"><a href="{!! url('admin/konten/artikel') !!}"><i class="fa fa-angle-right"></i> Artikel</a></li>
+            <li class="{{ $menu == 'konten' ? 'active' : '' }}"><a href="{!! url('admin/konten/profilgambar') !!}"><i class="fa fa-angle-right"></i> Konten Gambar</a></li>
+            <li class="{{ $menu == 'artikel' ? 'active' : '' }}"><a href="{!! url('admin/artikel') !!}"><i class="fa fa-angle-right"></i> Artikel</a></li>
           </ul>
         </li>
         <li> <a href="#"> <i class="icon-info"></i> <span>Informasi</span> </a>

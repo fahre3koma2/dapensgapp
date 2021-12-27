@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Dapen;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\JenisPensiun as AdminJenisPensiun;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Biodata;
+use App\Models\JenisPensiun;
+
 
 class PensiController extends Controller
 {
@@ -56,6 +61,20 @@ class PensiController extends Controller
     public function show($id)
     {
         //
+        $menu = 'profil';
+        $edit = false;
+
+        $user = User::query()->with(['biodata', 'RolesUser'])->find(decrypt($id));
+        $jenis = AdminJenisPensiun::query()->get()->sortBy('id');
+        //dd($jenis);
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'user' => $user,
+            'jenis' => $jenis,
+        ];
+
+        return view('admin.dapen.profil', $data);
     }
 
     /**
@@ -67,6 +86,20 @@ class PensiController extends Controller
     public function edit($id)
     {
         //
+        $menu = 'profil';
+        $edit = true;
+
+        $user = User::query()->with(['biodata', 'RolesUser'])->find(decrypt($id));
+        $jenis = AdminJenisPensiun::query()->get()->sortBy('id');
+        //dd($jenis);
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'user' => $user,
+            'jenis' => $jenis,
+        ];
+
+        return view('admin.dapen.profil', $data);
     }
 
     /**

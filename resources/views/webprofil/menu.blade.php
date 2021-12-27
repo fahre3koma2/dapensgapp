@@ -4,14 +4,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          {{--  <div class="full">
+          <div class="full">
             <div class="topbar-left">
               <ul class="list-inline">
                 <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">Jalan RA. Kartini No. 23 Gresik, 61122</span> </li>
                 <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:dpsg@indo.net.id">dpsg@indo.net.id</a></span> </li>
               </ul>
             </div>
-          </div>  --}}
+          </div>
         </div>
         <div class="col-md-4 right_section_header_top">
           <div class="float-left">
@@ -37,7 +37,7 @@
       <div class="row">
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
           <!-- logo start -->
-          <div class="logo"> <a href="it_home.html"><img src="{{ url('webprof/images/logos/logo.png') }}" alt="logo" /></a> </div>
+          <div class="logo"> <a href="{!! url('/') !!}"><img src="{{ url('webprof/images/logos/logo.png') }}" alt="logo" /></a> </div>
           <!-- logo end -->
         </div>
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">

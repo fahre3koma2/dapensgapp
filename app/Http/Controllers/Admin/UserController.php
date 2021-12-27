@@ -13,6 +13,10 @@ use Illuminate\Validation\Rule;
 use App\Models\Admin\Role;
 use Spatie\Permission\Models\Role as ModelsRole;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\UsersImport;
+use App\Imports\BiodataImport;
+
 use Alert;
 use Exception;
 use Crypt;
@@ -29,11 +33,11 @@ class UserController extends Controller
     public function index()
     {
         //
-        $menu = 'user';
+        $menu = 'pegawai';
         $edit = false;
 
         //dd(Carbon::parse('2019-03-01')->translatedFormat('d F Y'));
-        $users = User::query()->with(['biodata', 'RolesUser'])->where('name', '!=', 'Admin')->orderBy('name')->get();
+        $users = User::query()->with(['biodata', 'RolesUser'])->where('name', '!=', 'Admin')->where('status', '=', 'Pegawai')->orderBy('name')->get();
         $roles = Role::query()->orderBy('name')->where('name', '!=', 'Pensiunan')->get();
 
         $data = [
@@ -45,6 +49,26 @@ class UserController extends Controller
 
         return view('admin.user.index', $data);
 
+    }
+
+    public function pensi()
+    {
+        //
+        $menu = 'pensi';
+        $edit = false;
+
+        //dd(Carbon::parse('2019-03-01')->translatedFormat('d F Y'));
+        $users = User::query()->with(['biodata', 'RolesUser'])->where('name', '!=', 'Admin')->where('status', '=', 'Pensiunan')->orderBy('nopeserta')->get();
+        $roles = Role::query()->orderBy('name')->where('name', '!=', 'Pensiunan')->get();
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'users' => $users,
+            'roles' => $roles,
+        ];
+
+        return view('admin.user.pensi', $data);
     }
 
     /**
@@ -240,5 +264,26 @@ class UserController extends Controller
         $data['user']->assignRole($data['role']);
 
         return view('admin.user.roleuser', $data);
+    }
+
+    public function importfile()
+    {
+        $menu = 'User';
+        $edit = 'file';
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+        ];
+
+        return view('admin.user.importuser', $data);
+    }
+
+
+    public function fileImport(Request $request)
+    {
+        Excel::import(new UsersImport, $request->file('file')->store('temp'));
+        //Excel::import(new BiodataImport, $request->file('file')->store('temp'));
+        return back();
     }
 }

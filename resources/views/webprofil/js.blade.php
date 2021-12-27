@@ -1,6 +1,12 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+        @if (count($errors) > 0)
+            $('#myModal').modal('show');
+        @endif
+</script>
+
 <script src="{{ url('webprof/js/jquery.min.js') }}"></script>
 <script src="{{ url('webprof/js/bootstrap.min.js') }}"></script>
 <!-- menu js -->
@@ -109,7 +115,7 @@
                 ]
          });
 
-           var image = 'images/it_service/location_icon_map_cont.png';
+           var image = '{{ url('webprof/images/it_service/location_icon_map_cont.png') }}';
            var beachMarker = new google.maps.Marker({
              position: {lat: 40.645037, lng: -73.880224},
              map: map,

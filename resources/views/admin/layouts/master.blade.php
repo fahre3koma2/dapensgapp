@@ -64,7 +64,7 @@
         </div>
 
             <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
-
+            @php $idpensi = encrypt(auth()->user()->id); @endphp
             @if (Auth::user()->roles[0]->name == 'Admin')
                 @include('admin.layouts.menuadmin')
             @endif

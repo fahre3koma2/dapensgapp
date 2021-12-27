@@ -1,6 +1,6 @@
 
-    <li class="{{ $menu == 'home' ? 'active' : '' }}"> <a href="{!! url('pensi/home') !!}"> <i class="icon-home"></i> <span> Home </span> </a> </li>
-    <li class="{{ $menu == 'profil' ? 'active' : '' }}"> <a href="{!! url('pensi/profil') !!}"> <i class="icon-user-following"></i> <span> Data Pribadi </span> </a> </li>
+    <li class="{{ $menu == 'home' ? 'active' : '' }}"> <a href="{!! url('/home') !!}"> <i class="icon-home"></i> <span> Home </span> </a> </li>
+    <li class="{{ $menu == 'profil' ? 'active' : '' }}"> <a href="{!! url('pensi/pensiun/'.$idpensi ) !!}"> <i class="icon-user-following"></i> <span> Data Pribadi </span> </a> </li>
     <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-doc"></i> <span> Laporan </span> </a> </li>
     <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt"></i> <span> Layanan </span> </a>
         <ul>

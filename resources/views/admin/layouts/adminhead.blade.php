@@ -40,6 +40,9 @@
 <!-- form wizard -->
 <link rel="stylesheet" href="{{ url('dist/plugins/formwizard/jquery-steps.css') }}">
 
+<!-- summernote -->
+<link rel="stylesheet" href="{{ url('dist/plugins/summernote/summernote-bs4.css') }}">
+
 <link rel="stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
 
 <!--[if lt IE 9]>
