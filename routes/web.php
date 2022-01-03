@@ -14,6 +14,8 @@ use App\Http\Controllers\Webp\InformasiController;
 use App\Http\Controllers\Webp\LayananController;
 
 use App\Http\Controllers\Dapen\PensiController;
+use App\Http\Controllers\Dapen\InformasiController as InfoPensiController;
+use App\Http\Controllers\Dapen\LayananController as InfoLayananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +66,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
         Route::resource('/user', UserController::class);
         Route::get('/pensi', [UserController::class, 'pensi'])->name('pensi');
+        Route::get('/pensi-tambah', [UserController::class, 'pensicreate'])->name('pensi-tambah');
+        Route::get('/pensi-edit/{id}', [UserController::class, 'pensiedit'])->name('pensi-edit');
+        Route::post('/pensi-foto', [UserController::class, 'uploadfoto'])->name('pensi-foto');
 
         Route::get('/konten/profilgambar', [KontenController::class, 'profilgambar'])->name('profilgambar');
         Route::get('/konten/visimisi', [KontenController::class, 'visimisi'])->name('visimisi');
@@ -91,9 +96,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/datainfo', [PensiController::class, 'datainfo'])->name('datainfo');
 
         Route::get('/uploadfoto', [PensiController::class, 'uploadfoto'])->name('uploadfoto');
+        Route::post('/updatefoto', [PensiController::class, 'updatefoto'])->name('updatefoto');
 
         Route::get('/register', [PensiController::class, 'register'])->name('register');
 
         Route::get('/geoloc', [PensiController::class, 'geoloc'])->name('geoloc');
+
+        Route::get('/downloadinfo', [InfoPensiController::class, 'downloadinfo'])->name('downloadinfo');
+        Route::get('/layananinfo', [InfoLayananController::class, 'layananinfo'])->name('layananinfo');
     });
 });

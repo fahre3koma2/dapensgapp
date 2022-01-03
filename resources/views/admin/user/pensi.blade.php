@@ -5,7 +5,7 @@
       <h1>Modern Dashboard</h1>
       <ol class="breadcrumb">
         <li><a href="#">Home</a></li>
-        <li><i class="fa fa-angle-right"></i> Modern Dashboard</li>
+        <li><i class="fa fa-angle-right"></i> Data Pensiunan</li>
       </ol>
     </div>
 @endsection
@@ -14,8 +14,9 @@
     <div class="content">
   <div class="card m-t-3">
     <div class="card-body">
-      <h4 class="text-black">Data Table</h4>
-      <p>Data Table With Full Features</p>
+      <a class="btn btn-sm btn-primary pull-right" href="{{ route('admin.pensi-tambah') }}"><i class="fa fa-plus"></i> Tambah</a>
+      <h4 class="text-black">Data Pensiunan</h4>
+      <p>Dana Pensiun Semen Gresik</p>
       <div class="table-responsive">
         <table id="example1" class="table table-bordered table-striped">
            <thead>
@@ -36,7 +37,7 @@
                     <td>{{ $value->name }} </td>
                     <td>{{ $value->biodata->email }} </td>
                     <td>
-                        <a class="btn btn-sm btn-primary" href="{{ route('admin.user.show', ['user' => encrypt($value->id)]) }}"><i class="fa fa-list"></i> Detail</a> |
+                        <a class="btn btn-sm btn-warning" href="{{ route('admin.pensi-edit', ['id' => encrypt($value->id)]) }}"><i class="fa fa-edit"></i> Edit</a> |
                         {{--  <a class="btn btn-sm btn-warning" href="{{ route('user.edit', ['user' => encrypt($value->id)]) }}"><i class="fa fa-edit"></i> Edit</a> |  --}}
                         <button type="button" class="btn btn-sm btn-danger delete" data-id="{{ $value->id }}" data-file="{{$value->id}}"><i class="fa fa-trash"></i> Hapus</button>
                         {{ Form::open(['url'=>route('admin.user.destroy', [Crypt::encrypt($value->id)]), 'method'=>'delete', 'id' => $value->id, 'style' => 'display: none;']) }}
@@ -52,7 +53,9 @@
 </div>
 @endsection
 @section('injs')
-<!-- DataTable -->
+    <script src="{{ url('dist/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+
+    <!-- DataTable -->
     <script src="{{ url('dist/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ url('dist/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
     <script>

@@ -35,8 +35,6 @@
 <!-- dropify -->
 <link rel="stylesheet" href="{{ url('dist/plugins/dropify/dropify.min.css') }}">
 
-<link href="{{ url('asset/plugins/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
-
 <!-- form wizard -->
 <link rel="stylesheet" href="{{ url('dist/plugins/formwizard/jquery-steps.css') }}">
 
@@ -49,3 +47,9 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+<link href="{{ url('dist/plugins/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  {{--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>  --}}

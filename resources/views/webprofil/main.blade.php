@@ -16,6 +16,13 @@
     <i class="fa fa-whatsapp float-button"></i>
 </a>
 <!-- header -->
+
+@if(auth()->user())
+   {{ $stat = auth()->user()->name }}
+@else
+   {{ $stat = null }}
+@endif
+
 @include('webprofil.menu')
 <!-- end header -->
 <!-- section -->

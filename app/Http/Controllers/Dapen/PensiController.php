@@ -9,6 +9,12 @@ use App\Models\User;
 use App\Models\Biodata;
 use App\Models\JenisPensiun;
 
+use Alert;
+use Exception;
+use Crypt;
+use Validator;
+use Image;
+
 
 class PensiController extends Controller
 {
@@ -112,6 +118,29 @@ class PensiController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->except('_token');
+        // Validator::make($data, [
+        //     'email' => ['required', Rule::unique('users')->ignore(decrypt($id))],
+        // ]);
+
+        try {
+
+            $user = User::query()->find(decrypt($id));
+            $biodata = Biodata::where('user_id', $user->id)->first();
+
+            //dd($biodata);
+            $user->update($data);
+            $biodata->update($data);
+
+            alert()->success('Berhasil', 'User Berhasil di Update');
+
+            return redirect()->back();
+        } catch (Exception $ex) {
+
+            alert()->error('Gagal', 'User gagal di Update');
+
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -207,5 +236,54 @@ class PensiController extends Controller
         ];
 
         return view('admin.dapen.geoloc', $data);
+    }
+
+    public function updatefoto(Request $request)
+    {
+        $data = $request->except('_token');
+
+        $this->validate(
+            $request,
+            [
+                'foto' => 'required|mimes:mimes:jpeg,jpg,png|max:2000'
+            ],
+            [
+                'foto.required' => 'Tidak ada file yang di upload',
+                'foto.mimes' => 'File harus gambar format png/jpg',
+                'foto.max' => 'File tidak boleh lebih dari 2 MB',
+            ]
+        );
+
+        // menyimpan data file yang diupload ke variabel $file
+
+        $image = $request->file('foto');
+        $nopeserta = $request->nopeserta;
+        $userid = $request->userid;
+        $nama_file = $nopeserta . '.' . $image->getClientOriginalExtension();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $filePath = public_path('dapen/foto/thumb');
+
+        $img = Image::make($image->path());
+        $img->resize(150, 150, function ($const) {
+            $const->aspectRatio();
+        })->save($filePath . '/' . $nama_file);
+
+        $tujuan_upload = 'dapen/foto';
+        $image->move($tujuan_upload, $nama_file);
+
+        $data['file'] = $nama_file;
+
+        $user = Biodata::query()->find($data['idx']);
+        // dd($user);
+        $user->update($data);
+
+        alert()->success(
+            'Berhasil',
+            'Foto berhasil di tambahkan'
+        );
+
+        //return redirect()->back()->with('message', 'Operation Successful !');
+        return redirect()->route('pensi.pensiun.edit', ['pensiun' => encrypt($userid)]);
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Biodata;
 use App\Models\Admin\Unit;
+use App\Models\Admin\JenisPensiun;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use App\Models\Admin\Role;
@@ -22,6 +23,8 @@ use Exception;
 use Crypt;
 use Validator;
 use Carbon\Carbon;
+use Image;
+use Str;
 
 class UserController extends Controller
 {
@@ -82,15 +85,32 @@ class UserController extends Controller
         $menu = 'user';
         $edit = false;
 
-        $unit = Unit::where('nama', '!=', 'Administrator')->pluck('nama', 'id');
+        $jenis = JenisPensiun::query()->get()->sortBy('id');
 
         $data = [
             'menu' => $menu,
             'edit' => $edit,
-            'unit' => $unit
+            'jenis' => $jenis
         ];
 
         return view('admin.user.create', $data);
+    }
+
+    public function pensicreate()
+    {
+        //
+        $menu = 'user';
+        $edit = false;
+
+        $jenis = JenisPensiun::query()->get()->sortBy('id');
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'jenis' => $jenis
+        ];
+
+        return view('admin.user.pensicreate', $data);
     }
 
     /**
@@ -103,6 +123,16 @@ class UserController extends Controller
     {
         //
         $data = $request->except('_token');
+        $nopsrta = $request->nopeserta;
+
+        if ($request->status == 'Pensiunan')
+        {
+            $data['email'] = 'DP'.$nopsrta;
+            $pass = $nopsrta . '22';
+            $data['password'] = bcrypt($pass);
+        } else {
+            $data['password'] = bcrypt('12345678');
+        }
 
         $validator = Validator::make($data, User::$rules, User::$errormessage);
 
@@ -112,11 +142,11 @@ class UserController extends Controller
         }
 
         try {
-            // $data['userid_created'] = Auth::user()->id;
-            // $data['userid_updated'] = Auth::user()->id;
-            $data['password'] = bcrypt('12345678');
+            //$data['userid_created'] = Auth::user()->id;
+            //$data['userid_updated'] = Auth::user()->id;
             $data['login_type'] = 'app';
 
+            //dd($data);
             $user = User::create($data);
             $user->assignRole('user');
 
@@ -131,7 +161,15 @@ class UserController extends Controller
             'user' => $user->id,
         ];
 
-        return redirect()->route('admin.user.index', $data);
+        if ($request->status == 'Pensiunan') {
+            Alert::success('Data berhasil ditambah')->persistent('Ok');
+            alert()->success('Berhasil', 'User Berhasil di tambah');
+            return redirect()->route('admin.pensi', $data);
+        } else {
+            Alert::success('Data berhasil ditambah')->persistent('Ok');
+            alert()->success('Berhasil', 'User Berhasil di tambah');
+            return redirect()->route('admin.user.index', $data);
+        }
     }
 
     /**
@@ -143,16 +181,18 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $edit = true;
+        $edit = false ;
 
         try {
             $menu = 'User';
             $user = User::query()->with(['biodata'])->find(decrypt($id));
-
+            $jenis = JenisPensiun::query()->get()->sortBy('id');
+            //dd($user);
             $data = [
                     'menu' => $menu,
                     'edit' => $edit,
                     'user' => $user,
+                    'jenis' => $jenis,
                 ];
 
             return view('admin.user.detail', $data);
@@ -175,14 +215,39 @@ class UserController extends Controller
         try {
             $menu = 'User';
             $user = User::query()->with(['biodata'])->find(decrypt($id));
+            $jenis = JenisPensiun::query()->get()->sortBy('id');
 
             $data = [
                     'menu' => $menu,
                     'edit' => $edit,
                     'user' => $user,
+                    'jenis' => $jenis,
                 ];
 
-            return view('admin.user.create', $data);
+            return view('admin.user.edit', $data);
+        } catch (Exception $ex) {
+            return redirect()->back();
+        }
+    }
+
+    public function pensiedit($id)
+    {
+        //
+        $edit = true;
+
+        try {
+            $menu = 'User';
+            $user = User::query()->with(['biodata'])->find(decrypt($id));
+            $jenis = JenisPensiun::query()->get()->sortBy('id');
+
+            $data = [
+                'menu' => $menu,
+                'edit' => $edit,
+                'user' => $user,
+                'jenis' => $jenis,
+            ];
+
+            return view('admin.user.edit', $data);
         } catch (Exception $ex) {
             return redirect()->back();
         }
@@ -206,7 +271,6 @@ class UserController extends Controller
         try {
 
             $user = User::query()->find(decrypt($id));
-            //dd($user->id);
             $biodata = Biodata::where('user_id',$user->id)->first();
 
             //dd($biodata);
@@ -215,7 +279,7 @@ class UserController extends Controller
 
             alert()->success('Berhasil', 'User Berhasil di Update');
 
-            return redirect()->route('user.index');
+            return redirect()->route('admin.pensi');
 
         } catch (Exception $ex) {
 
@@ -242,10 +306,10 @@ class UserController extends Controller
         $user->delete();
         $biodata->delete();
 
-        alert()->success('Berhasil', 'User Berhasil di Update')->persistent('Ok');
+        alert()->success('Berhasil', 'User Berhasil di Hapus')->persistent('Ok');
         Alert::success('Data berhasil dihapus')->persistent('Ok');
 
-        return redirect()->route('admin.user.index');
+        return redirect()->route('admin.pensi');
     }
 
     public function removeRole(Request $request)
@@ -285,5 +349,52 @@ class UserController extends Controller
         Excel::import(new UsersImport, $request->file('file')->store('temp'));
         //Excel::import(new BiodataImport, $request->file('file')->store('temp'));
         return back();
+    }
+
+    public function uploadfoto(Request $request)
+    {
+        $data = $request->except('_token');
+
+        $this->validate(
+            $request,
+            [
+                'foto' => 'required|mimes:mimes:jpeg,jpg,png|max:2000'
+            ],
+            [
+                'foto.required' => 'Tidak ada file yang di upload',
+                'foto.mimes' => 'File harus gambar format png/jpg',
+                'foto.max' => 'File tidak boleh lebih dari 2 MB',
+            ]
+        );
+
+        // menyimpan data file yang diupload ke variabel $file
+
+        $image = $request->file('foto');
+        $nopeserta = $request->nopeserta;
+        $nama_file = $nopeserta . '.' . $image->getClientOriginalExtension();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $filePath = public_path('dapen/foto/thumb');
+
+        $img = Image::make($image->path());
+        $img->resize(150, 150, function ($const) {
+            $const->aspectRatio();
+        })->save($filePath . '/' . $nama_file);
+
+        $tujuan_upload = 'dapen/foto';
+        $image->move($tujuan_upload, $nama_file);
+
+        $data['file'] = $nama_file;
+
+        $user = Biodata::query()->find($data['idx']);
+        // dd($user);
+        $user->update($data);
+
+        alert()->success(
+            'Berhasil',
+            'Foto berhasil di tambahkan'
+        );
+
+        return redirect()->back()->with('message', 'Operation Successful !');
     }
 }

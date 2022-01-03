@@ -21,6 +21,11 @@
             <li class="{{ $menu == 'beritaduka' ? 'active' : '' }}"><a href="{!! url('admin/laporberitaduka') !!}"><i class="fa fa-angle-right"></i> Laporan Berita Duka</a></li>
           </ul>
         </li>
+        <li> <a href="#"> <i class="icon-directions"></i> <span>Informasi</span> </a>
+          <ul>
+            <li class="{{ $menu == 'beritaduka' ? 'active' : '' }}"><a href="{!! url('admin/laporberitaduka') !!}"><i class="fa fa-angle-right"></i> Laporan Berita Duka</a></li>
+          </ul>
+        </li>
         <li> <a href="#"> <i class="icon-book-open"></i> <span>Konten</span> </a>
           <ul>
             <li class="{{ $menu == 'konten' ? 'active' : '' }}"><a href="{!! url('admin/konten/profilgambar') !!}"><i class="fa fa-angle-right"></i> Konten Gambar</a></li>

@@ -1,3 +1,5 @@
+
+
 <!-- jQuery 3 -->
 <script src="{{ url('dist/js/jquery.min.js') }}"></script>
 <script src="{{ url('dist/js/popper.min.js') }}"></script>
@@ -7,6 +9,8 @@
 
 <!-- template -->
 <script src="{{ url('dist/js/adminkit.js') }}"></script>
+
+@include('sweet::alert')
 
 @yield('injs')
 
@@ -22,9 +26,7 @@
          });
 </script>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-@include('sweet::alert')
 
 
 

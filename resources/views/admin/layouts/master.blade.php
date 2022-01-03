@@ -29,10 +29,22 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- User Account  -->
-          <li class="dropdown user user-menu p-ph-res"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="{{ url('dist/img/img1.jpg') }}" class="user-image" alt="User Image"> <span class="hidden-xs">{{ auth()->user()->name }}</span> </a>
+          <li class="dropdown user user-menu p-ph-res"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                @if(auth()->user()->biodata->file)
+                    <img src="{{ url('dapen/foto/'.auth()->user()->biodata->file) }}" class="user-image" alt="User Image">
+                @else
+                    <img src="{{ url('dist/img/img1.jpg') }}" class="user-image" alt="User Image">
+                @endif
+              <span class="hidden-xs">{{ auth()->user()->name }}</span> </a>
             <ul class="dropdown-menu">
               <li class="user-header">
-                <div class="pull-left user-img"><img src="{{ url('dist/img/img1.jpg') }}" class="img-responsive img-circle" alt="User"></div>
+                <div class="pull-left user-img">
+                    @if(auth()->user()->biodata->file)
+                        <img src="{{ url('dapen/foto/'.auth()->user()->biodata->file) }}" class="img-responsive img-circle" alt="User">
+                    @else
+                        <img src="{{ url('dist/img/img1.jpg') }}" class="img-responsive img-circle" alt="User">
+                    @endif
+                </div>
                 <p class="text-left">{{ auth()->user()->name }} </p>
               </li>
               <li><a href="#"><i class="icon-profile-male"></i> My Profile</a></li>

@@ -87,7 +87,9 @@
 </div>
 @endsection
 @section('injs')
-<!-- DataTable -->
+    <script src="{{ url('dist/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+
+    <!-- DataTable -->
     <script src="{{ url('dist/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ url('dist/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
     <script>
@@ -133,6 +135,7 @@
                     }
                 });
             });
+
             function removeRole(user_id, role_id, element){
                 var token = "{{ csrf_token() }}";
                 var request = $.ajax({

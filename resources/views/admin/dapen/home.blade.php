@@ -27,9 +27,14 @@
         </div>
         <div class="col-lg-4">
           <div class="user-profile-box m-b-3">
-            <div class="box-profile text-white"> <img class="profile-user-img img-responsive img-circle m-b-2" src="{{ url('dist/img/img1.jpg') }}" alt="User profile picture">
+            <div class="box-profile text-white">
+                @if(auth()->user()->biodata->file)
+                    <img class="profile-user-img img-responsive img-circle m-b-2" src="{{ url('dapen/foto/'.auth()->user()->biodata->file) }}" alt="User profile picture">
+                @else
+                    <img class="profile-user-img img-responsive img-circle m-b-2" src="{{ url('dist/img/img1.jpg') }}" alt="User profile picture">
+                @endif
               <h3 class="profile-username text-center">{{ auth()->user()->name }}</h3>
-              <p class="text-center">{{ auth()->user()->email }}</p>
+              <p class="text-center">{{ auth()->user()->biodata->email }}</p>
               <p class="text-center"> <a href="{!! url('pensi/uploadfoto') !!}" class="btn btn-sm btn-primary"><i class="fa fa-file-photo-o"></i> Upload Foto</a> </p>
             </div>
           </div>

@@ -1,3 +1,4 @@
+
 <header id="default_header" class="header_style_1">
   <!-- header top -->
   <div class="header_top">
@@ -48,7 +49,7 @@
                 <li> <a class="active" href="{!! url('/') !!}">Beranda</a></li>
                 <li><a href="#">Profil</a>
                     <ul>
-                        <li><a href="{!! url('profil/visimisi') !!}">Visi & Misi</a></li>
+                        <li><a href="{!! url('profil/visimisi') !!}">Visi & Misi </a></li>
                         <li><a href="{!! url('profil/sejarah') !!}">Sejarah Pendirian</a></li>
                         <li><a href="{!! url('profil/pendiri') !!}">Pendiri</a></li>
                         <li><a href="{!! url('profil/struktur') !!}">Struktur Organisasi</a></li>
@@ -57,12 +58,45 @@
                 </li>
                 <li> <a href="#">Layanan</a>
                     <ul>
-                        <li><a href="{!! url('layanan/pengajuanpensiun') !!}">Pengajuan Pensiun</a></li>
-                        <li><a href="{!! url('layanan/pengkiniandata') !!}">Pengkinian Data</a></li>
-                        <li><a href="{!! url('layanan/laporberitaduka') !!}">Lapor Berita Duka</a></li>
-                        <li><a href="{!! url('layanan/downform') !!}">Down Form</a></li>
-                        <li><a href="{!! url('layanan/buktipotong') !!}">Bukti Potong Pajak</a></li>
-                        <li><a href="{!! url('layanan/sosialmedia') !!}">Sosial Media DPSG</a></li>
+                        <li><a href="{!! url('layanan/pengkiniandata') !!}">Pelaporan</a></li>
+                        <li><a href="{!! url('layanan/pengkiniandata') !!}">Data ulang</a></li>
+                        <li><a href="{!! url('layanan/laporberitaduka') !!}">Cek Data Penerima MP</a></li>
+                        <li><a href="{!! url('layanan/downform') !!}">Bukti Potong Pajak</a></li>
+                        <li><a href="{!! url('layanan/buktipotong') !!}">Layanan Pelanggan</a>
+                            <ul>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>SK Penetapan Manfaat</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Bukti Potong Pajak</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Bukti Slip Manfaat Pensiun</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Penerbitan Kartu Pensiun</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Penerbitan Surat Keterangan</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li> <a href="#">Informasi</a>
+                    <ul>
+                        <li><a href="{!! url('informasi/pdp') !!}">PDP</a></li>
+
+                        <li><a href="{!! url('informasi/laporankeuangan') !!}">Annual Report</a></li>
+
+                        <li><a href="{!! url('informasi/panduan') !!}">Panduan</a>
+                            <ul>
+                                <li><a href="{!! url('informasi/pdp') !!}">Cara Data Ulang</a></li>
+                                <li><a href="{!! url('informasi/laporankeuangan') !!}">Cara Pendaftaran User</a></li>
+                                <li><a href="{!! url('informasi/panduan') !!}">Cara Mengganti Password</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{!! url('informasi/panduan') !!}">Download</a>
+                            <ul>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP Sekaligus</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP Anak</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pindah Rekening</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP ke Waris</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Verifikasi Pengkinian Daya</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Surat Kuasa</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li> <a href="#">Berita</a>
@@ -71,19 +105,7 @@
                         <li><a href="{!! url('berita/artikel') !!}">Artikel Khusus</a></li>
                     </ul>
                 </li>
-                <li> <a href="#">Informasi</a>
-                    <ul>
-                        <li><a href="{!! url('informasi/pdp') !!}">PDP</a></li>
-                        <li><a href="{!! url('informasi/laporankeuangan') !!}">Laporan Keuangan</a></li>
-                        <li><a href="{!! url('informasi/panduan') !!}">Panduan</a>
-                            {{-- <ul>
-                                <li><a href="{!! url('informasi/pdp') !!}">PDP</a></li>
-                                <li><a href="{!! url('informasi/laporankeuangan') !!}">Laporan Keuangan</a></li>
-                                <li><a href="{!! url('informasi/panduan') !!}">Panduan</a></li>
-                            </ul> --}}
-                        </li>
-                    </ul>
-                </li>
+
                 <li> <a href="{!! url('kontakkami/') !!}">Kontak Kami</a></li>
               </ul>
             </div>
