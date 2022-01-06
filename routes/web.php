@@ -83,6 +83,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
         Route::resource('/artikel', AdminArtikelController::class);
 
+        Route::get('/layanan/laporberitaduka', [LayananController::class, 'adminlaporberitaduka'])->name('laporberitaduka');
+
         Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
         Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
         // Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');

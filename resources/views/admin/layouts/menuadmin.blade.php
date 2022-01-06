@@ -18,7 +18,7 @@
         </li>
         <li class="{{ $menu == 'laporan' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-doc"></i> <span> Laporan </span> </a>
             <ul>
-                <li><a href="{!! url('informasi/pdp') !!}">Laporan Duka</a></li>
+                <li class="{{ $menu == 'layanan' ? 'active' : '' }}"><a href="{!! url('admin/layanan/laporberitaduka') !!}">Laporan Duka</a></li>
             </ul>
         </li>
         <li class="{{ $menu == 'layanan' ? 'active' : '' }}"> <a href="#"> <i class="icon-directions"></i> <span>Layanan</span> </a>

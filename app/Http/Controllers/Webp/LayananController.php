@@ -113,6 +113,7 @@ class LayananController extends Controller
         return view('webprofil.layanan.laporberitaduka', $data);
     }
 
+
     public function beritadukakirim(Request $request)
     {
         //
@@ -122,15 +123,9 @@ class LayananController extends Controller
 
             if($record){
                 $expNum = explode('-', $record->nolaporan);
-                    if (date('y') == substr($expNum[1],2))
-                    {
-                        $numb = $expNum[2] + 1;
-                        $nextNumber = 'BD-' . date('y') .  date('m') . '-' . $numb;
-                    } else {
-                        $nextNumber = 'BD-' . date('y') .  date('m') . '-001';
-                    }
+                $nextNumber = 'BD-'. date('m') . date('y') . '-' . sprintf("%03d", $expNum[2] + 1);
             } else {
-                $nextNumber = 'BD-' . date('y') .  date('m') . '-001';
+                $nextNumber = 'BD-'. date('m') . date('y') . '-001';
             }
 
         try {
@@ -160,5 +155,22 @@ class LayananController extends Controller
         ];
 
         return view('webprofil.layanan.terimaberitaduka', $data);
+    }
+
+    public function adminlaporberitaduka()
+    {
+        //
+        $menu = 'laporberitaduka';
+        $edit = false;
+
+        $berita = BeritaDuka::latest()->get()->sortBy('created_at');
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'berita' => $berita
+        ];
+
+        return view('admin.dapen.layanan.laporberitaduka', $data);
     }
 }
