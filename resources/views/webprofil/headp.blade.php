@@ -33,11 +33,18 @@
 <link href="{{ url('webprof/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
 <link href="{{ url('webprof/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
 <link href="{{ url('webprof/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+<link href="{{ url('dist/plugins/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+@yield('cs')
+
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 
 <style>
        .modal-box{ font-family: 'Poppins', sans-serif; }

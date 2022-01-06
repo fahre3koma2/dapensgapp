@@ -16,15 +16,36 @@
             <li class="{{ $menu == 'strukturorganisasi' ? 'active' : '' }}"><a href="{!! url('admin/konten/strukturorganisasi') !!}"><i class="fa fa-angle-right"></i> Struktur Organisasi</a></li>
           </ul>
         </li>
-        <li> <a href="#"> <i class="icon-directions"></i> <span>Layanan</span> </a>
-          <ul>
-            <li class="{{ $menu == 'beritaduka' ? 'active' : '' }}"><a href="{!! url('admin/laporberitaduka') !!}"><i class="fa fa-angle-right"></i> Laporan Berita Duka</a></li>
-          </ul>
+        <li class="{{ $menu == 'laporan' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-doc"></i> <span> Laporan </span> </a>
+            <ul>
+                <li><a href="{!! url('informasi/pdp') !!}">Laporan Duka</a></li>
+            </ul>
+        </li>
+        <li class="{{ $menu == 'layanan' ? 'active' : '' }}"> <a href="#"> <i class="icon-directions"></i> <span>Layanan</span> </a>
+            <ul>
+                <li><a href="{!! url('/pensi/layananinfo') !!}">SK Penetapan Manfaat</a></li>
+                <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Potong Pajak</a></li>
+                <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Slip Manfaat Pensiun</a></li>
+                <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Kartu Pensiun</a></li>
+                <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Surat Keterangan</a></li>
+            </ul>
         </li>
         <li> <a href="#"> <i class="icon-directions"></i> <span>Informasi</span> </a>
-          <ul>
-            <li class="{{ $menu == 'beritaduka' ? 'active' : '' }}"><a href="{!! url('admin/laporberitaduka') !!}"><i class="fa fa-angle-right"></i> Laporan Berita Duka</a></li>
-          </ul>
+            <ul>
+                {{--  <li><a href="{!! url('pensi/faq') !!}">Panduan</a></li>  --}}
+                <li><a href="{!! url('pensi/faq') !!}">Download</a>
+                    <ul>
+                        <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP</a></li>
+                        <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP Sekaligus</a></li>
+                        <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP Anak</a></li>
+                        <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pindah Rekening</a></li>
+                        <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP ke Waris</a></li>
+                        <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Verifikasi Pengkinian Daya</a></li>
+                        <li><a href="{!! url('/pensi/downloadinfo') !!}">Surat Kuasa</a></li>
+                    </ul>
+                </li>
+                <li><a href="{!! url('pensi/faq') !!}">FAQ</a></li>
+            </ul>
         </li>
         <li> <a href="#"> <i class="icon-book-open"></i> <span>Konten</span> </a>
           <ul>

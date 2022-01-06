@@ -1,23 +1,11 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script>
-        var loggedin =  false;
-
-        $('.link').click(function(e){
-
-        if(!loggedin){
-            e.preventDefault();
-            $('#myModal').modal('show');
-        } })
-    </script>
-
 <script type="text/javascript">
     @if (count($errors) > 0)
         $('#myModal').modal('show');
     @endif
 </script>
-
 
 <script src="{{ url('webprof/js/jquery.min.js') }}"></script>
 <script src="{{ url('webprof/js/bootstrap.min.js') }}"></script>
@@ -28,6 +16,8 @@
 <!-- custom js -->
 <script src="{{ url('webprof/js/custom.js') }}"></script>
 <!-- revolution js files -->
+@include('sweet::alert')
+
 @yield('injs')
 <!-- map js -->
 <script>

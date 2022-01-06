@@ -6,6 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Admin\Artikel;
+use App\Models\Admin\Kategori;
+
+use Alert;
+use Exception;
+use Crypt;
+use Validator;
+use Carbon\Carbon;
+use Image;
+use Str;
 
 class ArtikelController extends Controller
 {
@@ -17,7 +26,7 @@ class ArtikelController extends Controller
     public function index()
     {
         //
-        $konten = Artikel::where('status', 'home')->get();
+        $konten = Artikel::query()->get();
 
         $menu = 'artikel';
         $edit = false;
@@ -41,10 +50,12 @@ class ArtikelController extends Controller
         //
         $menu = 'artikel';
         $edit = false;
+        $kategori = Kategori::query()->get()->sortBy('id');
 
         $data = [
             'menu' => $menu,
             'edit' => $edit,
+            'kategori' => $kategori,
         ];
 
         return view('admin.dapen.artikel.create', $data);
@@ -59,7 +70,48 @@ class ArtikelController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->except('_token');
+        //dd($data);
+        $this->validate(
+            $request,
+            [
+                'foto' => 'required|mimes:mimes:jpeg,jpg,png|max:5000'
+            ],
+            [
+                'foto.required' => 'Tidak ada file yang di upload',
+                'foto.mimes' => 'File harus gambar format png/jpg',
+                'foto.max' => 'File tidak boleh lebih dari 2 MB',
+            ]
+        );
 
+        // menyimpan data file yang diupload ke variabel $file
+        $image = $request->file('foto');
+        $kategori = $request->kategori;
+        $string = Str::random(12);
+        $nama_file = $kategori . '_' . $string . '.' . $image->getClientOriginalExtension();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $filePath = public_path('dapen/artikel/thumb');
+
+        $img = Image::make($image->path());
+        $img->resize(150, 150, function ($const) {
+            $const->aspectRatio();
+        })->save($filePath . '/' . $nama_file);
+
+        $tujuan_upload = 'dapen/artikel';
+        $image->move($tujuan_upload, $nama_file);
+
+        $data['gambar'] = $nama_file;
+
+        $artikel = Artikel::create($data);
+
+        alert()->success(
+            'Berhasil',
+            'Artikel berhasil di tambahkan'
+        );
+
+        //return redirect()->back()->with('message', 'Operation Successful !');
+        return redirect()->route('admin.artikel.index');
     }
 
     /**

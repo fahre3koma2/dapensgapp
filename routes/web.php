@@ -5,13 +5,14 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\BeritaController as BeradminController;
 use App\Http\Controllers\Admin\KontenController;
-use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\Admin\ArtikelController as AdminArtikelController;
 
 use App\Http\Controllers\Webp\BerandaController;
 use App\Http\Controllers\Webp\ProfilController;
 use App\Http\Controllers\Webp\BeritaController;
 use App\Http\Controllers\Webp\InformasiController;
 use App\Http\Controllers\Webp\LayananController;
+use App\Http\Controllers\Webp\ArtikelController;
 
 use App\Http\Controllers\Dapen\PensiController;
 use App\Http\Controllers\Dapen\InformasiController as InfoPensiController;
@@ -43,6 +44,8 @@ use App\Http\Controllers\Dapen\LayananController as InfoLayananController;
     Route::get('layanan/pengajuanpensiun', [LayananController::class, 'pengajuanpensiun'])->name('pengajuanpensiun');
     Route::get('layanan/pengkiniandata', [LayananController::class, 'pengkiniandata'])->name('pengkiniandata');
     Route::get('layanan/laporberitaduka', [LayananController::class, 'laporberitaduka'])->name('laporberitaduka');
+    Route::post('beritadukakirim', [LayananController::class, 'beritadukakirim'])->name('beritadukakirim');
+    Route::get('terimaberita/{id}', [LayananController::class, 'terimaberita'])->name('terimaberita');
     Route::get('layanan/downform', [LayananController::class, 'downform'])->name('downform');
     Route::get('layanan/buktipotong', [LayananController::class, 'buktipotong'])->name('buktipotong');
     Route::get('layanan/sosialmedia', [LayananController::class, 'sosialmedia'])->name('sosialmedia');
@@ -50,11 +53,13 @@ use App\Http\Controllers\Dapen\LayananController as InfoLayananController;
     //Berita
     Route::get('berita/galeri', [BeritaController::class, 'galeri'])->name('galeri');
     Route::get('berita/artikel', [BeritaController::class, 'artikel'])->name('artikel');
+    Route::resource('/artikel', ArtikelController::class);
 
     //Informasi
     Route::get('informasi/pdp', [InformasiController::class, 'pdp'])->name('pdp');
     Route::get('informasi/laporankeuangan', [InformasiController::class, 'laporankeuangan'])->name('laporankeuangan');
     Route::get('informasi/panduan', [InformasiController::class, 'panduan'])->name('panduan');
+    Route::get('informasi/downloadform', [InformasiController::class, 'downloadform'])->name('downloadform');
 
     Route::get('kontakkami', [BerandaController::class, 'kontakkami'])->name('kontakkami');
 
@@ -76,7 +81,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/konten/pendiri', [KontenController::class, 'pendiri'])->name('pendiri');
         Route::get('/konten/strukturorganisasi', [KontenController::class, 'strukturorganisasi'])->name('strukturorganisasi');
 
-        Route::resource('/artikel', ArtikelController::class);
+        Route::resource('/artikel', AdminArtikelController::class);
 
         Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
         Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');

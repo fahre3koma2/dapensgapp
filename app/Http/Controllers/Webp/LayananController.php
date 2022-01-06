@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Webp;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Admin\BeritaDuka;
+
 class LayananController extends Controller
 {
     /**
@@ -109,5 +111,54 @@ class LayananController extends Controller
         ];
 
         return view('webprofil.layanan.laporberitaduka', $data);
+    }
+
+    public function beritadukakirim(Request $request)
+    {
+        //
+        $data = $request->except('_token');
+        $tgl = date('Y-m-d', strtotime($request->tgl_meninggal));
+        $record = BeritaDuka::latest()->first();
+
+            if($record){
+                $expNum = explode('-', $record->nolaporan);
+                    if (date('y') == substr($expNum[1],2))
+                    {
+                        $numb = $expNum[2] + 1;
+                        $nextNumber = 'BD-' . date('y') .  date('m') . '-' . $numb;
+                    } else {
+                        $nextNumber = 'BD-' . date('y') .  date('m') . '-001';
+                    }
+            } else {
+                $nextNumber = 'BD-' . date('y') .  date('m') . '-001';
+            }
+
+        try {
+
+            $data['tgl_meninggal'] = $tgl;
+            $data['nolaporan'] = $nextNumber;
+            $berita = BeritaDuka::create($data);
+
+            return redirect()->route('terimaberita', ['id' => encrypt($berita->nolaporan)])->with('message', 'Operation Successful !');
+
+        } catch (Exception $ex) {
+            return redirect()->back()->withInput();
+        }
+
+    }
+
+    public function terimaberita($id)
+    {
+        $menu = 'laporberitaduka';
+        $edit = false;
+        $berita = BeritaDuka::where('nolaporan', decrypt($id))->first();
+        //dd($berita);
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'berita' => $berita
+        ];
+
+        return view('webprofil.layanan.terimaberitaduka', $data);
     }
 }

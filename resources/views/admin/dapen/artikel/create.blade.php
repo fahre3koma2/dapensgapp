@@ -19,12 +19,16 @@
               <h5 class="m-b-0">Tambah Artikel</h5>
             </div>
             <div class="card-body">
-              <form action="#" class="form-horizontal form-bordered">
+                  <form class="form-horizontal" action="{{ $edit ? route('admin.artikel.update', ['user' => encrypt($user->id)]) : route('admin.artikel.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                    @if ($edit)
+                        {{ method_field('PUT') }}
+                    @endif
+                    @csrf
                 <div class="form-body">
                   <div class="form-group row">
                     <label class="control-label text-right col-md-1">Judul</label>
                     <div class="col-md-10">
-                      <input placeholder="Judul" class="form-control" type="text">
+                      <input placeholder="Judul" class="form-control" type="text" name="judul" required>
                       </div>
                   </div>
                   <div class="form-group row">
@@ -36,28 +40,22 @@
 
                   <div class="form-group row">
                     <label class="control-label text-right col-md-1">Kategori</label>
-                    <div class="col-md-6">
-                      <select class="form-control custom-select">
-                        <option value="">Male</option>
-                        <option value="">Female</option>
-                      </select>
+                    <div class="col-md-4">
+                      <select class="form-control" name="kategori">
+                        @foreach ($kategori as $item)
+                            <option value="{{$item->nama}}">{{$item->nama}}</option>
+                        @endforeach
+                       </select>
                     </div>
                   </div>
 
                   <div class="form-group row">
                    <label class="control-label text-right col-md-1">Foto</label>
                    <div class="col-md-4">
-                    <input class="form-control" type="file">
+                    <input class="form-control" type="file" name="foto">
                    </div>
                   </div>
 
-                  <div class="form-group row last">
-                    <label class="control-label text-right col-md-1">Country</label>
-                    <div class="col-md-10">
-                      <select class="form-control">
-                      </select>
-                    </div>
-                  </div>
                 </div>
                 <div class="form-actions">
                   <div class="row">
@@ -80,7 +78,7 @@
 @endsection
 @section('injs')
     <!-- summernote -->
-    {{--  <script src="{{ url('dist/plugins/summernote/summernote-bs4.js') }}"></script>  --}}
+    {{--  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js" defer></script>  --}}
     <script src="{{ url('dist/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
      jQuery(document).ready(function(){

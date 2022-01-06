@@ -35,9 +35,9 @@
                 <tr>
                     <th>No.</th>
                     <th width="25%">Judul</th>
-                    <th width="20%">File</th>
-                    <th width="30%">Kategori</th>
-                    <th width="15%">Status</th>
+                    <th width="15%">Gambar</th>
+                    <th width="35%">Keterangan</th>
+                    <th width="15%">Kategori</th>
                     <th width="10%">Action</th>
                 </tr>
                 </thead>
@@ -46,11 +46,14 @@
                 @foreach ($konten as $item)
                     <tr>
                         <td>{{$no}}</td>
-                        <td>{{ $item->konten}}</td>
-                        <td><img src="{{ url('webprof/images/dapen/'.$item->file) }}" width="26%"></td>
-                        <td>{{ $item->keterangan }}</td>
-                        <td><span class="label label-success">{{ $item->status }}</span></td>
-                        <td><a type="button" class="btn btn-default"> <i class="icon-note" aria-hidden="true"></i> </a></td>
+                        <td>{{ $item->judul}}</td>
+                        <td><img src="{{ url('/dapen/artikel/'.$item->gambar) }}" width="32%"></td>
+                        <td>@php $keterangan = strip_tags($item->keterangan); @endphp {{ Str::limit($keterangan, 32) }}</td>
+                        <td>{{ $item->kategori }}</td>
+                        <td>
+                            <a href="{!! url('admin/artikel/edit') !!}" class="btn btn-sm btn-primary btn-block">Edit</a>
+                            <a href="{!! url('admin/artikel/edit') !!}" class="btn btn-sm btn-danger btn-block">Hapus</a>
+                        </td>
                     </tr>
                 @php $no++; @endphp
                 @endforeach

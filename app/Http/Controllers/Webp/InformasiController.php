@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Webp;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use DB;
+use App\Models\Admin\Panduan;
+
+
 class InformasiController extends Controller
 {
     /**
@@ -123,5 +127,22 @@ class InformasiController extends Controller
         ];
 
         return view('webprofil.informasi.laporankeuangan', $data);
+    }
+
+    public function downloadform()
+    {
+        //
+        $menu = 'downloadform';
+        $edit = false;
+
+        $form = Panduan::orderBy('id', 'desc')->get();
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'form' => $form
+        ];
+
+        return view('webprofil.informasi.download', $data);
     }
 }

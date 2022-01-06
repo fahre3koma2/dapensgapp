@@ -6,6 +6,8 @@
 </head>
     @if ($menu == 'laporberitaduka')
         <body id="default_theme" class="it_serv_shopping_cart it_checkout checkout_page">
+    @elseif($menu == 'downloadform')
+        <body id="default_theme" class="it_serv_shopping_cart shopping-cart">
     @else
         <body id="default_theme" class="it_service">
     @endif
@@ -16,12 +18,12 @@
     <i class="fa fa-whatsapp float-button"></i>
 </a>
 <!-- header -->
-
-@if(auth()->user())
-   {{ $stat = auth()->user()->name }}
-@else
-   {{ $stat = null }}
-@endif
+@php
+if(auth()->user()){
+   $stat = auth()->user()->name;
+}else{
+    $stat = null; }
+@endphp
 
 @include('webprofil.menu')
 <!-- end header -->

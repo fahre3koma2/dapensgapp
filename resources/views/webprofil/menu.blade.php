@@ -46,7 +46,7 @@
           <div class="menu_side">
             <div id="navbar_menu">
               <ul class="first-ul">
-                <li> <a class="active" href="{!! url('/') !!}">Beranda</a></li>
+                <li> <a href="{!! url('/') !!}">Beranda</a></li>
                 <li><a href="#">Profil</a>
                     <ul>
                         <li><a href="{!! url('profil/visimisi') !!}">Visi & Misi </a></li>
@@ -58,7 +58,11 @@
                 </li>
                 <li> <a href="#">Layanan</a>
                     <ul>
-                        <li><a href="{!! url('layanan/pengkiniandata') !!}">Pelaporan</a></li>
+                        <li><a href="#">Pelaporan</a>
+                             <ul>
+                                <li><a href="{!! url('layanan/laporberitaduka') !!}">Laporan Berita Duka</a></li>
+                            </ul>
+                        </li>
                         <li><a href="{!! url('layanan/pengkiniandata') !!}">Data ulang</a></li>
                         <li><a href="{!! url('layanan/laporberitaduka') !!}">Cek Data Penerima MP</a></li>
                         <li><a href="{!! url('layanan/downform') !!}">Bukti Potong Pajak</a></li>
@@ -87,7 +91,7 @@
                             </ul>
                         </li>
                         <li><a href="{!! url('informasi/panduan') !!}">Download</a>
-                            <ul>
+                            {{--  <ul>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP</a></li>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP Sekaligus</a></li>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP Anak</a></li>
@@ -95,14 +99,14 @@
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP ke Waris</a></li>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Verifikasi Pengkinian Daya</a></li>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Surat Kuasa</a></li>
-                            </ul>
+                            </ul>  --}}
                         </li>
                     </ul>
                 </li>
                 <li> <a href="#">Berita</a>
                     <ul>
-                        <li><a href="{!! url('berita/artikel') !!}">Artikel Umum</a></li>
-                        <li><a href="{!! url('berita/artikel') !!}">Artikel Khusus</a></li>
+                        <li><a href="{!! url('/artikel') !!}">Artikel Umum</a></li>
+                        <li><a href="{!! url('/artikel') !!}">Artikel Khusus</a></li>
                     </ul>
                 </li>
 

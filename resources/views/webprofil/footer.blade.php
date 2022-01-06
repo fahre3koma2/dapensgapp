@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="main-heading left_text">
-              <h2>It Next Theme</h2>
+              <h2>Dana Pensiun Semen Gresik</h2>
             </div>
             <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
             <ul class="social_icons">

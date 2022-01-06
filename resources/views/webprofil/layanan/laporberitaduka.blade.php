@@ -28,65 +28,66 @@
     <div class="row">
       <div class="col-md-12">
         <div class="payment-form">
-          <form action="#">
+          <form action="{{ route('beritadukakirim') }}" method="POST" >
+            @csrf
             <fieldset>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-field">
                   <label>Nama Pelapor <span class="red">*</span></label>
-                  <input name="fn" type="text">
+                  <input name="nama_pelapor" type="text" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>No Telpon <span class="red">*</span></label>
-                  <input name="ln" type="text">
+                  <label>Nomor Telpon <span class="red">*</span></label>
+                  <input name="notelp" type="number" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
                   <label>Nama Peserta <span class="red">*</span></label>
-                  <input name="fn" type="text">
+                  <input name="nama_peserta" type="text" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
                   <label>Tanggal Meninggal <span class="red">*</span></label>
-                  <input name="ln" type="text">
+                  <input name="tgl_meninggal" type="text" id="datepicker" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Nomor Dana<span class="red">*</span></label>
-                  <input name="cm" type="text">
+                  <label>Nomor Pensiun<span class="red">*</span></label>
+                  <input name="nopensiun" type="text" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Unit Bayar<span class="red">*</span></label>
-                  <input name="cm" type="text">
+                  <label>Hubungan Keluarga<span class="red">*</span></label>
+                  <input name="hub_keluarga" type="text" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
                   <label>Alamat <span class="red">*</span></label>
-                  <textarea name="ad"></textarea>
+                  <textarea name="alamat" required></textarea>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
                   <label>Keterangan <span class="red">*</span></label>
-                  <textarea name="ad"></textarea>
+                  <textarea name="keterangan" required></textarea>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
                     <span class="crte-ac">Dengan ini saya menyatakan pelaporan ini dibuat dengan sebenar-benarnya dengan nomor telpon yang saya cantumkan saya bersedia untuk di hubungi oleh pihak Dana Pensiun Semen Gresik untuk di konfirmasi. *</span> </div>
-                    <input name="ck" type="checkbox">
+                    <input name="ck" type="checkbox" name="terms" id="terms" onchange="activateButton(this)">
                 </div>
               <div class="col-md-12 payment-bt">
                 <div class="center">
-                <button class="bt_main">Start Subscription</button>
+                <button class="bt_main" type="submit" name="submit" id="submit" disabled>Kirim</button>
               </div>
             </div>
             </div>
@@ -110,5 +111,38 @@
                 width: 400,
                 position: 'right'
             });
-        </script>
+    </script>
+    <script>
+        function disableSubmit() {
+        document.getElementById("submit").disabled = true;
+        }
+
+        function activateButton(element) {
+
+            if(element.checked) {
+                document.getElementById("submit").disabled = false;
+            }
+            else  {
+                document.getElementById("submit").disabled = true;
+            }
+
+        }
+    </script>
+@endsection
+
+@section('cs')
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <script>
+        var jqOld = jQuery.noConflict();
+        jqOld(function() {
+            jqOld("#datepicker" ).datepicker();
+        })
+    </script>
+
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 @endsection
