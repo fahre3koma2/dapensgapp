@@ -90,7 +90,7 @@
                                 <li><a href="{!! url('informasi/panduan') !!}">Cara Mengganti Password</a></li>
                             </ul>
                         </li>
-                        <li><a href="{!! url('informasi/panduan') !!}">Download</a>
+                        <li><a href="{!! url('informasi/downloadform') !!}">Download</a>
                             {{--  <ul>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP</a></li>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP Sekaligus</a></li>

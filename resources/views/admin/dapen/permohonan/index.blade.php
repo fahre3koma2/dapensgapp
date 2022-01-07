@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Laporan Berita Duka</h1>
+      <h1>Permohonan ...</h1>
       <ol class="breadcrumb">
-        <li><a href="#">Layanan</a></li>
-        <li><i class="fa fa-angle-right"></i>Laporan Berita Duka</li>
+        <li><a href="#">Pemohonan</a></li>
+        <li><i class="fa fa-angle-right"></i>Permohonan ...</li>
       </ol>
     </div>
 @endsection
@@ -14,12 +14,10 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
-            @if($berita->isEmpty())
-                <div class="alert alert-danger" role="alert"> Tidak Ada Laporan </div>
-            @else
-            <h4 class="text-black">Data Laporan Berita Duka</h4>
+                <div class="alert alert-danger" role="alert"> Tidak Ada Pemohonan </div>
+            {{--  <h4 class="text-black">Data Laporan Berita Duka</h4>  --}}
             {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
-            <div class="table-responsive">
+            {{--  <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
                     <thead>
                         <tr>
@@ -46,9 +44,9 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
+            </div>  --}}
 
-            @endif
+            {{--  @endif  --}}
          </div>
     </div>
 </div>

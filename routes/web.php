@@ -17,6 +17,7 @@ use App\Http\Controllers\Webp\ArtikelController;
 use App\Http\Controllers\Dapen\PensiController;
 use App\Http\Controllers\Dapen\InformasiController as InfoPensiController;
 use App\Http\Controllers\Dapen\LayananController as InfoLayananController;
+use App\Http\Controllers\Dapen\PermohonanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,6 +102,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/profil', [PensiController::class, 'profil'])->name('profil');
         Route::get('/faq', [PensiController::class, 'faq'])->name('faq');
         Route::get('/datainfo', [PensiController::class, 'datainfo'])->name('datainfo');
+        Route::get('/lampiran/{id}', [PensiController::class, 'lampiran'])->name('lampiran');
 
         Route::get('/uploadfoto', [PensiController::class, 'uploadfoto'])->name('uploadfoto');
         Route::post('/updatefoto', [PensiController::class, 'updatefoto'])->name('updatefoto');
@@ -111,5 +113,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
         Route::get('/downloadinfo', [InfoPensiController::class, 'downloadinfo'])->name('downloadinfo');
         Route::get('/layananinfo', [InfoLayananController::class, 'layananinfo'])->name('layananinfo');
+
+        Route::resource('/permohonan', PermohonanController::class);
+
+        Route::get('/laporan/laporberitaduka', [InfoPensiController::class, 'laporberitaduka'])->name('laporan.laporberitaduka');
     });
 });

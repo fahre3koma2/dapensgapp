@@ -5,10 +5,7 @@ namespace App\Http\Controllers\Dapen;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\Admin\BeritaDuka;
-use App\Models\User;
-
-class InformasiController extends Controller
+class PermohonanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,6 +15,17 @@ class InformasiController extends Controller
     public function index()
     {
         //
+        $menu = 'register';
+        $edit = false;
+        $berita = array();
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'berita' => $berita,
+        ];
+
+        return view('admin.dapen.permohonan.index', $data);
     }
 
     /**
@@ -28,6 +36,15 @@ class InformasiController extends Controller
     public function create()
     {
         //
+        $menu = 'register';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('admin.dapen.permohonan.create', $data);
     }
 
     /**
@@ -84,37 +101,5 @@ class InformasiController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function downloadinfo()
-    {
-        //
-        $menu = 'panduan';
-        $edit = false;
-
-        $data = [
-            'menu' => $menu,
-            'edit' => $edit
-        ];
-
-        return view('admin.dapen.informasi.panduan', $data);
-    }
-
-    public function laporberitaduka()
-    {
-        //
-        $menu = 'laporberitaduka';
-        $edit = false;
-
-        $user = User::query()->with('biodata')->find(auth()->user()->id);
-        $berita = BeritaDuka::where('nopensiun', $user->biodata->nopeserta)->get();
-
-        $data = [
-            'menu' => $menu,
-            'edit' => $edit,
-            'berita' => $berita
-        ];
-
-        return view('admin.dapen.layanan.laporberitaduka', $data);
     }
 }

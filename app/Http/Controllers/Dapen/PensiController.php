@@ -80,7 +80,7 @@ class PensiController extends Controller
             'jenis' => $jenis,
         ];
 
-        return view('admin.dapen.profil', $data);
+        return view('admin.dapen.user.profil', $data);
     }
 
     /**
@@ -105,7 +105,7 @@ class PensiController extends Controller
             'jenis' => $jenis,
         ];
 
-        return view('admin.dapen.profil', $data);
+        return view('admin.dapen.user.profil', $data);
     }
 
     /**
@@ -165,7 +165,7 @@ class PensiController extends Controller
             'edit' => $edit
         ];
 
-        return view('admin.dapen.profil', $data);
+        return view('admin.dapen.user.profil', $data);
     }
 
     public function uploadfoto()
@@ -179,7 +179,7 @@ class PensiController extends Controller
             'edit' => $edit
         ];
 
-        return view('admin.dapen.uploadfoto', $data);
+        return view('admin.dapen.user.uploadfoto', $data);
     }
 
     public function faq()
@@ -285,5 +285,24 @@ class PensiController extends Controller
 
         //return redirect()->back()->with('message', 'Operation Successful !');
         return redirect()->route('pensi.pensiun.edit', ['pensiun' => encrypt($userid)]);
+    }
+
+    public function lampiran($id)
+    {
+        //
+        $menu = 'lampiran';
+        $edit = true;
+
+        $user = User::query()->with(['biodata', 'RolesUser'])->find(decrypt($id));
+        $jenis = AdminJenisPensiun::query()->get()->sortBy('id');
+        //dd($user);
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'user' => $user,
+            'jenis' => $jenis,
+        ];
+
+        return view('admin.dapen.user.lampiran', $data);
     }
 }
