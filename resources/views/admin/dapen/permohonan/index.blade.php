@@ -14,39 +14,56 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
-                <div class="alert alert-danger" role="alert"> Tidak Ada Pemohonan </div>
             {{--  <h4 class="text-black">Data Laporan Berita Duka</h4>  --}}
             {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
-            {{--  <div class="table-responsive">
+             <div class="ml-auto">
+                @php $idpensi = auth()->user()->id; @endphp
+                <a href="{!! url('pensi/permohonan/karyawan/form1', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-primary">Tambah File</a>
+            </div>
+            <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
                     <thead>
                         <tr>
-                        <th>No</th>
-                        <th>No Laporan</th>
-                        <th>No Pensiun</th>
-                        <th>Nama Peserta</th>
-                        <th>Tanggal Meninggal</th>
-                        <th>No Telp</th>
+                            <th width="2%">No</th>
+                            <th>No Permohonan</th>
+                            <th>No Pensiun</th>
+                            <th>Nama</th>
+                            <th>No Handphone</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php $no = 1; @endphp
-                        @foreach ($berita as $item)
+                        @foreach ($mohon as $item)
                         <tr>
                             <td>{{$no}}</td>
-                            <td>{{$item->nolaporan}}</td>
-                            <td>{{$item->nopensiun}}</td>
-                            <td>{{$item->nama_peserta}}</td>
-                            <td>{{$item->tgl_meninggal}}</td>
-                            <td>{{$item->notelp}}</td>
+                            <td>{{$item->idperm_karyawan}}</td>
+                            <td>{{$item->nopeserta}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->nohp}}</td>
+                            <td>
+                                @if ($item->status)
+                                <span class="label label-success">Dikirim</span>
+                                @else
+                                <span class="label label-warning">Belum Dikirim</span>
+                                @endif
+
+                            </td>
+                            <td>
+                                @if ($item->status)
+                                <span class="label label-success">Admin</span>
+                                @else
+                                <a href="{!! route('pensi.permohonan.karyawan-formedit1', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit </a>
+                                @endif
+                            </td>
                         </tr>
                         @php $no++; @endphp
                         @endforeach
                     </tbody>
                 </table>
-            </div>  --}}
+            </div>
 
-            {{--  @endif  --}}
          </div>
     </div>
 </div>

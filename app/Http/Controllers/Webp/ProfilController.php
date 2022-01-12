@@ -140,4 +140,18 @@ class ProfilController extends Controller
         return view('webprofil.profil.pendiri', $data);
     }
 
+    public function budaya()
+    {
+        //
+        $menu = 'budaya';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('webprofil.profil.budayakerja', $data);
+    }
+
 }

@@ -51,7 +51,7 @@
                     <ul>
                         <li><a href="{!! url('profil/visimisi') !!}">Visi & Misi </a></li>
                         <li><a href="{!! url('profil/sejarah') !!}">Sejarah Pendirian</a></li>
-                        <li><a href="{!! url('profil/pendiri') !!}">Pendiri</a></li>
+                        <li><a href="https://sig.id/id/profil-perusahaan/">Pendiri</a></li>
                         <li><a href="{!! url('profil/struktur') !!}">Struktur Organisasi</a></li>
                         <li><a href="{!! url('profil/budaya') !!}">Budaya Kerja</a></li>
                     </ul>
@@ -63,16 +63,14 @@
                                 <li><a href="{!! url('layanan/laporberitaduka') !!}">Laporan Berita Duka</a></li>
                             </ul>
                         </li>
-                        <li><a href="{!! url('layanan/pengkiniandata') !!}">Data ulang</a></li>
-                        <li><a href="{!! url('layanan/laporberitaduka') !!}">Cek Data Penerima MP</a></li>
-                        <li><a href="{!! url('layanan/downform') !!}">Bukti Potong Pajak</a></li>
-                        <li><a href="{!! url('layanan/buktipotong') !!}">Layanan Pelanggan</a>
+                        <li><a href="{!! url('layanan/pengkiniandata') !!}">Pengkinian Data</a></li>
+                        <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Cek Data Penerima MP</a></li>
+                        <li><a href="#">Layanan Mandiri</a>
                             <ul>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>SK Penetapan Manfaat</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Permintaan SK Penetapan MP</a></li>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Bukti Potong Pajak</a></li>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Bukti Slip Manfaat Pensiun</a></li>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Penerbitan Kartu Pensiun</a></li>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Penerbitan Surat Keterangan</a></li>
+                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/layananinfo') !!}" @endif>Permintaan Surat Keterangan</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -80,9 +78,7 @@
                 <li> <a href="#">Informasi</a>
                     <ul>
                         <li><a href="{!! url('informasi/pdp') !!}">PDP</a></li>
-
-                        <li><a href="{!! url('informasi/laporankeuangan') !!}">Annual Report</a></li>
-
+                        <li><a href="{!! url('informasi/laporankeuangan') !!}">Laporan Keuangan</a></li>
                         <li><a href="{!! url('informasi/panduan') !!}">Panduan</a>
                             <ul>
                                 <li><a href="{!! url('informasi/pdp') !!}">Cara Data Ulang</a></li>
@@ -90,7 +86,7 @@
                                 <li><a href="{!! url('informasi/panduan') !!}">Cara Mengganti Password</a></li>
                             </ul>
                         </li>
-                        <li><a href="{!! url('informasi/downloadform') !!}">Download</a>
+                        <li><a href="{!! url('informasi/downloadform') !!}">Unduh Formulir</a>
                             {{--  <ul>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP</a></li>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP Sekaligus</a></li>

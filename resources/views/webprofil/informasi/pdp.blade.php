@@ -37,10 +37,7 @@
     </div>
     <div class="row about_blog">
       <div class="col-lg-12 col-md-12 col-sm-12 about_feature_img padding_right_0">
-        <div class="full text_align_center">
-            <p> <a class="btn main_bt" href="#"><i class="fa fa-download" aria-hidden="true"></i>  Download</a> </p>
-            <p> <img class="img-responsive" src="{{ url('webprof/images/image/cover.jpg') }}" alt="#"> </p>
-        </div>
+        <div class="full text_align_center"> <p><embed src="{{ url('webprof/filedapen/pdp2018.pdf') }}" type="application/pdf" width="800" height="800" data-mce-fragment="1"></embed></p> </div>
       </div>
     </div>
   </div>

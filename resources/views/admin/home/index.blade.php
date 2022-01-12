@@ -13,58 +13,10 @@
 @section('content')
     <div class="content">
         <div class="row">
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 m-b-3">
-            <div class="card">
-            <div class="card-body">
-                <div class="m-b-1"> <i class="icon-facebook f-30 text-blue"></i> <span class="pull-right text-muted">Likes</span> </div>
-                <div class="info-widget-text row">
-                <div class="col-sm-6 pull-left"><span>Facebook</span></div>
-                <div class="col-sm-6 pull-right text-right text-blue f-25">3,500</div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 m-b-3">
-            <div class="card">
-            <div class="card-body">
-                <div class="m-b-1"> <i class="icon-twitter f-30 text-blue"></i> <span class="pull-right text-muted">Tweets</span> </div>
-                <div class="info-widget-text row">
-                <div class="col-sm-6 pull-left"><span>Twwitter</span></div>
-                <div class="col-sm-6 pull-right text-right text-blue f-25">2,950</div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 m-b-3">
-            <div class="card">
-            <div class="card-body">
-                <div class="m-b-1"> <i class="icon-googleplus f-30 text-blue"></i> <span class="pull-right text-muted">Share</span> </div>
-                <div class="info-widget-text row">
-                <div class="col-sm-6 pull-left"><span>Google+</span></div>
-                <div class="col-sm-6 pull-right text-right text-blue f-25">1,750</div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 m-b-3">
-            <div class="card">
-            <div class="card-body">
-                <div class="m-b-1"> <i class="icon-rss f-30 text-blue"></i> <span class="pull-right text-muted">Posts</span> </div>
-                <div class="info-widget-text row">
-                <div class="col-sm-6 pull-left"><span>Blog</span></div>
-                <div class="col-sm-6 pull-right text-right text-blue f-25">2,250</div>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
-        <!-- /.row -->
-
-        <div class="row">
         <div class="col-lg-3">
             <div class="tile-progress tile-pink">
             <div class="tile-header">
-                <h5>New Orders</h5>
+                <h5>SK Penetapan Manfaat</h5>
                 <h3>1250</h3>
             </div>
             <div class="tile-progressbar"> <span data-fill="65.5%" style="width: 65.5%;"></span> </div>
@@ -76,7 +28,7 @@
         <div class="col-lg-3">
             <div class="tile-progress tile-red">
             <div class="tile-header">
-                <h5>Monthly Sales</h5>
+                <h5>Bukti Slip Manfaat Pensiun</h5>
                 <h3>850</h3>
             </div>
             <div class="tile-progressbar"> <span data-fill="70%" style="width: 70%;"></span> </div>
@@ -88,7 +40,7 @@
         <div class="col-lg-3">
             <div class="tile-progress tile-cyan">
             <div class="tile-header">
-                <h5>New Users</h5>
+                <h5>Penerbitan Surat Keterangan</h5>
                 <h3>2250</h3>
             </div>
             <div class="tile-progressbar"> <span data-fill="50%" style="width: 50%;"></span> </div>

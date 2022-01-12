@@ -11,7 +11,7 @@
             <div class="main-heading left_text">
               <h2>Dana Pensiun Semen Gresik</h2>
             </div>
-            <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
+            <p>Website ini kami luncurkan sebagai wadah dalam memberikan pelayanan kepada Bapak/Ibu para Pensiunan Dana Pensiun Semen Gresik. Kami Berharap dengan adanya Website Dana Pensiun Semen Gresik ini, Bapak/Ibu para Pensiunan akan mendapatkan informasi yang bermanfaat dan memudahkan komunikasi untuk selalu memberikan layanan yang lebih baik kepada Bapak/Ibu. </p>
             <ul class="social_icons">
               <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
               <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
@@ -19,14 +19,13 @@
           </div>
           <div class="col-md-6">
             <div class="main-heading left_text">
-              <h2>Additional links</h2>
+              <h2>Menu</h2>
             </div>
             <ul class="footer-menu">
-              <li><a href="it_about.html"><i class="fa fa-angle-right"></i> Visi Misi</a></li>
-              <li><a href="it_term_condition.html"><i class="fa fa-angle-right"></i> Sejarah Pendirian</a></li>
-              <li><a href="it_privacy_policy.html"><i class="fa fa-angle-right"></i> Struktur Organisasi</a></li>
-              <li><a href="it_news.html"><i class="fa fa-angle-right"></i> Pendiri</a></li>
-              <li><a href="it_contact.html"><i class="fa fa-angle-right"></i> Kontak Kami</a></li>
+              <li><a href="it_about.html"><i class="fa fa-angle-right"></i> Profil</a></li>
+              <li><a href="it_term_condition.html"><i class="fa fa-angle-right"></i> Layanan</a></li>
+              <li><a href="it_privacy_policy.html"><i class="fa fa-angle-right"></i> Informasi</a></li>
+              <li><a href="it_news.html"><i class="fa fa-angle-right"></i> Berita</a></li>
             </ul>
           </div>
           <div class="col-md-6">
@@ -34,19 +33,19 @@
               <h2>Pelayanan</h2>
             </div>
             <ul class="footer-menu">
-              <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Customer Service</a></li>
-              <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Product Knowledge</a></li>
-              <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i>Aplication</a></li>
+              <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Layanan Pelanggan</a></li>
+              <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> DAPEN SG</a></li>
+              <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i>Pojok Inspirasi</a></li>
             </ul>
           </div>
           <div class="col-md-6">
             <div class="main-heading left_text">
-              <h2>Contact us</h2>
+              <h2>Kontak Kami</h2>
             </div>
             <p>Jalan RA. Kartini No. 23<br>
               Gresik, Jawa Timur<br>
               <span style="font-size:18px;"><a href="tel:+62313984492">+6231 3984492</a></span></p>
-            <div class="footer_mail-section">
+            {{--  <div class="footer_mail-section">
               <form>
                 <fieldset>
                 <div class="field">
@@ -55,7 +54,7 @@
                 </div>
                 </fieldset>
               </form>
-            </div>
+            </div>  --}}
           </div>
         </div>
       </div>
@@ -85,7 +84,7 @@
                         <input type="text" class="form-control" placeholder="Enter email" name="email" required="required">
                     </div>
                     <div class="form-group">
-                        <span class="input-icon"><i class="fas fa-key"></i></span>
+                        <span class="input-icon"><i class="fa fa-key"></i></span>
                         <input type="password" class="form-control" placeholder="Password" name="password" required="required">
                     </div>
                 {{-- <a href="" class="forgot-pass">Forgot Password?</a> --}}

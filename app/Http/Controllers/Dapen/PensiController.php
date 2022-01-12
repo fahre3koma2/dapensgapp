@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Biodata;
 use App\Models\JenisPensiun;
+use App\Models\Admin\Lampiran;
 
 use Alert;
 use Exception;
@@ -295,12 +296,14 @@ class PensiController extends Controller
 
         $user = User::query()->with(['biodata', 'RolesUser'])->find(decrypt($id));
         $jenis = AdminJenisPensiun::query()->get()->sortBy('id');
+        $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta)->first();
         //dd($user);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
             'user' => $user,
             'jenis' => $jenis,
+            'lampiran' => $lampiran,
         ];
 
         return view('admin.dapen.user.lampiran', $data);

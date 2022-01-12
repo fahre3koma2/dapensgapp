@@ -30,11 +30,11 @@
                         @endif
                         <p class="card-text"><label for="input-file-now-custom-1">Silihakn klik untuk edit Foto</label></p>
                         @if ($errors->has('foto')) <span class="text-danger">{{ $errors->first('foto') }}</span> @endif
-                        @if ($edit)
+                        {{--  @if ($edit)
                             <button type="submit" class="btn btn-sm btn-primary waves-effect waves-light">Submit</button>
                         @else
                             <a href="{{ route('pensi.pensiun.edit', ['pensiun' => encrypt($user->id)]) }}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit Biodata</a>
-                        @endif
+                        @endif  --}}
                     </div>
                 </form>
             </div>
@@ -68,11 +68,11 @@
                 <strong><i class="fa fa-phone margin-r-5"></i> No Ponsel</strong>
                 <input class="form-control" type="text" name="name" value="{{ $user->biodata->berhaknoponsel }}" {{ $edit ? '' : 'disabled' }}>
                 <hr>
-                @if ($edit)
+                {{--  @if ($edit)
                     <button type="submit" class="btn btn-sm btn-primary waves-effect waves-light">Submit</button>
                 @else
                     <button type="button" class="btn btn-sm btn-warning pull-right"><i class="fa fa-edit"></i> Edit</button>
-                @endif
+                @endif  --}}
             </div>
               <!-- /.box-body -->
             </div>
@@ -186,14 +186,14 @@
                                 <input class="form-control" type="email" name="email_user" value="{{ $user->biodata->email_user }}" {{ $edit ? '' : 'disabled' }}>
                                 <span class="fa fa-envelope-o form-control-feedback" aria-hidden="true"></span> </div>
                             </div>
-                            <div class="col-md-12">
+                            {{--  <div class="col-md-12">
                                 @if ($edit)
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
                                     <a href="{{ route('pensi.pensiun.show', ['pensiun' => encrypt($user->id)]) }}" class="btn btn-secondary waves-effect m-l-5">Cancel</a>
                                 @else
                                     <a href="{{ route('pensi.pensiun.edit', ['pensiun' => encrypt($user->id)]) }}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit Biodata</a>
                                 @endif
-                            </div>
+                            </div>  --}}
                         </div>
                     </form>
                   </div>

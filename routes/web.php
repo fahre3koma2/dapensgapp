@@ -40,6 +40,7 @@ use App\Http\Controllers\Dapen\PermohonanController;
     Route::get('profil/sejarah', [ProfilController::class, 'sejarah'])->name('sejarah');
     Route::get('profil/pendiri', [ProfilController::class, 'pendiri'])->name('pendiri');
     Route::get('profil/struktur', [ProfilController::class, 'struktur'])->name('struktur');
+    Route::get('profil/budaya', [ProfilController::class, 'budaya'])->name('budaya');
 
     //Layanan
     Route::get('layanan/pengajuanpensiun', [LayananController::class, 'pengajuanpensiun'])->name('pengajuanpensiun');
@@ -91,6 +92,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         // Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
         // Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
 
+        //importfile
         Route::get('importfile', [UserController::class, 'importfile']);
         Route::post('file-import', [UserController::class, 'fileImport'])->name('file-import');
     });
@@ -115,6 +117,18 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/layananinfo', [InfoLayananController::class, 'layananinfo'])->name('layananinfo');
 
         Route::resource('/permohonan', PermohonanController::class);
+
+        Route::get('/permohonan/karyawan/form1/{id}', [PermohonanController::class, 'form1'])->name('permohonankaryawan-form1');
+        Route::get('/permohonan/karyawan/form2/{id}', [PermohonanController::class, 'form2'])->name('permohonankaryawan-form2');
+        Route::get('/permohonan/karyawan/form3/{id}', [PermohonanController::class, 'form3'])->name('permohonankaryawan-form3');
+
+        Route::post('/permohonan-upload', [PermohonanController::class, 'upload'])->name('permohonan.upload');
+        Route::post('/permohonan-deletefile', [PermohonanController::class, 'deleteFile'])->name('permohonan.deletefile');
+        Route::post('/permohonan-kirim/{id}', [PermohonanController::class, 'kirim'])->name('permohonan.kirim');
+
+        Route::get('/permohonan/karyawan/formedit1/{id}', [PermohonanController::class, 'formedit1'])->name('permohonan.karyawan-formedit1');
+
+        Route::get('/permohonan/karyawan/formstore1/{id}', [PermohonanController::class, 'formstore1'])->name('permohonan.karyawan-formstore1');
 
         Route::get('/laporan/laporberitaduka', [InfoPensiController::class, 'laporberitaduka'])->name('laporan.laporberitaduka');
     });

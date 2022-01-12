@@ -24,7 +24,7 @@
                 <li><a href="{!! url('/pensi/layananinfo') !!}">SK Penetapan Manfaat</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Potong Pajak</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Slip Manfaat Pensiun</a></li>
-                <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Kartu Pensiun</a></li>
+                {{--  <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Kartu Pensiun</a></li>  --}}
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Surat Keterangan</a></li>
             </ul>
         </li>

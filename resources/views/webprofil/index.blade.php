@@ -114,22 +114,7 @@
         <div class="full blog_colum">
           <div class="blog_feature_img"> <img src="{{ url('webprof/images/dapen/cs.jpg') }}" alt="#" /> </div>
           <div class="blog_feature_head">
-            <center><h3><b>Customer Service</b></h3></center>
-            <hr class="new5">
-          </div>
-          <div class="blog_feature_cont">
-            <p>Lorem ipsum dolor sit amet, consectetur quam justo, pretium adipiscing elit. Vestibulum quam justo, pretium eu tempus ut, ...</p>
-          </div>
-          <div class="bottom_info">
-                <div class="pull-left"><a class="read_more" href="it_blog_detail.html">READ MORE <i class="fa fa-angle-right"></i></a></div>
-              </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="full blog_colum">
-          <div class="blog_feature_img"> <img src="{{ url('webprof/images/dapen/pk.jpg') }}" alt="#" /> </div>
-          <div class="blog_feature_head">
-            <center><h3><b>Product Knowledge</b></h3></center>
+            <center><h3><b>Layanan Pelanggan</b></h3></center>
             <hr class="new5">
           </div>
           <div class="blog_feature_cont">
@@ -145,6 +130,21 @@
           <div class="blog_feature_img"> <img src="{{ url('webprof/images/it_service/post-03.jpg') }}" alt="#" /> </div>
           <div class="blog_feature_head">
             <center><h3><b>Dapen SG</b></h3></center>
+            <hr class="new5">
+          </div>
+          <div class="blog_feature_cont">
+            <p>Lorem ipsum dolor sit amet, consectetur quam justo, pretium adipiscing elit. Vestibulum quam justo, pretium eu tempus ut, ...</p>
+          </div>
+          <div class="bottom_info">
+                <div class="pull-left"><a class="read_more" href="it_blog_detail.html">READ MORE <i class="fa fa-angle-right"></i></a></div>
+              </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="full blog_colum">
+          <div class="blog_feature_img"> <img src="{{ url('webprof/images/dapen/pk.jpg') }}" alt="#" /> </div>
+          <div class="blog_feature_head">
+            <center><h3><b>Pojok Inspirasi</b></h3></center>
             <hr class="new5">
           </div>
           <div class="blog_feature_cont">
@@ -245,7 +245,7 @@
     </div>
     <!-- end section -->
     <!-- section -->
-    <div class="row" style="margin-top: 35px">
+    {{--  <div class="row" style="margin-top: 35px">
       <div class="row">
         <div class="col-md-12">
             <div class="full">
@@ -301,7 +301,26 @@
             <img src="{{ url('webprof/images/dapen/sosmed.jpg') }}" alt="#" />
         </div>
         </div>
+    </div>  --}}<br/><br/><br/>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                <div class="contact_us_section">
+                    <div class="call_icon"> <img src="images/it_service/phone_icon.png" alt="#" /> </div>
+                    <div class="inner_cont">
+                    <h2>REQUEST A FREE QUOTE</h2>
+                    <p>Get answers and advice from people you want it from.</p>
+                    </div>
+                    <div class="button_Section_cont"> <a class="btn dark_gray_bt" href="it_contact.html">Contact us</a> </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
+    <br/>
 <!-- end section -->
 <!-- section -->
     <div class="row" style="margin-top: 35px">
