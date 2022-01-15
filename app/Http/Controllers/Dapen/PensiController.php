@@ -15,6 +15,7 @@ use Exception;
 use Crypt;
 use Validator;
 use Image;
+use PDF;
 
 
 class PensiController extends Controller
@@ -73,7 +74,7 @@ class PensiController extends Controller
 
         $user = User::query()->with(['biodata', 'RolesUser'])->find(decrypt($id));
         $jenis = AdminJenisPensiun::query()->get()->sortBy('id');
-        //dd($jenis);
+
         $data = [
             'menu' => $menu,
             'edit' => $edit,
@@ -130,6 +131,7 @@ class PensiController extends Controller
             $biodata = Biodata::where('user_id', $user->id)->first();
 
             //dd($biodata);
+            $data['baru'] = 1;
             $user->update($data);
             $biodata->update($data);
 
@@ -308,4 +310,5 @@ class PensiController extends Controller
 
         return view('admin.dapen.user.lampiran', $data);
     }
+
 }

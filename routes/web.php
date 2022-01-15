@@ -18,6 +18,9 @@ use App\Http\Controllers\Dapen\PensiController;
 use App\Http\Controllers\Dapen\InformasiController as InfoPensiController;
 use App\Http\Controllers\Dapen\LayananController as InfoLayananController;
 use App\Http\Controllers\Dapen\PermohonanController;
+use App\Http\Controllers\Dapen\PermohonanAnakController;
+use App\Http\Controllers\Dapen\KeluargaController;
+use App\Http\Controllers\Dapen\PermohonanDudaJandaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +89,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::resource('/artikel', AdminArtikelController::class);
 
         Route::get('/layanan/laporberitaduka', [LayananController::class, 'adminlaporberitaduka'])->name('laporberitaduka');
+        Route::get('/layanan/pengkiniandata', [InfoLayananController::class, 'pengkiniandata'])->name('pengkiniandata');
+        Route::get('/layanan/cetakpengkiniandata/{id}', [InfoLayananController::class, 'cetakpengkiniandata'])->name('cetakpengkiniandata');
+        Route::get('/layanan/skpenetapan', [InfoLayananController::class, 'skpenetapan'])->name('skpenetapan');
+        Route::get('/layanan/sketerangan', [InfoLayananController::class, 'sketerangan'])->name('sketerangan');
 
         Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
         Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
@@ -116,19 +123,52 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/downloadinfo', [InfoPensiController::class, 'downloadinfo'])->name('downloadinfo');
         Route::get('/layananinfo', [InfoLayananController::class, 'layananinfo'])->name('layananinfo');
 
+        Route::get('/layanan/skpenetapan', [InfoLayananController::class, 'skpenetapan'])->name('skpenetapan');
+        Route::get('/layanan/skpenetapan/tambah/{id}', [InfoLayananController::class, 'skpenetapancreate'])->name('skpenetapan.create');
+        Route::post('/layanan/skpenetapan/kirim', [InfoLayananController::class, 'skpenetapanstore'])->name('skpenetapan.store');
+        Route::get('/layanan/sketerangan', [InfoLayananController::class, 'sketerangan'])->name('sketerangan');
+        Route::get('/layanan/sketerangan/tambah/{id}', [InfoLayananController::class, 'sketerangancreate'])->name('sketerangan.create');
+        Route::post('/layanan/sketerangan/kirim', [InfoLayananController::class, 'sketeranganstore'])->name('sketerangan.store');
+
         Route::resource('/permohonan', PermohonanController::class);
 
         Route::get('/permohonan/karyawan/form1/{id}', [PermohonanController::class, 'form1'])->name('permohonankaryawan-form1');
         Route::get('/permohonan/karyawan/form2/{id}', [PermohonanController::class, 'form2'])->name('permohonankaryawan-form2');
         Route::get('/permohonan/karyawan/form3/{id}', [PermohonanController::class, 'form3'])->name('permohonankaryawan-form3');
 
+        Route::get('/permohonan/karyawan/formedit1/{id}', [PermohonanController::class, 'formedit1'])->name('permohonan.karyawan-formedit1');
+
         Route::post('/permohonan-upload', [PermohonanController::class, 'upload'])->name('permohonan.upload');
         Route::post('/permohonan-deletefile', [PermohonanController::class, 'deleteFile'])->name('permohonan.deletefile');
         Route::post('/permohonan-kirim/{id}', [PermohonanController::class, 'kirim'])->name('permohonan.kirim');
 
-        Route::get('/permohonan/karyawan/formedit1/{id}', [PermohonanController::class, 'formedit1'])->name('permohonan.karyawan-formedit1');
-
         Route::get('/permohonan/karyawan/formstore1/{id}', [PermohonanController::class, 'formstore1'])->name('permohonan.karyawan-formstore1');
+
+        Route::resource('/permohonananak', PermohonanAnakController::class);
+
+        Route::get('/permohonan/anak/form1/{id}', [PermohonanAnakController::class, 'form1'])->name('permohonananak-form1');
+        Route::get('/permohonan/anak/form2/{id}', [PermohonanAnakController::class, 'form2'])->name('permohonananak-form2');
+        Route::get('/permohonan/anak/form3/{id}', [PermohonanAnakController::class, 'form3'])->name('permohonananak-form3');
+        Route::get('/permohonan/anak/form4/{id}', [PermohonanAnakController::class, 'form4'])->name('permohonananak-form4');
+
+        Route::get('/permohonan/anak/formedit1/{id}', [PermohonanAnakController::class, 'formedit1'])->name('permohonan.anak-formedit1');
+
+        Route::resource('/keluarga', KeluargaController::class);
+
+        Route::post('/permohonananak-upload', [PermohonanAnakController::class, 'upload'])->name('permohonananak.upload');
+        Route::post('/permohonananak-deletefile', [PermohonanAnakController::class, 'deleteFile'])->name('permohonananak.deletefile');
+        Route::post('/permohonananak-kirim/{id}', [PermohonanAnakController::class, 'kirim'])->name('permohonananak.kirim');
+
+        Route::resource('/permohonandudajanda', PermohonanDudaJandaController::class);
+
+        Route::get('/permohonan/dudajanda/form1/{id}', [PermohonanDudaJandaController::class, 'form1'])->name('permohonandudajanda-form1');
+        Route::get('/permohonan/dudajanda/form2/{id}', [PermohonanDudaJandaController::class, 'form2'])->name('permohonandudajanda-form2');
+        Route::get('/permohonan/dudajanda/form3/{id}', [PermohonanDudaJandaController::class, 'form3'])->name('permohonandudajanda-form3');
+        Route::get('/permohonan/dudajanda/form4/{id}', [PermohonanDudaJandaController::class, 'form4'])->name('permohonandudajanda-form4');
+
+        Route::post('/permohonandudajanda-upload', [PermohonanDudaJandaController::class, 'upload'])->name('permohonandudajanda.upload');
+        Route::post('/permohonandudajanda-deletefile', [PermohonanDudaJandaController::class, 'deleteFile'])->name('permohonandudajanda.deletefile');
+        Route::post('/permohonandudajanda-kirim/{id}', [PermohonanDudaJandaController::class, 'kirim'])->name('permohonandudajanda.kirim');
 
         Route::get('/laporan/laporberitaduka', [InfoPensiController::class, 'laporberitaduka'])->name('laporan.laporberitaduka');
     });

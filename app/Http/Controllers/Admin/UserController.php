@@ -18,6 +18,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\UsersImport;
 use App\Imports\BiodataImport;
 use App\Imports\DataKeluargaImport;
+use App\Imports\RekeningImport;
 
 use Alert;
 use Exception;
@@ -347,7 +348,7 @@ class UserController extends Controller
 
     public function fileImport(Request $request)
     {
-        Excel::import(new DataKeluargaImport, $request->file('file')->store('temp'));
+        Excel::import(new RekeningImport, $request->file('file')->store('temp'));
         //Excel::import(new UsersImport, $request->file('file')->store('temp'));
         //Excel::import(new BiodataImport, $request->file('file')->store('temp'));
         return back();

@@ -14,13 +14,10 @@
             <li class="{{ $menu == 'strukturorganisasi' ? 'active' : '' }}"><a href="{!! url('admin/konten/strukturorganisasi') !!}"><i class="fa fa-angle-right"></i> Struktur Organisasi</a></li>
           </ul>
         </li>
-        <li class="{{ $menu == 'laporan' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-doc"></i> <span> Laporan </span> </a>
-            <ul>
-                <li class="{{ $menu == 'layanan' ? 'active' : '' }}"><a href="{!! url('admin/layanan/laporberitaduka') !!}">Laporan Duka</a></li>
-            </ul>
-        </li>
         <li class="{{ $menu == 'layanan' ? 'active' : '' }}"> <a href="#"> <i class="icon-directions"></i> <span>Layanan</span> </a>
             <ul>
+                <li class="{{ $menu == 'layanan' ? 'active' : '' }}"><a href="{!! url('admin/layanan/laporberitaduka') !!}">Laporan Berita Duka</a></li>
+                <li><a href="{!! url('admin/layanan/pengkiniandata') !!}">Pengkinian Data</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">SK Penetapan Manfaat</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Potong Pajak</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Slip Manfaat Pensiun</a></li>
@@ -41,11 +38,3 @@
             <li class="{{ $menu == 'artikel' ? 'active' : '' }}"><a href="{!! url('admin/artikel') !!}"><i class="fa fa-angle-right"></i> Artikel</a></li>
           </ul>
         </li>
-        <li> <a href="#"> <i class="icon-info"></i> <span>Informasi</span> </a>
-          <ul>
-            <li class="{{ $menu == 'pdp' ? 'active' : '' }}"><a href="{!! url('admin/konten/galeri') !!}"><i class="fa fa-angle-right"></i> PDP</a></li>
-            <li class="{{ $menu == 'laporankeuangan' ? 'active' : '' }}"><a href="{!! url('admin/konten/laporankeuangan') !!}"><i class="fa fa-angle-right"></i> Laporan Keuangan</a></li>
-            <li class="{{ $menu == 'panduan' ? 'active' : '' }}"><a href="{!! url('admin/konten/panduan') !!}"><i class="fa fa-angle-right"></i> Panduan</a></li>
-          </ul>
-        </li>
-
