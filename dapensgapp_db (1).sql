@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 15, 2022 at 02:56 PM
+-- Generation Time: Jan 18, 2022 at 12:59 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -1665,6 +1665,52 @@ INSERT INTO `biodata` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`, `alam
 (1556, 1559, 'MUSKAN', '081332324088', NULL, NULL, 'JL. KENARI G 26 RT.05 RW.09 KEL.PERBON', NULL, NULL, NULL, 'TUBAN', NULL, '2021-12-24 08:18:31', '2021-12-24 08:18:31', NULL, NULL, NULL, '02005', 'MUSKAN', 'D', 'L', NULL, '1974-09-08', '3523160809740002', '', '476452149648000', NULL, NULL, NULL, NULL, NULL),
 (1557, 1560, 'BAMBANG TRIDOSO O., Ir.', '08123416261', NULL, NULL, 'Kebonsari Elveka V/3 RT 05 RW 03 Jambangan', NULL, NULL, NULL, 'SURABAYA', NULL, '2021-12-24 08:18:31', '2021-12-24 08:18:31', NULL, NULL, NULL, '02006', 'BAMBANG TRIDOSO O.,IR.', 'N', 'L', NULL, '1965-10-30', '3523163010650001', '', '475785648648000', NULL, NULL, NULL, NULL, NULL),
 (1558, 1561, 'MUTTAQIEN', '081133367274', NULL, NULL, 'GGI/215 RT 001 RW 002 BATURETNO', NULL, NULL, NULL, 'TUBAN', '62318', '2021-12-24 08:18:31', '2021-12-24 08:18:31', NULL, NULL, NULL, '02007', 'MUTTAQIEN', 'N', 'L', NULL, '1965-11-14', '352316141150001', '', '476441720648000', NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `biodata_update`
+--
+
+CREATE TABLE `biodata_update` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `nohp` varchar(255) DEFAULT NULL,
+  `jabatan` varchar(255) DEFAULT NULL,
+  `unit` varchar(255) DEFAULT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `kelurahan` varchar(255) DEFAULT NULL,
+  `rt` varchar(10) DEFAULT NULL,
+  `rw` varchar(10) DEFAULT NULL,
+  `kota` varchar(255) DEFAULT NULL,
+  `kodepos` varchar(10) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  `no_pegawai` varchar(255) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `nopeserta` varchar(255) DEFAULT NULL,
+  `berhak` varchar(255) DEFAULT NULL,
+  `jenis` varchar(10) DEFAULT NULL,
+  `sex` varchar(10) DEFAULT NULL,
+  `tempat_lahir` varchar(255) DEFAULT NULL,
+  `tgl_lahir` date DEFAULT NULL,
+  `nik` varchar(40) DEFAULT NULL,
+  `nik_berhak` varchar(40) DEFAULT NULL,
+  `npwp` varchar(40) DEFAULT NULL,
+  `email_user` varchar(255) DEFAULT NULL,
+  `baru` varchar(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `biodata_update`
+--
+
+INSERT INTO `biodata_update` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`, `alamat`, `kelurahan`, `rt`, `rw`, `kota`, `kodepos`, `created_at`, `updated_at`, `status`, `no_pegawai`, `file`, `nopeserta`, `berhak`, `jenis`, `sex`, `tempat_lahir`, `tgl_lahir`, `nik`, `nik_berhak`, `npwp`, `email_user`, `baru`) VALUES
+(1563, 24, 'Farendi Gio James', '67567767567', NULL, NULL, 'Jl. Dorang', NULL, NULL, NULL, 'Jombang', '61723', '2022-01-18 12:45:08', '2022-01-18 12:45:08', NULL, NULL, NULL, NULL, NULL, 'N', 'P', 'Surabaya', '2021-12-09', '1218096003422331', NULL, NULL, NULL, '1'),
+(1564, 24, 'Farendi Gio James', '67567767567', NULL, NULL, 'Jl. Dorang', NULL, NULL, NULL, 'Jombang', '61723', '2022-01-18 12:56:21', '2022-01-18 12:56:21', NULL, NULL, NULL, NULL, NULL, 'N', 'P', 'Surabaya', '2021-12-09', '1218096003422331', NULL, NULL, NULL, '1'),
+(1565, 24, 'Farendi Gio James', '67567767567', NULL, NULL, 'Jl. Dorang', NULL, NULL, NULL, 'Jombang', '61723', '2022-01-18 12:57:11', '2022-01-18 12:57:11', NULL, NULL, NULL, '00011', NULL, 'N', 'P', 'Surabaya', '2021-12-09', '1218096003422331', NULL, NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -10963,10 +11009,11 @@ CREATE TABLE `panduan` (
 --
 
 INSERT INTO `panduan` (`id`, `judul`, `file`, `keterangan`, `status`, `jenis`, `created_at`, `updated_at`) VALUES
-(1, 'Pembayaran Manfaat Pensiun', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Pembayaran  Manfaat  Pensiun Karyawan', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'Pembayaran  Manfaat  Pensiun Anak', NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Surat Kuasa', NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 'Formulir Pengajuan Manfaat Pensiun Normal', 'FormulirPengajuanMPNormal.doc', NULL, NULL, NULL, NULL, NULL),
+(2, 'Formulir Pengajuan Manfaat Pensiun Janda / Duda', 'FormulirPengajuanMPJandaatauDuda.doc', 'Manfaat Pensiun Janda/Duda diberikan kepada Janda/Duda dari Peserta/Pekerja Aktif dan Pensiunan meninggal dunia', NULL, NULL, NULL, NULL),
+(3, 'Formulir Pengajuan Manfaat Pensiun Anak', 'FormulirPengajuanMPAnak.doc', 'Manfaat Pensiun Anak diberikan kepada Anak dari Peserta/Pekerja Aktif dan Pensiunan meninggal dunia yang sudah tidak ada istrinya (bercerai/meninggal dunia).', NULL, NULL, NULL, NULL),
+(4, 'Surat Kuasa Manfaat Pensiun Anak', 'FormulirPengajuanMPterbaru.doc', '', NULL, NULL, NULL, NULL),
+(5, 'Formulir Pindah Rekening', 'FormulirPermohonanPindahRekening.doc', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12773,8 +12820,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('maPNRt4ZBCEya1aNO0ObjNe1GqPcqOom3Dd75eH7', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTmFYQ2xZVjZ3VG8yUTVtYTE3UlBJUGd2Rjl5T1VhSHQyQ3V1a2hqbSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ0OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvYWRtaW4vbGF5YW5hbi9jZXRha3BlbmdraW5pYW5kYXRhL2V5SnBkaUk2SW1wbVYwWjJXRTgzYkRKMGJqbHlTMVp0UlU5SFRHYzlQU0lzSW5aaGJIVmxJam9pY0dSMFoxTlRhV2hTYlVoNlIzTTRRVlJ0VURCRlp6MDlJaXdpYldGaklqb2lNalkwWWpRMlpXRmlaalkxWVRZd01ESmtZek5pTm1SaFpUbGhOREE0WWpobVltRXpPRFEwWVRoa1l6Y3hZekV5TTJaaVlXSXdOV1ExWTJRME5XWTFOeUo5Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7fQ==', 1642258518),
-('O9ijuQUmHowiWcHqwYp8v7qM0ztYM4mLfyhL8yoZ', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiOEVXd05SNEZST016dVdiUGxuclR3aVBVRlRYYkxzTW4zQzZlVUYxSyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI5OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuc2l1bi9leUpwZGlJNklrOHdabk5CUlVOR2MwNW9kRFoyVFRObmFrRkJabEU5UFNJc0luWmhiSFZsSWpvaVpHZHBSMllyZHk4dmN6ZG5RMFZEYVU1TGJXbE9RVDA5SWl3aWJXRmpJam9pTmpnNFptVTFPR1k1T0RJNU4yTTNaR1ptWWpobVpXSXdaRFExT0RRMFl6SXlZV1ZoTldFMk9UbGtNREZrTmpObE16bG1ZamswTXpGaE1qazBZbUZtTnlKOS9lZGl0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjQ7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MTE6InN3ZWV0X2FsZXJ0IjthOjA6e319', 1642252449);
+('205HJvztgobhL3Ii7zacZFZiEtp1HCRxLiinlW2Y', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoiVHBRcEhBSXNhc1pSRlRBTzZkMHFCNWZmdVVnR0FYTnNTNVk4ZlB3dyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9wZW5zaS9wZW5na2luaWFuIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI0O3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjtzOjExOiJzd2VldF9hbGVydCI7YTowOnt9fQ==', 1642510691);
 
 -- --------------------------------------------------------
 
@@ -14493,6 +14539,12 @@ ALTER TABLE `biodata`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `biodata_update`
+--
+ALTER TABLE `biodata_update`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Indexes for table `data_keluarga`
 --
 ALTER TABLE `data_keluarga`
@@ -14682,6 +14734,12 @@ ALTER TABLE `biodata`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1561;
 
 --
+-- AUTO_INCREMENT for table `biodata_update`
+--
+ALTER TABLE `biodata_update`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1566;
+
+--
 -- AUTO_INCREMENT for table `data_keluarga`
 --
 ALTER TABLE `data_keluarga`
@@ -14716,6 +14774,12 @@ ALTER TABLE `laporan_duka`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `panduan`
+--
+ALTER TABLE `panduan`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `permissions`
