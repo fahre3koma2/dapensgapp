@@ -37,7 +37,8 @@
                                 <span class="label label-success">Anak</span>
                             @endif
                         </td>
-                        <td>{{$item->tgl_lahir}}</td>
+
+                        <td>{{ Carbon\Carbon::parse($item->tgl_lahir)->isoFormat('D MMMM Y')}}</td>
                     </tr>
                     @php $no++; @endphp
                     @endforeach

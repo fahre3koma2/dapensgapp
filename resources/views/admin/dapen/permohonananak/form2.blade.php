@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <br/><br/><br/><br/>
-                 <div class="row m-t-3">
+                {{--  <div class="row m-t-3">
                     <div class="col-lg-12">
                     <div class="card ">
                         <div class="card-header bg-blue">
@@ -123,7 +123,7 @@
                         </div>
                     </div>
                     </div>
-                </div>
+                </div>  --}}
               </div>
             <div class="step-footer">
                 <a href="{!! url('pensi/permohonan/anak/form3', ['id' => encrypt($mohon->id )]) !!}" type="submit" data-direction="next" class="btn btn-primary">Next</a>

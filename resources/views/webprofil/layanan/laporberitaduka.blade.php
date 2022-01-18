@@ -9,10 +9,10 @@
         <div class="full">
           <div class="title-holder">
             <div class="title-holder-cell text-left">
-              <h1 class="page-title">Pengajuan Pensiun</h1>
+              <h1 class="page-title">Lapor Berita Duka</h1>
               <ol class="breadcrumb">
                 <li><a href="index.html">Layanan</a></li>
-                <li class="active">Pengajuan Pensiun</li>
+                <li class="active">Lapor Berita Duka</li>
               </ol>
             </div>
           </div>
@@ -40,20 +40,8 @@
               </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Nomor Telpon <span class="red">*</span></label>
-                  <input name="notelp" type="number" required>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-field">
-                  <label>Nama Peserta <span class="red">*</span></label>
+                  <label>Nama Pensiunan (yang meninggal dunia) <span class="red">*</span></label>
                   <input name="nama_peserta" type="text" required>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-field">
-                  <label>Tanggal Meninggal <span class="red">*</span></label>
-                  <input name="tgl_meninggal" type="text" id="datepicker" required>
                 </div>
               </div>
               <div class="col-md-6">
@@ -62,6 +50,20 @@
                   <input name="nopensiun" type="text" required>
                 </div>
               </div>
+              <div class="col-md-6">
+                <div class="form-field">
+                  <label>Nomor HP Pelapor <span class="red">*</span></label>
+                  <input name="notelp" type="number" required>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-field">
+                  <label>Tanggal Meninggal <span class="red">*</span></label>
+                  <input name="tgl_meninggal" type="text" id="datepicker" required>
+                </div>
+              </div>
+
               <div class="col-md-6">
                 <div class="form-field">
                   <label>Hubungan Keluarga<span class="red">*</span></label>
@@ -80,10 +82,10 @@
                   <textarea name="keterangan" required></textarea>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="form-field">
-                    <span class="crte-ac">Dengan ini saya menyatakan pelaporan ini dibuat dengan sebenar-benarnya dengan nomor telpon yang saya cantumkan saya bersedia untuk di hubungi oleh pihak Dana Pensiun Semen Gresik untuk di konfirmasi. *</span> </div>
                     <input name="ck" type="checkbox" name="terms" id="terms" onchange="activateButton(this)">
+                    <span class="crte-ac">Dengan ini saya menyatakan pelaporan ini dibuat dengan sebenar-benarnya dengan nomor telpon yang saya cantumkan saya bersedia untuk di hubungi oleh pihak Dana Pensiun Semen Gresik untuk di konfirmasi. *</span> </div>
                 </div>
               <div class="col-md-12 payment-bt">
                 <div class="center">

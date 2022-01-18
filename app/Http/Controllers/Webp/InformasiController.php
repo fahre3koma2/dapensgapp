@@ -135,7 +135,7 @@ class InformasiController extends Controller
         $menu = 'downloadform';
         $edit = false;
 
-        $form = Panduan::orderBy('id', 'desc')->get();
+        $form = Panduan::orderBy('id')->get();
 
         $data = [
             'menu' => $menu,

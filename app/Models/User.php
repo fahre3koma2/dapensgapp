@@ -78,6 +78,11 @@ class User extends Authenticatable
         return $this->hasOne(Biodata::class, 'user_id', 'id')->with('keluarga', 'rekening');
     }
 
+    public function biodataupdate()
+    {
+        return $this->hasOne(BiodataUpdate::class, 'user_id', 'id')->with('keluarga', 'rekening');
+    }
+
     public function RolesUser()
     {
         return $this->belongsToMany(Role::class, 'model_has_roles', 'model_id', 'role_id');

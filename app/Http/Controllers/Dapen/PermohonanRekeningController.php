@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Biodata;
 use App\Models\Admin\PermohonanKaryawan;
-use App\Models\Admin\PermohonanDudaJanda;
+use App\Models\Admin\PermohonanRekening;
 use App\Models\Admin\Lampiran;
 use App\Models\Admin\DataKeluarga;
 
@@ -34,7 +34,7 @@ class PermohonanRekeningController extends Controller
         $menu = 'register';
         $edit = false;
         $user = User::query()->with(['biodata'])->find(auth()->user()->id);
-        $mohon = PermohonanDudaJanda::where('nopeserta', $user->biodata->nopeserta)->get();
+        $mohon = PermohonanRekening::where('nopeserta', $user->biodata->nopeserta)->get();
 
         $data = [
             'menu' => $menu,
@@ -43,7 +43,7 @@ class PermohonanRekeningController extends Controller
             'user' => $user,
         ];
 
-        return view('admin.dapen.permohonandudajanda.index', $data);
+        return view('admin.dapen.permohonanrekening.index', $data);
     }
 
     /**
@@ -60,7 +60,7 @@ class PermohonanRekeningController extends Controller
     {
         //
         $user = User::query()->with(['biodata'])->find(decrypt($id));
-        $cek = PermohonanDudaJanda::where('nopeserta', $user->biodata->nopeserta)->where('status', null)->count();
+        $cek = PermohonanRekening::where('nopeserta', $user->biodata->nopeserta)->where('status', null)->count();
 
         if($cek > 0)
         {
@@ -80,7 +80,7 @@ class PermohonanRekeningController extends Controller
                 'mohon' => $mohon,
             ];
 
-            return view('admin.dapen.permohonandudajanda.form1', $data);
+            return view('admin.dapen.permohonanrekening.form1', $data);
         }
     }
 
@@ -90,7 +90,7 @@ class PermohonanRekeningController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
+        $mohon = PermohonanRekening::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
         //dd($mohon);
         $data = [
             'menu' => $menu,
@@ -98,7 +98,7 @@ class PermohonanRekeningController extends Controller
             'mohon' => $mohon,
         ];
 
-        return view('admin.dapen.permohonandudajanda.form2', $data);
+        return view('admin.dapen.permohonanrekening.form2', $data);
     }
 
     public function form3($id)
@@ -107,7 +107,7 @@ class PermohonanRekeningController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
+        $mohon = PermohonanRekening::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
         $user = User::where('id', $mohon->biodata->user_id)->first();
         $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta);
         //dd($mohon);
@@ -119,7 +119,7 @@ class PermohonanRekeningController extends Controller
             'lampiran' => $lampiran,
         ];
 
-        return view('admin.dapen.permohonandudajanda.form3', $data);
+        return view('admin.dapen.permohonanrekening.form3', $data);
     }
 
     public function form4($id)
@@ -128,7 +128,7 @@ class PermohonanRekeningController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
+        $mohon = PermohonanRekening::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
         $user = User::where('id', $mohon->biodata->user_id)->first();
         $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta);
         //dd($mohon);
@@ -140,7 +140,7 @@ class PermohonanRekeningController extends Controller
             'lampiran' => $lampiran,
         ];
 
-        return view('admin.dapen.permohonandudajanda.form4', $data);
+        return view('admin.dapen.permohonanrekening.form4', $data);
     }
 
     public function formedit1($id)
@@ -149,7 +149,7 @@ class PermohonanRekeningController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanDudaJanda::query()->with(['biodata'])->find(decrypt($id));
+        $mohon = PermohonanRekening::query()->with(['biodata'])->find(decrypt($id));
         $user = User::where('id', $mohon->biodata->user_id)->first();
 
         $data = [
@@ -159,7 +159,7 @@ class PermohonanRekeningController extends Controller
             'mohon' => $mohon,
         ];
 
-        return view('admin.dapen.permohonandudajanda.form1', $data);
+        return view('admin.dapen.permohonanrekening.form1', $data);
     }
 
 
@@ -175,7 +175,7 @@ class PermohonanRekeningController extends Controller
         //
         $data = $request->except('_token');
         $nopeserta = $request->nopeserta;
-        $record = PermohonanDudaJanda::latest()->first();
+        $record = PermohonanRekening::latest()->first();
 
         if ($record) {
             $expNum = explode('-', $record->idperm_karyawan);
@@ -188,13 +188,13 @@ class PermohonanRekeningController extends Controller
 
             $data['idperm_karyawan'] = $nextNumber;
             //$data['status'] = 1;
-            $mohon = PermohonanDudaJanda::create($data);
+            $mohon = PermohonanRekening::create($data);
             $check = Lampiran::where('nopeserta', $nopeserta)->first();
             if ($check == null) {
                 $lampiran = Lampiran::create($data);
             }
 
-            return redirect()->route('pensi.permohonandudajanda-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
+            return redirect()->route('pensi.permohonanrekening-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
         } catch (Exception $ex) {
             return redirect()->back()->withInput();
         }
@@ -228,7 +228,7 @@ class PermohonanRekeningController extends Controller
 
         alert()->success('Berhasil', 'Anggota Keluarga berhasil di tambahkan');
 
-        return redirect()->route('pensi.permohonandudajanda-form2', $request->idx);
+        return redirect()->route('pensi.permohonanrekening-form2', $request->idx);
     }
 
     /**
@@ -266,13 +266,13 @@ class PermohonanRekeningController extends Controller
         $data = $request->except('_token');
 
         try {
-            $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
+            $mohon = PermohonanRekening::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
 
             $mohon->update($data);
 
             Alert::success('Berhasil', 'Pengajuan berhasil disimpan');
 
-            return redirect()->route('pensi.permohonandudajanda-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
+            return redirect()->route('pensi.permohonanrekening-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
         } catch (Exception $ex) {
             return redirect()->back()->withInput();
         }
@@ -398,19 +398,19 @@ class PermohonanRekeningController extends Controller
         $filenya[$request->type] = null;
         $lampiran->update($filenya);
 
-        return redirect()->route('pensi.permohonandudajanda-form2', $idx);
+        return redirect()->route('pensi.permohonanrekening-form2', $idx);
     }
 
     public function kirim($id)
     {
-        $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
+        $mohon = PermohonanRekening::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
 
         if (is_null($mohon->lampiran->file_surat_kematian) || is_null($mohon->lampiran->file_foto) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikahortu) || is_null($mohon->lampiran->surat_kuasa) || is_null($mohon->lampiran->file_surat_sekolah) || is_null($mohon->lampiran->file_belum_nikah) || is_null($mohon->lampiran->file_scan_anak)) {
 
             // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
             alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');
 
-            return redirect()->route('pensi.permohonandudajanda-form3', Crypt::encrypt($mohon->id))->with('message', 'File Lampiran Usulan harus lengkap');
+            return redirect()->route('pensi.permohonanrekening-form3', Crypt::encrypt($mohon->id))->with('message', 'File Lampiran Usulan harus lengkap');
 
         } else {
 
@@ -424,7 +424,7 @@ class PermohonanRekeningController extends Controller
 
             Alert::success('Berhasil', 'Pengajuan berhasil disimpan');
 
-            return redirect()->route('pensi.permohonandudajanda.index', $data);
+            return redirect()->route('pensi.permohonanrekening.index', $data);
         }
     }
 }

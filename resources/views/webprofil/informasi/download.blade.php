@@ -9,10 +9,10 @@
         <div class="full">
           <div class="title-holder">
             <div class="title-holder-cell text-left">
-              <h1 class="page-title">Download Form</h1>
+              <h1 class="page-title">Unduh Formulir</h1>
               <ol class="breadcrumb">
                 <li><a href="index.html">Informasi</a></li>
-                <li class="active">Download Form</li>
+                <li class="active">Unduh Formulir</li>
               </ol>
             </div>
           </div>
@@ -41,10 +41,10 @@
                 <td class="col-sm-8 col-md-6">
                     <div class="media-body">
                       <h4 class="media-heading"><a href="#">{{$value->judul}}</a></h4>
-                      <span>Manfaat Pensiun Normal diberikan kepada Peserta yang berhenti bekerja sebagai Pekerja dan telah mencapai Usia Pensiun Normal (56 tahun).</span>
+                      <span>{{ $value->keterangan }}</span>
                     </div>
                 </td>
-                <td class="col-sm-1 col-md-1"><button type="button" class="bt_main"><i class="fa fa-download "></i> Download</button></td>
+                <td class="col-sm-1 col-md-1"><a href="{{ url('/dapen/formulir_permohonan/'.$value->file) }}" type="button" class="bt_main"><i class="fa fa-download "></i> Download </a></td>
               </tr>
             @endforeach
             </tbody>

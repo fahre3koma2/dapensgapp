@@ -1,5 +1,5 @@
     <div class="card-body">
-        <form action="{{ $edit ? route('pensi.pensiun.update', ['pensiun' => encrypt($user->id)]) : route('pensi.pensiun.store') }}" method="POST" class="form-horizontal form-material">
+        <form action="{{ $edit ? route('pensi.pengkinian.update', ['pengkinian' => encrypt($user->id)]) : route('pensi.pensiun.store') }}" method="POST" class="form-horizontal form-material">
         @if ($edit)
             {{ method_field('PUT') }}
         @endif
@@ -9,6 +9,7 @@
         <div class="form-group has-feedback">
             <label class="control-label">No Pensiun Dapen SG</label>
             <input class="form-control" type="text" value="{{ $user->biodata->nopeserta }}" disabled>
+            <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->biodata->nopeserta }}">
             <span class="fa fa-user-circle-o form-control-feedback" aria-hidden="true"></span> </div>
         </div>
         <div class="col-md-6">
@@ -81,7 +82,7 @@
         <div class="col-md-6">
         <div class="form-group has-feedback">
             <label class="control-label">No Ponsel</label>
-            <input class="form-control" type="text" value="{{ $user->biodata->nohp }}" {{ $edit ? '' : 'disabled' }}>
+            <input class="form-control" type="text" name="nohp" value="{{ $user->biodata->nohp }}" {{ $edit ? '' : 'disabled' }}>
             <span class="fa fa-phone-square form-control-feedback" aria-hidden="true"></span> </div>
         </div>
         <div class="col-md-6">

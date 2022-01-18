@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Biodata;
 use App\Models\Admin\Lampiran;
 
-class PermohonanPindahRek extends Model
+class PermohonanRekening extends Model
 {
     protected $table = "perm_pindahrek";
 

@@ -6,18 +6,24 @@
             <li><a href="{!! url('/pensi/lampiran/'.$idpensi) !!}">Lampiran</a></li>
         </ul>
     </li>
-    <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-doc"></i> <span> Laporan </span> </a>
-         <ul>
-            <li><a href="{!! url('pensi/laporan/laporberitaduka') !!}">Laporan Duka</a></li>
-        </ul>
-    </li>
     <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt"></i> <span> Layanan </span> </a>
         <ul>
-            <li><a href="{!! url('/pensi/layanan/skpenetapan') !!}">SK Penetapan Manfaat</a></li>
-            <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Potong Pajak</a></li>
-            <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Slip Manfaat Pensiun</a></li>
-            <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Kartu Pensiun</a></li>
-            <li><a href="{!! url('/pensi/layanan/sketerangan') !!}">Penerbitan Surat Keterangan</a></li>
+            <li><a href="#">Laporan</a>
+                 <ul>
+                    <li><a href="{!! url('pensi/laporan/laporberitaduka') !!}">Laporan Duka</a></li>
+                </ul>
+            </li>
+            <li><a href="{!! url('pensi/pensiun/'.encrypt(auth()->user()->id).'/edit' ) !!}">Pengkinian Data</a></li>
+            <li><a href="{!! url('pensi/pensiun/'.$idpensi ) !!}">Cek Data Penerima MP</a></li>
+            <li><a href="#">Layanan Mandiri</a>
+                <ul>
+                    <li><a href="{!! url('/pensi/layanan/skpenetapan') !!}">Permintaan SK Penetapan MP</a></li>
+                    <li><a href="{!! url('/pensi/layanan/buktipajak') !!}">Bukti Potong Pajak</a></li>
+                    <li><a href="{!! url('/pensi/layanan/buktislip') !!}">Bukti Slip MP</a></li>
+                    <li><a href="{!! url('/pensi/layanan/sketerangan') !!}">Penerbitan Surat Keterangan</a></li>
+                    {{--  <li><a href="{!! url('/pensi/layanan/skkenaikan') !!}">SK Kenaikan Pensiun</a></li>  --}}
+                </ul>
+            </li>
         </ul>
     </li>
     <li class="{{ $menu == 'faq' ? 'active' : '' }}"> <a href="{!! url('pensi/faq') !!}"> <i class="icon-question"></i> <span> Informasi </span> </a>
@@ -39,12 +45,11 @@
     </li>
     <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt"></i> <span> Permohonan </span> </a>
         <ul>
-            <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP</a></li>
-            <li><a href="{!! url('/pensi/permohonananak') !!}">Permohonan Pembayaran MP Anak</a></li>
-            <li><a href="#">Permohonan Pindah Rekening</a></li>
-            <li><a href="{!! url('/pensi/permohonandudajanda') !!}">Permohonan Pembayaran MP ke Waris</a></li>
-            <li><a href="#">Permohonan Verifikasi Pengkinian Daya</a></li>
-            <li><a href="#">Surat Kuasa</a></li>
+            <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP Normal</a></li>
+            <li><a href="{!! url('/pensi/permohonandudajanda ') !!}">Permohonan Pembayaran MP Janda/Duda</a></li>
+            <li><a href="{!! url('/pensi/permohonananak permohonanrekening') !!}">Permohonan Pembayaran MP </a></li>
+            <li><a href="{!! url('/pensi/home') !!}">Surat Kuasa MP Anak</a></li>
+            <li><a href="{!! url('/pensi/permohonanrekening') !!}">Permohonan Pindah Rekening</a></li>
         </ul>
     </li>
     {{--  <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-bubbles"></i> <span> Kontak Kami </span> </a> </li>  --}}

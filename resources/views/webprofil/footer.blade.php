@@ -76,18 +76,20 @@
                     <span>{{ $message }}</span>
                 </div>
                 @endforeach
-                <p class="description">Login dengan Email & Password</p>
+                {{--  <p class="description">Login dengan Email & Password</p>  --}}
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">
                         <span class="input-icon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Enter email" name="email" required="required">
+                        <input type="text" class="form-control" placeholder="No Pensiun" name="email" required="required">
                     </div>
                     <div class="form-group">
                         <span class="input-icon"><i class="fa fa-key"></i></span>
                         <input type="password" class="form-control" placeholder="Password" name="password" required="required">
                     </div>
-                {{-- <a href="" class="forgot-pass">Forgot Password?</a> --}}
+                <div class="form-group">
+                    <a href="https://api.whatsapp.com/send?phone=0987654321&text=Lupa Password%21%20." target="_blank" class="forgot-pass align-left">Lupa Password ?</a>
+                </div>
                 <button class="btn" type="submit">Login</button>
                 </form>
             </div>

@@ -21,6 +21,8 @@ use App\Http\Controllers\Dapen\PermohonanController;
 use App\Http\Controllers\Dapen\PermohonanAnakController;
 use App\Http\Controllers\Dapen\KeluargaController;
 use App\Http\Controllers\Dapen\PermohonanDudaJandaController;
+use App\Http\Controllers\Dapen\PermohonanRekeningController;
+use App\Http\Controllers\Dapen\PengkinianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,9 +128,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/layanan/skpenetapan', [InfoLayananController::class, 'skpenetapan'])->name('skpenetapan');
         Route::get('/layanan/skpenetapan/tambah/{id}', [InfoLayananController::class, 'skpenetapancreate'])->name('skpenetapan.create');
         Route::post('/layanan/skpenetapan/kirim', [InfoLayananController::class, 'skpenetapanstore'])->name('skpenetapan.store');
+
         Route::get('/layanan/sketerangan', [InfoLayananController::class, 'sketerangan'])->name('sketerangan');
         Route::get('/layanan/sketerangan/tambah/{id}', [InfoLayananController::class, 'sketerangancreate'])->name('sketerangan.create');
         Route::post('/layanan/sketerangan/kirim', [InfoLayananController::class, 'sketeranganstore'])->name('sketerangan.store');
+
+        Route::get('/layanan/buktislip', [InfoLayananController::class, 'buktislip'])->name('buktislip');
+        Route::get('/layanan/buktipajak', [InfoLayananController::class, 'buktipajak'])->name('buktipajak');
 
         Route::resource('/permohonan', PermohonanController::class);
 
@@ -170,6 +176,19 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::post('/permohonandudajanda-deletefile', [PermohonanDudaJandaController::class, 'deleteFile'])->name('permohonandudajanda.deletefile');
         Route::post('/permohonandudajanda-kirim/{id}', [PermohonanDudaJandaController::class, 'kirim'])->name('permohonandudajanda.kirim');
 
+        Route::resource('/permohonanrekening', PermohonanRekeningController::class);
+
+        Route::get('/permohonan/rekening/form1/{id}', [PermohonanRekeningController::class, 'form1'])->name('permohonanrekening-form1');
+        Route::get('/permohonan/rekening/form2/{id}', [PermohonanRekeningController::class, 'form2'])->name('permohonanrekening-form2');
+        Route::get('/permohonan/rekening/form3/{id}', [PermohonanRekeningController::class, 'form3'])->name('permohonanrekening-form3');
+        Route::get('/permohonan/rekening/form4/{id}', [PermohonanRekeningController::class, 'form4'])->name('permohonanrekening-form4');
+
+        Route::post('/permohonanrekening-upload', [PermohonanRekeningController::class, 'upload'])->name('permohonanrekening.upload');
+        Route::post('/permohonanrekening-deletefile', [PermohonanRekeningController::class, 'deleteFile'])->name('permohonanrekening.deletefile');
+        Route::post('/permohonanrekening-kirim/{id}', [PermohonanRekeningController::class, 'kirim'])->name('permohonanrekening.kirim');
+
         Route::get('/laporan/laporberitaduka', [InfoPensiController::class, 'laporberitaduka'])->name('laporan.laporberitaduka');
+
+        Route::resource('/pengkinian', PengkinianController::class);
     });
 });

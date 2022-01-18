@@ -9,10 +9,10 @@
         <div class="full">
           <div class="title-holder">
             <div class="title-holder-cell text-left">
-              <h1 class="page-title">Visi Misi</h1>
+              <h1 class="page-title">Budaya Kerja</h1>
               <ol class="breadcrumb">
                 <li><a href="index.html">Profil</a></li>
-                <li class="active">Visi Misi</li>
+                <li class="active">Budaya Kerja</li>
               </ol>
             </div>
           </div>
@@ -28,7 +28,7 @@
     <div class="row" style="margin-top: 35px">
     <div class="col-md-12">
         <div class="full">
-        <div class="main_heading text_align_left">
+        <div class="main_heading text_align_center">
             <h2>Budaya Kerja</h2>
         </div>
         </div>

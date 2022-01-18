@@ -154,4 +154,18 @@ class ProfilController extends Controller
         return view('webprofil.profil.budayakerja', $data);
     }
 
+    public function struktur()
+    {
+        //
+        $menu = 'budaya';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('webprofil.profil.struktur', $data);
+    }
+
 }

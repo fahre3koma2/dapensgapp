@@ -12,6 +12,7 @@ use App\Models\Admin\SkPenetapan;
 
 use Carbon\Carbon;
 use PDF;
+use Carbon\CarbonPeriod;
 
 class LayananController extends Controller
 {
@@ -78,6 +79,7 @@ class LayananController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**
@@ -277,6 +279,82 @@ class LayananController extends Controller
         alert()->success('Berhasil', 'Permohonan berhasil di tambahkan');
 
         return redirect()->route('pensi.sketerangan');
+    }
+
+    public function buktislip(Request $request)
+    {
+        //
+        $menu = 'pensi';
+        $edit = false;
+        $bulanini = date('m-Y', strtotime('now'));
+        $tgl = !is_null($request->bulan) ? $request->bulan : $bulanini;
+        $tgl = explode('-', $tgl);
+        $month = $tgl[0];
+        $year = $tgl[1];
+
+        $from = date('Y-m', strtotime('-2 month'));
+        $to = date('Y-m', strtotime('now'));
+        $period = CarbonPeriod::create($from, '1 month', $to);
+
+        $user = User::query()->with(['biodata'])->find(auth()->user()->id);
+        //dd($bulan);
+        //$bulan = array('01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April', '05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus', '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
+        //dd($user->biodata->nopeserta);
+        $data = [
+            'menu'   => $menu,
+            'edit'   => $edit,
+            'user' => $user,
+            'month'  => $month,
+            'year'   => $year,
+            'period' => $period
+        ];
+
+
+        return view('admin.dapen.layanan.buktislip.index', $data);
+    }
+
+    public function buktipajak(Request $request)
+    {
+        //
+        $menu = 'pensi';
+        $edit = false;
+        $tahunini = date('Y', strtotime('now'));
+        $tahun = !is_null($request->tahun) ? $request->tahun : $tahunini;
+        $user = User::query()->with(['biodata'])->find(auth()->user()->id);
+
+        //$mohon = SKeterangan::query()->get();
+        //$bulan = array('01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April', '05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus', '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
+
+        $data = [
+            'menu' => $menu,
+            'user' => $user,
+            'edit' => $edit,
+            'tahun' =>  $tahun
+        ];
+
+
+        return view('admin.dapen.layanan.buktipajak.index', $data);
+    }
+
+    public function skkenaikan()
+    {
+        //
+        $menu = 'pensi';
+        $edit = false;
+
+        //dd(Carbon::parse('2019-03-01')->translatedFormat('d F Y'));
+        $mohon = SKeterangan::query()->get();
+        $bulan = array('01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April', '05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus', '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'mohon' => $mohon,
+            'bulan' =>  $bulan
+        ];
+
+
+        return view('admin.dapen.layanan.buktipajak.index', $data);
     }
 
 }

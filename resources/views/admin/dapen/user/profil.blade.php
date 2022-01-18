@@ -60,13 +60,13 @@
                 <input class="form-control" type="text" name="name" value="{{ $user->biodata->berhak }}" {{ $edit ? '' : 'disabled' }}>
                 <hr>
                 <strong><i class="fa fa-map-marker margin-r-5"></i> Alamat</strong>
-                <input class="form-control" type="text" name="name" value="{{ $user->biodata->berhakalamat }}" {{ $edit ? '' : 'disabled' }}>
+                <input class="form-control" type="text" name="name" value="{{ $user->biodata->alamat }}" {{ $edit ? '' : 'disabled' }}>
                 <hr>
                 <strong><i class="fa fa-envelope margin-r-5"></i> NIK </strong>
-                <input class="form-control" type="text" name="name" value="{{ $user->biodata->berhaknik }}" {{ $edit ? '' : 'disabled' }}>
+                <input class="form-control" type="text" name="name" value="{{ $user->biodata->nik }}" {{ $edit ? '' : 'disabled' }}>
                 <hr>
                 <strong><i class="fa fa-phone margin-r-5"></i> No Ponsel</strong>
-                <input class="form-control" type="text" name="name" value="{{ $user->biodata->berhaknoponsel }}" {{ $edit ? '' : 'disabled' }}>
+                <input class="form-control" type="text" name="name" value="{{ $user->biodata->nohp }}" {{ $edit ? '' : 'disabled' }}>
                 <hr>
                 {{--  @if ($edit)
                     <button type="submit" class="btn btn-sm btn-primary waves-effect waves-light">Submit</button>
