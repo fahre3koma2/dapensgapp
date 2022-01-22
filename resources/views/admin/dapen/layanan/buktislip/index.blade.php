@@ -47,6 +47,7 @@
                     <thead>
                     <tr>
                         <th scope="col" width="5%">No</th>
+                        <th scope="col" width="10%">Bulan-Tahun</th>
                         <th scope="col" width="20%">No Pensiun</th>
                         <th scope="col">Nama Pensiun</th>
                         <th scope="col" width="5%">Aksi</th>
@@ -56,6 +57,7 @@
                     <tr>
                         <th scope="row">1</th>
                         <td>{{ Carbon\Carbon::parse($year.'-'.$month.'-01')->isoFormat('MMMM Y')  }}</td>
+                        <td>{{ $user->biodata->nopeserta }}</td>
                         <td>{{ $user->biodata->name }}</td>
                         <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/'.$user->biodata->nopeserta.'_MP'.$month.''.$year.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
                     </tr>

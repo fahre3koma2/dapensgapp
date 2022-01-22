@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Webp;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Konten;
+use App\Models\Admin\Artikel;
 
 class BerandaController extends Controller
 {
@@ -17,6 +18,7 @@ class BerandaController extends Controller
     {
         //
         $konten = konten::where('status', 'home')->get();
+        $artikel = Artikel::where('kategori', 'Home')->orderBy('id')->paginate(3);
         $menu = 'beranda';
         $edit = false;
 
@@ -24,6 +26,7 @@ class BerandaController extends Controller
             'menu' => $menu,
             'edit' => $edit,
             'konten' => $konten,
+            'artikel' => $artikel
         ];
 
         return view('webprofil.index', $data);

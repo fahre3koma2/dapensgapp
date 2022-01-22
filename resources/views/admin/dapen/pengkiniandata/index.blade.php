@@ -16,6 +16,7 @@
         <div class="card-body">
             @if($users->isEmpty())
                 <div class="alert alert-danger" role="alert"> Tidak Ada Pengkinian Data </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             @else
             <h4 class="text-black">Data Pengkinian Data</h4>
             {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
@@ -34,9 +35,8 @@
                     <tbody>
                         @php $no = 1; $ur = 1; $jenis = [ 'A' => 'Anak', 'C' => 'Cacat', 'D' => 'Dipercepat' , 'J' => 'Janda', 'N' => 'Normal', 'T' => 'Tunda Bayar', 'U' => 'Duda']; @endphp
                         @foreach ($users as $value)
-                        @php $tgl = $value->biodata->updated_at->addDays(5); $tgl = date_format($tgl,'Y-m-d'); @endphp
-                        {{--  @if ((date('Y-m-d') < $tgl) && ($value->biodata->baru == 1))  --}}
-                        @if($value->biodata->baru == 1)
+                        @php $tgl = $value->updated_at->addDays(5); $tgl = date_format($tgl,'Y-m-d'); @endphp
+                        @if($value->baru == 1)
                             <tr class="text-success">
                         @else
                             <tr>
@@ -44,11 +44,15 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $value->nopeserta }} </td>
                             <td>{{ $value->name }} </td>
-                            <td>{{ $value->biodata->email }} </td>
-                            <td>{{ $value->biodata->updated_at }} </td>
+                            <td>{{ $value->email }} </td>
+                            <td>{{ $value->updated_at }} </td>
                             <td>
+                                @if($value->baru == '1')
+                                    <a class="btn btn-sm btn-warning" href="{{ route('admin.pengkiniandata.edit', ['pengkiniandatum' => encrypt($value->nopeserta)]) }}"><i class="fa fa-edit"></i> Verifikasi</a>
+                                @else
                                 <a class="btn btn-sm btn-info" href="{{ route('admin.cetakpengkiniandata', ['id' => encrypt($value->id)]) }}"><i class="fa fa-print"></i> Print</a>
                                 {{--  <a class="btn btn-sm btn-info" href="{{ route('admin.pensi-edit', ['id' => encrypt($value->id)]) }}"><i class="fa fa-edit"></i> Edit</a>  --}}
+                                @endif
                             </td>
                         </tr>
                         @endforeach

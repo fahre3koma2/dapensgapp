@@ -80,7 +80,7 @@ class User extends Authenticatable
 
     public function biodataupdate()
     {
-        return $this->hasOne(BiodataUpdate::class, 'user_id', 'id')->with('keluarga', 'rekening');
+        return $this->hasOne(BiodataUpdate::class, 'user_id', 'id')->latest('created_at')->with('keluarga', 'rekening');
     }
 
     public function RolesUser()

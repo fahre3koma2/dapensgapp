@@ -14,9 +14,16 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
-             <div class="ml-auto">
-                <a href="{!! url('pensi/pensiun/'.encrypt($user).'/edit') !!}" class="btn btn-sm btn-primary">Tambah File</a>
+            <div class="ml-auto text-center">
+                <h3 class="text-black"> Pengkinian Data</h3>
+                <p> Pengkinian Data dari Tanggal ... sampai tanggal ... </p>
+                <a href="{!! url('pensi/pengkinian/form1/'.encrypt($idu)) !!}" class="btn btn-warning"> <i class="fa fa-user-circle-o"> </i> Pengkinian Data </a>
             </div>
+        </div>
+    </div>
+    <br/>
+    <div class="card">
+        <div class="card-body">
             <div class="table-responsive">
                 @if($biodata)
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
@@ -27,6 +34,7 @@
                             <th>Nama</th>
                             <th>No Handphone</th>
                             <th>Tanggal Update</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -40,16 +48,22 @@
                             <td>{{$item->nohp}}</td>
                             <td>
                                 {{ Carbon\Carbon::parse($item->update_at)->isoFormat('D MMMM Y')}}
-                                {{--  @if ($item->status)
-                                <span class="label label-info">Selesai</span>
-                                @else
-                                <span class="label label-success">Diproses</span>
-                                @endif  --}}
 
                             </td>
+                            <td>@if ($item->baru)
+                                    @if ($item->verifikasi)
+                                        <span class="label label-success">Selesai</span>
+                                    @else
+                                        <span class="label label-info">Diproses</span>
+                                    @endif
+                                @else
+                                    <span class="label label-warning">Belum Di Kirim</span>
+                                @endif
+                            </td>
                             <td>
-                                @if ($item->status)
-                                    <span class="label label-success">Download</span>
+                                @if ($item->baru)
+                                @else
+                                    <a href="{!! url('pensi/pengkinian/formedit1/'.encrypt($item->id)) !!}" class="btn btn-sm btn-warning"> Edit </a>
                                 @endif
                             </td>
                         </tr>

@@ -16,14 +16,14 @@
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
 <!-- Theme style -->
-<link rel="stylesheet" href="{{ url('dist/css/style.css') }}">
+<link rel="stylesheet" href="{{ url('dist/css/style3.css') }}">
 <link rel="stylesheet" href="{{ url('dist/css/font-awesome/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ url('dist/css/et-line-font/et-line-font.css') }}">
 <link rel="stylesheet" href="{{ url('dist/css/themify-icons/themify-icons.css') }}">
 <link rel="stylesheet" href="{{ url('dist/css/simple-lineicon/simple-line-icons.css') }}">
 
 <!-- hmenu -->
-<link rel="stylesheet" href="{{ url('dist/plugins/hmenu/ace-responsive-menu.css') }}">
+<link rel="stylesheet" href="{{ url('dist/plugins/hmenu/ace-responsive-menu4.css') }}">
 
 <!-- Chartist CSS -->
 <link rel="stylesheet" href="{{ url('dist/plugins/chartist-js/chartist.min.css') }}">

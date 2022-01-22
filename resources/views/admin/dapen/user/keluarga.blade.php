@@ -2,7 +2,7 @@
     <h4 class="text-black">Data Keluarga</h4>
      <div class="row">
             <div class="col-lg-12">
-            @if ($user->biodata->keluarga == null)
+            @if ($user->keluarga == null)
                 <div class="alert alert-secondary" role="alert"> Data Keluarga tidak tersedia ! </div>
             @else
             <div class="table-responsive">
@@ -18,7 +18,7 @@
                 <tbody>
                     @php $no = 1; @endphp
 
-                    @foreach ($user->biodata->keluarga as $item)
+                    @foreach ($user->keluarga as $item)
                     <tr>
                         <th scope="row">{{$item->nama}}</th>
                         <td>

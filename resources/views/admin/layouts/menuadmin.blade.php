@@ -1,5 +1,5 @@
 
-        <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="{!! url('home') !!}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li> <a href="#"> <i class="icon-home"></i> <span>Data Master</span> </a>
           <ul>
             <li class="{{ $menu == 'pegawai' ? 'active' : '' }}"><a href="{!! url('admin/user') !!}"><i class="fa fa-angle-right"></i> Pegawai</a></li>

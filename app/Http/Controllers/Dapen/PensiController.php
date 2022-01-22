@@ -7,6 +7,8 @@ use App\Models\Admin\JenisPensiun as AdminJenisPensiun;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Biodata;
+use App\Models\BiodataUpdate;
+use App\Models\Update;
 use App\Models\JenisPensiun;
 use App\Models\Admin\Lampiran;
 
@@ -72,14 +74,24 @@ class PensiController extends Controller
         $menu = 'profil';
         $edit = false;
 
-        $user = User::query()->with(['biodata', 'RolesUser'])->find(decrypt($id));
+        $pensi = User::query()->find(decrypt($id));
+        $biodata = BiodataUpdate::where('nopeserta', $pensi->nopeserta)->orderBy('updated_at', 'desc')->get();
+
+        if ($biodata->count() > 0){
+            $user = BiodataUpdate::with('keluarga', 'rekening')->where([['nopeserta', $pensi->nopeserta], ['tampil', 1], ['verifikasi', 1]])->first();
+        } else {
+            $user = Biodata::with('keluarga', 'rekening')->where('nopeserta', $pensi->nopeserta)->first();
+        }
+
         $jenis = AdminJenisPensiun::query()->get()->sortBy('id');
+        $lampiran = Lampiran::where('nopeserta', $pensi->nopeserta)->first();
 
         $data = [
             'menu' => $menu,
             'edit' => $edit,
             'user' => $user,
             'jenis' => $jenis,
+            'lampiran' => $lampiran
         ];
 
         return view('admin.dapen.user.profil', $data);

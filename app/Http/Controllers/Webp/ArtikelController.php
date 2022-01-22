@@ -22,7 +22,7 @@ class ArtikelController extends Controller
         $menu = 'artikel';
         $edit = false;
 
-        $konten = Artikel::orderBy('id', 'desc')->paginate(3);
+        $konten = Artikel::where('kategori', '!=', 'Home')->orderBy('id', 'desc')->paginate(3);
         //$kategori = Kategori::query()->get()->sortBy('id');
 
         $kategori = DB::table('kategori')

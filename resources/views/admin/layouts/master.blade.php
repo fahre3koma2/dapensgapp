@@ -4,17 +4,19 @@
 <head>
 @include('admin.layouts.adminhead')
 </head>
-<body class="skin-blue sidebar-mini">
+<body class="skin-orange sidebar-mini">
 <div class="wrapper boxed-wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a href="index.html" class="logo blue-bg">
+    {{--  <a href="{!! url('home') !!}" class="logo orange-bg">  --}}
+    <a href="{!! url('home') !!}" class="logo orange-bg">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><img src="{{ url('dist/img/logo-n.png') }}" alt=""></span>
     <!-- logo for regular state and mobile devices -->
     <span class="logo-lg"><img src="{{ url('dist/img/logo.png') }}" alt=""></span> </a>
     <!-- Header Navbar -->
-    <nav class="navbar blue-bg navbar-static-top">
+    {{--  <nav class="navbar orange-bg navbar-static-top">  --}}
+         <nav class="navbar orange-bg navbar-static-top">
       <!-- Sidebar toggle button-->
 
       {{--  <div class="pull-left search-box">
@@ -26,26 +28,33 @@
             </span></div>
         </form>
         <!-- search form --> </div>  --}}
+        @if (auth()->user()->biodataupdate)
+            @php $bio = 'biodataupdate'; @endphp
+        @else
+            @php $bio = 'biodata'; @endphp
+        @endif
+
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- User Account  -->
           <li class="dropdown user user-menu p-ph-res"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                @if(auth()->user()->biodata->file)
+
+                @if(auth()->user()->{$bio}->file)
                     <img src="{{ url('dapen/foto/'.auth()->user()->biodata->file) }}" class="user-image" alt="User Image">
                 @else
                     <img src="{{ url('dist/img/img1.jpg') }}" class="user-image" alt="User Image">
                 @endif
-              <span class="hidden-xs">{{ auth()->user()->name }}</span> </a>
+              <span class="hidden-xs">{{ auth()->user()->{$bio}->name }}</span> </a>
             <ul class="dropdown-menu">
               <li class="user-header">
                 <div class="pull-left user-img">
-                    @if(auth()->user()->biodata->file)
+                    @if(auth()->user()->{$bio}->file)
                         <img src="{{ url('dapen/foto/'.auth()->user()->biodata->file) }}" class="img-responsive img-circle" alt="User">
                     @else
                         <img src="{{ url('dist/img/img1.jpg') }}" class="img-responsive img-circle" alt="User">
                     @endif
                 </div>
-                <p class="text-left">{{ auth()->user()->name }} </p>
+                <p class="text-left">{{ auth()->user()->{$bio}->name }} </p>
               </li>
               <li><a href="#"><i class="icon-profile-male"></i> My Profile</a></li>
               <li role="separator" class="divider"></li>

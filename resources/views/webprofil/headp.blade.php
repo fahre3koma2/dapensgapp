@@ -17,7 +17,7 @@
 <!-- responsive css -->
 <link rel="stylesheet" href="{{ url('webprof/css/responsive.css') }}" />
 <!-- colors css -->
-<link rel="stylesheet" href="{{ url('webprof/css/colors1.css') }}" />
+<link rel="stylesheet" href="{{ url('webprof/css/colors5.css') }}" />
 <!-- custom css -->
 <link rel="stylesheet" href="{{ url('webprof/css/custom.css') }}" />
 <!-- wow Animation css -->
@@ -45,12 +45,16 @@
       <![endif]-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    {{--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>--}}
+    <script src="{{ url('webprof/vendor/light/gallery.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url('webprof/vendor/light/gallery.css') }}" media="screen" />
 
 <style>
        .modal-box{ font-family: 'Poppins', sans-serif; }
 .show-modal{
     color: #fff;
-    background: linear-gradient(to right, #33a3ff, #0675cf, #49a6fd);
+    background: linear-gradient(to right, #ffc018, #ff7800, #fff030);
     font-size: 18px;
     font-weight: 600;
     text-transform: capitalize;
@@ -80,7 +84,7 @@
 }
 .modal-content .close{
     color: #fff;
-    background: linear-gradient(to right, #33a3ff, #0675cf, #4cd5ff);
+    background: linear-gradient(to right, #ffc018, #ff7800, #fff030);
     font-size: 25px;
     font-weight: 400;
     text-shadow: none;
@@ -104,7 +108,7 @@
 .close:focus{ outline: none; }
 .modal-body{ padding: 60px 40px 40px !important; }
 .modal-body .title{
-    color: #026fd4;
+    color: #ff7800;
     font-size: 33px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -170,7 +174,7 @@
 }
 .modal-content .modal-body .btn{
     color: #fff;
-    background: linear-gradient(to right, #33a3ff, #0675cf, #4cd5ff);
+    background: linear-gradient(to right, #ffc018, #ff7800, #fff030);
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -199,7 +203,7 @@
 }
 
 hr.new5 {
-  border: 3px solid #039ee3;
+  border: 3px solid #ff7800;
 }
 
   </style>

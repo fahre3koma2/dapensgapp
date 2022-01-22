@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\BeritaController as BeradminController;
 use App\Http\Controllers\Admin\KontenController;
 use App\Http\Controllers\Admin\ArtikelController as AdminArtikelController;
+use App\Http\Controllers\Admin\PengkinianController as AdminPengkinianController;
 
 use App\Http\Controllers\Webp\BerandaController;
 use App\Http\Controllers\Webp\ProfilController;
@@ -91,15 +92,14 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::resource('/artikel', AdminArtikelController::class);
 
         Route::get('/layanan/laporberitaduka', [LayananController::class, 'adminlaporberitaduka'])->name('laporberitaduka');
-        Route::get('/layanan/pengkiniandata', [InfoLayananController::class, 'pengkiniandata'])->name('pengkiniandata');
         Route::get('/layanan/cetakpengkiniandata/{id}', [InfoLayananController::class, 'cetakpengkiniandata'])->name('cetakpengkiniandata');
         Route::get('/layanan/skpenetapan', [InfoLayananController::class, 'skpenetapan'])->name('skpenetapan');
         Route::get('/layanan/sketerangan', [InfoLayananController::class, 'sketerangan'])->name('sketerangan');
 
+        Route::resource('/layanan/pengkiniandata', AdminPengkinianController::class);
+
         Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
         Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
-        // Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
-        // Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');
 
         //importfile
         Route::get('importfile', [UserController::class, 'importfile']);
@@ -190,5 +190,15 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/laporan/laporberitaduka', [InfoPensiController::class, 'laporberitaduka'])->name('laporan.laporberitaduka');
 
         Route::resource('/pengkinian', PengkinianController::class);
+
+        Route::get('/pengkinian/form1/{id}', [PengkinianController::class, 'form1'])->name('pengkiniandata-form1');
+        Route::get('/pengkinian/form2/{id}', [PengkinianController::class, 'form2'])->name('pengkiniandata-form2');
+        Route::get('/pengkinian/form3/{id}', [PengkinianController::class, 'form3'])->name('pengkiniandata-form3');
+
+        Route::get('/pengkinian/formedit1/{id}', [PengkinianController::class, 'formedit1'])->name('pengkiniandata-formedit1');
+
+        Route::post('/pengkinian-upload', [PengkinianController::class, 'upload'])->name('pengkinian.upload');
+        Route::post('/pengkinian-deletefile', [PengkinianController::class, 'deleteFile'])->name('pengkinian.deletefile');
+        Route::post('/pengkinian-kirim/{id}', [PengkinianController::class, 'kirim'])->name('pengkinian.kirim');
     });
 });

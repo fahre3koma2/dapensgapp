@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Biodata;
+use App\Models\BiodataUpdate;
 use App\Models\Admin\SKeterangan;
 use App\Models\Admin\SkPenetapan;
 
@@ -128,9 +129,21 @@ class LayananController extends Controller
 
     public function cetakpengkiniandata($id)
     {
-        $pensiun = User::query()->with(['biodata', 'RolesUser'])->find(decrypt($id));
 
-        $pdf = PDF::loadview('admin.dapen.layanan.cetakpengkiniandata', ['pensiun' => $pensiun]);
+        $biodata = BiodataUpdate::where('nopeserta', decrypt($id))->orderBy('updated_at', 'desc')->get();
+
+        if ($biodata->count() > 1) {
+            $user1 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['tampil', 1], ['verifikasi', 1], ['baru', 2]])->orderBy('created_at', 'desc')->first();
+            $user2 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['tampil', null], ['verifikasi', null], ['baru', 1]])->first();
+        } else {
+
+            $user1 = Biodata::where([['nopeserta', $biodata[0]->nopeserta]])->first();
+            $user2 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['baru', 1]])->first();
+        }
+
+
+
+        $pdf = PDF::loadview('admin.dapen.layanan.cetakpengkiniandata', ['user1' => $user1, 'user2' => $user2]);
         return $pdf->download('laporan-pegawai-pdf.pdf');
     }
 

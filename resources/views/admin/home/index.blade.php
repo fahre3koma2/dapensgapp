@@ -16,7 +16,7 @@
         <div class="col-lg-3">
             <div class="tile-progress tile-pink">
             <div class="tile-header">
-                <h5>SK Penetapan Manfaat</h5>
+                <h5>Pengkinian Data</h5>
                 <h3>0</h3>
             </div>
             <div class="tile-progressbar"> <span data-fill="100%" style="width: 100%;"></span> </div>
@@ -28,7 +28,7 @@
         <div class="col-lg-3">
             <div class="tile-progress tile-red">
             <div class="tile-header">
-                <h5>Bukti Slip Manfaat Pensiun</h5>
+                <h5>Permohonan</h5>
                 <h3>0</h3>
             </div>
             <div class="tile-progressbar"> <span data-fill="100%" style="width: 100%;"></span> </div>

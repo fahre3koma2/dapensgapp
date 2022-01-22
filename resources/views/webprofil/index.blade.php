@@ -110,51 +110,25 @@
       </div>
     </div>
     <div class="row">
+    @php $no = 1; @endphp
+    @foreach ($artikel as $item)
       <div class="col-md-4">
         <div class="full blog_colum">
-          <div class="blog_feature_img"> <img src="{{ url('webprof/images/dapen/cs.jpg') }}" alt="#" /> </div>
+          <div class="blog_feature_img"> <img src="{{ url('dapen/artikel/'.$item->gambar) }}" alt="#" /> </div>
           <div class="blog_feature_head">
-            <center><h3><b>Layanan Pelanggan</b></h3></center>
+            <center><h3><b>{{ $item->judul }}</b></h3></center>
             <hr class="new5">
           </div>
           <div class="blog_feature_cont">
-            <p>Lorem ipsum dolor sit amet, consectetur quam justo, pretium adipiscing elit. Vestibulum quam justo, pretium eu tempus ut, ...</p>
+            <p>@php $keterangan = strip_tags($item->keterangan); @endphp {{ Str::limit($keterangan, 180) }}</p>
           </div>
           <div class="bottom_info">
-                <div class="pull-left"><a class="read_more" href="it_blog_detail.html">READ MORE <i class="fa fa-angle-right"></i></a></div>
+                <div class="pull-left"><a class="read_more" href="{{ route('artikel.show', ['artikel' => encrypt($item->id)]) }}">READ MORE <i class="fa fa-angle-right"></i></a></div>
               </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="full blog_colum">
-          <div class="blog_feature_img"> <img src="{{ url('webprof/images/it_service/post-03.jpg') }}" alt="#" /> </div>
-          <div class="blog_feature_head">
-            <center><h3><b>Dapen SG</b></h3></center>
-            <hr class="new5">
-          </div>
-          <div class="blog_feature_cont">
-            <p>Lorem ipsum dolor sit amet, consectetur quam justo, pretium adipiscing elit. Vestibulum quam justo, pretium eu tempus ut, ...</p>
-          </div>
-          <div class="bottom_info">
-                <div class="pull-left"><a class="read_more" href="it_blog_detail.html">READ MORE <i class="fa fa-angle-right"></i></a></div>
-              </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="full blog_colum">
-          <div class="blog_feature_img"> <img src="{{ url('webprof/images/dapen/pk.jpg') }}" alt="#" /> </div>
-          <div class="blog_feature_head">
-            <center><h3><b>Pojok Inspirasi</b></h3></center>
-            <hr class="new5">
-          </div>
-          <div class="blog_feature_cont">
-            <p>Lorem ipsum dolor sit amet, consectetur quam justo, pretium adipiscing elit. Vestibulum quam justo, pretium eu tempus ut, ...</p>
-          </div>
-          <div class="bottom_info">
-                <div class="pull-left"><a class="read_more" href="it_blog_detail.html">READ MORE <i class="fa fa-angle-right"></i></a></div>
-              </div>
-        </div>
-      </div>
+    @php $no++; @endphp
+    @endforeach
     </div>
     <!-- end section -->
     <br/>
@@ -301,17 +275,17 @@
             <img src="{{ url('webprof/images/dapen/sosmed.jpg') }}" alt="#" />
         </div>
         </div>
-    </div>  --}}<br/><br/><br/>
+    </div>  --}}<br/><br/><br/><br/><br/><br/>
     <div class="section">
         <div class="container">
             <div class="row">
             <div class="col-md-12">
                 <div class="full">
                 <div class="contact_us_section">
-                    <div class="call_icon"> <img src="images/it_service/phone_icon.png" alt="#" /> </div>
+                    <div class="call_icon"> <img src="{{ url('webprof/images/it_service/si5.fw.png') }}" width="80%" alt="#" /> </div>
                     <div class="inner_cont">
-                    <h2>REQUEST A FREE QUOTE</h2>
-                    <p>Get answers and advice from people you want it from.</p>
+                    <h3>Tepat Bayar, Tepat Jumlah & Tepat Waktu</h3>
+                    <p>Dana Pensiun Semen Gresik</p>
                     </div>
                     <div class="button_Section_cont"> <a class="btn dark_gray_bt" href="it_contact.html">Contact us</a> </div>
                 </div>
@@ -320,7 +294,7 @@
             </div>
         </div>
     </div>
-    <br/>
+    <br/><br/><br/><br/><br/><br/>
 <!-- end section -->
 <!-- section -->
     <div class="row" style="margin-top: 35px">
@@ -336,7 +310,9 @@
         <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" src="{{ url('webprof/images/it_service/1.jpg')}}" alt=""> </div>
+            <div class="product_img">
+                <a href="{{ url('webprof/images/it_service/1.jpg')}}" class="glightbox">
+                    <img class="img-responsive" src="{{ url('webprof/images/it_service/1.jpg')}}" alt="image"> </a> </div>
                 <div class="center">
                     <h4><a href="#">Galeri 1</a></h4>
                 </div>
@@ -344,7 +320,9 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" src="{{ url('webprof/images/it_service/2.jpg')}}" alt=""> </div>
+            <div class="product_img">
+                <a href="{{ url('webprof/images/it_service/2.jpg')}}" class="glightbox">
+                     <img class="img-responsive" src="{{ url('webprof/images/it_service/2.jpg')}}" alt="image"> </a> </div>
                 <div class="center">
                     <h4><a href="#">Galeri 2</a></h4>
                 </div>
@@ -352,7 +330,9 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" src="{{ url('webprof/images/it_service/3.jpg')}}" alt=""> </div>
+            <div class="product_img">
+                <a href="{{ url('webprof/images/it_service/3.jpg')}}" class="glightbox">
+                    <img class="img-responsive" src="{{ url('webprof/images/it_service/3.jpg')}}" alt="image"> </a> </div>
                 <div class="center">
                     <h4><a href="#">Galeri 3</a></h4>
                 </div>
@@ -360,7 +340,9 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="product_list">
-            <div class="product_img"> <img class="img-responsive" src="{{ url('webprof/images/it_service/4.jpg')}}" alt=""> </div>
+            <div class="product_img">
+                <a href="{{ url('webprof/images/it_service/4.jpg')}}" class="glightbox">
+                    <img class="img-responsive" src="{{ url('webprof/images/it_service/4.jpg')}}" alt="image"> </a> </div>
                 <div class="center">
                     <h4><a href="#">Galeri 4</a></h4>
                 </div>
@@ -385,5 +367,67 @@
 <script src="{{ url('webprof/revolution/js/extensions/revolution.extension.parallax.min.js') }}"></script>
 <script src="{{ url('webprof/revolution/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
 <script src="{{ url('webprof/revolution/js/extensions/revolution.extension.video.min.js') }}"></script>
+
+ <script src="{{ url('webprof/vendor/glightbox/js/glightbox.js') }}"></script>
+        <script>
+            var lightbox = GLightbox();
+            lightbox.on('open', (target) => {
+                console.log('lightbox opened');
+            });
+            var lightboxDescription = GLightbox({
+                selector: '.glightbox2'
+            });
+            var lightboxVideo = GLightbox({
+                selector: '.glightbox3'
+            });
+            lightboxVideo.on('slide_changed', ({ prev, current }) => {
+                console.log('Prev slide', prev);
+                console.log('Current slide', current);
+
+                const { slideIndex, slideNode, slideConfig, player } = current;
+
+                if (player) {
+                    if (!player.ready) {
+                        // If player is not ready
+                        player.on('ready', (event) => {
+                            // Do something when video is ready
+                        });
+                    }
+
+                    player.on('play', (event) => {
+                        console.log('Started play');
+                    });
+
+                    player.on('volumechange', (event) => {
+                        console.log('Volume change');
+                    });
+
+                    player.on('ended', (event) => {
+                        console.log('Video ended');
+                    });
+                }
+            });
+
+            var lightboxInlineIframe = GLightbox({
+                selector: '.glightbox4'
+            });
+
+            /* var exampleApi = GLightbox({ selector: null });
+        exampleApi.insertSlide({
+            href: 'https://picsum.photos/1200/800',
+        });
+        exampleApi.insertSlide({
+            width: '500px',
+            content: '<p>Example</p>'
+        });
+        exampleApi.insertSlide({
+            href: 'https://www.youtube.com/watch?v=WzqrwPhXmew',
+        });
+        exampleApi.insertSlide({
+            width: '200vw',
+            content: document.getElementById('inline-example')
+        });
+        exampleApi.open(); */
+        </script>
 @endsection
 

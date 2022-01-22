@@ -63,7 +63,7 @@
                                 <li><a href="{!! url('layanan/laporberitaduka') !!}">Laporan Berita Duka</a></li>
                             </ul>
                         </li>
-                        <li><a href="{!! url('layanan/pengkiniandata') !!}">Pengkinian Data</a></li>
+                        <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('home') !!}" @endif>Pengkinian Data</a></li>
                         <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('home') !!}" @endif>Cek Data Penerima MP</a></li>
                         <li><a href="#">Layanan Mandiri</a>
                             <ul>

@@ -46,6 +46,7 @@
                     <thead>
                     <tr>
                         <th scope="col" width="5%">No</th>
+                        <th scope="col" width="10%">Tahun</th>
                         <th scope="col" width="20%">No Pensiun</th>
                         <th scope="col">Nama Pensiun</th>
                         <th scope="col" width="5%">Aksi</th>
@@ -55,6 +56,7 @@
                     <tr>
                         <th scope="row">1</th>
                         <td>{{ $tahun }}</td>
+                        <td>{{ $user->biodata->nopeserta }}</td>
                         <td>{{ $user->biodata->name }}</td>
                         <td> <a href="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.'_BUPOT'.$tahun.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
                     </tr>

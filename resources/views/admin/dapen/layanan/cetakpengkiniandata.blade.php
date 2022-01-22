@@ -13,47 +13,47 @@
 </div>
 <div id="_72:146" class="pos" style="padding-left: 40px;">&nbsp;</div>
 <div class="pos" style="padding-left: 40px;">
-<table style="border-collapse: collapse; width: 100%; height: 144px;" border="1">
+<table style="border-collapse: collapse; width: 100%; height: 144px;" border="0">
 <tbody>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;">No. Pensiun&nbsp; &nbsp;</span></td>
-<td style="width: 2.1073%; height: 18px;">&nbsp;</td>
-<td style="width: 75.4789%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"><span style="font-weight: bold;">{{ $pensiun->biodata->nopeserta }}</span></span></td>
+<td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
+<td style="width: 75.4789%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"><span style="font-weight: bold;">{{ $user1->nopeserta }}</span></span></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;">Nama Pensiunan</span></span></td>
-<td style="width: 2.1073%; height: 18px;">&nbsp;</td>
-<td style="width: 75.4789%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><span style="font-weight: bold;">{{ $pensiun->biodata->name }}</span></span></td>
+<td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
+<td style="width: 75.4789%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><span style="font-weight: bold;">{{ $user1->name }}</span></span></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.9" style="font-family: Arial; font-size: 12.9px; color: #000000;">Tgl. Lahir&nbsp;</span><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><br /></span></span></td>
-<td style="width: 2.1073%; height: 18px;">&nbsp;</td>
-<td style="width: 75.4789%; height: 18px;"><span id="_12.9" style="font-family: Arial; font-size: 12.9px; color: #000000;"><span id="_14.4" style="font-size: 14.4px;"> </span><span style="font-weight: bold;"> {{ date('d-m-Y', strtotime($pensiun->biodata->tgl_lahir)) }}</span></span></td>
+<td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
+<td style="width: 75.4789%; height: 18px;"><span id="_12.9" style="font-family: Arial; font-size: 12.9px; color: #000000;"><span id="_14.4" style="font-size: 14.4px;"> </span><span style="font-weight: bold;"> {{ date('d-m-Y', strtotime($user1->tgl_lahir)) }}</span></span></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;">Alamat Surat</span><span id="_12.9" style="font-family: Arial; font-size: 12.9px; color: #000000;"><br /></span></td>
-<td style="width: 2.1073%; height: 18px;">&nbsp;</td>
-<td style="width: 75.4789%; height: 18px;"><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;"><span style="font-weight: bold;">{{ $pensiun->biodata->alamat }} </span><span style="font-weight: bold;"> Gresik</span></span></td>
+<td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
+<td style="width: 75.4789%; height: 18px;"><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;"><span style="font-weight: bold;">{{ $user1->alamat }} </span><span style="font-weight: bold;"> Gresik</span></span></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;">No. Telpon / HP&nbsp; &nbsp;</span><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;"><br /></span></td>
-<td style="width: 2.1073%; height: 18px;">&nbsp;</td>
-<td style="width: 75.4789%; height: 18px;"><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;"><span style="font-weight: bold;">{{ $pensiun->biodata->nohp }}</span></span></td>
+<td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
+<td style="width: 75.4789%; height: 18px;"><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;"><span style="font-weight: bold;">{{ $user1->nohp }}</span></span></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;">Status Perkawinan</span><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;"><br /></span></td>
-<td style="width: 2.1073%; height: 18px;">&nbsp;</td>
-<td style="width: 75.4789%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><span style="font-weight: bold;">{{ $pensiun->biodata->jenis }}</span></span></td>
+<td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
+<td style="width: 75.4789%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><span style="font-weight: bold;">{{ $user1->jenis }}</span></span></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;">Jenis Pensiun</span><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;"><br /></span></td>
-<td style="width: 2.1073%; height: 18px;">&nbsp;</td>
-<td style="width: 75.4789%; height: 18px;">&nbsp;</td>
+<td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
+<td style="width: 75.4789%; height: 18px;"></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;">N.P.W.P&nbsp; &nbsp;</span><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><br /></span></td>
-<td style="width: 2.1073%; height: 18px;">&nbsp;</td>
-<td style="width: 75.4789%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"><span style="font-weight: bold;">{{ $pensiun->biodata->npwp }}</span></span></td>
+<td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
+<td style="width: 75.4789%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"><span style="font-weight: bold;">{{ $user1->npwp }}</span></span></td>
 </tr>
 </tbody>
 </table>
@@ -109,58 +109,81 @@
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;">No. Pensiun</span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;">&nbsp;{{ $pensiun->biodata->nopeserta }}</span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;">&nbsp;{{ $user2->nopeserta }}</span></span></td>
 </tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">Nama Pensiunan</span></span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $pensiun->biodata->name }}</span></span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $user2->name }}</span></span></span></td>
 </tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">Tempat, Tgl. Lahir</span></span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;</span></span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $user2->tempat_lahir'., .'$user2->tgl_lahir }}</span></span></span></td>
 </tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;">Alamat Surat</span><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;"><br /></span></span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;</span></span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $user2->alamat }}</span></span></span></td>
 </tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;">Kota / Kabupaten</span><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><br /></span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;</span></span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $user2->kota }}</span></span></span></td>
 </tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;">No. Telpon / HP</span><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><br /></span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;</span></span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $user2->nohp }}</span></span></span></td>
 </tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;">N.P.W.P</span><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><br /></span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;</span></span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $user2->npwp }}</span></span></span></td>
 </tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;">Status Perkawinan</span><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><br /></span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;</span></span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $user2->kawin }}</span></span></span></td>
 </tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;">Status</span><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><br /></span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;</span></span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $user2->jenis }}</span></span></span></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="_81:546" class="pos" style="padding-left: 40px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></div>
 <div id="_57:742" class="pos" style="top: 742; left: 57;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"> Keluarga yang masih menjadi tanggungan sesuai data dari SDM PT Semen Indonesia (Persero) Tbk.</span></div>
-<div id="_56:766" class="pos" style="top: 766; left: 56;"><span id="_12.2" style="font-weight: bold; font-family: Arial; font-size: 12.2px; color: #000000;"> NO.</span></div>
-<div id="_113:766" class="pos" style="top: 766; left: 113;"><span id="_12.2" style="font-weight: bold; font-family: Arial; font-size: 12.2px; color: #000000;"> NAMA ANGGOTA KELUARGA</span></div>
-<div id="_337:766" class="pos" style="top: 766; left: 337;"><span id="_12.2" style="font-weight: bold; font-family: Arial; font-size: 12.2px; color: #000000;"> HUBUNGAN TGL. LAHIR</span></div>
-<div id="_530:766" class="pos" style="top: 766; left: 530;"><span id="_12.2" style="font-weight: bold; font-family: Arial; font-size: 12.2px; color: #000000;"> PEKERJAAN</span></div>
-<div id="_654:766" class="pos" style="top: 766; left: 654;"><span id="_12.2" style="font-weight: bold; font-family: Arial; font-size: 12.2px; color: #000000;"> KETERANGAN</span></div>
+<table style="border-collapse: collapse; width: 99.6441%; height: 63px;" border="1">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 6.34642%; text-align: center; height: 18px;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">NO.</span></td>
+<td style="width: 34.8244%; text-align: center; height: 18px;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">NAMA ANGGOTA KELUARGA</span></td>
+<td style="width: 8.82927%; text-align: center; height: 18px;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">HUBUNGAN&nbsp;</span></td>
+<td style="width: 16.6667%; text-align: center; height: 18px;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">TGL. LAHIR&nbsp;</span></td>
+<td style="width: 16.6667%; text-align: center; height: 18px;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">PEKERJAAN</span></td>
+<td style="width: 16.6667%; text-align: center; height: 18px;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">KETERANGAN</span></td>
+</tr>
+<tr>
+<td style="width: 6.34642%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 34.8244%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 8.82927%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 16.6667%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 16.6667%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 16.6667%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+</tr>
+<tr>
+<td style="width: 6.34642%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 34.8244%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 8.82927%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 16.6667%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 16.6667%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+<td style="width: 16.6667%; text-align: center;"><span id="_12.1" style="font-weight: bold; font-family: Arial; font-size: 12.1px; color: #000000;">&nbsp;</span></td>
+</tr>
+</tbody>
+</table>
 <div id="_61:885" class="pos" style="top: 885; left: 61;">&nbsp;</div>
 <div id="_50:916" class="pos" style="top: 916; left: 50;"><span id="_12.2" style="font-weight: bold; font-family: Arial; font-size: 12.2px; color: #000000;"> KETERANGAN :</span></div>
 <div id="_47:936" class="pos" style="top: 936; left: 47;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"> Isikan dengan tanda centang atau silang pada isian berbentuk ( O )</span></div>

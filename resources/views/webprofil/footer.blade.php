@@ -22,10 +22,10 @@
               <h2>Menu</h2>
             </div>
             <ul class="footer-menu">
-              <li><a href="it_about.html"><i class="fa fa-angle-right"></i> Profil</a></li>
-              <li><a href="it_term_condition.html"><i class="fa fa-angle-right"></i> Layanan</a></li>
-              <li><a href="it_privacy_policy.html"><i class="fa fa-angle-right"></i> Informasi</a></li>
-              <li><a href="it_news.html"><i class="fa fa-angle-right"></i> Berita</a></li>
+              <li><a href="{!! url('profil/sejarah') !!}"><i class="fa fa-angle-right"></i> Profil</a></li>
+              <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('home') !!}" @endif><i class="fa fa-angle-right"></i> Layanan</a></li>
+              <li><a href="{!! url('informasi/panduan') !!}"><i class="fa fa-angle-right"></i> Informasi</a></li>
+              <li><a href="{!! url('/artikel') !!}"><i class="fa fa-angle-right"></i> Berita</a></li>
             </ul>
           </div>
           <div class="col-md-6">
@@ -33,9 +33,9 @@
               <h2>Pelayanan</h2>
             </div>
             <ul class="footer-menu">
-              <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Layanan Pelanggan</a></li>
-              <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> DAPEN SG</a></li>
-              <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i>Pojok Inspirasi</a></li>
+              <li><a href="{!! url('/artikel/eyJpdiI6IkhSd1lDVjBaaEIxRU9UZ01wYVBROFE9PSIsInZhbHVlIjoiUGRBYXJzSEZvaE1aMHRWQnNOWmNEdz09IiwibWFjIjoiN2Q4YTgwNGUwNjU2N2Y0MzBmOWRiNzI0ZDgxNDczZjdhMmI3MmJjN2ZkYTQ0MzJkYjAyZTYxNTdmMDI0Yzc0MyJ9') !!}"><i class="fa fa-angle-right"></i> Layanan Pelanggan</a></li>
+              <li><a href="{!! url('/artikel/eyJpdiI6IkFVbzltb0d3ck5ocDFJQ2hrcWJCWXc9PSIsInZhbHVlIjoiNjF5WHdxY0tuQk9KZzMzNWgxUWRLZz09IiwibWFjIjoiYmRkNTYzMGFkZTIyZTZlZmMxZmRmNTk0NjU5NmE4NGViNzIwNTBlZDkxNzRhZDgyOTE1NTIxYWMwNzJiZDBlYyJ9') !!}"><i class="fa fa-angle-right"></i> DAPEN SG</a></li>
+              <li><a href="{!! url('/artikel/eyJpdiI6IjVvN2VZOEN3S2JWdFpWOFZsdnlRQnc9PSIsInZhbHVlIjoiRFMyVXdNbkp4RkRleWUzQXQyKytsQT09IiwibWFjIjoiZDZhZmI0OGZmODgyOTQxNTA0NWJhNjEyNTM4ODYwMjg3OGFlMjZkOWFhNDEwY2Y3YjI2ZDQ5MmU1NWZmN2Y1YSJ9') !!}"><i class="fa fa-angle-right"></i> Pojok Inspirasi</a></li>
             </ul>
           </div>
           <div class="col-md-6">

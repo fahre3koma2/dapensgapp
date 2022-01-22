@@ -1,10 +1,9 @@
 
     <li class="{{ $menu == 'home' ? 'active' : '' }}"> <a href="{!! url('/home') !!}"> <i class="icon-home"></i> <span> Home </span> </a> </li>
-    <li class="{{ $menu == 'profil' ? 'active' : '' }}"> <a href="#"> <i class="icon-user-following"></i> <span> Data Pribadi </span> </a>
-        <ul>
+    <li class="{{ $menu == 'profil' ? 'active' : '' }}"> <a href="{!! url('pensi/pensiun/'.$idpensi ) !!}"> <i class="icon-user-following"></i> <span> Data Pribadi </span> </a>
+        {{--  <ul>
             <li><a href="{!! url('pensi/pensiun/'.$idpensi ) !!}">Identitas</a></li>
-            <li><a href="{!! url('/pensi/lampiran/'.$idpensi) !!}">Lampiran</a></li>
-        </ul>
+        </ul>  --}}
     </li>
     <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt"></i> <span> Layanan </span> </a>
         <ul>
@@ -13,7 +12,7 @@
                     <li><a href="{!! url('pensi/laporan/laporberitaduka') !!}">Laporan Duka</a></li>
                 </ul>
             </li>
-            <li><a href="{!! url('pensi/pensiun/'.encrypt(auth()->user()->id).'/edit' ) !!}">Pengkinian Data</a></li>
+            <li><a href="{!! url('pensi/pengkinian') !!}">Pengkinian Data</a></li>
             <li><a href="{!! url('pensi/pensiun/'.$idpensi ) !!}">Cek Data Penerima MP</a></li>
             <li><a href="#">Layanan Mandiri</a>
                 <ul>

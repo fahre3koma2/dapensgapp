@@ -6,11 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\BiodataUpdate;
+use App\Models\Biodata;
+use App\Models\Admin\Lampiran;
 
+use Alert;
+use Exception;
+use Crypt;
+use Validator;
+use Image;
+use Str;
+use File;
 use Carbon\Carbon;
 use PDF;
 use Carbon\CarbonPeriod;
-
 
 class PengkinianController extends Controller
 {
@@ -22,11 +30,11 @@ class PengkinianController extends Controller
     public function index()
     {
         //
-        $biodata = BiodataUpdate::where('user_id', auth()->user()->id)->orderBy('updated_at', 'desc')->get();
-        // if ($cek > 0) {
-        //     alert()->warning('Masih Ada Permohonan yang belum selesai', 'Gagal');
-        //     return redirect()->back()->withInput();
-        // }
+        $idu = auth()->user()->id;
+
+        $biodata = BiodataUpdate::where('user_id', $idu)->orderBy('updated_at', 'desc')->get();
+
+        $user = is_null($biodata) ?  $biodata[0]->user_id : null;
 
         $menu = 'pensi';
         $edit = false;
@@ -35,10 +43,10 @@ class PengkinianController extends Controller
             'menu' => $menu,
             'edit' => $edit,
             'biodata' => $biodata,
-            'user' => $biodata[0]->user_id
+            'user' => $user,
+            'idu' => $idu
 
         ];
-
 
         return view('admin.dapen.layanan.pengkiniandata.index', $data);
     }
@@ -53,6 +61,98 @@ class PengkinianController extends Controller
         //
     }
 
+    public function form1($id)
+    {
+        //
+        $cekuser = User::query()->with(['biodata', 'biodataupdate'])->find(decrypt($id));
+
+        if($cekuser->biodataupdate){
+            $user = BiodataUpdate::where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 1], ['tampil', null], ['verifikasi', null]])->orderBy('updated_at', 'desc')->first();
+            if($user) {
+                alert()->warning('Masih Ada Permohonan yang belum selesai', 'Gagal');
+                return redirect()->back()->withInput();
+            } else {
+                $user = BiodataUpdate::where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 2], ['tampil', 1]])->orderBy('updated_at', 'desc')->first();
+            }
+
+        }else{
+            $user = Biodata::where('nopeserta', $cekuser->biodata->nopeserta)->first();
+
+        }
+
+
+            $menu = 'permohonan';
+            $edit = false;
+            $mohon = null;
+
+            $data = [
+                'menu' => $menu,
+                'edit' => $edit,
+                'user' => $user,
+                'mohon' => $mohon,
+            ];
+
+            return view('admin.dapen.layanan.pengkiniandata.form1', $data);
+        // }
+    }
+
+    public function form2($id)
+    {
+        //
+        $menu = 'permohonan';
+        $edit = false;
+
+        $mohon = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
+        //dd($mohon);
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'mohon' => $mohon,
+        ];
+
+        return view('admin.dapen.layanan.pengkiniandata.form2', $data);
+    }
+
+    public function form3($id)
+    {
+        //
+        $menu = 'permohonan';
+        $edit = false;
+
+        $user = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
+        $lampiran = Lampiran::where('nopeserta', $user->nopeserta);
+
+        //dd($mohon);
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'user' => $user,
+            'lampiran' => $lampiran
+        ];
+
+        return view('admin.dapen.layanan.pengkiniandata.form3', $data);
+    }
+
+    public function formedit1($id)
+    {
+        //
+        $menu = 'permohonan';
+        $edit = true;
+
+        $user = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
+        // $user = User::where('id', $mohon->user_id)->first();
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'user' => $user,
+        ];
+
+        return view('admin.dapen.layanan.pengkiniandata.form1', $data);
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -62,6 +162,31 @@ class PengkinianController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->except('_token');
+        $nopeserta = $request->nopeserta;
+        $record = BiodataUpdate::latest()->first();
+
+        if ($record) {
+            $expNum = explode('-', $record->nopd);
+            $nextNumber = 'PD-' . date('m') . date('y') . '-' . sprintf("%03d", $expNum[2] + 1);
+        } else {
+            $nextNumber = 'PD-' . date('m') . date('y') . '-001';
+        }
+
+        try {
+
+            $data['nopd'] = $nextNumber;
+            $data['beru'] = 1;
+            $mohon = BiodataUpdate::create($data);
+            $check = Lampiran::where('nopeserta', $nopeserta)->first();
+            if ($check == null) {
+                $lampiran = Lampiran::create($data);
+            }
+
+            return redirect()->route('pensi.pengkiniandata-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
+        } catch (Exception $ex) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -96,33 +221,19 @@ class PengkinianController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //
         $data = $request->except('_token');
-        // Validator::make($data, [
-        //     'email' => ['required', Rule::unique('users')->ignore(decrypt($id))],
-        // ]);
 
         try {
+            $mohon = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
 
+            $mohon->update($data);
 
-
-            $user = User::query()->find(decrypt($id));
-            $data['baru'] = 1;
-            $data['user_id'] = $user->id;
-            $biodata = BiodataUpdate::create($data);
-
-            //dd($biodata);
-            $user->update($data);
-            //$biodata->update($data);
-
-            alert()->success('Berhasil', 'User Berhasil di Update');
-
-            return redirect()->back();
+            return redirect()->route('pensi.pengkiniandata-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
         } catch (Exception $ex) {
-
-            alert()->error('Gagal', 'User gagal di Update');
-
             return redirect()->back()->withInput();
         }
+
     }
 
     /**
@@ -134,5 +245,142 @@ class PengkinianController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function upload(Request $request)
+    {
+        if ($request->type == "file_skperusahaan") {
+            $this->validate(
+                $request,
+                ['file_skperusahaan' => 'required|mimes:pdf|max:1000'],
+                [
+                    'file_skperusahaan.required' => 'Tidak ada file yang di upload',
+                    'file_skperusahaan.mimes' => 'File harus pdf',
+                    'file_skperusahaan.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_foto") {
+            $this->validate(
+                $request,
+                ['file_foto' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                [
+                    'file_foto.required' => 'Tidak ada file yang di upload',
+                    'file_foto.mimes' => 'File harus pdf',
+                    'file_foto.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_ktp") {
+            $this->validate(
+                $request,
+                ['file_ktp' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                [
+                    'file_ktp.required' => 'Tidak ada file yang di upload',
+                    'file_ktp.mimes' => 'File harus pdf',
+                    'file_ktp.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_kk") {
+            $this->validate(
+                $request,
+                ['file_kk' => 'required|mimes:pdf|max:1000'],
+                [
+                    'file_kk.required' => 'Tidak ada file yang di upload',
+                    'file_kk.mimes' => 'File harus pdf',
+                    'file_kk.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_npwp") {
+            $this->validate(
+                $request,
+                ['file_npwp' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                [
+                    'file_npwp.required' => 'Tidak ada file yang di upload',
+                    'file_npwp.mimes' => 'File harus pdf',
+                    'file_npwp.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_tabungan") {
+            $this->validate(
+                $request,
+                ['file_tabungan' => 'required|mimes:pdf|max:1000'],
+                [
+                    'file_tabungan.required' => 'Tidak ada file yang di upload',
+                    'file_tabungan.mimes' => 'File harus pdf',
+                    'file_tabungan.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_scan_karyawan") {
+            $this->validate(
+                $request,
+                ['file_scan_karyawan' => 'required|mimes:pdf|max:1000'],
+                [
+                    'file_scan_karyawan.required' => 'Tidak ada file yang di upload',
+                    'file_scan_karyawan.mimes' => 'File harus pdf',
+                    'file_scan_karyawan.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } else {
+        }
+
+        $data = $request->except('_token');
+        $idx = $request->idx;
+        $type = $data['type'];
+
+        $file = $request->file($data['type']);
+        $nama_file = $data['type'] . '_' . $data['valueid'] . '.' . $file->getClientOriginalExtension();
+
+        $tujuan_upload = public_path() . '/dapen/lampiran/' . $data['valueid'];
+        if (!file_exists($tujuan_upload)) {
+            File::makeDirectory($tujuan_upload, 0777, true, true);
+        }
+
+        $file->move($tujuan_upload, $nama_file);
+
+        $filenya[$type] = $nama_file;
+        $lampiran = Lampiran::where('nopeserta', $data['valueid'])->first();
+        //dd($filenya);
+
+        $lampiran->update($filenya);
+
+        return redirect()->route('pensi.pengkiniandata-form2', $idx);
+    }
+
+    public function deleteFile(Request $request)
+    {
+
+        $idx = $request->idx;
+        $lampiran = Lampiran::where('nopeserta', $request->id)->first();
+        $tujuan_upload = public_path() . '/dapen/lampiran/';
+        File::delete($tujuan_upload . $request->id . '/' . $lampiran[$request->type]);
+
+        $filenya[$request->type] = null;
+        $lampiran->update($filenya);
+
+        return redirect()->route('pensi.pengkiniandata-form2', $idx);
+    }
+
+    public function kirim($id)
+    {
+        $mohon = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
+
+        if (is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_npwp)) {
+
+            // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
+            alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');
+            return redirect()->route('pensi.pengkiniandata-form3', Crypt::encrypt($mohon->id))->with('message', 'File Lampiran Usulan harus lengkap');
+
+        } else {
+
+            $data['baru'] = 1;
+            $mohon->update($data);
+
+            $data = [
+                'mohon' => $mohon,
+            ];
+
+            Alert::success('Berhasil', 'Pengajuan berhasil disimpan');
+
+            return redirect()->route('pensi.pengkinian.index', $data);
+        }
     }
 }
