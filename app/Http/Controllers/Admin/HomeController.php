@@ -6,6 +6,12 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Admin\Panduan;
+use App\Models\BiodataUpdate;
+use App\Models\Admin\SKeterangan;
+use App\Models\Admin\SkPenetapan;
+use App\Models\Admin\BeritaDuka;
+
 class HomeController extends Controller
 {
     /**
@@ -19,9 +25,20 @@ class HomeController extends Controller
         $menu = 'kontakkami';
         $edit = false;
 
+        $form = Panduan::orderBy('id')->get();
+
+        $skket = SKeterangan::where('status', null)->count();
+        $skpen = SkPenetapan::where('status', null)->count();
+
+        $dash['pengkinian'] = BiodataUpdate::where([['baru', '1'], ['tampil', null], ['verifikasi', null]])->count();
+        $dash['permohonan'] = '';
+        $dash['sk'] = $skket + $skpen;
+        $dash['berduk'] = BeritaDuka::where('status', null)->count();
+
         $data = [
             'menu' => $menu,
             'edit' => $edit,
+            'dash' => $dash
         ];
 
         if(Auth::user()->roles[0]->name == 'Pensiunan'){

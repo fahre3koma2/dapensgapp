@@ -91,7 +91,7 @@
                 {{--  <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#settings" role="tab">Pengguna</a> </li>  --}}
                 <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#keluarga" role="tab" aria-expanded="false">Keluarga</a> </li>
                 <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#rekening" role="tab">Rekening</a> </li>
-                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#lampiran" role="tab">Lampiran</a> </li>
+                {{--  <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#lampiran" role="tab">Lampiran</a> </li>  --}}
 
               </ul>
 
@@ -109,9 +109,9 @@
                   @include('admin.dapen.user.rekening')
                 </div>
 
-                <div class="tab-pane" id="lampiran" role="tabpanel">
+                {{--  <div class="tab-pane" id="lampiran" role="tabpanel">
                   @include('admin.dapen.user.lampiran')
-                </div>
+                </div>  --}}
 
               </div>
             </div>

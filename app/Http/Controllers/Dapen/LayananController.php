@@ -154,7 +154,8 @@ class LayananController extends Controller
         $edit = false;
 
         //dd(Carbon::parse('2019-03-01')->translatedFormat('d F Y'));
-        $mohon = SkPenetapan::query()->get();
+        $user = User::query()->find(auth()->user()->id);
+        $mohon = SkPenetapan::where('nopeserta', $user->nopeserta)->get();
 
         $data = [
             'menu' => $menu,
@@ -227,7 +228,8 @@ class LayananController extends Controller
         $edit = false;
 
         //dd(Carbon::parse('2019-03-01')->translatedFormat('d F Y'));
-        $mohon = SKeterangan::query()->get();
+        $user = User::query()->find(auth()->user()->id);
+        $mohon = SKeterangan::where('nopeserta', $user->nopeserta)->get();
 
         $data = [
             'menu' => $menu,

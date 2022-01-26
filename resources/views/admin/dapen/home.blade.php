@@ -12,73 +12,45 @@
 
 @section('content')
     <div class="content">
-      <div class="row">
+    <div class="row">
         <div class="col-lg-12">
-          <div class="tile-progress tile-aqua">
-            <div class="tile-header"><center>
-              <h5>Dana Pensiun Semen Gresik</h5>
-              <h2>Selamat Datang di Aplikasi ...</h2> </center>
+            <div class="card">
+                <div class="card-body box-rounded box-gradient-3"> <span class="info-box-icon bg-transparent"></span>
+                    <div class="info-box-content">
+                        <center>
+                        <h1 class="text-white">Selamat Datang di Aplikasi ...</h1>
+                        <h3 class="info-box-text text-white">Dana Pensiun Semen Gresik</h3>
+                        </center>
+                    </div>
+                </div>
             </div>
-            <div class="tile-progressbar"> <span data-fill="100%" style="width: 100%;"></span> </div>
-            <div class="tile-footer">
-              {{-- <h4>Dana Pensiun Semen Gresik</h4> --}}
-            </div>
-           </div>
         </div>
+    </div>
+        <br/>
+        @if (auth()->user()->biodataupdate)
+            @php $bio = 'biodataupdate'; @endphp
+        @else
+            @php $bio = 'biodata'; @endphp
+        @endif
+        <center>
+        <div class="row-center">
         <div class="col-lg-4">
-          <div class="user-profile-box m-b-3">
+          <div class="user-profile-box m-b-12">
             <div class="box-profile text-white">
-                @if(auth()->user()->biodata->file)
+                @if(auth()->user()->{$bio}->file)
                     <img class="profile-user-img img-responsive img-circle m-b-2" src="{{ url('dapen/foto/'.auth()->user()->biodata->file) }}" alt="User profile picture">
                 @else
                     <img class="profile-user-img img-responsive img-circle m-b-2" src="{{ url('dist/img/img1.jpg') }}" alt="User profile picture">
                 @endif
-              <h3 class="profile-username text-center">{{ auth()->user()->name }}</h3>
-              <p class="text-center">{{ auth()->user()->biodata->email }}</p>
-              <p class="text-center"> <a href="{!! url('pensi/uploadfoto') !!}" class="btn btn-sm btn-primary"><i class="fa fa-file-photo-o"></i> Upload Foto</a> </p>
+              <h3 class="profile-username text-center">{{ auth()->user()->{$bio}->name }}</h3>
+              <p class="text-center">{{ auth()->user()->{$bio}->email }}</p>
+              <p class="text-center">{{ auth()->user()->{$bio}->nopeserta }}</p>
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-body box-rounded box-gradient"> <span class="info-box-icon bg-transparent"><i class="ti-stats-up text-white"></i></span>
-                <div class="info-box-content">
-                    <h6 class="info-box-text text-white">New Orders</h6>
-                    <h1 class="text-white">5,500</h1>
-                    <span class="progress-description text-white"> 70% Increase in 30 Days </span> </div>
-                </div>
-            </div><br>
-            <div class="card">
-                <div class="card-body box-rounded box-gradient-4"> <span class="info-box-icon bg-transparent"><i class="ti-face-smile text-white"></i></span>
-                <div class="info-box-content">
-                    <h6 class="info-box-text text-white">New Users</h6>
-                    <h1 class="text-white">2,040</h1>
-                    <span class="progress-description text-white"> 45% Increase in 30 Days </span> </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-body box-rounded box-gradient-3"> <span class="info-box-icon bg-transparent"><i class="ti-money text-white"></i></span>
-                <div class="info-box-content">
-                    <h6 class="info-box-text text-white">Total Profit</h6>
-                    <h1 class="text-white">$ 8,590</h1>
-                    <span class="progress-description text-white"> 45% Increase in 30 Days </span> </div>
-                </div>
-            </div><br>
-            <div class="card">
-                <div class="card-body box-rounded box-gradient-2"> <span class="info-box-icon bg-transparent"><i class="ti-stats-up text-white"></i></span>
-                <div class="info-box-content">
-                    <h6 class="info-box-text text-white">New Orders</h6>
-                    <h1 class="text-white">5,500</h1>
-                    <span class="progress-description text-white"> 70% Increase in 30 Days </span> </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
       <!-- /.row -->
     </div>
+</center>
 @endsection
 @section('injs')
     <!-- Chart Peity JavaScript -->

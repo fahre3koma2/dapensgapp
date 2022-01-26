@@ -123,7 +123,7 @@
             <p>@php $keterangan = strip_tags($item->keterangan); @endphp {{ Str::limit($keterangan, 180) }}</p>
           </div>
           <div class="bottom_info">
-                <div class="pull-left"><a class="read_more" href="{{ route('artikel.show', ['artikel' => encrypt($item->id)]) }}">READ MORE <i class="fa fa-angle-right"></i></a></div>
+                <div class="pull-left"><a class="read_more" href="{{ route('homedetail', ['id' => encrypt($item->id)]) }}">Baca Selanjutnya <i class="fa fa-angle-right"></i></a></div>
               </div>
         </div>
       </div>
@@ -287,7 +287,7 @@
                     <h3>Tepat Bayar, Tepat Jumlah & Tepat Waktu</h3>
                     <p>Dana Pensiun Semen Gresik</p>
                     </div>
-                    <div class="button_Section_cont"> <a class="btn dark_gray_bt" href="it_contact.html">Contact us</a> </div>
+                    <div class="button_Section_cont"> <a class="btn dark_gray_bt" href="{!! url('kontakkami/') !!}">Hubungi Kami</a> </div>
                 </div>
                 </div>
             </div>

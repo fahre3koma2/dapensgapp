@@ -17,13 +17,14 @@
             <div class="row m-t-3">
                 <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header bg-blue">
+                    <div class="card-header bg-orange">
                     <h5 class="m-b-0">Bukti Potong Pajak </h5>
                     </div>
                     <div class="card-body">
-                    <form action="{{ route('pensi.buktipajak') }}" method="get" id="form-filter" class="form-horizontal form-bordered">
+
+                    {{--  <form action="{{ route('pensi.buktipajak') }}" method="get" id="form-filter" class="form-horizontal form-bordered">
                         <div class="form-group row">
-                            <label class="control-label text-right col-md-3">PIlih Bulan</label>
+                            <label class="control-label text-right col-md-3">Tahun</label>
                             <div class="col-md-4">
 
                             <select class="form-control custom-select" onchange="filter()" name="tahun">
@@ -34,7 +35,7 @@
                             </div>
                         </div>
                     </div>
-                    </form>
+                    </form>  --}}
                     </div>
                 </div>
             </div>
@@ -57,7 +58,7 @@
                         <th scope="row">1</th>
                         <td>{{ $tahun }}</td>
                         <td>{{ $user->biodata->nopeserta }}</td>
-                        <td>{{ $user->biodata->name }}</td>
+                        <td>{{ $user->biodata->berhak }}</td>
                         <td> <a href="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.'_BUPOT'.$tahun.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
                     </tr>
                     </tbody>
@@ -67,6 +68,7 @@
         </div>
     </div>
 </div>
+<br/><br/><br/><br/>
 @endsection
 @section('injs')
     <!-- DataTable -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 22, 2022 at 09:48 AM
+-- Generation Time: Jan 26, 2022 at 04:58 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -12845,7 +12845,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('j9mtGdXORdY1nNww2nJhISY5GBTcwEDD1edDEV0x', 1462, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiU3NsczNGc1RZMU9jeVl0R1llQmdNU0tnZHVPbTJYV0hmZmtuWWhOQyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI0OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuc2l1bi9leUpwZGlJNklqZzFiMUpKV0dWTk9TOXhVbVp5VlM5aWMzZFdOMmM5UFNJc0luWmhiSFZsSWpvaVVHRkhORmt2WVhGNGRqTnNObTFsZEVzelR6QndaejA5SWl3aWJXRmpJam9pTkdSbE5XTm1NVFE1WXpNd01EVm1PVFZrTVRRNE9XRTFaakJsTUdSa05tUmpNVFpsTURjeU1tRmhNRFExT1RRd1ptUXdNMlpqT0dVME1tTTNOR0V4WWlKOSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE0NjI7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQyUkZrZlM2c1g5cGJHRnFqZHFyR1NPRnZ0OS8vbm5rSHVJNU05QjNiNk41SnZ6OU9WbjFNcSI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMlJGa2ZTNnNYOXBiR0ZxamRxckdTT0Z2dDkvL25ua0h1STVNOUIzYjZONUp2ejlPVm4xTXEiO30=', 1642844836);
+('ovTj6w1fUpQ3uwgJMLni77D4KmnDTKuFtwFSWgJJ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoidFA4bnpHTXZvRXFsWXJ2eDBGTGJ3UlNYdTFpdUVZVFZ3bHREenkyWSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQyOiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvYWRtaW4vcGVsYXlhbmFuL3NrcGVuZXRhcGFuc2hvdy9leUpwZGlJNklrcHhlbWM1VEdKTVZqVk9Rek5xWTA5M04zZE5kVUU5UFNJc0luWmhiSFZsSWpvaWMydDBUM0pJUjFkUE1uTkZlaTlwSzNGR1JXNTVRVDA5SWl3aWJXRmpJam9pTnpJMll6aG1ZamswWW1VM1ltUXdZVFl3T1RrME9EWmpZbU0wT1RNd01tTTVOR1JsTnpjNE9URXhaR1U1WXpFeFpEWTNaalUzTUdWaFlqQXlabVV6TkNKOSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO30=', 1643109236),
+('srnoNX9ONApukbjnBw5mzktZM6yrdHCE42OwhBfs', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoicmtRdXRrOU5wOVk2NktLUDlnc0ZiZ0xERm8xQ2ZxM1p5RmFneU96QSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ5OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvYWRtaW4vcGVsYXlhbmFuL3NrZXRlcmFuZ2FuIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoxMToic3dlZXRfYWxlcnQiO2E6MDp7fX0=', 1643171711);
 
 -- --------------------------------------------------------
 
@@ -12900,7 +12901,7 @@ CREATE TABLE `sketerangan` (
 --
 
 INSERT INTO `sketerangan` (`id`, `nosketerangan`, `nopeserta`, `name`, `alamat`, `nohp`, `email`, `keterangan`, `status`, `file`, `created_at`, `updated_at`) VALUES
-(2, 'SK-0122-001', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, NULL, NULL, '2022-01-13 02:37:16', '2022-01-13 02:37:16');
+(2, 'SK-0122-001', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, '1', 'sketerangan_00011_2022-01-26.pdf', '2022-01-13 02:37:16', '2022-01-26 04:35:11');
 
 -- --------------------------------------------------------
 
@@ -12928,8 +12929,8 @@ CREATE TABLE `skpenetapan` (
 --
 
 INSERT INTO `skpenetapan` (`id`, `noskpenetapan`, `nopeserta`, `name`, `alamat`, `nohp`, `email`, `keterangan`, `status`, `file`, `created_at`, `updated_at`) VALUES
-(5, 'SKP-0122-001', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, '1', NULL, '2022-01-13 02:19:22', '2022-01-13 02:19:22'),
-(6, 'SKP-0122-002', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, NULL, NULL, '2022-01-13 02:22:17', '2022-01-13 02:22:17');
+(5, 'SKP-0122-001', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, NULL, NULL, '2022-01-13 02:19:22', '2022-01-13 02:19:22'),
+(6, 'SKP-0122-002', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, '1', 'skpenetapan_00011_2022-01-26.pdf', '2022-01-13 02:22:17', '2022-01-26 03:16:12');
 
 -- --------------------------------------------------------
 

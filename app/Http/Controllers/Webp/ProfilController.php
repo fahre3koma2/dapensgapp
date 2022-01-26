@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Webp;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Admin\Artikel;
+
 class ProfilController extends Controller
 {
     /**
@@ -166,6 +168,23 @@ class ProfilController extends Controller
         ];
 
         return view('webprofil.profil.struktur', $data);
+    }
+
+    public function homedetail($id)
+    {
+        //
+        $menu = 'home';
+        $edit = false;
+
+        $artikel = Artikel::query()->find(decrypt($id));
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'artikel' => $artikel
+        ];
+
+        return view('webprofil.profil.homedetail', $data);
     }
 
 }

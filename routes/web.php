@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\BeritaController as BeradminController;
 use App\Http\Controllers\Admin\KontenController;
 use App\Http\Controllers\Admin\ArtikelController as AdminArtikelController;
 use App\Http\Controllers\Admin\PengkinianController as AdminPengkinianController;
+use App\Http\Controllers\Admin\PelayananController;
 
 use App\Http\Controllers\Webp\BerandaController;
 use App\Http\Controllers\Webp\ProfilController;
@@ -47,6 +48,7 @@ use App\Http\Controllers\Dapen\PengkinianController;
     Route::get('profil/pendiri', [ProfilController::class, 'pendiri'])->name('pendiri');
     Route::get('profil/struktur', [ProfilController::class, 'struktur'])->name('struktur');
     Route::get('profil/budaya', [ProfilController::class, 'budaya'])->name('budaya');
+    Route::get('profil/homedetail/{id}', [ProfilController::class, 'homedetail'])->name('homedetail');
 
     //Layanan
     Route::get('layanan/pengajuanpensiun', [LayananController::class, 'pengajuanpensiun'])->name('pengajuanpensiun');
@@ -91,10 +93,15 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
         Route::resource('/artikel', AdminArtikelController::class);
 
+        Route::resource('/pelayananan', PelayananController::class);
+        Route::get('/pelayanan/skpenetapan', [PelayananController::class, 'skpenetapan'])->name('skpenetapan');
+        Route::get('/pelayanan/sketerangan', [PelayananController::class, 'sketerangan'])->name('sketerangan');
+        Route::get('/pelayanan/skpenetapanshow/{id}', [PelayananController::class, 'skpenetapanshow'])->name('skpenetapanshow');
+        Route::get('/pelayanan/sketeranganshow/{id}', [PelayananController::class, 'sketeranganshow'])->name('sketeranganshow');
+        Route::post('/pelayanan/skpermintaan', [PelayananController::class, 'skupdate'])->name('skpermintaan.verifikasi');
+
         Route::get('/layanan/laporberitaduka', [LayananController::class, 'adminlaporberitaduka'])->name('laporberitaduka');
         Route::get('/layanan/cetakpengkiniandata/{id}', [InfoLayananController::class, 'cetakpengkiniandata'])->name('cetakpengkiniandata');
-        Route::get('/layanan/skpenetapan', [InfoLayananController::class, 'skpenetapan'])->name('skpenetapan');
-        Route::get('/layanan/sketerangan', [InfoLayananController::class, 'sketerangan'])->name('sketerangan');
 
         Route::resource('/layanan/pengkiniandata', AdminPengkinianController::class);
 

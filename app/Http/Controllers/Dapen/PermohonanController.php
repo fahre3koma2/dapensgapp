@@ -240,7 +240,7 @@ class PermohonanController extends Controller
         if ($request->type == "file_skperusahaan") {
             $this->validate(
                 $request,
-                ['file_skperusahaan' => 'required|mimes:pdf|max:1000'],
+                ['file_skperusahaan' => 'required|mimes:pdf|max:500'],
                 [
                     'file_skperusahaan.required' => 'Tidak ada file yang di upload',
                     'file_skperusahaan.mimes' => 'File harus pdf',
@@ -250,61 +250,61 @@ class PermohonanController extends Controller
         } elseif ($request->type == "file_foto") {
             $this->validate(
                 $request,
-                ['file_foto' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                ['file_foto' => 'required|mimes:jpg,jpeg,png|max:500'],
                 [
                     'file_foto.required' => 'Tidak ada file yang di upload',
                     'file_foto.mimes' => 'File harus pdf',
-                    'file_foto.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_foto.max' => 'File tidak boleh lebih dari 300 kb',
                 ]
             );
         } elseif ($request->type == "file_ktp") {
             $this->validate(
                 $request,
-                ['file_ktp' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                ['file_ktp' => 'required|mimes:jpg,jpeg,png|max:500'],
                 [
                     'file_ktp.required' => 'Tidak ada file yang di upload',
                     'file_ktp.mimes' => 'File harus pdf',
-                    'file_ktp.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_ktp.max' => 'File tidak boleh lebih dari 300 kb',
                 ]
             );
         } elseif ($request->type == "file_kk") {
             $this->validate(
                 $request,
-                ['file_kk' => 'required|mimes:pdf|max:1000'],
+                ['file_kk' => 'required|mimes:pdf|max:500'],
                 [
                     'file_kk.required' => 'Tidak ada file yang di upload',
                     'file_kk.mimes' => 'File harus pdf',
-                    'file_kk.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_kk.max' => 'File tidak boleh lebih dari 300 kb',
                 ]
             );
         } elseif ($request->type == "file_npwp") {
             $this->validate(
                 $request,
-                ['file_npwp' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                ['file_npwp' => 'required|mimes:jpg,jpeg,png|max:500'],
                 [
                     'file_npwp.required' => 'Tidak ada file yang di upload',
                     'file_npwp.mimes' => 'File harus pdf',
-                    'file_npwp.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_npwp.max' => 'File tidak boleh lebih dari 300 kb',
                 ]
             );
         } elseif ($request->type == "file_tabungan") {
             $this->validate(
                 $request,
-                ['file_tabungan' => 'required|mimes:pdf|max:1000'],
+                ['file_tabungan' => 'required|mimes:pdf|max:500'],
                 [
                     'file_tabungan.required' => 'Tidak ada file yang di upload',
                     'file_tabungan.mimes' => 'File harus pdf',
-                    'file_tabungan.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_tabungan.max' => 'File tidak boleh lebih dari 300 kb',
                 ]
             );
         } elseif ($request->type == "file_scan_karyawan") {
             $this->validate(
                 $request,
-                ['file_scan_karyawan' => 'required|mimes:pdf|max:1000'],
+                ['file_scan_karyawan' => 'required|mimes:pdf|max:500'],
                 [
                     'file_scan_karyawan.required' => 'Tidak ada file yang di upload',
                     'file_scan_karyawan.mimes' => 'File harus pdf',
-                    'file_scan_karyawan.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_scan_karyawan.max' => 'File tidak boleh lebih dari 300 kb',
                 ]
             );
         } else {

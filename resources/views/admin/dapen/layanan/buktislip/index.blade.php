@@ -17,7 +17,7 @@
             <div class="row m-t-3">
                 <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header bg-blue">
+                    <div class="card-header bg-orange">
                     <h5 class="m-b-0">Bukti Slip Manfaat Pensiun</h5>
                     </div>
                     <div class="card-body">
@@ -29,7 +29,7 @@
                             <select class="form-control custom-select" onchange="filter()" name="bulan">
                                     <option value="" >-Pilih Bulan-</option>
                                 @foreach($period as $dt)
-                                    <option value="{!! date('m-Y', strtotime($dt)) !!}" >{{ date('M-Y', strtotime($dt)) }}</option>
+                                    <option value="{!! date('m-Y', strtotime($dt)) !!}" >{{ Carbon\Carbon::parse($dt)->isoFormat('MMMM Y') }}</option>
                                 @endforeach
                             </select>
                             </div>
@@ -58,7 +58,7 @@
                         <th scope="row">1</th>
                         <td>{{ Carbon\Carbon::parse($year.'-'.$month.'-01')->isoFormat('MMMM Y')  }}</td>
                         <td>{{ $user->biodata->nopeserta }}</td>
-                        <td>{{ $user->biodata->name }}</td>
+                        <td>{{ $user->biodata->berhak }}</td>
                         <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/'.$user->biodata->nopeserta.'_MP'.$month.''.$year.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
                     </tr>
                     </tbody>

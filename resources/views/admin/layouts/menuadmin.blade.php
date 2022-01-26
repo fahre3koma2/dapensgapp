@@ -18,11 +18,11 @@
             <ul>
                 <li class="{{ $menu == 'layanan' ? 'active' : '' }}"><a href="{!! url('admin/layanan/laporberitaduka') !!}">Laporan Berita Duka</a></li>
                 <li><a href="{!! url('admin/layanan/pengkiniandata') !!}">Pengkinian Data</a></li>
-                <li><a href="{!! url('/pensi/layananinfo') !!}">SK Penetapan Manfaat</a></li>
+                <li><a href="{!! url('admin/pelayanan/skpenetapan') !!}">SK Penetapan Manfaat</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Potong Pajak</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Slip Manfaat Pensiun</a></li>
                 {{--  <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Kartu Pensiun</a></li>  --}}
-                <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Surat Keterangan</a></li>
+                <li><a href="{!! url('admin/pelayanan/sketerangan') !!}">Penerbitan Surat Keterangan</a></li>
             </ul>
         </li>
         <li> <a href="#"> <i class="icon-directions"></i> <span>Informasi</span> </a>

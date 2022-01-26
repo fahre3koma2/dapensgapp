@@ -17,7 +17,7 @@
             <div class="tile-progress tile-pink">
             <div class="tile-header">
                 <h5>Pengkinian Data</h5>
-                <h3>0</h3>
+                <h3> {{  $dash['pengkinian'] }}</h3>
             </div>
             <div class="tile-progressbar"> <span data-fill="100%" style="width: 100%;"></span> </div>
             <div class="tile-footer">
@@ -41,7 +41,7 @@
             <div class="tile-progress tile-cyan">
             <div class="tile-header">
                 <h5>Penerbitan Surat Keterangan</h5>
-                <h3>0</h3>
+                <h3>{{ $dash['sk'] }}</h3>
             </div>
             <div class="tile-progressbar"> <span data-fill="100%" style="width: 100%;"></span> </div>
             <div class="tile-footer">
@@ -53,7 +53,7 @@
             <div class="tile-progress tile-aqua">
             <div class="tile-header">
                 <h5>Berita Duka</h5>
-                <h3>0</h3>
+                <h3>{{ $dash['berduk'] }}</h3>
             </div>
             <div class="tile-progressbar"> <span data-fill="100%" style="width: 100%;"></span></div>
             <div class="tile-footer">
