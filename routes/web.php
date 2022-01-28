@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\KontenController;
 use App\Http\Controllers\Admin\ArtikelController as AdminArtikelController;
 use App\Http\Controllers\Admin\PengkinianController as AdminPengkinianController;
 use App\Http\Controllers\Admin\PelayananController;
+use App\Http\Controllers\Admin\PermohonanController as AdminPermohonanController;
 
 use App\Http\Controllers\Webp\BerandaController;
 use App\Http\Controllers\Webp\ProfilController;
@@ -100,6 +101,15 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/pelayanan/sketeranganshow/{id}', [PelayananController::class, 'sketeranganshow'])->name('sketeranganshow');
         Route::post('/pelayanan/skpermintaan', [PelayananController::class, 'skupdate'])->name('skpermintaan.verifikasi');
 
+        Route::resource('/permohonan', AdminPermohonanController::class);
+        Route::get('/permohonan-normal', [AdminPermohonanController::class, 'normal'])->name('permohonan-normal');
+        Route::get('/permohonan-dudajanda', [AdminPermohonanController::class, 'dudajanda'])->name('permohonan-dudajanda');
+        Route::get('/permohonan-anak', [AdminPermohonanController::class, 'anak'])->name('permohonan-anak');
+        Route::get('/permohonan-rekening', [AdminPermohonanController::class, 'rekening'])->name('permohonan-rekening');
+
+        Route::get('/permohonan-verifikasi/{id}/{jenis}', [AdminPermohonanController::class, 'verifikasi'])->name('permohonan.verifikasi');
+        Route::get('/permohonan-verifikasikirim/{id}', [AdminPermohonanController::class, 'kirim'])->name('permohonanverifikasi.kirim');
+
         Route::get('/layanan/laporberitaduka', [LayananController::class, 'adminlaporberitaduka'])->name('laporberitaduka');
         Route::get('/layanan/cetakpengkiniandata/{id}', [InfoLayananController::class, 'cetakpengkiniandata'])->name('cetakpengkiniandata');
 
@@ -190,7 +200,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/permohonan/rekening/form1/{id}', [PermohonanRekeningController::class, 'form1'])->name('permohonanrekening-form1');
         Route::get('/permohonan/rekening/form2/{id}', [PermohonanRekeningController::class, 'form2'])->name('permohonanrekening-form2');
         Route::get('/permohonan/rekening/form3/{id}', [PermohonanRekeningController::class, 'form3'])->name('permohonanrekening-form3');
-        Route::get('/permohonan/rekening/form4/{id}', [PermohonanRekeningController::class, 'form4'])->name('permohonanrekening-form4');
 
         Route::get('/permohonan/rekening/formedit1/{id}', [PermohonanRekeningController::class, 'formedit1'])->name('permohonanrekening-formedit1');
 

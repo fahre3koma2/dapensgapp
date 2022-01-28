@@ -145,7 +145,7 @@ class PermohonanRekeningController extends Controller
     {
         //
         $menu = 'permohonan';
-        $edit = false;
+        $edit = true;
 
         $mohon = PermohonanRekening::query()->with(['biodata'])->find(decrypt($id));
         $user = User::where('id', $mohon->biodata->user_id)->first();
@@ -263,10 +263,10 @@ class PermohonanRekeningController extends Controller
     {
         //
         $data = $request->except('_token');
-
+        //dd(decrypt($id));
         try {
-            $mohon = PermohonanRekening::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
-
+            $mohon = PermohonanRekening::query()->with(['lampiran'])->find(decrypt($id));
+            //dd($mohon);
             $mohon->update($data);
 
             Alert::success('Berhasil', 'Pengajuan berhasil disimpan');
@@ -370,7 +370,7 @@ class PermohonanRekeningController extends Controller
         $file = $request->file($data['type']);
         $nama_file = $data['type'] . '_' . $data['valueid'] . '.' . $file->getClientOriginalExtension();
 
-        $tujuan_upload = public_path() . '/dapen/lampiran/' . $data['valueid'];
+        $tujuan_upload = public_path() . '/dapen/lampiran/rekening/' . $data['valueid'];
         if (!file_exists($tujuan_upload)) {
             File::makeDirectory($tujuan_upload, 0777, true, true);
         }
@@ -383,7 +383,7 @@ class PermohonanRekeningController extends Controller
 
         $lampiran->update($filenya);
 
-        return redirect()->route('pensi.permohonankaryawan-form2', $idx);
+        return redirect()->route('pensi.permohonanrekening-form2', $idx);
     }
 
     public function deleteFile(Request $request)
@@ -404,7 +404,7 @@ class PermohonanRekeningController extends Controller
     {
         $mohon = PermohonanRekening::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
 
-        if (is_null($mohon->lampiran->file_surat_kematian) || is_null($mohon->lampiran->file_foto) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikahortu) || is_null($mohon->lampiran->surat_kuasa) || is_null($mohon->lampiran->file_surat_sekolah) || is_null($mohon->lampiran->file_belum_nikah) || is_null($mohon->lampiran->file_scan_anak)) {
+        if (is_null($mohon->lampiran->file_tabungan) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk)) {
 
             // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
             alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');

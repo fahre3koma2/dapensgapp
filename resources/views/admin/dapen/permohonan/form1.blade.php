@@ -37,25 +37,38 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>No Peserta / Pensiun:</label>
-                <input class="form-control" type="text" name="nopeserta" value="{{ $user->biodata->nopeserta }}" disabled>
-                <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->biodata->nopeserta }}">
+                <input class="form-control" type="text" name="nopeserta" value="{{ $edit ? $mohon->nopeserta : $user->biodata->nopeserta }}" disabled>
+                <input class="form-control" type="hidden" name="nopeserta" value="{{ $edit ? $mohon->nopeserta : $user->biodata->nopeserta }}">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Nama :</label>
-                <input class="form-control" type="text" name="name" value="{{ $user->biodata->name }}" required>
+                <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : '' !!}" required>
                 </div>
             </div>
             </div>
             <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
-                <label>Alamat :</label>
-                <textarea rows="2" class="form-control" name="alamat" required>{{ $user->biodata->alamat }}</textarea>
+                <label>NIK :</label>
+                <input class="form-control" type="text" name="nik" value="{!! $edit ? $mohon->nik : '' !!}" required>
                 </div>
             </div>
             <div class="col-md-6">
+                <div class="form-group">
+                <label>No Handphone / HP :</label>
+                <input class="form-control" type="text" name="nohp" value="{!! $edit ? $mohon->nohp : '' !!}" required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                <label>Alamat Rumah:</label>
+                <textarea rows="2" class="form-control" name="alamat" required> {!! $edit ? $mohon->alamat : '' !!} </textarea>
+                </div>
+            </div>
+
+            {{--  <div class="col-md-6">
                 <div class="form-group">
                 <label>Kelurahan:</label>
                 <input class="form-control" type="text" name="kelurahan" value="{{ $user->biodata->kelurahan }}" required>
@@ -84,38 +97,33 @@
                 <label>Kode Pos :</label>
                 <input class="form-control" type="text" name="kodepos" value="{{ $user->biodata->kodepos }}" required>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                <label>No Handphone :</label>
-                <input class="form-control" type="text" name="nohp" value="{{ $user->biodata->nohp }}" required>
-                </div>
-            </div>
+            </div>  --}}
+
             </div>
             <br/>
-        <h5 class="text-green m-b-3">Rekening</h5>
+            <h5 class="text-green m-b-3">Rekening</h5>
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
                     <label>No Rekening :</label>
-                    <input class="form-control" type="text" name="norekening" value="{{ $user->biodata->norekening }}" required>
+                    <input class="form-control" type="text" name="norekening" value="{!! $edit ? $mohon->norekening : '' !!}" required>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                     <label>Bank :</label>
                     <select class="custom-select form-control" name="bank" required>
-                        <option value="Mandiri" {{ $user->biodata->bank == 'Mandiri' ? 'selected' : '' }}>Mandiri</option>
-                        <option value="BNI" {{ $user->biodata->bank == 'BNI' ? 'selected' : '' }}>BNI</option>
-                        <option value="BRI" {{ $user->biodata->bank == 'BRI' ? 'selected' : '' }}>BRI</option>
-                        <option value="BTPN" {{ $user->biodata->bank == 'BTPN' ? 'selected' : '' }}>BTPN</option>
+                        <option value="Mandiri" {{ $edit ? $mohon->bank == 'Mandiri' ? 'selected' : '' : '' }}>Mandiri</option>
+                        <option value="BNI" {{ $edit ? $mohon->bank == 'BNI' ? 'selected' : '' : ''}}>BNI</option>
+                        <option value="BRI" {{ $edit ? $mohon->bank == 'BRI' ? 'selected' : '' : ''}}>BRI</option>
+                        <option value="BTPN" {{ $edit ? $mohon->bank == 'BTPN' ? 'selected' : '' : ''}}>BTPN</option>
                     </select>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                     <label>Cabang :</label>
-                    <input class="form-control" type="text" name="cabang" value="{{ $user->biodata->cabang }}" required>
+                    <input class="form-control" type="text" name="cabang" value="{!! $edit ? $mohon->cabang : '' !!}" required>
                     </div>
                 </div>
             </div>

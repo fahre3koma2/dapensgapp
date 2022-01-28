@@ -25,6 +25,15 @@
                 <li><a href="{!! url('admin/pelayanan/sketerangan') !!}">Penerbitan Surat Keterangan</a></li>
             </ul>
         </li>
+        <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt"></i> <span> Permohonan </span> </a>
+            <ul>
+                <li><a href="{!! url('/admin/permohonan-normal') !!}">Permohonan Pembayaran MP Normal</a></li>
+                <li><a href="{!! url('/admin/permohonan-dudajanda ') !!}">Permohonan Pembayaran MP Janda/Duda</a></li>
+                <li><a href="{!! url('/admin/permohonan-normal') !!}">Permohonan Pembayaran MP </a></li>
+                <li><a href="{!! url('/admin/permohonan-anak') !!}">Permohonan Pembayaran MP Anak</a></li>
+                <li><a href="{!! url('/admin/permohonan-rekening') !!}">Permohonan Pindah Rekening</a></li>
+            </ul>
+        </li>
         <li> <a href="#"> <i class="icon-directions"></i> <span>Informasi</span> </a>
             <ul>
                 <li><a href="{!! url('pensi/faq') !!}">Panduan</a></li>

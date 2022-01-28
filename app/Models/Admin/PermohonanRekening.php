@@ -23,7 +23,7 @@ class PermohonanRekening extends Model
 
     public function lampiran()
     {
-        return $this->belongsTo(LampiranRek::class, 'nopermohonan', 'idperm_karyawan');
+        return $this->hasOne(LampiranRek::class, 'nopermohonan', 'idperm_karyawan');
     }
 
 }

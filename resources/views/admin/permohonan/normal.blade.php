@@ -14,12 +14,6 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
-            {{--  <h4 class="text-black">Data Laporan Berita Duka</h4>  --}}
-            {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
-             <div class="ml-auto">
-                @php $idpensi = auth()->user()->id; @endphp
-                <a href="{!! url('pensi/permohonan/karyawan/form1', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-primary">Tambah File</a>
-            </div>
             <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
                     <thead>
@@ -43,18 +37,17 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->nohp}}</td>
                             <td>
-                                @if ($item->status)
-                                <span class="label label-success">Dikirim</span>
+                                @if ($item->status == 1)
+                                <span class="label label-danger">Belum Verifikasi</span>
                                 @else
-                                <span class="label label-warning">Belum Dikirim</span>
+                                <span class="label label-success">Sudah Verifikasi</span>
                                 @endif
-
                             </td>
                             <td>
-                                @if ($item->status)
-                                <span class="label label-success">Admin</span>
+                                @if ($item->status == 1)
+                                 <a href="{!! route('admin.permohonan.verifikasi', ['id' => encrypt($item->id) , 'jenis' => 'normal']) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Verifikasi </a>
                                 @else
-                                <a href="{!! route('pensi.permohonan.karyawan-formedit1', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit </a>
+
                                 @endif
                             </td>
                         </tr>

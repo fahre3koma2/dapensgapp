@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Permohonan Pembayaran Manfaat Pensiun</h1>
+      <h1>Permohonan Pergantian Rekening</h1>
       <ol class="breadcrumb">
         <li><a href="#">Pemohonan</a></li>
-        <li><i class="fa fa-angle-right"></i>Permohonan Pembayaran Manfaat Pensiun</li>
+        <li><i class="fa fa-angle-right"></i>Permohonan Pergantian Rekening</li>
       </ol>
     </div>
 @endsection
@@ -14,12 +14,6 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
-            {{--  <h4 class="text-black">Data Laporan Berita Duka</h4>  --}}
-            {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
-             <div class="ml-auto">
-                @php $idpensi = auth()->user()->id; @endphp
-                <a href="{!! url('pensi/permohonan/karyawan/form1', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-primary">Tambah File</a>
-            </div>
             <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
                     <thead>
@@ -43,18 +37,18 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->nohp}}</td>
                             <td>
-                                @if ($item->status)
-                                <span class="label label-success">Dikirim</span>
+                                @if ($item->status == 1)
+                                <span class="label label-danger">Belum Verifikasi</span>
                                 @else
-                                <span class="label label-warning">Belum Dikirim</span>
+                                <span class="label label-success">Sudah Verifikasi</span>
                                 @endif
 
                             </td>
                             <td>
-                                @if ($item->status)
-                                <span class="label label-success">Admin</span>
+                                @if ($item->status == 1)
+                                <a href="{!! route('admin.permohonan.verifikasi', ['id' => encrypt($item->id) , 'jenis' => 'rekening']) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Verifikasi </a>
                                 @else
-                                <a href="{!! route('pensi.permohonan.karyawan-formedit1', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit </a>
+
                                 @endif
                             </td>
                         </tr>
