@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Permohonan ...</h1>
+      <h1>Permohonan Pindah Rekening</h1>
       <ol class="breadcrumb">
         <li><a href="#">Pemohonan</a></li>
-        <li><i class="fa fa-angle-right"></i>Permohonan ...</li>
+        <li><i class="fa fa-angle-right"></i>Permohonan Pindah Rekening</li>
       </ol>
     </div>
 @endsection
@@ -54,7 +54,7 @@
                                 @if ($item->status)
                                 <span class="label label-success">Admin</span>
                                 @else
-                                <a href="{!! route('pensi.permohonan.rekening-formedit1', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit </a>
+                                <a href="{!! route('pensi.permohonanrekening-formedit1', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit </a>
                                 @endif
                             </td>
                         </tr>

@@ -25,6 +25,15 @@
             </li>
         </ul>
     </li>
+    <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt"></i> <span> Permohonan </span> </a>
+        <ul>
+            <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP Normal</a></li>
+            <li><a href="{!! url('/pensi/permohonandudajanda ') !!}">Permohonan Pembayaran MP Janda/Duda</a></li>
+            <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP </a></li>
+            <li><a href="{!! url('/pensi/permohonananak') !!}">Permohonan Pembayaran MP Anak</a></li>
+            <li><a href="{!! url('/pensi/permohonanrekening') !!}">Permohonan Pindah Rekening</a></li>
+        </ul>
+    </li>
     <li class="{{ $menu == 'faq' ? 'active' : '' }}"> <a href="{!! url('pensi/faq') !!}"> <i class="icon-question"></i> <span> Informasi </span> </a>
         <ul>
             <li><a href="{!! url('pensi/faq') !!}">Panduan</a></li>
@@ -40,15 +49,6 @@
                 </ul>  --}}
             </li>
             <li><a href="{!! url('pensi/faq') !!}">FAQ</a></li>
-        </ul>
-    </li>
-    <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt"></i> <span> Permohonan </span> </a>
-        <ul>
-            <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP Normal</a></li>
-            <li><a href="{!! url('/pensi/permohonandudajanda ') !!}">Permohonan Pembayaran MP Janda/Duda</a></li>
-            <li><a href="{!! url('/pensi/permohonananak permohonanrekening') !!}">Permohonan Pembayaran MP </a></li>
-            <li><a href="{!! url('/pensi/home') !!}">Surat Kuasa MP Anak</a></li>
-            <li><a href="{!! url('/pensi/permohonanrekening') !!}">Permohonan Pindah Rekening</a></li>
         </ul>
     </li>
     {{--  <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-bubbles"></i> <span> Kontak Kami </span> </a> </li>  --}}

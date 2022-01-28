@@ -10,6 +10,7 @@ use App\Models\Biodata;
 use App\Models\Admin\PermohonanKaryawan;
 use App\Models\Admin\PermohonanRekening;
 use App\Models\Admin\Lampiran;
+use App\Models\Admin\LampiranRek;
 use App\Models\Admin\DataKeluarga;
 
 use Alert;
@@ -107,16 +108,13 @@ class PermohonanRekeningController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanRekening::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
-        $user = User::where('id', $mohon->biodata->user_id)->first();
-        $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta);
+        $mohon = PermohonanRekening::query()->with(['lampiran'])->find(decrypt($id));
+
         //dd($mohon);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
             'mohon' => $mohon,
-            'user' => $user,
-            'lampiran' => $lampiran,
         ];
 
         return view('admin.dapen.permohonanrekening.form3', $data);
@@ -130,7 +128,7 @@ class PermohonanRekeningController extends Controller
 
         $mohon = PermohonanRekening::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
         $user = User::where('id', $mohon->biodata->user_id)->first();
-        $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta);
+        $lampiran = LampiranRek::where('nopeserta', $user->biodata->nopeserta);
         //dd($mohon);
         $data = [
             'menu' => $menu,
@@ -179,19 +177,20 @@ class PermohonanRekeningController extends Controller
 
         if ($record) {
             $expNum = explode('-', $record->idperm_karyawan);
-            $nextNumber = 'MPA-' . date('m') . date('y') . '-' . sprintf("%03d", $expNum[2] + 1);
+            $nextNumber = 'MPR-' . date('m') . date('y') . '-' . sprintf("%03d", $expNum[2] + 1);
         } else {
-            $nextNumber = 'MPA-' . date('m') . date('y') . '-001';
+            $nextNumber = 'MPR-' . date('m') . date('y') . '-001';
         }
 
         try {
 
             $data['idperm_karyawan'] = $nextNumber;
+            $data['nopermohonan'] = $nextNumber;
             //$data['status'] = 1;
             $mohon = PermohonanRekening::create($data);
-            $check = Lampiran::where('nopeserta', $nopeserta)->first();
+            $check = LampiranRek::where('nopeserta', $nopeserta)->first();
             if ($check == null) {
-                $lampiran = Lampiran::create($data);
+                $lampiran = LampiranRek::create($data);
             }
 
             return redirect()->route('pensi.permohonanrekening-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
@@ -379,7 +378,7 @@ class PermohonanRekeningController extends Controller
         $file->move($tujuan_upload, $nama_file);
 
         $filenya[$type] = $nama_file;
-        $lampiran = Lampiran::where('nopeserta', $data['valueid'])->first();
+        $lampiran = LampiranRek::where('nopeserta', $data['valueid'])->first();
         //dd($filenya);
 
         $lampiran->update($filenya);
@@ -391,7 +390,7 @@ class PermohonanRekeningController extends Controller
     {
 
         $idx = $request->idx;
-        $lampiran = Lampiran::where('nopeserta', $request->id)->first();
+        $lampiran = LampiranRek::where('nopeserta', $request->id)->first();
         $tujuan_upload = public_path() . '/dapen/lampiran/';
         File::delete($tujuan_upload . $request->id . '/' . $lampiran[$request->type]);
 

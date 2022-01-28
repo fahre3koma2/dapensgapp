@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Permohonan ...</h1>
+      <h1>Pembayaran Manfaat Pensiun Janda/Duda</h1>
       <ol class="breadcrumb">
         <li><a href="#">Pemohonan</a></li>
-        <li><i class="fa fa-angle-right"></i>Permohonan ...</li>
+        <li><i class="fa fa-angle-right"></i>Pembayaran Manfaat Pensiun Janda/Duda</li>
       </ol>
     </div>
 @endsection
@@ -18,7 +18,7 @@
             {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
              <div class="ml-auto">
                 @php $idpensi = auth()->user()->id; @endphp
-                <a href="{!! url('pensi/permohonan/karyawan/form1', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-primary">Tambah File</a>
+                <a href="{!! url('pensi/permohonan/dudajanda/form1', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-primary">Tambah File</a>
             </div>
             <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
@@ -52,9 +52,9 @@
                             </td>
                             <td>
                                 @if ($item->status)
-                                <span class="label label-success">Admin</span>
+                                {{--  <span class="label label-success">Admin</span>  --}}
                                 @else
-                                <a href="{!! route('pensi.permohonan.karyawan-formedit1', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit </a>
+                                <a href="{!! route('pensi.permohonandudajanda-formedit1', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit </a>
                                 @endif
                             </td>
                         </tr>

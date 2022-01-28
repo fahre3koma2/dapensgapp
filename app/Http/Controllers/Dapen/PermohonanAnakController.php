@@ -10,6 +10,7 @@ use App\Models\Biodata;
 use App\Models\Admin\PermohonanKaryawan;
 use App\Models\Admin\PermohonanAnak;
 use App\Models\Admin\Lampiran;
+use App\Models\Admin\LampiranAnak;
 use App\Models\Admin\DataKeluarga;
 
 use Alert;
@@ -90,8 +91,8 @@ class PermohonanAnakController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanAnak::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
-        //dd($mohon);
+        $mohon = PermohonanAnak::query()->with(['lampiran'])->find(decrypt($id));
+        ///dd($mohon);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
@@ -107,16 +108,12 @@ class PermohonanAnakController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanAnak::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
-        $user = User::where('id', $mohon->biodata->user_id)->first();
-        $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta);
+        $mohon = PermohonanAnak::query()->with(['lampiran'])->find(decrypt($id));
         //dd($mohon);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
             'mohon' => $mohon,
-            'user' => $user,
-            'lampiran' => $lampiran,
         ];
 
         return view('admin.dapen.permohonananak.form3', $data);
@@ -130,7 +127,7 @@ class PermohonanAnakController extends Controller
 
         $mohon = PermohonanAnak::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
         $user = User::where('id', $mohon->biodata->user_id)->first();
-        $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta);
+        $lampiran = LampiranAnak::where('nopeserta', $user->biodata->nopeserta);
         //dd($mohon);
         $data = [
             'menu' => $menu,
@@ -147,15 +144,13 @@ class PermohonanAnakController extends Controller
     {
         //
         $menu = 'permohonan';
-        $edit = false;
+        $edit = true;
 
-        $mohon = PermohonanAnak::query()->with(['biodata'])->find(decrypt($id));
-        $user = User::where('id', $mohon->biodata->user_id)->first();
+        $mohon = PermohonanAnak::query()->find(decrypt($id));
 
         $data = [
             'menu' => $menu,
             'edit' => $edit,
-            'user' => $user,
             'mohon' => $mohon,
         ];
 
@@ -187,11 +182,11 @@ class PermohonanAnakController extends Controller
         try {
 
             $data['idperm_karyawan'] = $nextNumber;
-            //$data['status'] = 1;
+            $data['nopermohonan'] = $nextNumber;
             $mohon = PermohonanAnak::create($data);
-            $check = Lampiran::where('nopeserta', $nopeserta)->first();
+            $check = LampiranAnak::where('nopeserta', $nopeserta)->first();
             if ($check == null) {
-                $lampiran = Lampiran::create($data);
+                $lampiran = LampiranAnak::create($data);
             }
 
             return redirect()->route('pensi.permohonananak-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
@@ -291,14 +286,24 @@ class PermohonanAnakController extends Controller
 
     public function upload(Request $request)
     {
-        if ($request->type == "file_skperusahaan") {
+        if ($request->type == "file_surat_kematian") {
             $this->validate(
                 $request,
-                ['file_skperusahaan' => 'required|mimes:pdf|max:1000'],
+                ['file_surat_kematian' => 'required|mimes:pdf|max:1000'],
                 [
-                    'file_skperusahaan.required' => 'Tidak ada file yang di upload',
-                    'file_skperusahaan.mimes' => 'File harus pdf',
-                    'file_skperusahaan.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_surat_kematian.required' => 'Tidak ada file yang di upload',
+                    'file_surat_kematian.mimes' => 'File harus pdf',
+                    'file_surat_kematian.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_surat_nikahortu") {
+            $this->validate(
+                $request,
+                ['file_surat_nikahortu' => 'required|mimes:pdf|max:1000'],
+                [
+                    'file_surat_nikahortu.required' => 'Tidak ada file yang di upload',
+                    'file_surat_nikahortu.mimes' => 'File harus pdf',
+                    'file_surat_nikahortu.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
         } elseif ($request->type == "file_foto") {
@@ -331,34 +336,44 @@ class PermohonanAnakController extends Controller
                     'file_kk.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
-        } elseif ($request->type == "file_npwp") {
+        } elseif ($request->type == "file_surat_kuasa") {
             $this->validate(
                 $request,
-                ['file_npwp' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                ['file_surat_kuasa' => 'required|mimes:pdf|max:1000'],
                 [
-                    'file_npwp.required' => 'Tidak ada file yang di upload',
-                    'file_npwp.mimes' => 'File harus pdf',
-                    'file_npwp.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_surat_kuasa.required' => 'Tidak ada file yang di upload',
+                    'file_surat_kuasa.mimes' => 'File harus pdf',
+                    'file_surat_kuasa.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
-        } elseif ($request->type == "file_tabungan") {
+        } elseif ($request->type == "file_surat_penghasilan") {
             $this->validate(
                 $request,
-                ['file_tabungan' => 'required|mimes:pdf|max:1000'],
+                ['file_surat_penghasilan' => 'required|mimes:pdf|max:1000'],
                 [
-                    'file_tabungan.required' => 'Tidak ada file yang di upload',
-                    'file_tabungan.mimes' => 'File harus pdf',
-                    'file_tabungan.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_surat_penghasilan.required' => 'Tidak ada file yang di upload',
+                    'file_surat_penghasilan.mimes' => 'File harus pdf',
+                    'file_surat_penghasilan.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
-        } elseif ($request->type == "file_scan_karyawan") {
+        } elseif ($request->type == "file_belum_nikah") {
             $this->validate(
                 $request,
-                ['file_scan_karyawan' => 'required|mimes:pdf|max:1000'],
+                ['file_belum_nikah' => 'required|mimes:pdf|max:1000'],
                 [
-                    'file_scan_karyawan.required' => 'Tidak ada file yang di upload',
-                    'file_scan_karyawan.mimes' => 'File harus pdf',
-                    'file_scan_karyawan.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_belum_nikah.required' => 'Tidak ada file yang di upload',
+                    'file_belum_nikah.mimes' => 'File harus pdf',
+                    'file_belum_nikah.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_surat_sekolah") {
+            $this->validate(
+                $request,
+                ['file_surat_sekolah' => 'required|mimes:pdf|max:1000'],
+                [
+                    'file_surat_sekolah.required' => 'Tidak ada file yang di upload',
+                    'file_surat_sekolah.mimes' => 'File harus pdf',
+                    'file_surat_sekolah.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
         } else {
@@ -371,7 +386,7 @@ class PermohonanAnakController extends Controller
         $file = $request->file($data['type']);
         $nama_file = $data['type'] . '_' . $data['valueid'] . '.' . $file->getClientOriginalExtension();
 
-        $tujuan_upload = public_path() . '/dapen/lampiran/' . $data['valueid'];
+        $tujuan_upload = public_path() . '/dapen/lampiran/anak/' . $data['valueid'];
         if (!file_exists($tujuan_upload)) {
             File::makeDirectory($tujuan_upload, 0777, true, true);
         }
@@ -379,19 +394,19 @@ class PermohonanAnakController extends Controller
         $file->move($tujuan_upload, $nama_file);
 
         $filenya[$type] = $nama_file;
-        $lampiran = Lampiran::where('nopeserta', $data['valueid'])->first();
+        $lampiran = LampiranAnak::where('nopeserta', $data['valueid'])->first();
         //dd($filenya);
 
         $lampiran->update($filenya);
 
-        return redirect()->route('pensi.permohonankaryawan-form2', $idx);
+        return redirect()->route('pensi.permohonananak-form2', $idx);
     }
 
     public function deleteFile(Request $request)
     {
 
         $idx = $request->idx;
-        $lampiran = Lampiran::where('nopeserta', $request->id)->first();
+        $lampiran = LampiranAnak::where('nopeserta', $request->id)->first();
         $tujuan_upload = public_path() . '/dapen/lampiran/';
         File::delete($tujuan_upload . $request->id . '/' . $lampiran[$request->type]);
 
@@ -405,7 +420,7 @@ class PermohonanAnakController extends Controller
     {
         $mohon = PermohonanAnak::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
 
-        if (is_null($mohon->lampiran->file_surat_kematian) || is_null($mohon->lampiran->file_foto) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikahortu) || is_null($mohon->lampiran->surat_kuasa) || is_null($mohon->lampiran->file_surat_sekolah) || is_null($mohon->lampiran->file_belum_nikah) || is_null($mohon->lampiran->file_scan_anak)) {
+        if (is_null($mohon->lampiran->file_surat_kematian) || is_null($mohon->lampiran->file_foto) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikahortu) || is_null($mohon->lampiran->file_surat_kuasa) || is_null($mohon->lampiran->file_surat_sekolah) || is_null($mohon->lampiran->file_belum_nikah) || is_null($mohon->lampiran->file_surat_penghasilan)) {
 
             // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
             alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');

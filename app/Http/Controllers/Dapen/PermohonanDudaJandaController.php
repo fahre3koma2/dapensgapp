@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Biodata;
 use App\Models\Admin\PermohonanKaryawan;
 use App\Models\Admin\PermohonanDudaJanda;
-use App\Models\Admin\Lampiran;
+use App\Models\Admin\LampiranDudaJanda;
 use App\Models\Admin\DataKeluarga;
 
 use Alert;
@@ -33,6 +33,7 @@ class PermohonanDudaJandaController extends Controller
         //
         $menu = 'register';
         $edit = false;
+
         $user = User::query()->with(['biodata'])->find(auth()->user()->id);
         $mohon = PermohonanDudaJanda::where('nopeserta', $user->biodata->nopeserta)->get();
 
@@ -90,7 +91,7 @@ class PermohonanDudaJandaController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
+        $mohon = PermohonanDudaJanda::query()->with(['lampiran'])->find(decrypt($id));
         //dd($mohon);
         $data = [
             'menu' => $menu,
@@ -107,16 +108,12 @@ class PermohonanDudaJandaController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
-        $user = User::where('id', $mohon->biodata->user_id)->first();
-        $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta);
+        $mohon = PermohonanDudaJanda::query()->with(['lampiran'])->find(decrypt($id));
         //dd($mohon);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
-            'mohon' => $mohon,
-            'user' => $user,
-            'lampiran' => $lampiran,
+            'mohon' => $mohon
         ];
 
         return view('admin.dapen.permohonandudajanda.form3', $data);
@@ -130,7 +127,7 @@ class PermohonanDudaJandaController extends Controller
 
         $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
         $user = User::where('id', $mohon->biodata->user_id)->first();
-        $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta);
+        $lampiran = LampiranDudaJanda::where('nopeserta', $user->biodata->nopeserta);
         //dd($mohon);
         $data = [
             'menu' => $menu,
@@ -147,15 +144,13 @@ class PermohonanDudaJandaController extends Controller
     {
         //
         $menu = 'permohonan';
-        $edit = false;
+        $edit = true;
 
-        $mohon = PermohonanDudaJanda::query()->with(['biodata'])->find(decrypt($id));
-        $user = User::where('id', $mohon->biodata->user_id)->first();
-
+        $mohon = PermohonanDudaJanda::query()->find(decrypt($id));
+        //dd($mohon);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
-            'user' => $user,
             'mohon' => $mohon,
         ];
 
@@ -179,19 +174,20 @@ class PermohonanDudaJandaController extends Controller
 
         if ($record) {
             $expNum = explode('-', $record->idperm_karyawan);
-            $nextNumber = 'MPA-' . date('m') . date('y') . '-' . sprintf("%03d", $expNum[2] + 1);
+            $nextNumber = 'MPDJ-' . date('m') . date('y') . '-' . sprintf("%03d", $expNum[2] + 1);
         } else {
-            $nextNumber = 'MPA-' . date('m') . date('y') . '-001';
+            $nextNumber = 'MPDJ-' . date('m') . date('y') . '-001';
         }
 
         try {
 
             $data['idperm_karyawan'] = $nextNumber;
+            $data['nopermohonan'] = $nextNumber;
             //$data['status'] = 1;
             $mohon = PermohonanDudaJanda::create($data);
-            $check = Lampiran::where('nopeserta', $nopeserta)->first();
+            $check = LampiranDudaJanda::where('nopeserta', $nopeserta)->first();
             if ($check == null) {
-                $lampiran = Lampiran::create($data);
+                $lampiran = LampiranDudaJanda::create($data);
             }
 
             return redirect()->route('pensi.permohonandudajanda-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
@@ -266,7 +262,7 @@ class PermohonanDudaJandaController extends Controller
         $data = $request->except('_token');
 
         try {
-            $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
+            $mohon = PermohonanDudaJanda::query()->find(decrypt($id));
 
             $mohon->update($data);
 
@@ -371,7 +367,7 @@ class PermohonanDudaJandaController extends Controller
         $file = $request->file($data['type']);
         $nama_file = $data['type'] . '_' . $data['valueid'] . '.' . $file->getClientOriginalExtension();
 
-        $tujuan_upload = public_path() . '/dapen/lampiran/' . $data['valueid'];
+        $tujuan_upload = public_path() . '/dapen/lampiran/dudajanda/' . $data['valueid'];
         if (!file_exists($tujuan_upload)) {
             File::makeDirectory($tujuan_upload, 0777, true, true);
         }
@@ -379,19 +375,19 @@ class PermohonanDudaJandaController extends Controller
         $file->move($tujuan_upload, $nama_file);
 
         $filenya[$type] = $nama_file;
-        $lampiran = Lampiran::where('nopeserta', $data['valueid'])->first();
+        $lampiran = LampiranDudaJanda::where('nopeserta', $data['valueid'])->first();
         //dd($filenya);
 
         $lampiran->update($filenya);
 
-        return redirect()->route('pensi.permohonankaryawan-form2', $idx);
+        return redirect()->route('pensi.permohonandudajanda-form2', $idx);
     }
 
     public function deleteFile(Request $request)
     {
 
         $idx = $request->idx;
-        $lampiran = Lampiran::where('nopeserta', $request->id)->first();
+        $lampiran = LampiranDudaJanda::where('nopeserta', $request->id)->first();
         $tujuan_upload = public_path() . '/dapen/lampiran/';
         File::delete($tujuan_upload . $request->id . '/' . $lampiran[$request->type]);
 
@@ -405,7 +401,7 @@ class PermohonanDudaJandaController extends Controller
     {
         $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
 
-        if (is_null($mohon->lampiran->file_surat_kematian) || is_null($mohon->lampiran->file_foto) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikahortu) || is_null($mohon->lampiran->surat_kuasa) || is_null($mohon->lampiran->file_surat_sekolah) || is_null($mohon->lampiran->file_belum_nikah) || is_null($mohon->lampiran->file_scan_anak)) {
+        if (is_null($mohon->lampiran->file_skperusahaan) || is_null($mohon->lampiran->file_foto) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_npwp) || is_null($mohon->lampiran->file_tabungan)) {
 
             // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
             alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');
@@ -415,7 +411,6 @@ class PermohonanDudaJandaController extends Controller
         } else {
 
             $data['status'] = 1;
-
             $mohon->update($data);
 
             $data = [

@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Permohonan ...</h1>
+      <h1>Permohonan Manfaat Pensiun Anak</h1>
       <ol class="breadcrumb">
         <li><a href="#">Pemohonan</a></li>
-        <li><i class="fa fa-angle-right"></i>Permohonan ...</li>
+        <li><i class="fa fa-angle-right"></i>Permohonan Manfaat Pensiun Anak</li>
       </ol>
     </div>
 @endsection
@@ -14,8 +14,6 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
-            {{--  <h4 class="text-black">Data Laporan Berita Duka</h4>  --}}
-            {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
              <div class="ml-auto">
                 @php $idpensi = auth()->user()->id; @endphp
                 <a href="{!! url('pensi/permohonan/anak/form1', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-primary">Tambah File</a>
@@ -28,7 +26,6 @@
                             <th>No Permohonan</th>
                             <th>No Pensiun</th>
                             <th>Nama</th>
-                            <th>No Handphone</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -41,7 +38,6 @@
                             <td>{{$item->idperm_karyawan}}</td>
                             <td>{{$item->nopeserta}}</td>
                             <td>{{$item->name}}</td>
-                            <td>{{$item->nohp}}</td>
                             <td>
                                 @if ($item->status)
                                 <span class="label label-success">Dikirim</span>
@@ -52,7 +48,7 @@
                             </td>
                             <td>
                                 @if ($item->status)
-                                <span class="label label-success">Admin</span>
+                                {{--  <span class="label label-success">Admin</span>  --}}
                                 @else
                                 <a href="{!! route('pensi.permohonan.anak-formedit1', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit </a>
                                 @endif

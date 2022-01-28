@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Biodata;
-use App\Models\Admin\Lampiran;
+use App\Models\Admin\LampiranRek;
 
 class PermohonanRekening extends Model
 {
     protected $table = "perm_pindahrek";
 
     protected $fillable = [
-        'id', 'idperm_karyawan', 'nopeserta', 'name', 'alamat', 'kelurahan', 'rt', 'rw', 'kota', 'kodepos', 'nohp', 'norekening', 'bank', 'cabang', 'status', 'created_at', 'updated_at',
+        'id', 'idperm_karyawan', 'nopeserta', 'nopermohonan', 'name', 'alamat', 'nohp', 'norekening', 'bank', 'cabang', 'status', 'norekening2', 'bank2', 'cabang2', 'created_at', 'updated_at',
     ];
 
     public function biodata()
@@ -23,7 +23,7 @@ class PermohonanRekening extends Model
 
     public function lampiran()
     {
-        return $this->belongsTo(Lampiran::class, 'nopeserta', 'nopeserta');
+        return $this->belongsTo(LampiranRek::class, 'nopermohonan', 'idperm_karyawan');
     }
 
 }

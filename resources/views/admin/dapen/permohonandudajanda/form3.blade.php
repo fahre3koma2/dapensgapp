@@ -42,27 +42,19 @@
                 <table class="table">
                   <tbody><tr>
                     <th style="width:50%">No Peserta / Pensiun:</th>
-                    <td>{{ $user->biodata->nopeserta }}</td>
+                    <td>{{ $mohon->nopeserta }}</td>
                   </tr>
                   <tr>
                     <th>Nama :</th>
-                    <td>{{ $user->biodata->name }}</td>
+                    <td>{{ $mohon->name }}</td>
                   </tr>
                   <tr>
                     <th>Alamat :</th>
-                    <td>{{ $user->biodata->alamat }}</td>
+                    <td>{{ $mohon->alamat }}</td>
                   </tr>
                   <tr>
-                    <th>Kelurahan :</th>
-                    <td>{{ $user->biodata->kelurahan }}</td>
-                  </tr>
-                  <tr>
-                    <th>RT :</th>
-                    <td>{{ $user->biodata->rt }}</td>
-                  </tr>
-                  <tr>
-                    <th>RW :</th>
-                    <td>{{ $user->biodata->rw }}</td>
+                    <th>No Handphone :</th>
+                    <td>{{ $mohon->nohp }}</td>
                   </tr>
 
                 </tbody></table>
@@ -73,29 +65,17 @@
                 <table class="table">
                   <tbody>
                   <tr>
-                    <th>Kota :</th>
-                    <td>{{ $user->biodata->kota }}</td>
-                  </tr>
-                  <tr>
-                    <th>Kode Pos :</th>
-                    <td>{{ $user->biodata->kodepos }}</td>
-                  </tr>
-                  <tr>
-                    <th style="width:50%">No HP:</th>
-                    <td>{{ $user->biodata->nohp }}</td>
-                  </tr>
-                  <tr>
                     <th>No Rekening :</th>
-                    <td>{{ $user->biodata->norekening }}</td>
+                    <td>{{ $mohon->norekening }}</td>
                   </tr>
                   <tr>
                     <th>Bank:</th>
-                    <td>{{ $user->biodata->bank }}</td>
+                    <td>{{ $mohon->bank }}</td>
                   </tr>
 
                   <tr>
                     <th>Cabang :</th>
-                    <td>{{ $user->biodata->cabang }}</td>
+                    <td>{{ $mohon->cabang }}</td>
                   </tr>
                 </tbody></table>
               </div>
@@ -188,17 +168,6 @@
                         @endif
                     </td>
                   </tr>
-                  <tr>
-                    <td>7. </td>
-                    <td>Scan Surat Permohonan yang sudah di tanda tangan</td>
-                    <td>
-                        @if($mohon->lampiran->file_scan_karyawan)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
 
                 </tbody>
               </table>
@@ -210,11 +179,11 @@
           <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-lg-12">
-              <a href="{!! url('pensi/permohonan/karyawan/formedit1') !!}" data-direction="next" style="margin-left: 5px;" class="btn btn-warning"><i class="fa fa-list-alt"></i> Tunda</a>
+              <a href="{!! url('pensi/permohonandudajanda/') !!}" data-direction="next" style="margin-left: 5px;" class="btn btn-warning"><i class="fa fa-list-alt"></i> Tunda</a>
 
-              <a href="{!! url('pensi/permohonan/karyawan/form2', ['id' => encrypt($mohon->id )]) !!}" style="margin-right: 5px;" class="btn btn-info"><i class="fa fa-arrow-left"></i> Kembali</a>
+              <a href="{!! url('pensi/permohonan/dudajanda/form2', ['id' => encrypt($mohon->id )]) !!}" style="margin-right: 5px;" class="btn btn-info"><i class="fa fa-arrow-left"></i> Kembali</a>
               <button type="button" class="btn btn-primary pull-right finish" style="margin-right: 5px;" data-id="{{ $mohon->id }}" data-file="finish_{{ $mohon->id }}"> <i class="fa fa-credit-card"></i> Submit </button>
-                {{ Form::open(['url' => route('pensi.permohonan.kirim', [Crypt::encrypt($mohon->id)]), 'method' => 'post', 'id' => 'finish_'.$mohon->id ]) }}
+                {{ Form::open(['url' => route('pensi.permohonandudajanda.kirim', [Crypt::encrypt($mohon->id)]), 'method' => 'post', 'id' => 'finish_'.$mohon->id ]) }}
                 {{ csrf_field() }}
                 {{ Form::close() }}
             </div>

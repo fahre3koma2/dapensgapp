@@ -179,6 +179,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/permohonan/dudajanda/form3/{id}', [PermohonanDudaJandaController::class, 'form3'])->name('permohonandudajanda-form3');
         Route::get('/permohonan/dudajanda/form4/{id}', [PermohonanDudaJandaController::class, 'form4'])->name('permohonandudajanda-form4');
 
+        Route::get('/permohonan/dudajanda/formedit1/{id}', [PermohonanDudaJandaController::class, 'formedit1'])->name('permohonandudajanda-formedit1');
+
         Route::post('/permohonandudajanda-upload', [PermohonanDudaJandaController::class, 'upload'])->name('permohonandudajanda.upload');
         Route::post('/permohonandudajanda-deletefile', [PermohonanDudaJandaController::class, 'deleteFile'])->name('permohonandudajanda.deletefile');
         Route::post('/permohonandudajanda-kirim/{id}', [PermohonanDudaJandaController::class, 'kirim'])->name('permohonandudajanda.kirim');
@@ -189,6 +191,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/permohonan/rekening/form2/{id}', [PermohonanRekeningController::class, 'form2'])->name('permohonanrekening-form2');
         Route::get('/permohonan/rekening/form3/{id}', [PermohonanRekeningController::class, 'form3'])->name('permohonanrekening-form3');
         Route::get('/permohonan/rekening/form4/{id}', [PermohonanRekeningController::class, 'form4'])->name('permohonanrekening-form4');
+
+        Route::get('/permohonan/rekening/formedit1/{id}', [PermohonanRekeningController::class, 'formedit1'])->name('permohonanrekening-formedit1');
 
         Route::post('/permohonanrekening-upload', [PermohonanRekeningController::class, 'upload'])->name('permohonanrekening.upload');
         Route::post('/permohonanrekening-deletefile', [PermohonanRekeningController::class, 'deleteFile'])->name('permohonanrekening.deletefile');
