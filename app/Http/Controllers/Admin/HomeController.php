@@ -10,7 +10,7 @@ use App\Models\Admin\Panduan;
 use App\Models\BiodataUpdate;
 use App\Models\Admin\SKeterangan;
 use App\Models\Admin\SkPenetapan;
-use App\Models\Admin\BeritaDuka;
+use App\Models\Admin\Laporan;
 
 class HomeController extends Controller
 {
@@ -33,7 +33,7 @@ class HomeController extends Controller
         $dash['pengkinian'] = BiodataUpdate::where([['baru', '1'], ['tampil', null], ['verifikasi', null]])->count();
         $dash['permohonan'] = '';
         $dash['sk'] = $skket + $skpen;
-        $dash['berduk'] = BeritaDuka::where('status', null)->count();
+        $dash['berduk'] = Laporan::where('status', null)->count();
 
         $data = [
             'menu' => $menu,

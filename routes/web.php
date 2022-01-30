@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ArtikelController as AdminArtikelController;
 use App\Http\Controllers\Admin\PengkinianController as AdminPengkinianController;
 use App\Http\Controllers\Admin\PelayananController;
 use App\Http\Controllers\Admin\PermohonanController as AdminPermohonanController;
+use App\Http\Controllers\Admin\LaporanController as AdminLaporanController;
 
 use App\Http\Controllers\Webp\BerandaController;
 use App\Http\Controllers\Webp\ProfilController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\Webp\BeritaController;
 use App\Http\Controllers\Webp\InformasiController;
 use App\Http\Controllers\Webp\LayananController;
 use App\Http\Controllers\Webp\ArtikelController;
+use App\Http\Controllers\Webp\LaporanController;
 
 use App\Http\Controllers\Dapen\PensiController;
 use App\Http\Controllers\Dapen\InformasiController as InfoPensiController;
@@ -54,12 +56,18 @@ use App\Http\Controllers\Dapen\PengkinianController;
     //Layanan
     Route::get('layanan/pengajuanpensiun', [LayananController::class, 'pengajuanpensiun'])->name('pengajuanpensiun');
     Route::get('layanan/pengkiniandata', [LayananController::class, 'pengkiniandata'])->name('pengkiniandata');
-    Route::get('layanan/laporberitaduka', [LayananController::class, 'laporberitaduka'])->name('laporberitaduka');
-    Route::post('beritadukakirim', [LayananController::class, 'beritadukakirim'])->name('beritadukakirim');
-    Route::get('terimaberita/{id}', [LayananController::class, 'terimaberita'])->name('terimaberita');
     Route::get('layanan/downform', [LayananController::class, 'downform'])->name('downform');
     Route::get('layanan/buktipotong', [LayananController::class, 'buktipotong'])->name('buktipotong');
     Route::get('layanan/sosialmedia', [LayananController::class, 'sosialmedia'])->name('sosialmedia');
+
+    Route::get('layanan/laporberitaduka', [LaporanController::class, 'laporberitaduka'])->name('laporberitaduka');
+    Route::get('layanan/laporanakmenikah', [LaporanController::class, 'laporanakmenikah'])->name('laporanakmenikah');
+    Route::get('layanan/lapormenikahlagi', [LaporanController::class, 'lapormenikahlagi'])->name('lapormenikahlagi');
+    Route::get('layanan/laporanakbekerja', [LaporanController::class, 'laporanakbekerja'])->name('laporanakbekerja');
+    Route::get('layanan/laporbercerai', [LaporanController::class, 'laporbercerai'])->name('laporbercerai');
+
+    Route::post('laporankirim', [LaporanController::class, 'laporankirim'])->name('laporankirim');
+    Route::get('terimaberita/{id}', [LaporanController::class, 'terimaberita'])->name('terimaberita');
 
     //Berita
     Route::get('berita/galeri', [BeritaController::class, 'galeri'])->name('galeri');
@@ -100,6 +108,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/pelayanan/skpenetapanshow/{id}', [PelayananController::class, 'skpenetapanshow'])->name('skpenetapanshow');
         Route::get('/pelayanan/sketeranganshow/{id}', [PelayananController::class, 'sketeranganshow'])->name('sketeranganshow');
         Route::post('/pelayanan/skpermintaan', [PelayananController::class, 'skupdate'])->name('skpermintaan.verifikasi');
+
+        Route::resource('/laporan', AdminLaporanController::class);
+        Route::get('/laporan-beritaduka', [AdminLaporanController::class, 'beritaduka'])->name('laporan-beritaduka');
+        Route::get('/laporan-anakmenikah', [AdminLaporanController::class, 'anakmenikah'])->name('laporan-anakmenikah');
+        Route::get('/laporan-menikahlagi', [AdminLaporanController::class, 'menikahlagi'])->name('laporan-menikahlagi');
+        Route::get('/laporan-anakbekerja', [AdminLaporanController::class, 'anakbekerja'])->name('laporan-anakbekerja');
+        Route::get('/laporan-bercerai', [AdminLaporanController::class, 'bercerai'])->name('laporan-bercerai');
 
         Route::resource('/permohonan', AdminPermohonanController::class);
         Route::get('/permohonan-normal', [AdminPermohonanController::class, 'normal'])->name('permohonan-normal');

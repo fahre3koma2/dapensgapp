@@ -9,10 +9,10 @@
         <div class="full">
           <div class="title-holder">
             <div class="title-holder-cell text-left">
-              <h1 class="page-title">Laporan Berita Duka</h1>
+              <h1 class="page-title">Laporan Pensiunan Bercerai</h1>
               <ol class="breadcrumb">
                 <li><a href="index.html">Layanan</a></li>
-                <li class="active">Laporan Berita Duka</li>
+                <li class="active">Laporan Pensiunan Bercerai</li>
               </ol>
             </div>
           </div>
@@ -36,19 +36,19 @@
                 <div class="form-field">
                   <label>Nama Pelapor <span class="red">*</span></label>
                   <input name="nama_pelapor" type="text" required>
-                  <input name="kode" type="hidden" value="BD-">
-                  <input name="jenis" type="hidden" value="{{ $type }}">
+                   <input name="kode" type="hidden" value="PB-">
+                   <input name="jenis" type="hidden" value="{{ $type }}">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Nama Pensiunan (yang meninggal dunia) <span class="red">*</span></label>
+                  <label>Nama Terlapor Pensiunan (Bapak / Ibu / Anak) <span class="red">*</span></label>
                   <input name="nama_peserta" type="text" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>No Pensiun<span class="red">*</span></label>
+                  <label>Nomor Pensiun<span class="red">*</span></label>
                   <input name="nopensiun" type="text" required>
                 </div>
               </div>
@@ -58,29 +58,23 @@
                   <input name="notelp" type="number" required>
                 </div>
               </div>
+
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Tanggal Meninggal <span class="red">*</span></label>
+                  <label>Tanggal Perceraian <span class="red">*</span></label>
                   <input name="tgl_acara" type="text" id="datepicker" required>
                 </div>
               </div>
+
               <div class="col-md-6">
                 <div class="form-field">
                   <label>Hubungan Keluarga<span class="red">*</span></label>
-                   <select name="hub_keluarga" id="hub_keluarga">
-                    <option value="Suami">Suami</option>
-                    <option value="Istri">Istri</option>
-                    <option value="Anak">Anak</option>
-                    <option value="Kerabat">Kerabat</option>
-                    <option value="Tetangga">Tetangga</option>
-                    <option value="Teman">Teman</option>
-                    <option value="Lain-lain">Lain-lain</option>
-                  </select>
+                  <input name="hub_keluarga" type="text" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Alamat (Kota/Provinsi)<span class="red">*</span></label>
+                  <label>Alamat <span class="red">*</span></label>
                   <textarea name="alamat" required></textarea>
                 </div>
               </div>

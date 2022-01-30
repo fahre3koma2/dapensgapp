@@ -16,7 +16,16 @@
         </li>
         <li class="{{ $menu == 'layanan' ? 'active' : '' }}"> <a href="#"> <i class="icon-directions"></i> <span>Layanan</span> </a>
             <ul>
-                <li class="{{ $menu == 'layanan' ? 'active' : '' }}"><a href="{!! url('admin/layanan/laporberitaduka') !!}">Laporan Berita Duka</a></li>
+                {{--  <li class="{{ $menu == 'layanan' ? 'active' : '' }}"><a href="{!! url('admin/layanan/laporberitaduka') !!}">Laporan</a>  --}}
+                <li class="{{ $menu == 'layanan' ? 'active' : '' }}"><a href="#">Laporan</a>
+                    <ul>
+                        <li><a href="{!! url('/admin/laporan-beritaduka') !!}">Laporan Berita Duka</a></li>
+                        <li><a href="{!! url('/admin/laporan-anakmenikah ') !!}">Laporan Anak Menikah</a></li>
+                        <li><a href="{!! url('/admin/laporan-menikahlagi') !!}">Laporan Menikah Lagi </a></li>
+                        <li><a href="{!! url('/admin/laporan-anakbekerja') !!}">Laporan Anak Sudah Bekerja</a></li>
+                        <li><a href="{!! url('/admin/laporan-bercerai') !!}">Laporan Pensiunan Bercerai</a></li>
+                    </ul>
+                </li>
                 <li><a href="{!! url('admin/layanan/pengkiniandata') !!}">Pengkinian Data</a></li>
                 <li><a href="{!! url('admin/pelayanan/skpenetapan') !!}">SK Penetapan Manfaat</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Potong Pajak</a></li>

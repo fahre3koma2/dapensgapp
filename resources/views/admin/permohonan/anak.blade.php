@@ -39,6 +39,8 @@
                             <td>
                                 @if ($item->status == 1)
                                 <span class="label label-danger">Belum Verifikasi</span>
+                                 @elseif($item->status == null)
+                                <span class="label label-info">Belum Dikirim</span>
                                 @else
                                 <span class="label label-success">Sudah Verifikasi</span>
                                 @endif

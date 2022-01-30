@@ -61,6 +61,10 @@
                         <li><a href="#">Pelaporan</a>
                              <ul>
                                 <li><a href="{!! url('layanan/laporberitaduka') !!}">Laporan Berita Duka</a></li>
+                                <li><a href="{!! url('layanan/laporanakmenikah') !!}">Laporan Anak Menikah</a></li>
+                                <li><a href="{!! url('layanan/lapormenikahlagi') !!}">Laporan Menikah Lagi</a></li>
+                                <li><a href="{!! url('layanan/laporanakbekerja') !!}">Laporan Anak Bekerja</a></li>
+                                <li><a href="{!! url('layanan/laporbercerai') !!}">Laporan Pensiunan Bercerai</a></li>
                             </ul>
                         </li>
                         <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('home') !!}" @endif>Pengkinian Data</a></li>

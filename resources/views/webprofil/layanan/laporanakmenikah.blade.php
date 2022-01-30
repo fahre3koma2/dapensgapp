@@ -9,10 +9,10 @@
         <div class="full">
           <div class="title-holder">
             <div class="title-holder-cell text-left">
-              <h1 class="page-title">Laporan Berita Duka</h1>
+              <h1 class="page-title">Laporan Anak Menikah</h1>
               <ol class="breadcrumb">
                 <li><a href="index.html">Layanan</a></li>
-                <li class="active">Laporan Berita Duka</li>
+                <li class="active">Laporan Anak Menikah</li>
               </ol>
             </div>
           </div>
@@ -36,13 +36,13 @@
                 <div class="form-field">
                   <label>Nama Pelapor <span class="red">*</span></label>
                   <input name="nama_pelapor" type="text" required>
-                  <input name="kode" type="hidden" value="BD-">
+                  <input name="kode" type="hidden" value="AM-">
                   <input name="jenis" type="hidden" value="{{ $type }}">
                 </div>
-              </div>
+                </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Nama Pensiunan (yang meninggal dunia) <span class="red">*</span></label>
+                  <label>Nama Terlapor Pensiunan (Anak) <span class="red">*</span></label>
                   <input name="nama_peserta" type="text" required>
                 </div>
               </div>
@@ -58,9 +58,10 @@
                   <input name="notelp" type="number" required>
                 </div>
               </div>
+
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Tanggal Meninggal <span class="red">*</span></label>
+                  <label>Tanggal Melangsungkan Pernikahan <span class="red">*</span></label>
                   <input name="tgl_acara" type="text" id="datepicker" required>
                 </div>
               </div>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Biodata;
-use App\Models\Admin\Lampiran;
+use App\Models\Admin\LampiranNormal;
 
 class PermohonanKaryawan extends Model
 {
@@ -23,7 +23,7 @@ class PermohonanKaryawan extends Model
 
     public function lampiran()
     {
-        return $this->belongsTo(Lampiran::class, 'nopeserta', 'nopeserta');
+        return $this->hasOne(LampiranNormal::class, 'nopermohonan', 'idperm_karyawan');
     }
 
 }

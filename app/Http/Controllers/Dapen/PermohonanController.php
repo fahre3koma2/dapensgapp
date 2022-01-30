@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Biodata;
 use App\Models\Admin\PermohonanKaryawan;
-use App\Models\Admin\Lampiran;
+use App\Models\Admin\LampiranNormal;
 
 use Alert;
 use Exception;
@@ -88,7 +88,7 @@ class PermohonanController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanKaryawan::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
+        $mohon = PermohonanKaryawan::query()->with(['lampiran'])->find(decrypt($id));
         //dd($mohon);
         $data = [
             'menu' => $menu,
@@ -105,16 +105,12 @@ class PermohonanController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = PermohonanKaryawan::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
-        $user = User::where('id', $mohon->biodata->user_id)->first();
-        $lampiran = Lampiran::where('nopeserta', $user->biodata->nopeserta);
+        $mohon = PermohonanKaryawan::query()->with(['lampiran'])->find(decrypt($id));
         //dd($mohon);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
             'mohon' => $mohon,
-            'user' => $user,
-            'lampiran' => $lampiran,
         ];
 
         return view('admin.dapen.permohonan.form3', $data);
@@ -164,11 +160,12 @@ class PermohonanController extends Controller
         try {
 
             $data['idperm_karyawan'] = $nextNumber;
+            $data['nopermohonan'] = $nextNumber;
             //$data['status'] = 1;
             $mohon = PermohonanKaryawan::create($data);
-            $check = Lampiran::where('nopeserta', $nopeserta)->first();
+            $check = LampiranNormal::where('nopeserta', $nopeserta)->first();
             if ($check == null) {
-                $lampiran = Lampiran::create($data);
+                $lampiran = LampiranNormal::create($data);
             }
 
             return redirect()->route('pensi.permohonankaryawan-form2', ['id' => encrypt($mohon->id)])->with('message', 'Operation Successful !');
@@ -325,7 +322,7 @@ class PermohonanController extends Controller
         $file->move($tujuan_upload, $nama_file);
 
         $filenya[$type] = $nama_file;
-        $lampiran = Lampiran::where('nopeserta', $data['valueid'])->first();
+        $lampiran = LampiranNormal::where('nopeserta', $data['valueid'])->first();
         //dd($filenya);
 
         $lampiran->update($filenya);
@@ -337,7 +334,7 @@ class PermohonanController extends Controller
     {
 
         $idx = $request->idx;
-        $lampiran = Lampiran::where('nopeserta', $request->id)->first();
+        $lampiran = LampiranNormal::where('nopeserta', $request->id)->first();
         $tujuan_upload = public_path() . '/dapen/lampiran/';
         File::delete($tujuan_upload . $request->id . '/' . $lampiran[$request->type]);
 

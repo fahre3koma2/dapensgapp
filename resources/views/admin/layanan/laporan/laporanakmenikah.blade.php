@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Permohonan Pembayaran Manfaat Pensiun Duda Janda</h1>
+      <h1>Laporan Anak Menikah</h1>
       <ol class="breadcrumb">
-        <li><a href="#">Pemohonan</a></li>
-        <li><i class="fa fa-angle-right"></i>Permohonan Pembayaran Manfaat Pensiun Duda Janda</li>
+        <li><a href="#">Layanan</a></li>
+        <li><i class="fa fa-angle-right"></i>Laporan Anak Menikah</li>
       </ol>
     </div>
 @endsection
@@ -14,45 +14,33 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
+            @if($berita->isEmpty())
+                <div class="alert alert-danger" role="alert"> Tidak Ada Laporan </div>
+            @else
+            <h4 class="text-black">Data Laporan Anak Menikah</h4>
+            {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
             <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
                     <thead>
                         <tr>
-                            <th width="2%">No</th>
-                            <th>No Permohonan</th>
-                            <th>No Pensiun</th>
-                            <th>Nama</th>
-                            <th>No Handphone</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
+                        <th>No</th>
+                        <th>No Laporan</th>
+                        <th>No Pensiun</th>
+                        <th>Nama Peserta</th>
+                        <th>Tanggal Menikah</th>
+                        <th>No Telp</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php $no = 1; @endphp
-                        @foreach ($mohon as $item)
+                        @foreach ($berita as $item)
                         <tr>
                             <td>{{$no}}</td>
-                            <td>{{$item->idperm_karyawan}}</td>
-                            <td>{{$item->nopeserta}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->nohp}}</td>
-                            <td>
-                                 @if ($item->status == 1)
-                                <span class="label label-danger">Belum Verifikasi</span>
-                                 @elseif($item->status == null)
-                                <span class="label label-info">Belum Dikirim</span>
-                                @else
-                                <span class="label label-success">Sudah Verifikasi</span>
-                                @endif
-
-                            </td>
-                            <td>
-                                @if ($item->status == 1)
-                               <a href="{!! route('admin.permohonan.verifikasi', ['id' => encrypt($item->id) , 'jenis' => 'dudajanda']) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Verifikasi </a>
-                                @else
-
-                                @endif
-                            </td>
+                            <td>{{$item->nolaporan}}</td>
+                            <td>{{$item->nopensiun}}</td>
+                            <td>{{$item->nama_peserta}}</td>
+                            <td>{{$item->tgl_meninggal}}</td>
+                            <td>{{$item->notelp}}</td>
                         </tr>
                         @php $no++; @endphp
                         @endforeach
@@ -60,6 +48,7 @@
                 </table>
             </div>
 
+            @endif
          </div>
     </div>
 </div>

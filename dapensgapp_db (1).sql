@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 28, 2022 at 09:08 AM
+-- Generation Time: Jan 30, 2022 at 02:46 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -9444,6 +9444,43 @@ INSERT INTO `lampiran_dudajanda` (`id`, `nopeserta`, `nopermohonan`, `file_ktp`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `lampiran_pensiun`
+--
+
+CREATE TABLE `lampiran_pensiun` (
+  `id` int(10) NOT NULL,
+  `nopeserta` varchar(255) DEFAULT NULL,
+  `nopermohonan` varchar(255) DEFAULT NULL,
+  `file_ktp` varchar(255) DEFAULT NULL,
+  `file_ktpanak` varchar(255) DEFAULT NULL,
+  `file_kk` varchar(255) DEFAULT NULL,
+  `file_npwp` varchar(255) DEFAULT NULL,
+  `file_foto` varchar(255) DEFAULT NULL,
+  `file_tabungan` varchar(255) DEFAULT NULL,
+  `file_skperusahaan` varchar(255) DEFAULT NULL,
+  `file_surat_kematian` varchar(255) DEFAULT NULL,
+  `file_surat_nikahortu` varchar(255) DEFAULT NULL,
+  `file_surat_nikah` varchar(255) DEFAULT NULL,
+  `file_belum_nikah` varchar(255) DEFAULT NULL,
+  `file_surat_sekolah` varchar(255) DEFAULT NULL,
+  `file_surat_penghasilan` varchar(255) DEFAULT NULL,
+  `file_scan_karyawan` varchar(255) DEFAULT NULL,
+  `file_scan_anak` varchar(255) DEFAULT NULL,
+  `file_surat_kuasa` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lampiran_pensiun`
+--
+
+INSERT INTO `lampiran_pensiun` (`id`, `nopeserta`, `nopermohonan`, `file_ktp`, `file_ktpanak`, `file_kk`, `file_npwp`, `file_foto`, `file_tabungan`, `file_skperusahaan`, `file_surat_kematian`, `file_surat_nikahortu`, `file_surat_nikah`, `file_belum_nikah`, `file_surat_sekolah`, `file_surat_penghasilan`, `file_scan_karyawan`, `file_scan_anak`, `file_surat_kuasa`, `created_at`, `updated_at`) VALUES
+(6, '00011', 'MPK-0122-004', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-30 09:17:12', '2022-01-30 09:17:12');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lampiran_pindahrek`
 --
 
@@ -9481,34 +9518,35 @@ INSERT INTO `lampiran_pindahrek` (`id`, `nopeserta`, `nopermohonan`, `file_ktp`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `laporan_duka`
+-- Table structure for table `laporan`
 --
 
-CREATE TABLE `laporan_duka` (
+CREATE TABLE `laporan` (
   `id` int(10) NOT NULL,
   `nolaporan` varchar(255) DEFAULT NULL,
   `nama_pelapor` varchar(255) DEFAULT NULL,
   `notelp` varchar(255) DEFAULT NULL,
   `nama_peserta` varchar(255) DEFAULT NULL,
-  `tgl_meninggal` date DEFAULT NULL,
+  `tgl_acara` date DEFAULT NULL,
   `nopensiun` varchar(100) DEFAULT NULL,
   `hub_keluarga` varchar(255) DEFAULT NULL,
   `alamat` text DEFAULT NULL,
   `keterangan` text DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
-  `jenis` varchar(10) DEFAULT NULL,
+  `jenis` varchar(30) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `laporan_duka`
+-- Dumping data for table `laporan`
 --
 
-INSERT INTO `laporan_duka` (`id`, `nolaporan`, `nama_pelapor`, `notelp`, `nama_peserta`, `tgl_meninggal`, `nopensiun`, `hub_keluarga`, `alamat`, `keterangan`, `status`, `jenis`, `created_at`, `updated_at`) VALUES
+INSERT INTO `laporan` (`id`, `nolaporan`, `nama_pelapor`, `notelp`, `nama_peserta`, `tgl_acara`, `nopensiun`, `hub_keluarga`, `alamat`, `keterangan`, `status`, `jenis`, `created_at`, `updated_at`) VALUES
 (8, 'BD-2022-001', 'Nichole', '123123', 'Stephen', '2022-01-03', '123123', 'busss', 'Alama', 'Keterangan', NULL, NULL, '2022-01-06 07:18:29', '2022-01-06 07:18:29'),
 (17, 'BD-0122-002', 'Jefri', '12312321', 'Stephen', '2022-01-02', '123123', 'busss', 'Alamat', 'Keterangan', NULL, NULL, '2022-01-06 07:42:48', '2022-01-06 07:42:48'),
-(18, 'BD-0122-003', 'JefriStephen', '12312321', 'Dono', '2022-01-02', '123123', 'Suami', 'Alamat', 'Keterangan', NULL, NULL, '2022-01-06 07:43:12', '2022-01-06 07:43:12');
+(18, 'BD-0122-003', 'JefriStephen', '12312321', 'Dono', '2022-01-02', '123123', 'Suami', 'Alamat', 'Keterangan', NULL, NULL, '2022-01-06 07:43:12', '2022-01-06 07:43:12'),
+(19, 'AM-3022-00001', 'Jefri', '097086086', 'Stephen', '2022-02-04', '123123', 'Anak', 'Jl. Jalan', 'Keterangan', NULL, 'laporanakmenikah', '2022-01-30 04:19:02', '2022-01-30 04:19:02');
 
 -- --------------------------------------------------------
 
@@ -11276,8 +11314,7 @@ CREATE TABLE `perm_karyawan` (
 --
 
 INSERT INTO `perm_karyawan` (`id`, `idperm_karyawan`, `nopeserta`, `name`, `alamat`, `kelurahan`, `rt`, `rw`, `kota`, `kodepos`, `nohp`, `norekening`, `bank`, `cabang`, `status`, `created_at`, `updated_at`) VALUES
-(8, 'MPK-0122-002', '00011', 'Mukhlis James', NULL, 'Sidotagak', '12', '8', 'Surabaya', '61723', '67567767567', '00087653829', 'BNI', 'Buka', '1', '2022-01-11 10:45:07', '2022-01-12 06:26:35'),
-(12, 'MPK-0122-003', '00011', 'Dian Wahyu', 'Jaksel', NULL, NULL, NULL, NULL, NULL, '86767631', '12031831', 'BNI', 'Jaksel', NULL, '2022-01-28 07:05:59', '2022-01-28 07:05:59');
+(18, 'MPK-0122-004', '00011', 'Dian Wahyu', 'Jl. Karang Rejo III/8', NULL, NULL, NULL, NULL, NULL, '1230128301', '12937218361', 'BNI', 'Semarang', NULL, '2022-01-30 09:17:12', '2022-01-30 09:17:12');
 
 -- --------------------------------------------------------
 
@@ -12956,7 +12993,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('lCKE0Ez8BGVOFXGQ4k51PqKbeDMkQKlJd4mSOAOp', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiZUcyeWVpd085TTY1OTBxSTc1akRvRUZFbDhCREJIZXhKdHk3YTJRSiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDM6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9hZG1pbi9wZXJtb2hvbmFuLWFuYWsiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjtzOjExOiJzd2VldF9hbGVydCI7YTowOnt9fQ==', 1643360084);
+('DACEY1R5ghg43Rwg729CQivgDg34fPXy0LpZiCJz', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTVRkdXFVRzhSWU9UNDA1QXRMbUpTZWprbXlnVTVCSzQ0OFlOTVVaUSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTk6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9wZW5zaS9sYXlhbmFuL2J1a3Rpc2xpcD9idWxhbj0xMS0yMDIxIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjQ7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO30=', 1643553946);
 
 -- --------------------------------------------------------
 
@@ -14736,15 +14773,21 @@ ALTER TABLE `lampiran_dudajanda`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `lampiran_pensiun`
+--
+ALTER TABLE `lampiran_pensiun`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `lampiran_pindahrek`
 --
 ALTER TABLE `lampiran_pindahrek`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `laporan_duka`
+-- Indexes for table `laporan`
 --
-ALTER TABLE `laporan_duka`
+ALTER TABLE `laporan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -14936,16 +14979,22 @@ ALTER TABLE `lampiran_dudajanda`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `lampiran_pensiun`
+--
+ALTER TABLE `lampiran_pensiun`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `lampiran_pindahrek`
 --
 ALTER TABLE `lampiran_pindahrek`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `laporan_duka`
+-- AUTO_INCREMENT for table `laporan`
 --
-ALTER TABLE `laporan_duka`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+ALTER TABLE `laporan`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -14981,7 +15030,7 @@ ALTER TABLE `perm_dudajanda`
 -- AUTO_INCREMENT for table `perm_karyawan`
 --
 ALTER TABLE `perm_karyawan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `perm_pindahrek`

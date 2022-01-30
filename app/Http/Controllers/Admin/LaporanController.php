@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Webp;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Admin\Laporan;
 
-class LayananController extends Controller
+class LaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -85,85 +85,13 @@ class LayananController extends Controller
         //
     }
 
-    public function pengajuanpensiun()
-    {
-        //
-        $menu = 'pengajuanpensiun';
-        $edit = false;
-
-        $data = [
-            'menu' => $menu,
-            'edit' => $edit
-        ];
-
-        return view('webprofil.layanan.pengajuanpensiun', $data);
-    }
-
-    public function laporberitaduka()
+    public function beritaduka()
     {
         //
         $menu = 'laporberitaduka';
         $edit = false;
 
-        $data = [
-            'menu' => $menu,
-            'edit' => $edit
-        ];
-
-        return view('webprofil.layanan.laporberitaduka', $data);
-    }
-
-
-    public function beritadukakirim(Request $request)
-    {
-        //
-        $data = $request->except('_token');
-        $tgl = date('Y-m-d', strtotime($request->tgl_meninggal));
-        $record = Laporan::latest()->first();
-
-            if($record){
-                $expNum = explode('-', $record->nolaporan);
-                $nextNumber = 'BD-'. date('m') . date('y') . '-' . sprintf("%03d", $expNum[2] + 1);
-            } else {
-                $nextNumber = 'BD-'. date('m') . date('y') . '-001';
-            }
-
-        try {
-
-            $data['tgl_meninggal'] = $tgl;
-            $data['nolaporan'] = $nextNumber;
-            $berita = Laporan::create($data);
-
-            return redirect()->route('terimaberita', ['id' => encrypt($berita->nolaporan)])->with('message', 'Operation Successful !');
-
-        } catch (Exception $ex) {
-            return redirect()->back()->withInput();
-        }
-
-    }
-
-    public function terimaberita($id)
-    {
-        $menu = 'laporberitaduka';
-        $edit = false;
-        $berita = Laporan::where('nolaporan', decrypt($id))->first();
-        //dd($berita);
-        $data = [
-            'menu' => $menu,
-            'edit' => $edit,
-            'berita' => $berita
-        ];
-
-        return view('webprofil.layanan.terimaberitaduka', $data);
-    }
-
-    public function adminlaporberitaduka()
-    {
-        //
-        $menu = 'laporberitaduka';
-        $edit = false;
-
-        $berita = Laporan::latest()->get()->sortBy('created_at');
+        $berita = Laporan::where('jenis', 'laporberitaduka')->get()->sortBy('created_at');
 
         $data = [
             'menu' => $menu,
@@ -171,6 +99,74 @@ class LayananController extends Controller
             'berita' => $berita
         ];
 
-        return view('admin.dapen.layanan.laporberitaduka', $data);
+        return view('admin.layanan.laporan.laporberitaduka', $data);
+    }
+
+    public function anakmenikah()
+    {
+        //
+        $menu = 'laporanakmenikah';
+        $edit = false;
+
+        $berita = Laporan::where('jenis', 'laporanakmenikah')->get()->sortBy('created_at');
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'berita' => $berita
+        ];
+
+        return view('admin.layanan.laporan.laporanakmenikah', $data);
+    }
+
+    public function anakbekerja()
+    {
+        //
+        $menu = 'laporanakbekerja';
+        $edit = false;
+
+        $berita = Laporan::where('jenis', 'laporanakbekerja')->get()->sortBy('created_at');
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'berita' => $berita
+        ];
+
+        return view('admin.layanan.laporan.laporanakbekerja', $data);
+    }
+
+    public function menikahlagi()
+    {
+        //
+        $menu = 'lapormenikahlagi';
+        $edit = false;
+
+        $berita = Laporan::where('jenis', 'lapormenikahlagi')->get()->sortBy('created_at');
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'berita' => $berita
+        ];
+
+        return view('admin.layanan.laporan.lapormenikahlagi', $data);
+    }
+
+    public function bercerai()
+    {
+        //
+        $menu = 'laporbercerai';
+        $edit = false;
+
+        $berita = Laporan::where('jenis', 'laporbercerai')->get()->sortBy('created_at');
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'berita' => $berita
+        ];
+
+        return view('admin.layanan.laporan.laporbercerai', $data);
     }
 }

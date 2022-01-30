@@ -4,7 +4,7 @@
 <!-- basic -->
 @include('webprofil.headp')
 </head>
-    @if ($menu == 'laporberitaduka')
+    @if ($menu == 'laporan')
         <body id="default_theme" class="it_serv_shopping_cart it_checkout checkout_page">
     @elseif($menu == 'downloadform')
         <body id="default_theme" class="it_serv_shopping_cart shopping-cart">

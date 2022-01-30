@@ -42,29 +42,20 @@
                 <table class="table">
                   <tbody><tr>
                     <th style="width:50%">No Peserta / Pensiun:</th>
-                    <td>{{ $user->biodata->nopeserta }}</td>
+                    <td>{{ $mohon->nopeserta }}</td>
                   </tr>
                   <tr>
                     <th>Nama :</th>
-                    <td>{{ $user->biodata->name }}</td>
+                    <td>{{ $mohon->name }}</td>
                   </tr>
                   <tr>
                     <th>Alamat :</th>
-                    <td>{{ $user->biodata->alamat }}</td>
+                    <td>{{ $mohon->alamat }}</td>
                   </tr>
                   <tr>
-                    <th>Kelurahan :</th>
-                    <td>{{ $user->biodata->kelurahan }}</td>
+                    <th style="width:50%">No HP:</th>
+                    <td>{{ $mohon->nohp }}</td>
                   </tr>
-                  <tr>
-                    <th>RT :</th>
-                    <td>{{ $user->biodata->rt }}</td>
-                  </tr>
-                  <tr>
-                    <th>RW :</th>
-                    <td>{{ $user->biodata->rw }}</td>
-                  </tr>
-
                 </tbody></table>
               </div>
             </div>
@@ -73,29 +64,17 @@
                 <table class="table">
                   <tbody>
                   <tr>
-                    <th>Kota :</th>
-                    <td>{{ $user->biodata->kota }}</td>
-                  </tr>
-                  <tr>
-                    <th>Kode Pos :</th>
-                    <td>{{ $user->biodata->kodepos }}</td>
-                  </tr>
-                  <tr>
-                    <th style="width:50%">No HP:</th>
-                    <td>{{ $user->biodata->nohp }}</td>
-                  </tr>
-                  <tr>
                     <th>No Rekening :</th>
-                    <td>{{ $user->biodata->norekening }}</td>
+                    <td>{{ $mohon->norekening }}</td>
                   </tr>
                   <tr>
                     <th>Bank:</th>
-                    <td>{{ $user->biodata->bank }}</td>
+                    <td>{{ $mohon->bank }}</td>
                   </tr>
 
                   <tr>
                     <th>Cabang :</th>
-                    <td>{{ $user->biodata->cabang }}</td>
+                    <td>{{ $mohon->cabang }}</td>
                   </tr>
                 </tbody></table>
               </div>
