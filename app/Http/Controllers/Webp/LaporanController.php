@@ -171,7 +171,7 @@ class LaporanController extends Controller
         $data = $request->except('_token');
         $tgl = date('Y-m-d', strtotime($request->tgl_acara));
 
-        $record = Laporan::where('jenis', $data['type'])->latest()->first();
+        $record = Laporan::where('jenis', $data['jenis'])->latest()->first();
 
         if ($record) {
             $expNum = explode('-', $record->nolaporan);

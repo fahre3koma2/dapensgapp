@@ -156,6 +156,39 @@
                         @endif
                     </td>
                   </tr>
+                  <tr>
+                    <td>4. </td>
+                    <td>File Lain-lain 1</td>
+                    <td>
+                        @if($user->lampiran->file_lain1)
+                            <i class="fa fa-check"></i>
+                        @else
+                            <i class="fa fa-times"></i>
+                        @endif
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5. </td>
+                    <td>File Lain-lain 2</td>
+                    <td>
+                        @if($user->lampiran->file_lain2)
+                            <i class="fa fa-check"></i>
+                        @else
+                            <i class="fa fa-times"></i>
+                        @endif
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6. </td>
+                    <td>File Lain-lain 3</td>
+                    <td>
+                        @if($user->lampiran->file_lain3)
+                            <i class="fa fa-check"></i>
+                        @else
+                            <i class="fa fa-times"></i>
+                        @endif
+                    </td>
+                  </tr>
 
                 </tbody>
               </table>

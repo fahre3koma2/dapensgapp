@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 30, 2022 at 02:46 PM
+-- Generation Time: Jan 31, 2022 at 06:29 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -1717,7 +1717,8 @@ CREATE TABLE `biodata_update` (
 INSERT INTO `biodata_update` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`, `alamat`, `kelurahan`, `rt`, `rw`, `kota`, `kodepos`, `created_at`, `updated_at`, `status`, `no_pegawai`, `file`, `nopeserta`, `berhak`, `jenis`, `kawin`, `sex`, `tempat_lahir`, `tgl_lahir`, `nik`, `nik_berhak`, `npwp`, `email_user`, `baru`, `verifikasi`, `tampil`, `nopd`) VALUES
 (1569, 24, 'Yogie Nandes P', '675677675673', NULL, NULL, 'Jl. Dorang No 21', 'Sabalo Mano', '12', '8', 'Padang', '213213', '2022-01-21 08:40:06', '2022-01-22 06:28:47', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, NULL, '1993-07-08', NULL, NULL, '988752811212', NULL, '2', '1', '2', 'PD-0122-001'),
 (1572, 24, 'Yogie Nandes Pratama', '99839288819', NULL, NULL, 'Jl. Dorang No 21 Kali Urang', 'Sabalo Mano', '08', '03', 'Padang', '34223232', '2022-01-22 06:18:48', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Janda', NULL, NULL, '1993-07-08', NULL, NULL, '898291889391', NULL, '2', '1', '2', 'PD-0122-002'),
-(1573, 24, 'Omar Al Nahian', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '03', '04', 'Pati', '123456', '2022-01-22 08:19:34', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, '2', '1', '1', 'PD-0122-003');
+(1573, 24, 'Omar Al Nahian', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '03', '04', 'Pati', '123456', '2022-01-22 08:19:34', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, '2', '1', '1', 'PD-0122-003'),
+(1575, 24, 'Omar Al Nahian', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '03', '04', 'Pati', '123456', '2022-01-31 06:23:10', '2022-01-31 06:23:10', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, NULL, NULL, NULL, 'PD-0122-004');
 
 -- --------------------------------------------------------
 
@@ -9354,6 +9355,9 @@ CREATE TABLE `lampiran` (
   `file_scan_karyawan` varchar(255) DEFAULT NULL,
   `file_scan_anak` varchar(255) DEFAULT NULL,
   `file_surat_kuasa` varchar(255) DEFAULT NULL,
+  `file_lain1` varchar(255) DEFAULT NULL,
+  `file_lain2` varchar(255) DEFAULT NULL,
+  `file_lain3` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -9362,10 +9366,10 @@ CREATE TABLE `lampiran` (
 -- Dumping data for table `lampiran`
 --
 
-INSERT INTO `lampiran` (`id`, `nopeserta`, `file_ktp`, `file_ktpanak`, `file_kk`, `file_npwp`, `file_foto`, `file_tabungan`, `file_skperusahaan`, `file_surat_kematian`, `file_surat_nikahortu`, `file_surat_nikah`, `file_belum_nikah`, `file_surat_sekolah`, `file_surat_penghasilan`, `file_scan_karyawan`, `file_scan_anak`, `file_surat_kuasa`, `created_at`, `updated_at`) VALUES
-(2, '00011', 'file_ktp_00011.jpg', NULL, 'file_kk_00011.pdf', 'file_npwp_00011.png', 'file_foto_00011.png', 'file_tabungan_00011.pdf', 'file_skperusahaan_00011.pdf', NULL, NULL, NULL, NULL, NULL, NULL, 'file_scan_karyawan_00011.pdf', NULL, NULL, '2022-01-11 03:01:43', '2022-01-21 10:56:18'),
-(3, '01323', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-14 08:58:36', '2022-01-14 08:58:36'),
-(4, '01901', 'file_ktp_01901.jpg', NULL, 'file_kk_01901.pdf', 'file_npwp_01901.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-22 09:13:51', '2022-01-22 09:17:05');
+INSERT INTO `lampiran` (`id`, `nopeserta`, `file_ktp`, `file_ktpanak`, `file_kk`, `file_npwp`, `file_foto`, `file_tabungan`, `file_skperusahaan`, `file_surat_kematian`, `file_surat_nikahortu`, `file_surat_nikah`, `file_belum_nikah`, `file_surat_sekolah`, `file_surat_penghasilan`, `file_scan_karyawan`, `file_scan_anak`, `file_surat_kuasa`, `file_lain1`, `file_lain2`, `file_lain3`, `created_at`, `updated_at`) VALUES
+(2, '00011', 'file_ktp_00011.jpg', NULL, 'file_kk_00011.pdf', 'file_npwp_00011.png', 'file_foto_00011.png', 'file_tabungan_00011.pdf', 'file_skperusahaan_00011.pdf', NULL, NULL, NULL, NULL, NULL, NULL, 'file_scan_karyawan_00011.pdf', NULL, NULL, 'file_lain1_00011.pdf', 'file_lain2_00011.pdf', 'file_lain3_00011.pdf', '2022-01-11 03:01:43', '2022-01-31 06:29:31'),
+(3, '01323', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-14 08:58:36', '2022-01-14 08:58:36'),
+(4, '01901', 'file_ktp_01901.jpg', NULL, 'file_kk_01901.pdf', 'file_npwp_01901.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-22 09:13:51', '2022-01-22 09:17:05');
 
 -- --------------------------------------------------------
 
@@ -9546,7 +9550,8 @@ INSERT INTO `laporan` (`id`, `nolaporan`, `nama_pelapor`, `notelp`, `nama_pesert
 (8, 'BD-2022-001', 'Nichole', '123123', 'Stephen', '2022-01-03', '123123', 'busss', 'Alama', 'Keterangan', NULL, NULL, '2022-01-06 07:18:29', '2022-01-06 07:18:29'),
 (17, 'BD-0122-002', 'Jefri', '12312321', 'Stephen', '2022-01-02', '123123', 'busss', 'Alamat', 'Keterangan', NULL, NULL, '2022-01-06 07:42:48', '2022-01-06 07:42:48'),
 (18, 'BD-0122-003', 'JefriStephen', '12312321', 'Dono', '2022-01-02', '123123', 'Suami', 'Alamat', 'Keterangan', NULL, NULL, '2022-01-06 07:43:12', '2022-01-06 07:43:12'),
-(19, 'AM-3022-00001', 'Jefri', '097086086', 'Stephen', '2022-02-04', '123123', 'Anak', 'Jl. Jalan', 'Keterangan', NULL, 'laporanakmenikah', '2022-01-30 04:19:02', '2022-01-30 04:19:02');
+(19, 'AM-3022-00001', 'Jefri', '097086086', 'Stephen', '2022-02-04', '123123', 'Anak', 'Jl. Jalan', 'Keterangan', NULL, 'laporanakmenikah', '2022-01-30 04:19:02', '2022-01-30 04:19:02'),
+(20, 'BD-3122-00001', 'Nichole', '213123', 'Gending', '2022-01-08', '123123', 'Kerabat', 'q3123', '23123', NULL, 'laporberitaduka', '2022-01-31 06:14:45', '2022-01-31 06:14:45');
 
 -- --------------------------------------------------------
 
@@ -12993,7 +12998,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('DACEY1R5ghg43Rwg729CQivgDg34fPXy0LpZiCJz', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTVRkdXFVRzhSWU9UNDA1QXRMbUpTZWprbXlnVTVCSzQ0OFlOTVVaUSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTk6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9wZW5zaS9sYXlhbmFuL2J1a3Rpc2xpcD9idWxhbj0xMS0yMDIxIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjQ7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO30=', 1643553946);
+('dJOqIYFvYbb2Kb41mcG13BnezINJaAnxYEGX3Rql', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiOVJTdUpYUkM1c2x5WklyNU1LU2ZNc09oRUQ5dnNTNzhvMmZ4WjhuRSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjMzOiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuZ2tpbmlhbi9mb3JtMy9leUpwZGlJNklteFBWakpZUkhaRE1DOVJRMEpuWkZOdWRrUjNZM2M5UFNJc0luWmhiSFZsSWpvaVExZG1SRTlWVGpZMk5UbHZURXMyYjJ4bGJUa3JRVDA5SWl3aWJXRmpJam9pT0RkbVpUQTFaRFF4Wm1Wa09XSmtNR00wT0dReU1UbGxaV1kxWkdVNFpUZG1aakUwTlRneU56bG1OR0kxTXpoa01ESXlaRFprT1RCa016WmxNRFk0WmlKOSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI0O3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjt9', 1643610576);
 
 -- --------------------------------------------------------
 
@@ -14940,7 +14945,7 @@ ALTER TABLE `biodata`
 -- AUTO_INCREMENT for table `biodata_update`
 --
 ALTER TABLE `biodata_update`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1575;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1576;
 
 --
 -- AUTO_INCREMENT for table `data_keluarga`
@@ -14994,7 +14999,7 @@ ALTER TABLE `lampiran_pindahrek`
 -- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `migrations`

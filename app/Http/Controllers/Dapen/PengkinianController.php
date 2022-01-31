@@ -319,6 +319,36 @@ class PengkinianController extends Controller
                     'file_scan_karyawan.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
+        } elseif ($request->type == "file_lain1") {
+            $this->validate(
+                $request,
+                ['file_lain1' => 'required|mimes:pdf|max:1000'],
+                [
+                    'file_lain1.required' => 'Tidak ada file yang di upload',
+                    'file_lain1.mimes' => 'File harus pdf',
+                    'file_lain1.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_lain2") {
+            $this->validate(
+                $request,
+                ['file_lain2' => 'required|mimes:pdf|max:1000'],
+                [
+                    'file_lain2.required' => 'Tidak ada file yang di upload',
+                    'file_lain2.mimes' => 'File harus pdf',
+                    'file_lain2.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
+        } elseif ($request->type == "file_lain3") {
+            $this->validate(
+                $request,
+                ['file_lain3' => 'required|mimes:pdf|max:1000'],
+                [
+                    'file_lain3.required' => 'Tidak ada file yang di upload',
+                    'file_lain3.mimes' => 'File harus pdf',
+                    'file_lain3.max' => 'File tidak boleh lebih dari 10 mb',
+                ]
+            );
         } else {
         }
 
