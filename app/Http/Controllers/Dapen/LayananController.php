@@ -334,7 +334,8 @@ class LayananController extends Controller
         $menu = 'pensi';
         $edit = false;
         $tahunini = date('Y', strtotime('now'));
-        $tahun = !is_null($request->tahun) ? $request->tahun : $tahunini;
+       // $tahun = !is_null($request->tahun) ? $request->tahun : $tahunini;
+        $tahun = '2021';
         $user = User::query()->with(['biodata'])->find(auth()->user()->id);
 
         //$mohon = SKeterangan::query()->get();

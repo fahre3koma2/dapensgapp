@@ -59,7 +59,8 @@
                         <td>{{ $tahun }}</td>
                         <td>{{ $user->biodata->nopeserta }}</td>
                         <td>{{ $user->biodata->berhak }}</td>
-                        <td> <a href="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.'_BUPOT'.$tahun.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
+                        {{--  <td> <a href="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.'_BUPOT'.$tahun.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>  --}}
+                        <td> <a href="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.''.$user->biodata->jenis.'_1721A1_'.$tahun.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
                     </tr>
                     </tbody>
                 </table>

@@ -13,7 +13,7 @@
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><img src="{{ url('dist/img/logo-n.png') }}" alt=""></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><img src="{{ url('dist/img/logo.png') }}" alt=""></span> </a>
+    <span class="logo-lg"><img src="{{ url('dist/img/logo.png') }}" width="80%" alt=""></span> </a>
     <!-- Header Navbar -->
     {{--  <nav class="navbar orange-bg navbar-static-top">  --}}
          <nav class="navbar orange-bg navbar-static-top">

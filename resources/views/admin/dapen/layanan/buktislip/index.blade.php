@@ -59,8 +59,8 @@
                         <td>{{ Carbon\Carbon::parse($year.'-'.$month.'-01')->isoFormat('MMMM Y')  }}</td>
                         <td>{{ $user->biodata->nopeserta }}</td>
                         <td>{{ $user->biodata->berhak }}</td>
-                        {{--  <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/'.$user->biodata->nopeserta.'_MP'.$month.''.$year.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>  --}}
-                        @if($month == '12')
+                        <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/'.$user->biodata->nopeserta.'_MP'.$month.''.$year.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
+                        {{--  @if($month == '12')
                         <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/SLIPGAJI_DES'.$year.''.$user->biodata->nopeserta.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
                         @elseif($month == '01')
                         <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/SLIPGAJI_JAN'.$year.''.$user->biodata->nopeserta.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
@@ -68,7 +68,7 @@
                         <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/SLIPGAJI_FEB'.$year.''.$user->biodata->nopeserta.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
                         @elseif($month == '11')
                         <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/SLIPGAJI_NOV'.$year.''.$user->biodata->nopeserta.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
-                        @endif
+                        @endif  --}}
                     </tr>
                     </tbody>
                 </table>
