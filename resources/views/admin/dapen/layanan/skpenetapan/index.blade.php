@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Permohonan ...</h1>
+      <h1>Permohonan SK Penetapan</h1>
       <ol class="breadcrumb">
         <li><a href="#">Pemohonan</a></li>
-        <li><i class="fa fa-angle-right"></i>Permohonan ...</li>
+        <li><i class="fa fa-angle-right"></i>Permohonan SK Penetapan</li>
       </ol>
     </div>
 @endsection
@@ -18,7 +18,7 @@
             {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
              <div class="ml-auto">
                 @php $idpensi = auth()->user()->id; @endphp
-                <a href="{!! url('pensi/layanan/skpenetapan/tambah', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-warning">Tambah File</a>
+                <a href="{!! url('pensi/layanan/skpenetapan/tambah', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-warning">Tambah Permintaan</a>
             </div>
             <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">

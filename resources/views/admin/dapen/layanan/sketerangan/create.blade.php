@@ -51,6 +51,15 @@
                       <input class="form-control" type="text" name="nohp" value="{{ $user->biodata->nohp }}" required>
                     </div>
                   </div>
+                  <div class="form-group row">
+                    <label class="control-label text-right col-md-3">Keperluan</label>
+                    <div class="col-md-9">
+                        <select class="form-control" name="jenis">
+                            <option value="0"> Sebagai Pensiunan </option>
+                            <option value="1"> Untuk Anak Masuk Perguruan Tinggi </option>
+                        </select>
+                    </div>
+                  </div>
                 </div>
                 <div class="form-actions">
                   <div class="row">

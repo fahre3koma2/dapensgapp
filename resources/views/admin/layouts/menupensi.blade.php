@@ -1,11 +1,11 @@
 
-    <li class="{{ $menu == 'home' ? 'active' : '' }}"> <a href="{!! url('/home') !!}"> <i class="icon-home"></i> <span> Home </span> </a> </li>
-    <li class="{{ $menu == 'profil' ? 'active' : '' }}"> <a href="{!! url('pensi/pensiun/'.$idpensi ) !!}"> <i class="icon-user-following"></i> <span> Data Pribadi </span> </a>
+    <li class="{{ $menu == 'home' ? 'active' : '' }}"> <a href="{!! url('/home') !!}"> <i class="icon-home" style="color:black"></i> <span> Home </span> </a> </li>
+    <li class="{{ $menu == 'profil' ? 'active' : '' }}"> <a href="{!! url('pensi/pensiun/'.$idpensi ) !!}"> <i class="icon-user-following" style="color:black"></i> <span> Data Pribadi </span> </a>
         {{--  <ul>
             <li><a href="{!! url('pensi/pensiun/'.$idpensi ) !!}">Identitas</a></li>
         </ul>  --}}
     </li>
-    <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt"></i> <span> Layanan </span> </a>
+    <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt" style="color:black"></i> <span> Layanan </span> </a>
         <ul>
             <li><a href="#">Laporan</a>
                  <ul>
@@ -13,7 +13,6 @@
                 </ul>
             </li>
             <li><a href="{!! url('pensi/pengkinian') !!}">Pengkinian Data</a></li>
-            <li><a href="{!! url('pensi/pensiun/'.$idpensi ) !!}">Cek Data Penerima MP</a></li>
             <li><a href="#">Layanan Mandiri</a>
                 <ul>
                     <li><a href="{!! url('/pensi/layanan/skpenetapan') !!}">Permintaan SK Penetapan MP</a></li>
@@ -25,16 +24,16 @@
             </li>
         </ul>
     </li>
-    <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt"></i> <span> Permohonan </span> </a>
+    <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt" style="color:black"></i> <span> Permohonan </span> </a>
         <ul>
             <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP Normal</a></li>
             <li><a href="{!! url('/pensi/permohonandudajanda ') !!}">Permohonan Pembayaran MP Janda/Duda</a></li>
             <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP </a></li>
             <li><a href="{!! url('/pensi/permohonananak') !!}">Permohonan Pembayaran MP Anak</a></li>
-            <li><a href="{!! url('/pensi/permohonanrekening') !!}">Permohonan Pindah Rekening</a></li>
+            {{--  <li><a href="{!! url('/pensi/permohonanrekening') !!}">Permohonan Pindah Rekening</a></li>  --}}
         </ul>
     </li>
-    <li class="{{ $menu == 'faq' ? 'active' : '' }}"> <a href="{!! url('pensi/faq') !!}"> <i class="icon-question"></i> <span> Informasi </span> </a>
+    <li class="{{ $menu == 'faq' ? 'active' : '' }}"> <a href="{!! url('pensi/faq') !!}"> <i class="icon-question" style="color:black"></i> <span> Informasi </span> </a>
         <ul>
             <li><a href="{!! url('pensi/faq') !!}">Panduan</a></li>
             <li><a href="{!! url('pensi/faq') !!}">Download</a>

@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="{{ url('dist/css/simple-lineicon/simple-line-icons.css') }}">
 
 <!-- hmenu -->
-<link rel="stylesheet" href="{{ url('dist/plugins/hmenu/ace-responsive-menu4.css') }}">
+<link rel="stylesheet" href="{{ url('dist/plugins/hmenu/ace-responsive-menu3.css') }}">
 
 <!-- Chartist CSS -->
 <link rel="stylesheet" href="{{ url('dist/plugins/chartist-js/chartist.min.css') }}">

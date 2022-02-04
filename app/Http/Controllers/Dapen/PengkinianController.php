@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\BiodataUpdate;
 use App\Models\Biodata;
 use App\Models\Admin\Lampiran;
+use App\Models\Admin\Jadwal;
 
 use Alert;
 use Exception;
@@ -33,6 +34,7 @@ class PengkinianController extends Controller
         $idu = auth()->user()->id;
 
         $biodata = BiodataUpdate::where('user_id', $idu)->orderBy('updated_at', 'desc')->get();
+        $jadwal = Jadwal::query()->first();
 
         $user = is_null($biodata) ?  $biodata[0]->user_id : null;
 
@@ -44,7 +46,8 @@ class PengkinianController extends Controller
             'edit' => $edit,
             'biodata' => $biodata,
             'user' => $user,
-            'idu' => $idu
+            'idu' => $idu,
+            'jadwal' => $jadwal,
 
         ];
 
@@ -80,7 +83,6 @@ class PengkinianController extends Controller
 
         }
 
-
             $menu = 'permohonan';
             $edit = false;
             $mohon = null;
@@ -102,7 +104,7 @@ class PengkinianController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
+        $mohon = BiodataUpdate::query()->with(['keluarga'])->find(decrypt($id));
         //dd($mohon);
         $data = [
             'menu' => $menu,
@@ -113,24 +115,39 @@ class PengkinianController extends Controller
         return view('admin.dapen.layanan.pengkiniandata.form2', $data);
     }
 
+
     public function form3($id)
     {
         //
         $menu = 'permohonan';
         $edit = false;
 
-        $user = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
-        $lampiran = Lampiran::where('nopeserta', $user->nopeserta);
-
+        $mohon = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
         //dd($mohon);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
-            'user' => $user,
-            'lampiran' => $lampiran
+            'mohon' => $mohon,
         ];
 
         return view('admin.dapen.layanan.pengkiniandata.form3', $data);
+    }
+
+    public function form4($id)
+    {
+        //
+        $menu = 'permohonan';
+        $edit = false;
+
+
+        $user = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
+        //dd($user);
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'user' => $user,
+        ];
+        return view('admin.dapen.layanan.pengkiniandata.form4', $data);
     }
 
     public function formedit1($id)
@@ -408,9 +425,8 @@ class PengkinianController extends Controller
                 'mohon' => $mohon,
             ];
 
-            Alert::success('Berhasil', 'Pengajuan berhasil disimpan');
-
-            return redirect()->route('pensi.pengkinian.index', $data);
+             alert()->success('Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valida & lengkap', 'Berhasil')->persistent('Ya');
+            return redirect()->route('pensi.pengkinian.index', $data)->with('success', 'Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valid & lengkap');
         }
     }
 }

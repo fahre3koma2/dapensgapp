@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 31, 2022 at 06:29 AM
+-- Generation Time: Feb 04, 2022 at 12:40 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -1704,6 +1704,10 @@ CREATE TABLE `biodata_update` (
   `nik_berhak` varchar(40) DEFAULT NULL,
   `npwp` varchar(40) DEFAULT NULL,
   `email_user` varchar(255) DEFAULT NULL,
+  `norekening` varchar(255) DEFAULT NULL,
+  `bank` varchar(255) DEFAULT NULL,
+  `cabang` varchar(255) DEFAULT NULL,
+  `anrekening` varchar(255) DEFAULT NULL,
   `baru` varchar(4) DEFAULT NULL,
   `verifikasi` varchar(4) DEFAULT NULL,
   `tampil` varchar(4) DEFAULT NULL,
@@ -1714,11 +1718,11 @@ CREATE TABLE `biodata_update` (
 -- Dumping data for table `biodata_update`
 --
 
-INSERT INTO `biodata_update` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`, `alamat`, `kelurahan`, `rt`, `rw`, `kota`, `kodepos`, `created_at`, `updated_at`, `status`, `no_pegawai`, `file`, `nopeserta`, `berhak`, `jenis`, `kawin`, `sex`, `tempat_lahir`, `tgl_lahir`, `nik`, `nik_berhak`, `npwp`, `email_user`, `baru`, `verifikasi`, `tampil`, `nopd`) VALUES
-(1569, 24, 'Yogie Nandes P', '675677675673', NULL, NULL, 'Jl. Dorang No 21', 'Sabalo Mano', '12', '8', 'Padang', '213213', '2022-01-21 08:40:06', '2022-01-22 06:28:47', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, NULL, '1993-07-08', NULL, NULL, '988752811212', NULL, '2', '1', '2', 'PD-0122-001'),
-(1572, 24, 'Yogie Nandes Pratama', '99839288819', NULL, NULL, 'Jl. Dorang No 21 Kali Urang', 'Sabalo Mano', '08', '03', 'Padang', '34223232', '2022-01-22 06:18:48', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Janda', NULL, NULL, '1993-07-08', NULL, NULL, '898291889391', NULL, '2', '1', '2', 'PD-0122-002'),
-(1573, 24, 'Omar Al Nahian', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '03', '04', 'Pati', '123456', '2022-01-22 08:19:34', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, '2', '1', '1', 'PD-0122-003'),
-(1575, 24, 'Omar Al Nahian', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '03', '04', 'Pati', '123456', '2022-01-31 06:23:10', '2022-01-31 06:23:10', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, NULL, NULL, NULL, 'PD-0122-004');
+INSERT INTO `biodata_update` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`, `alamat`, `kelurahan`, `rt`, `rw`, `kota`, `kodepos`, `created_at`, `updated_at`, `status`, `no_pegawai`, `file`, `nopeserta`, `berhak`, `jenis`, `kawin`, `sex`, `tempat_lahir`, `tgl_lahir`, `nik`, `nik_berhak`, `npwp`, `email_user`, `norekening`, `bank`, `cabang`, `anrekening`, `baru`, `verifikasi`, `tampil`, `nopd`) VALUES
+(1569, 24, 'Yogie Nandes P', '675677675673', NULL, NULL, 'Jl. Dorang No 21', 'Sabalo Mano', '12', '8', 'Padang', '213213', '2022-01-21 08:40:06', '2022-01-22 06:28:47', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, NULL, '1993-07-08', NULL, NULL, '988752811212', NULL, NULL, NULL, NULL, NULL, '2', '1', '2', 'PD-0122-001'),
+(1572, 24, 'Yogie Nandes Pratama', '99839288819', NULL, NULL, 'Jl. Dorang No 21 Kali Urang', 'Sabalo Mano', '08', '03', 'Padang', '34223232', '2022-01-22 06:18:48', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Janda', NULL, NULL, '1993-07-08', NULL, NULL, '898291889391', NULL, NULL, NULL, NULL, NULL, '2', '1', '2', 'PD-0122-002'),
+(1573, 24, 'Omar Al Nahian', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '03', '04', 'Pati', '123456', '2022-01-22 08:19:34', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, NULL, NULL, NULL, NULL, '2', '1', '1', 'PD-0122-003'),
+(1575, 24, 'Omar Al Nahian Abzar', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '12', '08', 'Pati', '1234567', '2022-01-31 06:23:10', '2022-02-04 12:08:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, '99888102001', 'BNI', 'Geros', 'Ali', '1', NULL, NULL, 'PD-0122-004');
 
 -- --------------------------------------------------------
 
@@ -9230,7 +9234,7 @@ INSERT INTO `data_keluarga` (`id`, `nopeserta`, `urut`, `nama`, `sex`, `hubungan
 (7437, '02007', '1', 'DITA YOFIKA WULANDARI', 'P', 'I', '1982-12-17', NULL, NULL, '0', '0', '0', '0', NULL, NULL, NULL, '2022-01-12 11:03:33', '2022-01-12 11:03:33'),
 (7438, '02007', '2', 'NABILA ADEKAYANTI ALIYA PUTRI', 'P', 'A', '2001-10-27', NULL, NULL, '0', '0', '0', '0', NULL, NULL, NULL, '2022-01-12 11:03:33', '2022-01-12 11:03:33'),
 (7439, '02007', '3', 'M. ANANG RIZKY DALA PUTRA', 'L', 'A', '2006-02-09', NULL, NULL, '0', '0', '0', '0', NULL, NULL, NULL, '2022-01-12 11:03:33', '2022-01-12 11:03:33'),
-(7441, '00011', '1', 'Fatih', 'L', 'A', '1991-04-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-14 09:47:51', '2022-01-14 09:47:51');
+(7444, '00011', '2', 'Jefri', 'L', 'A', '1993-02-07', NULL, NULL, '0', '0', '0', '0', NULL, NULL, NULL, '2022-02-03 03:34:32', '2022-02-03 03:34:32');
 
 -- --------------------------------------------------------
 
@@ -12998,7 +13002,31 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('dJOqIYFvYbb2Kb41mcG13BnezINJaAnxYEGX3Rql', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiOVJTdUpYUkM1c2x5WklyNU1LU2ZNc09oRUQ5dnNTNzhvMmZ4WjhuRSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjMzOiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuZ2tpbmlhbi9mb3JtMy9leUpwZGlJNklteFBWakpZUkhaRE1DOVJRMEpuWkZOdWRrUjNZM2M5UFNJc0luWmhiSFZsSWpvaVExZG1SRTlWVGpZMk5UbHZURXMyYjJ4bGJUa3JRVDA5SWl3aWJXRmpJam9pT0RkbVpUQTFaRFF4Wm1Wa09XSmtNR00wT0dReU1UbGxaV1kxWkdVNFpUZG1aakUwTlRneU56bG1OR0kxTXpoa01ESXlaRFprT1RCa016WmxNRFk0WmlKOSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI0O3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjt9', 1643610576);
+('2GR52hjBDWliqWT2R5Lx4GzS7vOGuPLx2pGCOcdk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSkU0M2tEaDgwV1NRbEh3c1ZlcWY4ZnRFTzZWOExieU1zbHRQNVJuNiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMjQ6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9wZW5zaS9wZW5zaXVuL2V5SnBkaUk2SWtZclZtZENXVFZEVXpkdlRtODBNR0o2VmxBd1NFRTlQU0lzSW5aaGJIVmxJam9pUTFCdmMyOHdkM1ZMVFVGV2J6WklkUzl6TkRjeVFUMDlJaXdpYldGaklqb2lZakZqTnpWbVptRTNPREk1Wm1Vek1XVXpOV1V3TXpGbFpHSTJOV1F3TVRka01qa3laV0U0T0RoaE5EVTNNelprTUdZd09EVTBNREJsWm1NeVlqUXhNeUo5Ijt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI0OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuc2l1bi9leUpwZGlJNklrWXJWbWRDV1RWRFV6ZHZUbTgwTUdKNlZsQXdTRUU5UFNJc0luWmhiSFZsSWpvaVExQnZjMjh3ZDNWTFRVRldielpJZFM5ek5EY3lRVDA5SWl3aWJXRmpJam9pWWpGak56Vm1abUUzT0RJNVptVXpNV1V6TldVd016RmxaR0kyTldRd01UZGtNamt5WldFNE9EaGhORFUzTXpaa01HWXdPRFUwTURCbFptTXlZalF4TXlKOSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1643973886),
+('q0TeVZhaXD9h9lnNeeExW1NNJiJCDhpWezF9RaJW', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoiY1JSR2hZbkNoRDBvdzcwU29mRVVRSDVWRDBXcWE4VTQwYUxhOUJNVCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ5OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuZ2tpbmlhbj9tb2hvbj0xNTc1Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjQ7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MTE6InN3ZWV0X2FsZXJ0IjthOjA6e319', 1643978409);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seting_jadwal`
+--
+
+CREATE TABLE `seting_jadwal` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `tgl_awal` date DEFAULT NULL,
+  `tgl_akhir` date DEFAULT NULL,
+  `keterangan` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `seting_jadwal`
+--
+
+INSERT INTO `seting_jadwal` (`id`, `nama`, `tgl_awal`, `tgl_akhir`, `keterangan`, `created_at`, `updated_at`) VALUES
+(1, 'Periode 1 Pengkinian Data', '2022-02-04', '2022-02-05', 'Periode', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -13042,6 +13070,7 @@ CREATE TABLE `sketerangan` (
   `nohp` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `keterangan` varchar(255) DEFAULT NULL,
+  `jenis` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `file` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -13052,8 +13081,8 @@ CREATE TABLE `sketerangan` (
 -- Dumping data for table `sketerangan`
 --
 
-INSERT INTO `sketerangan` (`id`, `nosketerangan`, `nopeserta`, `name`, `alamat`, `nohp`, `email`, `keterangan`, `status`, `file`, `created_at`, `updated_at`) VALUES
-(2, 'SK-0122-001', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, '1', 'sketerangan_00011_2022-01-26.pdf', '2022-01-13 02:37:16', '2022-01-26 04:35:11');
+INSERT INTO `sketerangan` (`id`, `nosketerangan`, `nopeserta`, `name`, `alamat`, `nohp`, `email`, `keterangan`, `jenis`, `status`, `file`, `created_at`, `updated_at`) VALUES
+(2, 'SK-0122-001', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, NULL, '1', 'sketerangan_00011_2022-01-26.pdf', '2022-01-13 02:37:16', '2022-01-26 04:35:11');
 
 -- --------------------------------------------------------
 
@@ -14895,6 +14924,12 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`) USING BTREE;
 
 --
+-- Indexes for table `seting_jadwal`
+--
+ALTER TABLE `seting_jadwal`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `seting_sosmed`
 --
 ALTER TABLE `seting_sosmed`
@@ -14951,7 +14986,7 @@ ALTER TABLE `biodata_update`
 -- AUTO_INCREMENT for table `data_keluarga`
 --
 ALTER TABLE `data_keluarga`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7443;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7445;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -15060,6 +15095,12 @@ ALTER TABLE `rekening_pensiun`
 --
 ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `seting_jadwal`
+--
+ALTER TABLE `seting_jadwal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sketerangan`

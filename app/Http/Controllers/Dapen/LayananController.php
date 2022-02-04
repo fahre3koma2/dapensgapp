@@ -373,4 +373,19 @@ class LayananController extends Controller
         return view('admin.dapen.layanan.buktipajak.index', $data);
     }
 
+    public function cetaksk($jenis, $id)
+    {
+
+        if($jenis == 'keterangan'){
+            $surat = SKeterangan::query()->find(decrypt($id));
+            $pdf = PDF::loadview('admin.dapen.layanan.sketerangan.cetak', ['surat' => $surat]);
+        } else {
+            $surat = SkPenetapan::query()->find(decrypt($id));
+            $pdf = PDF::loadview('admin.dapen.layanan.skpenetapan.cetak', ['surat' => $surat]);
+        }
+
+
+        return $pdf->download('laporan-pegawai-pdf.pdf');
+    }
+
 }

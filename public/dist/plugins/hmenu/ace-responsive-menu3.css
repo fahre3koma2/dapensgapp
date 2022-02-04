@@ -32,8 +32,8 @@ ul {
     float: left;
 }
 .ace-responsive-menu li a {
-    /* color:#1d1c1c; */
-     color: #fff;
+    color:#1d1c1c;
+    /* color: #fff; */
 }
 .ace-responsive-menu > li > a {
     display: block;
@@ -43,9 +43,9 @@ ul {
     padding: 18px 15px 18px 10px;
     text-decoration: none;
     font-size: 15px;
-    font-weight: 300;
-    color: #fff;
-     /* color: #1d1c1c; */
+    font-weight: 400;
+    /* color: #fff; */
+    color: #1d1c1c;
 }
 .ace-responsive-menu li a i {
     padding-right: 5px;

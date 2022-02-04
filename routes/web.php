@@ -165,6 +165,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/layanan/sketerangan/tambah/{id}', [InfoLayananController::class, 'sketerangancreate'])->name('sketerangan.create');
         Route::post('/layanan/sketerangan/kirim', [InfoLayananController::class, 'sketeranganstore'])->name('sketerangan.store');
 
+        Route::get('/layanan/cetaksk/{jenis}/{id}', [InfoLayananController::class, 'cetaksk'])->name('cetaksk');
+
         Route::get('/layanan/buktislip', [InfoLayananController::class, 'buktislip'])->name('buktislip');
         Route::get('/layanan/buktipajak', [InfoLayananController::class, 'buktipajak'])->name('buktipajak');
 
@@ -229,6 +231,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/pengkinian/form1/{id}', [PengkinianController::class, 'form1'])->name('pengkiniandata-form1');
         Route::get('/pengkinian/form2/{id}', [PengkinianController::class, 'form2'])->name('pengkiniandata-form2');
         Route::get('/pengkinian/form3/{id}', [PengkinianController::class, 'form3'])->name('pengkiniandata-form3');
+        Route::get('/pengkinian/form4/{id}', [PengkinianController::class, 'form4'])->name('pengkiniandata-form4');
 
         Route::get('/pengkinian/formedit1/{id}', [PengkinianController::class, 'formedit1'])->name('pengkiniandata-formedit1');
 

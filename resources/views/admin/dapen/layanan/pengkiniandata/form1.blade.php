@@ -130,7 +130,38 @@
                 </div>
             </div>
             <br/>
-
+            <h5 class="text-green m-b-3">Rekening</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label>No Rekening :</label>
+                    <input class="form-control" type="text" name="norekening" value="{!! $edit ? $user->norekening : '' !!}" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label>Atas Nama :</label>
+                    <input class="form-control" type="text" name="anrekening" value="{!! $edit ? $user->anrekening : '' !!}" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label>Bank :</label>
+                    <select class="custom-select form-control" name="bank" required>
+                        <option value="Mandiri" {{ $edit ? $user->bank == 'Mandiri' ? 'selected' : '' : '' }}>Mandiri</option>
+                        <option value="BNI" {{ $edit ? $user->bank == 'BNI' ? 'selected' : '' : ''}}>BNI</option>
+                        <option value="BRI" {{ $edit ? $user->bank == 'BRI' ? 'selected' : '' : ''}}>BRI</option>
+                        <option value="BTPN" {{ $edit ? $user->bank == 'BTPN' ? 'selected' : '' : ''}}>BTPN</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label>Cabang :</label>
+                    <input class="form-control" type="text" name="cabang" value="{!! $edit ? $user->cabang : '' !!}" required>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="step-footer pull-right">

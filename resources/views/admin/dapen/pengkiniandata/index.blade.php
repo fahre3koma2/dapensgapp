@@ -35,7 +35,7 @@
                     <tbody>
                         @php $no = 1; $ur = 1; $jenis = [ 'A' => 'Anak', 'C' => 'Cacat', 'D' => 'Dipercepat' , 'J' => 'Janda', 'N' => 'Normal', 'T' => 'Tunda Bayar', 'U' => 'Duda']; @endphp
                         @foreach ($users as $value)
-                        @php $tgl = $value->updated_at->addDays(5); $tgl = date_format($tgl,'Y-m-d'); @endphp
+                        @php $tgl = $value->updated_at->addDays(3); $tgl = date_format($tgl,'Y-m-d'); @endphp
                         @if($value->baru == 1)
                             <tr class="text-success">
                         @else

@@ -3442,7 +3442,7 @@ footer ul.social_icons {
 	height: auto;
 	left: 0;
 	padding: 18px 0;
-	padding-left: 35%;
+	/* padding-left: 35%; */
 }
 
 .cprt p {

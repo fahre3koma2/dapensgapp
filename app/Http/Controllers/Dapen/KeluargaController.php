@@ -54,13 +54,17 @@ class KeluargaController extends Controller
 
         $record = DataKeluarga::where('nopeserta', $request->nopeserta)->latest()->first();
 
-        if ($record == null) {
+        if ($request->hubungan == 'S') {
+            $data['urut'] = 0;
+        } elseif ($request->hubungan == 'I') {
             $data['urut'] = 1;
         } else {
-            $data['urut'] = sprintf("%01d", $record['urut'] + 1);
+            if ($record == null) {
+                $data['urut'] = 2;
+            } else {
+                $data['urut'] = sprintf("%01d", $record['urut'] + 1);
+            }
         }
-
-        $data['hubungan'] = 'A';
         //$data['tgl_lahir'] = $request->tgl_lahir->format('Y-m-d');
         $mohon = DataKeluarga::create($data);
 
@@ -75,7 +79,7 @@ class KeluargaController extends Controller
         if($request->page == 'permohonan'){
             return redirect()->route('pensi.permohonananak-form2', $request->idx);
         } else {
-            return redirect()->route('pensi.permohonananak-form2', $request->idx);
+            return redirect()->route('pensi.pengkiniandata-form2', $request->idx);
         }
     }
 

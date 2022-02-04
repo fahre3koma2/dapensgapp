@@ -13,7 +13,7 @@
 <!-- bootstrap css -->
 <link rel="stylesheet" href="{{ url('webprof/css/bootstrap.min.css') }}" />
 <!-- Site css -->
-<link rel="stylesheet" href="{{ url('webprof/css/style.css') }}" />
+<link rel="stylesheet" href="{{ url('webprof/css/style2.css') }}" />
 <!-- responsive css -->
 <link rel="stylesheet" href="{{ url('webprof/css/responsive.css') }}" />
 <!-- colors css -->
