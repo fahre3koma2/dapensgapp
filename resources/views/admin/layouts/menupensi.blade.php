@@ -15,7 +15,7 @@
             <li><a href="{!! url('pensi/pengkinian') !!}">Pengkinian Data</a></li>
             <li><a href="#">Layanan Mandiri</a>
                 <ul>
-                    <li><a href="{!! url('/pensi/layanan/skpenetapan') !!}">Permintaan SK Penetapan MP</a></li>
+                    <li><a href="{!! url('/pensi/layanan/skpenetapan') !!}">SK Penetapan MP</a></li>
                     <li><a href="{!! url('/pensi/layanan/buktipajak') !!}">Bukti Potong Pajak</a></li>
                     <li><a href="{!! url('/pensi/layanan/buktislip') !!}">Bukti Slip MP</a></li>
                     <li><a href="{!! url('/pensi/layanan/sketerangan') !!}">Penerbitan Surat Keterangan</a></li>
@@ -26,9 +26,8 @@
     </li>
     <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt" style="color:black"></i> <span> Permohonan </span> </a>
         <ul>
-            <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP Normal</a></li>
             <li><a href="{!! url('/pensi/permohonandudajanda ') !!}">Permohonan Pembayaran MP Janda/Duda</a></li>
-            <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP </a></li>
+            {{--  <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP </a></li>  --}}
             <li><a href="{!! url('/pensi/permohonananak') !!}">Permohonan Pembayaran MP Anak</a></li>
             {{--  <li><a href="{!! url('/pensi/permohonanrekening') !!}">Permohonan Pindah Rekening</a></li>  --}}
         </ul>
@@ -36,8 +35,8 @@
     <li class="{{ $menu == 'faq' ? 'active' : '' }}"> <a href="{!! url('pensi/faq') !!}"> <i class="icon-question" style="color:black"></i> <span> Informasi </span> </a>
         <ul>
             <li><a href="{!! url('pensi/faq') !!}">Panduan</a></li>
-            <li><a href="{!! url('pensi/faq') !!}">Download</a>
-                {{--  <ul>
+            {{--  <li><a href="{!! url('pensi/faq') !!}">Download</a>
+                <ul>
                     <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP</a></li>
                     <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP Sekaligus</a></li>
                     <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP Anak</a></li>
@@ -45,9 +44,9 @@
                     <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP ke Waris</a></li>
                     <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Verifikasi Pengkinian Daya</a></li>
                     <li><a href="{!! url('/pensi/downloadinfo') !!}">Surat Kuasa</a></li>
-                </ul>  --}}
+                </ul>
             </li>
-            <li><a href="{!! url('pensi/faq') !!}">FAQ</a></li>
+            <li><a href="{!! url('pensi/faq') !!}">FAQ</a></li>  --}}
         </ul>
     </li>
     {{--  <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-bubbles"></i> <span> Kontak Kami </span> </a> </li>  --}}

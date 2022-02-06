@@ -9,6 +9,7 @@ use App\Models\BiodataUpdate;
 use App\Models\Biodata;
 use App\Models\Admin\Lampiran;
 use App\Models\Admin\Jadwal;
+use App\Models\Admin\RekeningPensiun;
 
 use Alert;
 use Exception;
@@ -70,18 +71,18 @@ class PengkinianController extends Controller
         $cekuser = User::query()->with(['biodata', 'biodataupdate'])->find(decrypt($id));
 
         if($cekuser->biodataupdate){
-            $user = BiodataUpdate::where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 1], ['tampil', null], ['verifikasi', null]])->orderBy('updated_at', 'desc')->first();
+            $user = BiodataUpdate::with('rekening')->where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 1], ['tampil', null], ['verifikasi', null]])->orderBy('updated_at', 'desc')->first();
             if($user) {
                 alert()->warning('Masih Ada Permohonan yang belum selesai', 'Gagal');
                 return redirect()->back()->withInput();
             } else {
-                $user = BiodataUpdate::where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 2], ['tampil', 1]])->orderBy('updated_at', 'desc')->first();
+                $user = BiodataUpdate::with('rekening')->where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 2], ['tampil', 1]])->orderBy('updated_at', 'desc')->first();
             }
 
         }else{
-            $user = Biodata::where('nopeserta', $cekuser->biodata->nopeserta)->first();
-
+            $user = Biodata::with('rekening')->where('nopeserta', $cekuser->biodata->nopeserta)->first();
         }
+        //dd($user);
 
             $menu = 'permohonan';
             $edit = false;
@@ -140,7 +141,7 @@ class PengkinianController extends Controller
         $edit = false;
 
 
-        $user = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
+        $user = BiodataUpdate::query()->with(['lampiran', 'keluarga'])->find(decrypt($id));
         //dd($user);
         $data = [
             'menu' => $menu,
@@ -156,7 +157,7 @@ class PengkinianController extends Controller
         $menu = 'permohonan';
         $edit = true;
 
-        $user = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
+        $user = BiodataUpdate::query()->with(['rekening','lampiran'])->find(decrypt($id));
         // $user = User::where('id', $mohon->user_id)->first();
 
         $data = [
@@ -193,8 +194,10 @@ class PengkinianController extends Controller
         try {
 
             $data['nopd'] = $nextNumber;
-            $data['beru'] = 1;
+            $data['baru'] = 1;
             $mohon = BiodataUpdate::create($data);
+            $rekening = RekeningPensiun::where('nopeserta', $data['nopeserta'])->first();
+            $rekening->update($data);
             $check = Lampiran::where('nopeserta', $nopeserta)->first();
             if ($check == null) {
                 $lampiran = Lampiran::create($data);
@@ -299,11 +302,11 @@ class PengkinianController extends Controller
         } elseif ($request->type == "file_kk") {
             $this->validate(
                 $request,
-                ['file_kk' => 'required|mimes:pdf|max:1000'],
+                ['file_kk' => 'required|mimes:jpg,jpeg,png,pdf|max:5000'],
                 [
                     'file_kk.required' => 'Tidak ada file yang di upload',
                     'file_kk.mimes' => 'File harus pdf',
-                    'file_kk.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_kk.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
         } elseif ($request->type == "file_npwp") {
@@ -389,7 +392,7 @@ class PengkinianController extends Controller
 
         $lampiran->update($filenya);
 
-        return redirect()->route('pensi.pengkiniandata-form2', $idx);
+        return redirect()->route('pensi.pengkiniandata-form3', $idx);
     }
 
     public function deleteFile(Request $request)
@@ -403,21 +406,21 @@ class PengkinianController extends Controller
         $filenya[$request->type] = null;
         $lampiran->update($filenya);
 
-        return redirect()->route('pensi.pengkiniandata-form2', $idx);
+        return redirect()->route('pensi.pengkiniandata-form3', $idx);
     }
 
     public function kirim($id)
     {
         $mohon = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
 
-        if (is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_npwp)) {
+        if (is_null($mohon->lampiran->file_kk)) {
 
             // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
             alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');
             return redirect()->route('pensi.pengkiniandata-form3', Crypt::encrypt($mohon->id))->with('message', 'File Lampiran Usulan harus lengkap');
 
         } else {
-
+            $record = BiodataUpdate::latest()->first();
             $data['baru'] = 1;
             $mohon->update($data);
 
@@ -425,8 +428,24 @@ class PengkinianController extends Controller
                 'mohon' => $mohon,
             ];
 
-             alert()->success('Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valida & lengkap', 'Berhasil')->persistent('Ya');
+            alert()->success('Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valida & lengkap', 'Berhasil')->persistent('Ya');
             return redirect()->route('pensi.pengkinian.index', $data)->with('success', 'Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valid & lengkap');
         }
+    }
+
+    public function cetakpengkiniandata($id)
+    {
+        $biodata = BiodataUpdate::where('nopeserta', decrypt($id))->orderBy('updated_at', 'desc')->get();
+
+        if ($biodata->count() > 1) {
+            $user1 = BiodataUpdate::with('keluarga')->where([['nopeserta', $biodata[0]->nopeserta], ['tampil', 1], ['verifikasi', 1], ['baru', 2]])->orderBy('created_at', 'desc')->first();
+            $user2 = BiodataUpdate::with('keluarga')->where([['nopeserta', $biodata[0]->nopeserta], ['baru', 1]])->first();
+        } else {
+            $user1 = Biodata::with('keluarga')->where([['nopeserta', $biodata[0]->nopeserta]])->first();
+            $user2 = BiodataUpdate::with('keluarga')->where([['nopeserta', $biodata[0]->nopeserta], ['baru', 1]])->first();
+        }
+
+        $pdf = PDF::loadview('admin.dapen.layanan.cetakpengkiniandata', ['user1' => $user1, 'user2' => $user2]);
+        return $pdf->download('laporan-pegawai-pdf.pdf');
     }
 }

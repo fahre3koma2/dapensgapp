@@ -353,7 +353,12 @@
   </div>
 </div>
 <!-- end section -->
-
+    <div id="popup" class="popup panel panel-warning">
+        <img src="{{ url('webprof/images/dapen/sosmed.jpg') }}" alt="popup" />
+        <div class="panel-footer">
+            <button id="close" class="btn btn-warning pull-right">Tutup</button>
+        </div>
+    </div>
 @endsection
 @section('injs')
 <script src="{{ url('webprof/revolution/js/jquery.themepunch.tools.min.js') }}"></script>
@@ -412,6 +417,16 @@
                 selector: '.glightbox4'
             });
 
+            $(document).ready(function () {
+                //select the POPUP FRAME and show it
+                $("#popup").hide().fadeIn(1000);
+
+                //close the POPUP if the button with id="close" is clicked
+                $("#close").on("click", function (e) {
+                    e.preventDefault();
+                    $("#popup").fadeOut(1000);
+                });
+            });
             /* var exampleApi = GLightbox({ selector: null });
         exampleApi.insertSlide({
             href: 'https://picsum.photos/1200/800',

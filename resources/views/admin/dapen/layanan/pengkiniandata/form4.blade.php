@@ -106,12 +106,67 @@
             <!-- /.col -->
         </div>
 
-           <div class="row">
+         <div class="row">
+            <div class="col-lg-12 m-b-3">
+              <h3 class="text-black"> Data Keluarga </h3>
+            </div>
+            <!-- /.col -->
+        </div>
+
+        <div class="col-lg-12 m-b-3">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Nama Anggota Keluarga</th>
+                        <th scope="col">Jenis Kelamin</th>
+                        <th scope="col">Hubungan Keluarga</th>
+                        <th scope="col">Tanggal Lahir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php $no = 1; @endphp
+
+                        @foreach ($user->keluarga as $item)
+                        <tr>
+                            <th scope="row">{{$item->nama}}</th>
+                            <td>
+                                @if($item->sex == 'L')
+                                    <span class="label label-primary">Laki-laki</span>
+                                @else
+                                    <span class="label label-info">Perempuan</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if($item->hubungan == 'S')
+                                    <span class="label label-danger">Suami</span>
+                                @elseif($item->hubungan == 'I')
+                                    <span class="label label-warning">Istri</span>
+                                @else
+                                    <span class="label label-success">Anak</span>
+                                @endif
+                            </td>
+                            <td>{{$item->tgl_lahir}}</td>
+                            {{--  <td>
+                                <button type="button" class="btn btn-sm btn-danger delete" data-id="{{ $item->id }}" data-file="{{$item->id}}"><i class="fa fa-trash"></i> Hapus</button>
+                                {{ Form::open(['url'=>route('pensi.keluarga.destroy', [Crypt::encrypt($item->id)]), 'method'=>'delete', 'id' => $item->id, 'style' => 'display: none;']) }}
+                                {{ csrf_field() }}
+                                {{ Form::close() }}
+                            </td>  --}}
+                        </tr>
+                        @php $no++; @endphp
+                        @endforeach
+                    </tbody>
+                    </table>
+            </div>
+         </div>
+
+        <div class="row">
             <div class="col-lg-12 m-b-3">
               <h3 class="text-black"> Data Lampiran </h3>
             </div>
             <!-- /.col -->
-          </div>
+        </div>
             <!-- Table row -->
         <div class="row ">
             <div class="col-lg-12">
@@ -125,18 +180,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                     <td>1. </td>
-                    <td>Kartu Tanda Penduduk (KTP)</td>
-                    <td>
-                        @if($user->lampiran->file_ktp)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2. </td>
+                    <td>1. </td>
                     <td>Kartu Keluarga (KK)</td>
                     <td>
                         @if($user->lampiran->file_kk)
@@ -146,65 +190,27 @@
                         @endif
                     </td>
                   </tr>
-                  <tr>
-                    <td>3. </td>
-                    <td>Kartu NPWP</td>
-                    <td>
-                        @if($user->lampiran->file_npwp)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4. </td>
-                    <td>File Lain-lain 1</td>
-                    <td>
-                        @if($user->lampiran->file_lain1)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>5. </td>
-                    <td>File Lain-lain 2</td>
-                    <td>
-                        @if($user->lampiran->file_lain2)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>6. </td>
-                    <td>File Lain-lain 3</td>
-                    <td>
-                        @if($user->lampiran->file_lain3)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-
                 </tbody>
               </table>
             </div>
             <!-- /.col -->
           </div>
           <!-- /.row -->
-
+          <br/>
+          <div class="checkbox">
+              <label>
+                  <input type="checkbox" value="" onchange="activateButton(this)">
+                Dengan ini saya menyatakan pelaporan ini dibuat dengan sebenar-benarnya dengan nomor telpon yang saya cantumkan saya bersedia untuk di hubungi oleh pihak Dana Pensiun Semen Gresik untuk di konfirmasi. *
+              </label>
+          </div>
+          <br/>
           <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-lg-12">
-              <a href="{!! url('pensi/pengkinian/') !!}" data-direction="next" style="margin-left: 5px;" class="btn btn-warning"><i class="fa fa-list-alt"></i> Tunda</a>
-              <a href="{!! url('pensi/pengkinian/form2', ['id' => encrypt($user->id )]) !!}" style="margin-right: 5px;" class="btn btn-info"><i class="fa fa-arrow-left"></i> Kembali</a>
+              {{--  <a href="{!! url('pensi/pengkinian/') !!}" data-direction="next" style="margin-left: 5px;" class="btn btn-warning"><i class="fa fa-list-alt"></i> Tunda</a>
+              <a href="{!! url('pensi/pengkinian/form2', ['id' => encrypt($user->id )]) !!}" style="margin-right: 5px;" class="btn btn-info"><i class="fa fa-arrow-left"></i> Kembali</a>  --}}
 
-              <button type="button" class="btn btn-primary pull-right finish" style="margin-right: 5px;" data-id="{{ $user->id }}" data-file="finish_{{ $user->id }}"> <i class="fa fa-credit-card"></i> Kirim </button>
+              <button disabled name="submit" id="submit" type="button" class="btn btn-primary pull-right finish" style="margin-right: 5px;" data-id="{{ $user->id }}" data-file="finish_{{ $user->id }}"> <i class="fa fa-credit-card"></i> Kirim </button>
                 {{ Form::open(['url' => route('pensi.pengkinian.kirim', [Crypt::encrypt($user->id)]), 'method' => 'post', 'id' => 'finish_'.$user->id ]) }}
                 {{ csrf_field() }}
                 {{ Form::close() }}
@@ -278,6 +284,20 @@
             });
         });
 
+        function disableSubmit() {
+        document.getElementById("submit").disabled = true;
+        }
+
+        function activateButton(element) {
+
+            if(element.checked) {
+                document.getElementById("submit").disabled = false;
+            }
+            else  {
+                document.getElementById("submit").disabled = true;
+            }
+
+        }
     </script>
 
 

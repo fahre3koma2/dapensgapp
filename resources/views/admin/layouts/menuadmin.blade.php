@@ -20,34 +20,34 @@
                 <li class="{{ $menu == 'layanan' ? 'active' : '' }}"><a href="#">Laporan</a>
                     <ul>
                         <li><a href="{!! url('/admin/laporan-beritaduka') !!}">Laporan Berita Duka</a></li>
-                        <li><a href="{!! url('/admin/laporan-anakmenikah ') !!}">Laporan Anak Menikah</a></li>
+                        {{--  <li><a href="{!! url('/admin/laporan-anakmenikah ') !!}">Laporan Anak Menikah</a></li>
                         <li><a href="{!! url('/admin/laporan-menikahlagi') !!}">Laporan Menikah Lagi </a></li>
                         <li><a href="{!! url('/admin/laporan-anakbekerja') !!}">Laporan Anak Sudah Bekerja</a></li>
-                        <li><a href="{!! url('/admin/laporan-bercerai') !!}">Laporan Pensiunan Bercerai</a></li>
+                        <li><a href="{!! url('/admin/laporan-bercerai') !!}">Laporan Pensiunan Bercerai</a></li>  --}}
                     </ul>
                 </li>
                 <li><a href="{!! url('admin/layanan/pengkiniandata') !!}">Pengkinian Data</a></li>
-                <li><a href="{!! url('admin/pelayanan/skpenetapan') !!}">SK Penetapan Manfaat</a></li>
+                {{--  {{--  <li><a href="{!! url('admin/pelayanan/skpenetapan') !!}">SK Penetapan Manfaat</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Potong Pajak</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Slip Manfaat Pensiun</a></li>
-                {{--  <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Kartu Pensiun</a></li>  --}}
+                <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Kartu Pensiun</a></li>  --}}
                 <li><a href="{!! url('admin/pelayanan/sketerangan') !!}">Penerbitan Surat Keterangan</a></li>
             </ul>
         </li>
         <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt" style="color:black"></i> <span> Permohonan </span> </a>
             <ul>
-                <li><a href="{!! url('/admin/permohonan-normal') !!}">Permohonan Pembayaran MP Normal</a></li>
                 <li><a href="{!! url('/admin/permohonan-dudajanda ') !!}">Permohonan Pembayaran MP Janda/Duda</a></li>
-                <li><a href="{!! url('/admin/permohonan-normal') !!}">Permohonan Pembayaran MP </a></li>
                 <li><a href="{!! url('/admin/permohonan-anak') !!}">Permohonan Pembayaran MP Anak</a></li>
-                <li><a href="{!! url('/admin/permohonan-rekening') !!}">Permohonan Pindah Rekening</a></li>
+                {{--  <li><a href="{!! url('/admin/permohonan-normal') !!}">Permohonan Pembayaran MP </a></li>
+                 <li><a href="{!! url('/admin/permohonan-normal') !!}">Permohonan Pembayaran MP Normal</a></li>
+                <li><a href="{!! url('/admin/permohonan-rekening') !!}">Permohonan Pindah Rekening</a></li>  --}}
             </ul>
         </li>
         <li> <a href="#"> <i class="icon-directions" style="color:black"></i> <span>Informasi</span> </a>
             <ul>
                 <li><a href="{!! url('pensi/faq') !!}">Panduan</a></li>
-                <li><a href="{!! url('pensi/faq') !!}">Download</a></li>
-                <li><a href="{!! url('pensi/faq') !!}">FAQ</a></li>
+                {{--  <li><a href="{!! url('pensi/faq') !!}">Download</a></li>
+                <li><a href="{!! url('pensi/faq') !!}">FAQ</a></li>  --}}
             </ul>
         </li>
         <li> <a href="#"> <i class="icon-book-open" style="color:black"></i> <span>Konten</span> </a>

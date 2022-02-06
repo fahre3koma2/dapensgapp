@@ -37,8 +37,8 @@
                         <tr>
                             <td> <p class="font-weight-bold"> SK. Pemberhentian  dari  Perusahaan </p>
                                 <ol style="list-style:square">
-                                    <li>Ukuran maksimum 300KB</li>
-                                    <li>file harus (pdf)</li>
+                                    <li>Ukuran maksimum 5 MB</li>
+                                    <li>file harus (jpg/jpeg/png/pdf)</li>
                                 </ol>
                             </td>
                             <td>
@@ -69,81 +69,12 @@
                                 @endif
                             </td>
                         </tr>
-                        <tr>
-                            <td> <p class="font-weight-bold"> Foto berwarna ukuran 3 x 4 </p>
-                                <ol style="list-style:square">
-                                    <li>Ukuran maksimum 300KB</li>
-                                    <li>file harus (jpg/Jpeg/Png)</li>
-                                </ol>
-                            </td>
-                            <td>
-                                @if ($mohon->lampiran->file_foto)
-                                    <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_foto) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a> |
-                                    <button type="button" class="btn btn-sm btn-danger" onclick="return hapusFile('file_foto_-'+'{{ $mohon->nopeserta }}')"><i class="fa fa-trash"></i> Hapus</button>
-                                        <form action="{{ route('pensi.permohonandudajanda.deletefile', ['id' => $mohon->nopeserta]) }}" method="post" id="file-file_foto_-{{ $mohon->nopeserta }}">
-                                            @csrf
-                                            {{ Form::hidden('type', 'file_foto') }}
-                                            {{ Form::hidden('idx', encrypt($mohon->id) ) }}
-                                        </form>
-                                @else
-                                {!! Form::open(['url' => route('pensi.permohonandudajanda.upload'), 'method' => 'post', 'id' => 'file_foto', 'files' => true]) !!}
-                                    <div class="form-group row">
-                                        <div class="col-sm-8">
-                                            <label for="file_foto">Silahkan Input File</label>
-                                            <input class="form-control" type="hidden" name="type" value="file_foto">
-                                            <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
-                                            <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
-                                            <input type="file" name="file_foto" id="file_foto">
-                                            @if ($errors->has('file_foto')) <span class="text-danger">{{ $errors->first('file_foto') }}</span> @endif
-                                        </div>
-                                        <div class="col-sm-4">
-                                             <button type="submit" data-direction="next" class="btn btn-sm btn-info">Upload</button>
-                                        </div>
-                                    </div>
-                                {{ Form::close() }}
-                                @endif
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> <p class="font-weight-bold"> Kartu Tanda Penduduk (KTP) </p>
-                                <ol style="list-style:square">
-                                    <li>Ukuran maksimum 300KB</li>
-                                    <li>file harus (jpg/Jpeg/Png)</li>
-                                </ol>
-                            </td>
-                            <td>
-                                @if ($mohon->lampiran->file_ktp)
-                                    <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_ktp) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a> |
-                                    <button type="button" class="btn btn-sm btn-danger" onclick="return hapusFile('file_ktp_-'+'{{ $mohon->nopeserta }}')"><i class="fa fa-trash"></i> Hapus</button>
-                                        <form action="{{ route('pensi.permohonandudajanda.deletefile', ['id' => $mohon->nopeserta]) }}" method="post" id="file-file_ktp_-{{ $mohon->nopeserta }}">
-                                            @csrf
-                                            {{ Form::hidden('type', 'file_ktp') }}
-                                            {{ Form::hidden('idx', encrypt($mohon->id) ) }}
-                                        </form>
-                                @else
-                                {!! Form::open(['url' => route('pensi.permohonandudajanda.upload'), 'method' => 'post', 'id' => 'file_ktp', 'files' => true]) !!}
-                                    <div class="form-group row">
-                                        <div class="col-sm-8">
-                                            <label for="file_ktp">Silahkan Input File</label>
-                                            <input class="form-control" type="hidden" name="type" value="file_ktp">
-                                            <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
-                                            <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
-                                            <input type="file" name="file_ktp" id="file_ktp">
-                                            @if ($errors->has('file_ktp')) <span class="text-danger">{{ $errors->first('file_ktp') }}</span> @endif
-                                        </div>
-                                        <div class="col-sm-4">
-                                             <button type="submit" data-direction="next" class="btn btn-sm btn-info">Upload</button>
-                                        </div>
-                                    </div>
-                                {{ Form::close() }}
-                                @endif
-                            </td>
-                        </tr>
+
                         <tr>
                             <td> <p class="font-weight-bold"> Kartu Keluarga (KK) </p>
                                 <ol style="list-style:square">
-                                    <li>Ukuran maksimum 300KB</li>
-                                    <li>file harus (pdf)</li>
+                                    <li>Ukuran maksimum 5 MB</li>
+                                    <li>file harus (jpg/jpeg/png/pdf)</li>
                                 </ol>
                             </td>
                            <td>
@@ -175,31 +106,31 @@
                             </td>
                         </tr>
                         <tr>
-                            <td> <p class="font-weight-bold"> Kartu NPWP </p>
+                            <td> <p class="font-weight-bold"> Buku Nikah </p>
                                 <ol style="list-style:square">
-                                    <li>Ukuran maksimum 300KB</li>
-                                    <li>file harus (jpg/Jpeg/Png)</li>
+                                    <li>Ukuran maksimum 5 MB</li>
+                                    <li>file harus (jpg/jpeg/png/pdf)</li>
                                 </ol>
                             </td>
                             <td>
-                                @if ($mohon->lampiran->file_npwp)
-                                    <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_npwp) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a> |
-                                    <button type="button" class="btn btn-sm btn-danger" onclick="return hapusFile('file_npwp_-'+'{{ $mohon->nopeserta }}')"><i class="fa fa-trash"></i> Hapus</button>
-                                        <form action="{{ route('pensi.permohonandudajanda.deletefile', ['id' => $mohon->nopeserta]) }}" method="post" id="file-file_npwp_-{{ $mohon->nopeserta }}">
+                                @if ($mohon->lampiran->file_surat_nikah)
+                                    <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_nikah) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a> |
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="return hapusFile('file_surat_nikah_-'+'{{ $mohon->nopeserta }}')"><i class="fa fa-trash"></i> Hapus</button>
+                                        <form action="{{ route('pensi.permohonandudajanda.deletefile', ['id' => $mohon->nopeserta]) }}" method="post" id="file-file_surat_nikah_-{{ $mohon->nopeserta }}">
                                             @csrf
-                                            {{ Form::hidden('type', 'file_npwp') }}
+                                            {{ Form::hidden('type', 'file_surat_nikah') }}
                                             {{ Form::hidden('idx', encrypt($mohon->id) ) }}
                                         </form>
                                 @else
-                                {!! Form::open(['url' => route('pensi.permohonandudajanda.upload'), 'method' => 'post', 'id' => 'file_npwp', 'files' => true]) !!}
+                                {!! Form::open(['url' => route('pensi.permohonandudajanda.upload'), 'method' => 'post', 'id' => 'file_surat_nikah', 'files' => true]) !!}
                                     <div class="form-group row">
                                         <div class="col-sm-8">
-                                            <label for="file_npwp">Silahkan Input File</label>
-                                            <input class="form-control" type="hidden" name="type" value="file_npwp">
+                                            <label for="file_surat_nikah">Silahkan Input File</label>
+                                            <input class="form-control" type="hidden" name="type" value="file_surat_nikah">
                                             <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
                                             <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
-                                            <input type="file" name="file_npwp" id="file_npwp">
-                                            @if ($errors->has('file_npwp')) <span class="text-danger">{{ $errors->first('file_npwp') }}</span> @endif
+                                            <input type="file" name="file_surat_nikah" id="file_surat_nikah">
+                                            @if ($errors->has('file_surat_nikah')) <span class="text-danger">{{ $errors->first('file_surat_nikah') }}</span> @endif
                                         </div>
                                         <div class="col-sm-4">
                                              <button type="submit" data-direction="next" class="btn btn-sm btn-info">Upload</button>
@@ -209,83 +140,13 @@
                                 @endif
                             </td>
                         </tr>
-                        <tr>
-                            <td> <p class="font-weight-bold"> Buku Tabungan </p>
-                                <ol style="list-style:square">
-                                    <li>Ukuran maksimum 300KB</li>
-                                    <li>file harus (pdf)</li>
-                                </ol>
-                            </td>
-                            <td>
-                                @if ($mohon->lampiran->file_tabungan)
-                                    <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_tabungan) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a> |
-                                    <button type="button" class="btn btn-sm btn-danger" onclick="return hapusFile('file_tabungan_-'+'{{ $mohon->nopeserta }}')"><i class="fa fa-trash"></i> Hapus</button>
-                                        <form action="{{ route('pensi.permohonandudajanda.deletefile', ['id' => $mohon->nopeserta]) }}" method="post" id="file-file_tabungan_-{{ $mohon->nopeserta }}">
-                                            @csrf
-                                            {{ Form::hidden('type', 'file_tabungan') }}
-                                            {{ Form::hidden('idx', encrypt($mohon->id) ) }}
-                                        </form>
-                                @else
-                                {!! Form::open(['url' => route('pensi.permohonandudajanda.upload'), 'method' => 'post', 'id' => 'file_tabungan', 'files' => true]) !!}
-                                    <div class="form-group row">
-                                        <div class="col-sm-8">
-                                            <label for="file_tabungan">Silahkan Input File</label>
-                                            <input class="form-control" type="hidden" name="type" value="file_tabungan">
-                                            <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
-                                            <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
-                                            <input type="file" name="file_tabungan" id="file_tabungan">
-                                            @if ($errors->has('file_tabungan')) <span class="text-danger">{{ $errors->first('file_tabungan') }}</span> @endif
-                                        </div>
-                                        <div class="col-sm-4">
-                                             <button type="submit" data-direction="next" class="btn btn-sm btn-info">Upload</button>
-                                        </div>
-                                    </div>
-                                {{ Form::close() }}
-                                @endif
-                            </td>
-                        </tr>
-                        {{--  <tr>
-                            <td> <p class="font-weight-bold"> Scan Surat Permohonan yang sudah di tanda tangan </p>
-                                <ol style="list-style:square">
-                                    <li>Ukuran maksimum 300KB</li>
-                                    <li>file harus (pdf)</li>
-                                </ol>
-                            </td>
-                            <td>
-                                @if ($mohon->lampiran->file_scan_karyawan)
-                                    <a href="{{ url('dapen/lampiran/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_scan_karyawan) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a> |
-                                    <button type="button" class="btn btn-sm btn-danger" onclick="return hapusFile('file_scan_karyawan_-'+'{{ $mohon->nopeserta }}')"><i class="fa fa-trash"></i> Hapus</button>
-                                        <form action="{{ route('pensi.permohonan.deletefile', ['id' => $mohon->nopeserta]) }}" method="post" id="file-file_scan_karyawan_-{{ $mohon->nopeserta }}">
-                                            @csrf
-                                            {{ Form::hidden('type', 'file_scan_karyawan') }}
-                                            {{ Form::hidden('idx', encrypt($mohon->id) ) }}
-                                        </form>
-                                @else
-                                {!! Form::open(['url' => route('pensi.permohonan.upload'), 'method' => 'post', 'id' => 'file_scan_karyawan', 'files' => true]) !!}
-                                    <div class="form-group row">
-                                        <div class="col-sm-8">
-                                            <label for="file_scan_karyawan">Silahkan Input File</label>
-                                            <input class="form-control" type="hidden" name="type" value="file_scan_karyawan">
-                                            <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
-                                            <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
-                                            <input type="file" name="file_scan_karyawan" id="file_scan_karyawan">
-                                            @if ($errors->has('file_scan_karyawan')) <span class="text-danger">{{ $errors->first('file_scan_karyawan') }}</span> @endif
-                                        </div>
-                                        <div class="col-sm-4">
-                                             <button type="submit" data-direction="next" class="btn btn-sm btn-info">Upload</button>
-                                        </div>
-                                    </div>
-                                {{ Form::close() }}
-                                @endif
-                            </td>
-                        </tr>  --}}
                         </tbody>
                     </table>
                     </div>
                 </div>
               </div>
             <div class="step-footer">
-                <a href="{!! url('pensi/permohonan/dudajanda/form3', ['id' => encrypt($mohon->id )]) !!}" type="submit" data-direction="next" class="btn btn-primary">Next</a>
+                <a href="{!! url('pensi/permohonan/dudajanda/form3', ['id' => encrypt($mohon->id )]) !!}" type="submit" data-direction="next" class="btn btn-primary"><i class="fa fa-arrow-right"> </i> Lanjutkan</a>
         </div>
             </div>
           </div>

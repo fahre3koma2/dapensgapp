@@ -36,19 +36,19 @@
                   <div class="form-group row">
                     <label class="control-label text-right col-md-3">Nama</label>
                     <div class="col-md-9">
-                      <input class="form-control" type="text" name="name" value="{{ $user->biodata->name }}" required>
+                      <input class="form-control" type="text" name="name" value="{{ $user->biodata->name }}" readonly="readonly">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="control-label text-right col-md-3">Alamat</label>
                     <div class="col-md-9">
-                      <textarea rows="2" class="form-control" name="alamat" required>{{ $user->biodata->alamat }}</textarea>
+                      <textarea rows="2" class="form-control" name="alamat" readonly="readonly">{{ $user->biodata->alamat }}</textarea>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="control-label text-right col-md-3">No HP</label>
                     <div class="col-md-9">
-                      <input class="form-control" type="text" name="nohp" value="{{ $user->biodata->nohp }}" required>
+                      <input class="form-control" type="text" name="nohp" value="{{ $user->biodata->nohp }}" readonly="readonly">
                     </div>
                   </div>
                   <div class="form-group row">

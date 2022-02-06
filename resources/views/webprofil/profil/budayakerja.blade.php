@@ -33,7 +33,7 @@
         </div>
         </div>
     </div>
-      <div class="col-md-7">
+      {{--  <div class="col-md-7">
         <div class="full margin_bottom_30">
           <div class="accordion border_circle">
             <div class="bs-example">
@@ -102,10 +102,10 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
+      </div>  --}}
+      <div class="col-md-12">
         <div class="full" style="margin-top: 35px;">
-           <img src="{{ url('webprof/images/dapen/akhlakpoto.jpg') }}" alt="#" />
+           <img src="{{ url('webprof/images/dapen/AKHLAKBumn.png') }}" alt="#" />
         </div>
       </div>
     </div>

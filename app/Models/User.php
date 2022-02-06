@@ -11,6 +11,8 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\Admin\Role;
+use App\Models\Admin\DataKeluarga;
+use App\Models\Admin\RekeningPensiun;
 
 class User extends Authenticatable
 {
@@ -86,6 +88,16 @@ class User extends Authenticatable
     public function RolesUser()
     {
         return $this->belongsToMany(Role::class, 'model_has_roles', 'model_id', 'role_id');
+    }
+
+    public function keluarga()
+    {
+        return $this->hasMany(DataKeluarga::class, 'nopeserta', 'nopeserta');
+    }
+
+    public function rekening()
+    {
+        return $this->hasOne(RekeningPensiun::class, 'nopeserta', 'nopeserta');
     }
 
 }

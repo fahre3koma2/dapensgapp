@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dapen;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\Admin\BeritaDuka;
+use App\Models\Admin\Laporan;
 use App\Models\User;
 
 class InformasiController extends Controller
@@ -107,7 +107,7 @@ class InformasiController extends Controller
         $edit = false;
 
         $user = User::query()->with('biodata')->find(auth()->user()->id);
-        $berita = BeritaDuka::where('nopensiun', $user->biodata->nopeserta)->get();
+        $berita = Laporan::where('jenis', 'laporberitaduka')->where('nopensiun', $user->biodata->nopeserta)->get();
 
         $data = [
             'menu' => $menu,

@@ -37,7 +37,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>No Peserta / Pensiun:</label>
-                <input class="form-control" type="text" name="nopeserta" value="{{ $user->nopeserta }}" disabled>
+                <input class="form-control" type="text" name="nopeserta" value="{{ $user->nopeserta.'-'.$user->jenis }}" disabled>
                 <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->nopeserta }}">
                 <input class="form-control" type="hidden" name="user_id" value="{{ $user->user_id }}">
                 <input class="form-control" type="hidden" name="nik" value="{{ $user->nik }}">
@@ -47,19 +47,19 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Nama :</label>
-                <input class="form-control" type="text" name="name" value="{{ $user->name }}" required>
+                <input class="form-control" type="text" name="name" value="{{ $user->name }}" readonly="readonly">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Tempat Lahir :</label>
-                <input class="form-control" type="text" name="tempat_lahir" value="{{ $user->tempat_lahir }}" required>
+                <input class="form-control" type="text" name="tempat_lahir" value="{{ $user->tempat_lahir }}" readonly="readonly">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Tanggal Lahir :</label>
-                <input class="form-control" type="date" name="tgl_lahir" value="{{ $user->tgl_lahir }}" required>
+                <input class="form-control" type="date" name="tgl_lahir" value="{{ $user->tgl_lahir }}" readonly="readonly">
                 </div>
             </div>
             </div>
@@ -73,31 +73,31 @@
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Kelurahan:</label>
-                    <input class="form-control" type="text" name="kelurahan" value="{{ $user->kelurahan }}" required>
+                    <input class="form-control" type="text" name="kelurahan" value="{{ $user->kelurahan }}">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                     <label>RT:</label>
-                    <input class="form-control" type="text" name="rt" value="{{ $user->rt }}" required>
+                    <input class="form-control" type="text" name="rt" value="{{ $user->rt }}">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                     <label>RW:</label>
-                    <input class="form-control" type="text" name="rw" value="{{ $user->rw }}" required>
+                    <input class="form-control" type="text" name="rw" value="{{ $user->rw }}">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Kota :</label>
-                    <input class="form-control" type="text" name="kota" value="{{ $user->kota }}" required>
+                    <input class="form-control" type="text" name="kota" value="{{ $user->kota }}">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Kode Pos :</label>
-                    <input class="form-control" type="text" name="kodepos" value="{{ $user->kodepos }}" required>
+                    <input class="form-control" type="text" name="kodepos" value="{{ $user->kodepos }}">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -109,7 +109,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>NPWP :</label>
-                    <input class="form-control" type="text" name="npwp" value="{{ $user->npwp }}" required>
+                    <input class="form-control" type="text" name="npwp" value="{{ $user->npwp }}" readonly="readonly">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -117,13 +117,13 @@
                         <label>Status Perkawinan :</label>
                         <div class="c-inputs-stacked">
                             <label class="inline custom-control custom-radio block">
-                            <input type="radio" name="kawin" value="Menikah" {{ $user->kawin == 'Menikah' ? 'checked' : '' }} required>
+                            <input type="radio" name="jenis" value="N" {{ $user->jenis == 'N' ? 'checked' : '' }} required>
                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Menikah</span> </label>
                             <label class="inline custom-control custom-radio block">
-                            <input type="radio" name="kawin" value="Duda" {{ $user->kawin == 'Duda' ? 'checked' : '' }} required>
+                            <input type="radio" name="jenis" value="D" {{ $user->kawin == 'D' ? 'checked' : '' }} required>
                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Duda</span> </label>
                             <label class="inline custom-control custom-radio block">
-                            <input type="radio" name="kawin" value="Janda" {{ $user->kawin == 'Janda' ? 'checked' : '' }} required>
+                            <input type="radio" name="jenis" value="J" {{ $user->kawin == 'J' ? 'checked' : '' }} required>
                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Janda</span> </label>
                         </div>
                     </div>
@@ -135,30 +135,32 @@
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>No Rekening :</label>
-                    <input class="form-control" type="text" name="norekening" value="{!! $edit ? $user->norekening : '' !!}" required>
+                    <input class="form-control" type="text" name="norekening" value="{!! $user->rekening ? $user->rekening->norekening : '' !!}" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Atas Nama :</label>
-                    <input class="form-control" type="text" name="anrekening" value="{!! $edit ? $user->anrekening : '' !!}" required>
+                    <input class="form-control" type="text" name="atasnama" value="{!! $user->rekening ? $user->rekening->atasnama : '' !!}" required>
+                    <input class="form-control" type="hidden" name="nama_penerima" value="{!! $user->rekening ? $user->rekening->atasnama : '' !!}" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Bank :</label>
                     <select class="custom-select form-control" name="bank" required>
-                        <option value="Mandiri" {{ $edit ? $user->bank == 'Mandiri' ? 'selected' : '' : '' }}>Mandiri</option>
-                        <option value="BNI" {{ $edit ? $user->bank == 'BNI' ? 'selected' : '' : ''}}>BNI</option>
-                        <option value="BRI" {{ $edit ? $user->bank == 'BRI' ? 'selected' : '' : ''}}>BRI</option>
-                        <option value="BTPN" {{ $edit ? $user->bank == 'BTPN' ? 'selected' : '' : ''}}>BTPN</option>
+                        <option value="Mandiri" {{ $user->rekening ? $user->rekening->bank == 'Mandiri' ? 'selected' : '' : '' }}>Mandiri</option>
+                        <option value="BNI" {{ $user->rekening ? $user->rekening->bank == 'BNI' ? 'selected' : '' : '' }}>BNI</option>
+                        <option value="BRI" {{ $user->rekening ? $user->rekening->bank == 'BRI' ? 'selected' : '' : '' }}>BRI</option>
+                        <option value="BTPN" {{ $user->rekening ? $user->rekening->bank == 'BTPN' ? 'selected' : '' : '' }}>BTPN</option>
                     </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Cabang :</label>
-                    <input class="form-control" type="text" name="cabang" value="{!! $edit ? $user->cabang : '' !!}" required>
+                    <input class="form-control" type="text" name="cabang" value="{!! $user->rekening ? $user->rekening->cabang : '' !!}" required>
+                    <input class="form-control" type="hidden" name="alamat_rek" value="{!! $user->rekening ? $user->rekening->cabang : '' !!}" required>
                     </div>
                 </div>
             </div>
@@ -170,7 +172,7 @@
                 <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Lanjutkan</button>
             @else
                 {{--  <a href="{!! url('pensi/permohonan/karyawan/formedit1', ['id' => encrypt($user->id )]) !!}" data-direction="next" class="btn btn-warning">Edit</a> |  --}}
-                <button type="submit" data-direction="next" class="btn btn-primary">Next</button>
+                <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Lanjutkan</button>
             @endif
         </div>
         </form>

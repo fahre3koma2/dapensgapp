@@ -61,7 +61,7 @@
                             </td>
                             <td>
                                 @if($tgl_selesai <= date('Y-m-d'))
-                                     <a href="{!! url('pensi/pengkinian/formedit1/'.encrypt($item->id)) !!}" class="btn btn-sm btn-success"> Download </a>
+                                     <a href="{!! url('pensi/pengkinian/cetakpengkiniandata/'.encrypt($item->nopeserta)) !!}" class="btn btn-sm btn-success"> Download </a>
                                 @else
                                     {{ Carbon\Carbon::parse($tgl)->isoFormat('D MMMM Y')}}
                                 @endif

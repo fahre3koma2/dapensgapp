@@ -152,15 +152,19 @@ class LayananController extends Controller
         //
         $menu = 'pensi';
         $edit = false;
+        $tahunini = date('Y', strtotime('now'));
+        // $tahun = !is_null($request->tahun) ? $request->tahun : $tahunini;
+        $tahun = '2021';
+        $user = User::query()->with(['biodata'])->find(auth()->user()->id);
 
-        //dd(Carbon::parse('2019-03-01')->translatedFormat('d F Y'));
-        $user = User::query()->find(auth()->user()->id);
-        $mohon = SkPenetapan::where('nopeserta', $user->nopeserta)->get();
+        //$mohon = SKeterangan::query()->get();
+        //$bulan = array('01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April', '05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus', '09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
 
         $data = [
             'menu' => $menu,
+            'user' => $user,
             'edit' => $edit,
-            'mohon' => $mohon,
+            'tahun' =>  $tahun
         ];
 
 

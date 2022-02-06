@@ -11,6 +11,7 @@ use App\Models\Admin\PermohonanKaryawan;
 use App\Models\Admin\PermohonanDudaJanda;
 use App\Models\Admin\LampiranDudaJanda;
 use App\Models\Admin\DataKeluarga;
+use App\Models\Admin\RekeningPensiun;
 
 use Alert;
 use Exception;
@@ -60,7 +61,7 @@ class PermohonanDudaJandaController extends Controller
     public function form1($id)
     {
         //
-        $user = User::query()->with(['biodata'])->find(decrypt($id));
+        $user = User::query()->with(['biodata', 'keluarga', 'keluarga'])->find(decrypt($id));
         $cek = PermohonanDudaJanda::where('nopeserta', $user->biodata->nopeserta)->where('status', null)->count();
 
         if($cek > 0)
@@ -290,11 +291,11 @@ class PermohonanDudaJandaController extends Controller
         if ($request->type == "file_skperusahaan") {
             $this->validate(
                 $request,
-                ['file_skperusahaan' => 'required|mimes:pdf|max:1000'],
+                ['file_skperusahaan' => 'required|mimes:pdf,jpg,jpeg,png|max:5000'],
                 [
                     'file_skperusahaan.required' => 'Tidak ada file yang di upload',
                     'file_skperusahaan.mimes' => 'File harus pdf',
-                    'file_skperusahaan.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_skperusahaan.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
         } elseif ($request->type == "file_foto") {
@@ -320,11 +321,11 @@ class PermohonanDudaJandaController extends Controller
         } elseif ($request->type == "file_kk") {
             $this->validate(
                 $request,
-                ['file_kk' => 'required|mimes:pdf|max:1000'],
+                ['file_kk' => 'required|mimes:pdf,jpg,jpeg,png|max:5000'],
                 [
                     'file_kk.required' => 'Tidak ada file yang di upload',
                     'file_kk.mimes' => 'File harus pdf',
-                    'file_kk.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_kk.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
         } elseif ($request->type == "file_npwp") {
@@ -337,14 +338,14 @@ class PermohonanDudaJandaController extends Controller
                     'file_npwp.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
-        } elseif ($request->type == "file_tabungan") {
+        } elseif ($request->type == "file_surat_nikah") {
             $this->validate(
                 $request,
-                ['file_tabungan' => 'required|mimes:pdf|max:1000'],
+                ['file_surat_nikah' => 'required|mimes:pdf,jpg,jpeg,png|max:5000'],
                 [
-                    'file_tabungan.required' => 'Tidak ada file yang di upload',
-                    'file_tabungan.mimes' => 'File harus pdf',
-                    'file_tabungan.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_surat_nikah.required' => 'Tidak ada file yang di upload',
+                    'file_surat_nikah.mimes' => 'File harus pdf',
+                    'file_surat_nikah.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
         } elseif ($request->type == "file_scan_karyawan") {
@@ -401,7 +402,7 @@ class PermohonanDudaJandaController extends Controller
     {
         $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
 
-        if (is_null($mohon->lampiran->file_skperusahaan) || is_null($mohon->lampiran->file_foto) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_npwp) || is_null($mohon->lampiran->file_tabungan)) {
+        if (is_null($mohon->lampiran->file_skperusahaan) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikah)) {
 
             // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
             alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');
@@ -417,7 +418,7 @@ class PermohonanDudaJandaController extends Controller
                 'mohon' => $mohon,
             ];
 
-            Alert::success('Berhasil', 'Pengajuan berhasil disimpan');
+            alert()->success('Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valida & lengkap', 'Berhasil')->persistent('Ya');
 
             return redirect()->route('pensi.permohonandudajanda.index', $data);
         }

@@ -8,7 +8,7 @@
         <div class="col-md-6">
         <div class="form-group has-feedback">
             <label class="control-label">No Pensiun Dapen SG</label>
-            <input class="form-control" type="text" value="{{ $user->nopeserta }}" disabled>
+            <input class="form-control" type="text" value="{{ $user->nopeserta.'-'.$user->jenis }}" disabled>
             <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->nopeserta }}">
             <span class="fa fa-user-circle-o form-control-feedback" aria-hidden="true"></span> </div>
         </div>

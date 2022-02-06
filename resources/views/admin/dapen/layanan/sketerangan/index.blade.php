@@ -29,7 +29,7 @@
                             <th>No Pensiun</th>
                             <th>Nama</th>
                             <th>No Handphone</th>
-                            <th>Status</th>
+                            <th>Jenis</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -42,18 +42,10 @@
                             <td>{{$item->nopeserta}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->nohp}}</td>
+                             <td>@if($item->jenis == 1) Sebagai Pensiunan @else Untuk Anak Masuk Perguruan Tinggi  @endif</td>
                             <td>
-                                @if ($item->status)
-                                <span class="label label-info">Selesai</span>
-                                @else
-                                <span class="label label-success">Diproses</span>
-                                @endif
+                                <a href="{!! url('pensi/layanan/cetaksk', [ 'jenis' => 'keterangan', 'id' => encrypt($item->id)]) !!}" class="btn btn-sm btn-info">Download</a>
 
-                            </td>
-                            <td>
-                                @if ($item->status)
-                                    <a href="{!! url('pensi/layanan/cetaksk', [ 'jenis' => 'keterangan', 'id' => encrypt($item->id)]) !!}" class="btn btn-sm btn-warning">Cetak</a>
-                                @endif
                             </td>
                         </tr>
                         @php $no++; @endphp

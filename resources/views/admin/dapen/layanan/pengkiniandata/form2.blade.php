@@ -35,7 +35,6 @@
                                 <th scope="col">Jenis Kelamin</th>
                                 <th scope="col">Hubungan Keluarga</th>
                                 <th scope="col">Tanggal Lahir</th>
-                                <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,12 +60,12 @@
                                         @endif
                                     </td>
                                     <td>{{$item->tgl_lahir}}</td>
-                                    <td>
+                                    {{--  <td>
                                         <button type="button" class="btn btn-sm btn-danger delete" data-id="{{ $item->id }}" data-file="{{$item->id}}"><i class="fa fa-trash"></i> Hapus</button>
                                         {{ Form::open(['url'=>route('pensi.keluarga.destroy', [Crypt::encrypt($item->id)]), 'method'=>'delete', 'id' => $item->id, 'style' => 'display: none;']) }}
                                         {{ csrf_field() }}
                                         {{ Form::close() }}
-                                    </td>
+                                    </td>  --}}
                                 </tr>
                                 @php $no++; @endphp
                                 @endforeach
@@ -75,7 +74,7 @@
                     </div>
                 </div>
                 <br/><br/><br/><br/>
-                <div class="row m-t-3">
+                {{--  <div class="row m-t-3">
                     <div class="col-lg-12">
                     <div class="card ">
                         <div class="card-header bg-blue">
@@ -169,10 +168,10 @@
                         </div>
                     </div>
                     </div>
-                </div>
+                </div>  --}}
               </div>
             <div class="step-footer">
-                <a href="{!! url('pensi/pengkinian/form3', ['id' => encrypt($mohon->id )]) !!}" type="submit" data-direction="next" class="btn btn-primary">Selanjutnya</a>
+                <a href="{!! url('pensi/pengkinian/form3', ['id' => encrypt($mohon->id )]) !!}" type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Selanjutnya</a>
             </div>
             </div>
           </div>

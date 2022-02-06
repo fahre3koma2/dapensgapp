@@ -37,7 +37,7 @@
     </div>
     <div class="row about_blog">
       <div class="col-lg-12 col-md-12 col-sm-12 about_feature_img padding_right_0">
-        <div class="full text_align_center"> <p><embed src="https://www.dapentelkom.co.id/content/uploads/Annual_Report__29-07-2020.pdf" type="application/pdf" width="800" height="800" data-mce-fragment="1"></embed></p> </div>
+        {{--  <div class="full text_align_center"> <p><embed src="https://www.dapentelkom.co.id/content/uploads/Annual_Report__29-07-2020.pdf" type="application/pdf" width="800" height="800" data-mce-fragment="1"></embed></p> </div>  --}}
       </div>
     </div>
   </div>

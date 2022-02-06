@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Permohonan Manfaat Pensiun Anak</h1>
+      <h1>Permohonan SK Penetapan</h1>
       <ol class="breadcrumb">
         <li><a href="#">Pemohonan</a></li>
-        <li><i class="fa fa-angle-right"></i>Permohonan Manfaat Pensiun Anak</li>
+        <li><i class="fa fa-angle-right"></i>Permohonan SK Penetapan</li>
       </ol>
     </div>
 @endsection
@@ -14,18 +14,21 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
+            {{--  <h4 class="text-black">Data Laporan Berita Duka</h4>  --}}
+            {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
              <div class="ml-auto">
                 @php $idpensi = auth()->user()->id; @endphp
-                <a href="{!! url('pensi/permohonan/anak/form1', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-primary">Tambah Permohonan</a>
+                <a href="{!! url('pensi/layanan/skpenetapan/tambah', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-warning">Tambah Permintaan</a>
             </div>
             <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
                     <thead>
                         <tr>
                             <th width="2%">No</th>
-                            <th>No Permohonan</th>
+                            <th>No Permintaan</th>
                             <th>No Pensiun</th>
                             <th>Nama</th>
+                            <th>No Handphone</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -35,22 +38,21 @@
                         @foreach ($mohon as $item)
                         <tr>
                             <td>{{$no}}</td>
-                            <td>{{$item->idperm_karyawan}}</td>
+                            <td>{{$item->noskpenetapan}}</td>
                             <td>{{$item->nopeserta}}</td>
                             <td>{{$item->name}}</td>
+                            <td>{{$item->nohp}}</td>
                             <td>
                                 @if ($item->status)
-                                <span class="label label-success">Dikirim</span>
+                                <span class="label label-info">Selesai</span>
                                 @else
-                                <span class="label label-warning">Belum Dikirim</span>
+                                <span class="label label-success">Diproses</span>
                                 @endif
 
                             </td>
                             <td>
                                 @if ($item->status)
-                                {{--  <span class="label label-success">Admin</span>  --}}
-                                @else
-                                <a href="{!! route('pensi.permohonan.anak-formedit1', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Edit </a>
+                                <span class="label label-success">Download</span>
                                 @endif
                             </td>
                         </tr>

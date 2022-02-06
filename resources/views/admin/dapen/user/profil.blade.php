@@ -23,7 +23,7 @@
                         <input class="form-control" type="hidden" name="idx" value="{{ $user->id }}">
                         <input class="form-control" type="hidden" name="userid" value="{{ $user->id }}">
                         <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->nopeserta }}">
-                        @if($user->file)
+                        @if(!empty($user->file))
                             <input type="file" name="foto" id="input-file-now-custom-1" class="dropify" data-default-file="{{ url('dapen/foto/'.$user->file) }}" />
                         @else
                             <input type="file" name="foto" id="input-file-now-custom-1" class="dropify" data-default-file="{{ url('dist/img/img1.jpg') }}" />

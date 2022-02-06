@@ -111,13 +111,12 @@
                             <i class="fa fa-times"></i>
                         @endif
                     </td>
-
                   </tr>
                   <tr>
                     <td>2. </td>
-                    <td>Foto berwarna ukuran 3 x 4</td>
+                    <td>Surat Nikah</td>
                     <td>
-                        @if($mohon->lampiran->file_foto)
+                        @if($mohon->lampiran->file_surat_nikah)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>
@@ -125,43 +124,10 @@
                     </td>
                   </tr>
                   <tr>
-                     <td>3. </td>
-                    <td>Kartu Tanda Penduduk (KTP)</td>
-                    <td>
-                        @if($mohon->lampiran->file_ktp)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4. </td>
+                    <td>3. </td>
                     <td>Kartu Keluarga (KK)</td>
                     <td>
                         @if($mohon->lampiran->file_kk)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>5. </td>
-                    <td>Kartu NPWP</td>
-                    <td>
-                        @if($mohon->lampiran->file_npwp)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>6. </td>
-                    <td>Buku Tabungan</td>
-                    <td>
-                        @if($mohon->lampiran->file_tabungan)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>
@@ -175,14 +141,18 @@
             <!-- /.col -->
           </div>
           <!-- /.row -->
-
+          <br/>
+          <div class="checkbox">
+              <label>
+                  <input type="checkbox" value="" onchange="activateButton(this)">
+                Dengan ini saya menyatakan pelaporan ini dibuat dengan sebenar-benarnya dengan nomor telpon yang saya cantumkan saya bersedia untuk di hubungi oleh pihak Dana Pensiun Semen Gresik untuk di konfirmasi. *
+              </label>
+          </div>
+          <br/>
           <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-lg-12">
-              <a href="{!! url('pensi/permohonandudajanda/') !!}" data-direction="next" style="margin-left: 5px;" class="btn btn-warning"><i class="fa fa-list-alt"></i> Tunda</a>
-
-              <a href="{!! url('pensi/permohonan/dudajanda/form2', ['id' => encrypt($mohon->id )]) !!}" style="margin-right: 5px;" class="btn btn-info"><i class="fa fa-arrow-left"></i> Kembali</a>
-              <button type="button" class="btn btn-primary pull-right finish" style="margin-right: 5px;" data-id="{{ $mohon->id }}" data-file="finish_{{ $mohon->id }}"> <i class="fa fa-credit-card"></i> Submit </button>
+              <button disabled name="submit" id="submit" type="button" class="btn btn-primary pull-right finish" style="margin-right: 5px;" data-id="{{ $mohon->id }}" data-file="finish_{{ $mohon->id }}"> <i class="fa fa-credit-card"></i> Submit </button>
                 {{ Form::open(['url' => route('pensi.permohonandudajanda.kirim', [Crypt::encrypt($mohon->id)]), 'method' => 'post', 'id' => 'finish_'.$mohon->id ]) }}
                 {{ csrf_field() }}
                 {{ Form::close() }}
@@ -256,6 +226,20 @@
             });
         });
 
+        function disableSubmit() {
+        document.getElementById("submit").disabled = true;
+        }
+
+        function activateButton(element) {
+
+            if(element.checked) {
+                document.getElementById("submit").disabled = false;
+            }
+            else  {
+                document.getElementById("submit").disabled = true;
+            }
+
+        }
     </script>
 
 

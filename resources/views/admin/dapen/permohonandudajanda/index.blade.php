@@ -18,7 +18,7 @@
             {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
              <div class="ml-auto">
                 @php $idpensi = auth()->user()->id; @endphp
-                <a href="{!! url('pensi/permohonan/dudajanda/form1', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-primary">Tambah File</a>
+                <a href="{!! url('pensi/permohonan/dudajanda/form1', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-primary">Tambah Permohonan</a>
             </div>
             <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
@@ -28,6 +28,7 @@
                             <th>No Permohonan</th>
                             <th>No Pensiun</th>
                             <th>Nama</th>
+                            <th>Duda/Janda dari</th>
                             <th>No Handphone</th>
                             <th>Status</th>
                             <th>Aksi</th>
@@ -41,6 +42,7 @@
                             <td>{{$item->idperm_karyawan}}</td>
                             <td>{{$item->nopeserta}}</td>
                             <td>{{$item->name}}</td>
+                             <td>{{$item->name_pensiun}}</td>
                             <td>{{$item->nohp}}</td>
                             <td>
                                 @if ($item->status)

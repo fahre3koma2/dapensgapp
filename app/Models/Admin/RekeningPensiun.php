@@ -11,7 +11,7 @@ class RekeningPensiun extends Model
 
     protected $fillable = [
 
-        'id', 'nopeserta', 'upensiun', 'rapel', 'pph', 'statuspajak', 'pajak', 'nama_penerima', 'bank', 'norekening', 'alamat', 'atasnama', 'cabang', 'jenis', 'status', 'created_at', 'updated_at',
+        'id', 'nopeserta', 'upensiun', 'rapel', 'pph', 'statuspajak', 'pajak', 'nama_penerima', 'bank', 'norekening', 'alamat_rek', 'atasnama', 'cabang', 'jenis', 'status', 'created_at', 'updated_at',
 
     ];
 }

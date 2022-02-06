@@ -5,6 +5,12 @@
     @if (count($errors) > 0)
         $('#myModal').modal('show');
     @endif
+
+    @if($menu == 'beranda')
+      $(window).on('load', function() {
+        $('#myModalSplsh').modal('show');
+    });
+    @endif
 </script>
 
 <script src="{{ url('webprof/js/jquery.min.js') }}"></script>

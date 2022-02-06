@@ -45,7 +45,6 @@
                     <span class="vc_sep_holder vc_sep_holder_l">
                     <span class="vc_sep_line"></span>
                     </span>
-                    <h4 style="text-align: center;">Struktur Organisasi</h4>
                     <span class="vc_sep_holder vc_sep_holder_r">
                     <span class="vc_sep_line"></span>
                     </span>
@@ -91,7 +90,6 @@
                     <span class="vc_sep_holder vc_sep_holder_l">
                     <span class="vc_sep_line"></span>
                     </span>
-                    <h4 style="text-align: center;">Dewas</h4>
                     <span class="vc_sep_holder vc_sep_holder_r">
                     <span class="vc_sep_line"></span>
                     </span>

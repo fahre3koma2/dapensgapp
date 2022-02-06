@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Permohonan SK Penetapan</h1>
+      <h1>SK Penetapan MP</h1>
       <ol class="breadcrumb">
-        <li><a href="#">Pemohonan</a></li>
-        <li><i class="fa fa-angle-right"></i>Permohonan SK Penetapan</li>
+        <li><a href="#">Layanan</a></li>
+        <li><i class="fa fa-angle-right"></i>SK Penetapan MP</li>
       </ol>
     </div>
 @endsection
@@ -14,57 +14,62 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
-            {{--  <h4 class="text-black">Data Laporan Berita Duka</h4>  --}}
-            {{--  <p>Export data to Copy, CSV, Excel, PDF & Print</p>  --}}
-             <div class="ml-auto">
-                @php $idpensi = auth()->user()->id; @endphp
-                <a href="{!! url('pensi/layanan/skpenetapan/tambah', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-warning">Tambah Permintaan</a>
+            <div class="row m-t-3">
+                <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header bg-orange">
+                    <h5 class="m-b-0">SK Penetapan MP </h5>
+                    </div>
+                    <div class="card-body">
+
+                    {{--  <form action="{{ route('pensi.buktipajak') }}" method="get" id="form-filter" class="form-horizontal form-bordered">
+                        <div class="form-group row">
+                            <label class="control-label text-right col-md-3">Tahun</label>
+                            <div class="col-md-4">
+
+                            <select class="form-control custom-select" onchange="filter()" name="tahun">
+                                <option value="" >-Pilih Tahun-</option>
+                                    <option value="2021" >2021</option>
+                                     <option value="2022" >2022</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    </form>  --}}
+                    </div>
+                </div>
             </div>
-            <div class="table-responsive">
-                <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
+        </div><br/>
+        <div class="card-body">
+             <div class="col-lg-12">
+                <div class="table-responsive">
+                <table class="table table-bordered">
                     <thead>
-                        <tr>
-                            <th width="2%">No</th>
-                            <th>No Permintaan</th>
-                            <th>No Pensiun</th>
-                            <th>Nama</th>
-                            <th>No Handphone</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
-                        </tr>
+                    <tr>
+                        <th scope="col" width="5%">No</th>
+                        <th scope="col" width="10%">Tahun</th>
+                        <th scope="col" width="20%">No Pensiun</th>
+                        <th scope="col">Nama Pensiun</th>
+                        <th scope="col" width="5%">Aksi</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @php $no = 1; @endphp
-                        @foreach ($mohon as $item)
-                        <tr>
-                            <td>{{$no}}</td>
-                            <td>{{$item->noskpenetapan}}</td>
-                            <td>{{$item->nopeserta}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->nohp}}</td>
-                            <td>
-                                @if ($item->status)
-                                <span class="label label-info">Selesai</span>
-                                @else
-                                <span class="label label-success">Diproses</span>
-                                @endif
-
-                            </td>
-                            <td>
-                                @if ($item->status)
-                                <span class="label label-success">Download</span>
-                                @endif
-                            </td>
-                        </tr>
-                        @php $no++; @endphp
-                        @endforeach
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{ $tahun }}</td>
+                        <td>{{ $user->biodata->nopeserta }}</td>
+                        <td>{{ $user->biodata->berhak }}</td>
+                        {{--  <td> <a href="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.'_BUPOT'.$tahun.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>  --}}
+                        <td> <a href="{{ url('/dapen/skpenetapan/'.$tahun.'/'.$user->biodata->nopeserta.''.$user->biodata->jenis.'_1721A1_'.$tahun.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
+                    </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
-
-         </div>
+        </div>
     </div>
 </div>
+<br/><br/><br/><br/>
 @endsection
 @section('injs')
     <!-- DataTable -->
@@ -90,5 +95,12 @@
     {{--  <script>
     $("table").tableExport({formats: ["xlsx","xls", "csv", "txt"],    });
     </script>  --}}
+    <script>
+
+    function filter(){
+        $('#form-filter').submit();
+    }
+
+    </script>
 @endsection
 

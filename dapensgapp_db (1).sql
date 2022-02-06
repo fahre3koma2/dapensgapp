@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 04, 2022 at 12:40 PM
+-- Generation Time: Feb 06, 2022 at 03:55 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -1704,25 +1704,23 @@ CREATE TABLE `biodata_update` (
   `nik_berhak` varchar(40) DEFAULT NULL,
   `npwp` varchar(40) DEFAULT NULL,
   `email_user` varchar(255) DEFAULT NULL,
-  `norekening` varchar(255) DEFAULT NULL,
-  `bank` varchar(255) DEFAULT NULL,
-  `cabang` varchar(255) DEFAULT NULL,
-  `anrekening` varchar(255) DEFAULT NULL,
   `baru` varchar(4) DEFAULT NULL,
   `verifikasi` varchar(4) DEFAULT NULL,
   `tampil` varchar(4) DEFAULT NULL,
-  `nopd` varchar(40) DEFAULT NULL
+  `nopd` varchar(40) DEFAULT NULL,
+  `urut` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `biodata_update`
 --
 
-INSERT INTO `biodata_update` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`, `alamat`, `kelurahan`, `rt`, `rw`, `kota`, `kodepos`, `created_at`, `updated_at`, `status`, `no_pegawai`, `file`, `nopeserta`, `berhak`, `jenis`, `kawin`, `sex`, `tempat_lahir`, `tgl_lahir`, `nik`, `nik_berhak`, `npwp`, `email_user`, `norekening`, `bank`, `cabang`, `anrekening`, `baru`, `verifikasi`, `tampil`, `nopd`) VALUES
-(1569, 24, 'Yogie Nandes P', '675677675673', NULL, NULL, 'Jl. Dorang No 21', 'Sabalo Mano', '12', '8', 'Padang', '213213', '2022-01-21 08:40:06', '2022-01-22 06:28:47', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, NULL, '1993-07-08', NULL, NULL, '988752811212', NULL, NULL, NULL, NULL, NULL, '2', '1', '2', 'PD-0122-001'),
-(1572, 24, 'Yogie Nandes Pratama', '99839288819', NULL, NULL, 'Jl. Dorang No 21 Kali Urang', 'Sabalo Mano', '08', '03', 'Padang', '34223232', '2022-01-22 06:18:48', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Janda', NULL, NULL, '1993-07-08', NULL, NULL, '898291889391', NULL, NULL, NULL, NULL, NULL, '2', '1', '2', 'PD-0122-002'),
-(1573, 24, 'Omar Al Nahian', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '03', '04', 'Pati', '123456', '2022-01-22 08:19:34', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, NULL, NULL, NULL, NULL, '2', '1', '1', 'PD-0122-003'),
-(1575, 24, 'Omar Al Nahian Abzar', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '12', '08', 'Pati', '1234567', '2022-01-31 06:23:10', '2022-02-04 12:08:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, '99888102001', 'BNI', 'Geros', 'Ali', '1', NULL, NULL, 'PD-0122-004');
+INSERT INTO `biodata_update` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`, `alamat`, `kelurahan`, `rt`, `rw`, `kota`, `kodepos`, `created_at`, `updated_at`, `status`, `no_pegawai`, `file`, `nopeserta`, `berhak`, `jenis`, `kawin`, `sex`, `tempat_lahir`, `tgl_lahir`, `nik`, `nik_berhak`, `npwp`, `email_user`, `baru`, `verifikasi`, `tampil`, `nopd`, `urut`) VALUES
+(1569, 24, 'Yogie Nandes P', '675677675673', NULL, NULL, 'Jl. Dorang No 21', 'Sabalo Mano', '12', '8', 'Padang', '213213', '2022-01-21 08:40:06', '2022-01-22 06:28:47', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, NULL, '1993-07-08', NULL, NULL, '988752811212', NULL, '2', '1', '2', 'PD-0122-001', '1'),
+(1572, 24, 'Yogie Nandes Pratama', '99839288819', NULL, NULL, 'Jl. Dorang No 21 Kali Urang', 'Sabalo Mano', '08', '03', 'Padang', '34223232', '2022-01-22 06:18:48', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Janda', NULL, NULL, '1993-07-08', NULL, NULL, '898291889391', NULL, '2', '1', '2', 'PD-0122-002', '2'),
+(1573, 24, 'Omar Al Nahian', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '03', '04', 'Pati', '123456', '2022-01-22 08:19:34', '2022-01-22 08:40:03', NULL, NULL, NULL, '00011', NULL, NULL, 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, '2', '1', '1', 'PD-0122-003', '3'),
+(1575, 24, 'Omar Al Nahian Abzar', '65432818327', NULL, NULL, 'Jl. Klenteng Barat No 53', 'Pucang', '12', '08', 'Pati', '1234567', '2022-01-31 06:23:10', '2022-02-06 03:49:31', NULL, NULL, NULL, '00011', NULL, 'N', 'Menikah', NULL, 'Semarang', '1993-07-06', '46763223331', NULL, '009321389873', NULL, '1', NULL, NULL, 'PD-0122-004', '1'),
+(1579, 1221, 'BAMBANG HERMANTO', '08113338857', NULL, NULL, 'Jl. Parkit BA-01, GKA', NULL, NULL, NULL, 'GRESIK', NULL, '2022-02-05 12:35:09', '2022-02-05 12:35:09', NULL, NULL, NULL, '01653', NULL, 'N', NULL, NULL, NULL, '1957-11-03', '3525140311570003', NULL, '470202573612000', NULL, NULL, NULL, NULL, 'PD-0222-005', NULL);
 
 -- --------------------------------------------------------
 
@@ -9373,7 +9371,8 @@ CREATE TABLE `lampiran` (
 INSERT INTO `lampiran` (`id`, `nopeserta`, `file_ktp`, `file_ktpanak`, `file_kk`, `file_npwp`, `file_foto`, `file_tabungan`, `file_skperusahaan`, `file_surat_kematian`, `file_surat_nikahortu`, `file_surat_nikah`, `file_belum_nikah`, `file_surat_sekolah`, `file_surat_penghasilan`, `file_scan_karyawan`, `file_scan_anak`, `file_surat_kuasa`, `file_lain1`, `file_lain2`, `file_lain3`, `created_at`, `updated_at`) VALUES
 (2, '00011', 'file_ktp_00011.jpg', NULL, 'file_kk_00011.pdf', 'file_npwp_00011.png', 'file_foto_00011.png', 'file_tabungan_00011.pdf', 'file_skperusahaan_00011.pdf', NULL, NULL, NULL, NULL, NULL, NULL, 'file_scan_karyawan_00011.pdf', NULL, NULL, 'file_lain1_00011.pdf', 'file_lain2_00011.pdf', 'file_lain3_00011.pdf', '2022-01-11 03:01:43', '2022-01-31 06:29:31'),
 (3, '01323', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-14 08:58:36', '2022-01-14 08:58:36'),
-(4, '01901', 'file_ktp_01901.jpg', NULL, 'file_kk_01901.pdf', 'file_npwp_01901.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-22 09:13:51', '2022-01-22 09:17:05');
+(4, '01901', 'file_ktp_01901.jpg', NULL, 'file_kk_01901.pdf', 'file_npwp_01901.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-22 09:13:51', '2022-01-22 09:17:05'),
+(5, '01653', NULL, NULL, 'file_kk_01653.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 12:25:06', '2022-02-05 12:38:12');
 
 -- --------------------------------------------------------
 
@@ -9447,7 +9446,8 @@ CREATE TABLE `lampiran_dudajanda` (
 --
 
 INSERT INTO `lampiran_dudajanda` (`id`, `nopeserta`, `nopermohonan`, `file_ktp`, `file_ktpanak`, `file_kk`, `file_npwp`, `file_foto`, `file_tabungan`, `file_skperusahaan`, `file_surat_kematian`, `file_surat_nikahortu`, `file_surat_nikah`, `file_belum_nikah`, `file_surat_sekolah`, `file_surat_penghasilan`, `file_scan_karyawan`, `file_scan_anak`, `file_surat_kuasa`, `created_at`, `updated_at`) VALUES
-(8, '00011', 'MPDJ-0122-001', 'file_ktp_00011.jpeg', NULL, 'file_kk_00011.pdf', 'file_npwp_00011.jpg', 'file_foto_00011.jpg', 'file_tabungan_00011.pdf', 'file_skperusahaan_00011.pdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-26 07:55:42', '2022-01-26 08:08:30');
+(8, '00011', 'MPDJ-0122-001', 'file_ktp_00011.jpeg', NULL, 'file_kk_00011.pdf', 'file_npwp_00011.jpg', 'file_foto_00011.jpg', 'file_tabungan_00011.pdf', 'file_skperusahaan_00011.pdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-01-26 07:55:42', '2022-01-26 08:08:30'),
+(9, '01653', 'MPDJ-0222-002', NULL, NULL, 'file_kk_01653.JPG', NULL, NULL, NULL, 'file_skperusahaan_01653.pdf', NULL, NULL, 'file_surat_nikah_01653.jpg', NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-05 16:36:10', '2022-02-05 16:46:04');
 
 -- --------------------------------------------------------
 
@@ -11280,6 +11280,7 @@ CREATE TABLE `perm_dudajanda` (
   `norekening` varchar(255) DEFAULT NULL,
   `bank` varchar(255) DEFAULT NULL,
   `cabang` varchar(255) DEFAULT NULL,
+  `atasnama` varchar(255) DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -11289,8 +11290,9 @@ CREATE TABLE `perm_dudajanda` (
 -- Dumping data for table `perm_dudajanda`
 --
 
-INSERT INTO `perm_dudajanda` (`id`, `idperm_karyawan`, `nopeserta`, `name`, `name_pensiun`, `alamat`, `kelurahan`, `rt`, `rw`, `kota`, `kodepos`, `nohp`, `norekening`, `bank`, `cabang`, `status`, `created_at`, `updated_at`) VALUES
-(14, 'MPDJ-0122-001', '00011', 'Denver Ope', 'Dume J', 'Jl. Jawa Tengah', NULL, NULL, NULL, NULL, NULL, '67567767567', '12937218361', 'BTPN', 'Semarang', '1', '2022-01-26 07:55:42', '2022-01-27 02:22:49');
+INSERT INTO `perm_dudajanda` (`id`, `idperm_karyawan`, `nopeserta`, `name`, `name_pensiun`, `alamat`, `kelurahan`, `rt`, `rw`, `kota`, `kodepos`, `nohp`, `norekening`, `bank`, `cabang`, `atasnama`, `status`, `created_at`, `updated_at`) VALUES
+(14, 'MPDJ-0122-001', '00011', 'Denver Ope', 'Dume J', 'Jl. Jawa Tengah', NULL, NULL, NULL, NULL, NULL, '67567767567', '12937218361', 'BTPN', 'Semarang', NULL, '1', '2022-01-26 07:55:42', '2022-01-27 02:22:49'),
+(15, 'MPDJ-0222-002', '01653', 'SIWI MARIA POERNAWATI', 'BAMBANG HERMANTO', 'Jl. Parkit BA-01, GKA', NULL, NULL, NULL, NULL, NULL, '08113338857', '1400095068608', 'Mandiri', 'MANDIRI KCP-GRESIK', 'BAMBANG HERMANTO', '1', '2022-02-05 16:36:10', '2022-02-05 16:48:53');
 
 -- --------------------------------------------------------
 
@@ -11393,7 +11395,7 @@ CREATE TABLE `rekening_pensiun` (
   `bank` varchar(255) DEFAULT NULL,
   `norekening` varchar(255) DEFAULT NULL,
   `cabang` varchar(255) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL,
+  `alamat_rek` varchar(255) DEFAULT NULL,
   `atasnama` varchar(255) DEFAULT NULL,
   `jenis` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
@@ -11405,7 +11407,7 @@ CREATE TABLE `rekening_pensiun` (
 -- Dumping data for table `rekening_pensiun`
 --
 
-INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat_rek`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
 (4606, '00014', '2233209', NULL, '0', NULL, NULL, 'DJUWITA NASUTION', 'Mandiri', '128-00-0419323-8', 'Mandiri Kcp. Bintaro Burung Gereja Jakarta', 'Mandiri Kcp. Bintaro Burung Gereja Jakarta', 'Ny. Djuwita', NULL, NULL, '2022-01-14 07:32:13', '2022-01-14 07:32:13'),
 (4607, '00016', '2233209', NULL, '0', NULL, NULL, 'YATNI AL MISNI', 'BRI', '002601011658533', 'BRI KC GRESIK', 'BRI KC GRESIK', 'YATNI', NULL, NULL, '2022-01-14 07:32:13', '2022-01-14 07:32:13'),
 (4608, '00023', '2233209', NULL, '0', NULL, NULL, 'SUPIYAH', 'Mandiri', '140-00-1705423-1', 'Mandiri KCP Surabaya', 'Mandiri KCP Surabaya', 'Muslimah', NULL, NULL, '2022-01-14 07:32:13', '2022-01-14 07:32:13'),
@@ -11649,7 +11651,7 @@ INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `
 (4846, '00590', '2477481', NULL, '0', NULL, NULL, 'RIPAN DJUNAIDI', 'BTPN', '0211.1.011357', 'BTPN Gresik', 'BTPN Gresik', 'Ripan Junaidi', NULL, NULL, '2022-01-14 07:32:16', '2022-01-14 07:32:16'),
 (4847, '00591', '1517305', NULL, '0', NULL, NULL, 'KASMI', 'BRI', '6433.01.018667.53.8', 'BRI UNIT NGRAMBE', 'BRI UNIT NGRAMBE', 'KASMI', NULL, NULL, '2022-01-14 07:32:16', '2022-01-14 07:32:16'),
 (4848, '00593', '2233209', NULL, '0', NULL, NULL, 'ULYATI', 'Mandiri', '140.00.1042210.4', 'Mandiri Gresik', 'Mandiri Gresik', 'Ulyati', NULL, NULL, '2022-01-14 07:32:16', '2022-01-14 07:32:16');
-INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat_rek`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
 (4849, '00594', '2528841', NULL, '0', NULL, NULL, 'ROCHMAN', 'MANDIRI', '178-00-0370369-7', 'MANDIRI KC GRESIK KARTINI', 'MANDIRI KC GRESIK KARTINI', 'ROCHMAN', NULL, NULL, '2022-01-14 07:32:16', '2022-01-14 07:32:16'),
 (4850, '00597', '4120553', NULL, '0', NULL, NULL, 'PIPIK S.P.W', 'Mandiri', '140-00-1428268-6', 'Mandiri KCP GU SG', 'Mandiri KCP GU SG', 'PIPIEK SRI PURNOMO WULAN', NULL, NULL, '2022-01-14 07:32:16', '2022-01-14 07:32:16'),
 (4851, '00598', '2477481', NULL, '0', NULL, NULL, 'SALAM', 'BRI', '002601011732531', 'BRI KC-Gresik', 'BRI KC-Gresik', 'SALAM', NULL, NULL, '2022-01-14 07:32:16', '2022-01-14 07:32:16'),
@@ -11894,7 +11896,7 @@ INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `
 (5090, '00888', '1318442', NULL, '0', NULL, NULL, 'TRI DJUARIYAH', 'BRI', '6638-01-005284-50-9', 'BRI UNIT SANDEN', 'BRI UNIT SANDEN', 'TRI DJUARIAH', NULL, NULL, '2022-01-14 07:32:19', '2022-01-14 07:32:19'),
 (5091, '00889', '1197483', NULL, '0', NULL, NULL, 'LISBET P.', 'BTPN', '0207.1.020838', 'BTPN Kemayoran Surabaya', 'BTPN Kemayoran Surabaya', 'LISBET KOLIBONSO', NULL, NULL, '2022-01-14 07:32:19', '2022-01-14 07:32:19'),
 (5092, '00890', '7775074', NULL, '135004', NULL, NULL, 'ANAS ROSJIDI, IR.', 'Mandiri', '140-00-04078631', 'Mandiri Gresik', 'Mandiri Gresik', 'Anas Rosjidi', NULL, NULL, '2022-01-14 07:32:19', '2022-01-14 07:32:19');
-INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat_rek`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
 (5093, '00891', '1803711', NULL, '0', NULL, NULL, 'CHOLIFAH', 'BRI', '\'002601011748532', 'BRI KC-Gresik', 'BRI KC-Gresik', 'KHOLIFAH', NULL, NULL, '2022-01-14 07:32:19', '2022-01-14 07:32:19'),
 (5094, '00892', '7842234', NULL, '138362', NULL, NULL, 'ZUBEIR HALIM, DRS.', 'Mandiri', '140-00-9004498-4', 'Mandiri Gresik', 'Mandiri Gresik', 'Drs. Zubeir Halim', NULL, NULL, '2022-01-14 07:32:19', '2022-01-14 07:32:19'),
 (5095, '00893', '3133850', NULL, '0', NULL, NULL, 'SRI SULASMI', 'BNI', '0339570090', 'BNI KC-Gresik', 'BNI KC-Gresik', 'SRI SULASMI', NULL, NULL, '2022-01-14 07:32:19', '2022-01-14 07:32:19'),
@@ -12139,7 +12141,7 @@ INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `
 (5334, '01154', '3302882', NULL, '0', NULL, NULL, 'IMAM SUBANDI', 'Mandiri', '140-00-9915633-4', 'Mandiri Gresik', 'Mandiri Gresik', 'Imam Subandi', NULL, NULL, '2022-01-14 07:32:22', '2022-01-14 07:32:22'),
 (5335, '01155', '2228074', NULL, '0', NULL, NULL, 'SUDIRMAN', NULL, '', '', '', '', NULL, NULL, '2022-01-14 07:32:23', '2022-01-14 07:32:23'),
 (5336, '01156', '1803711', NULL, '0', NULL, NULL, 'NUR BAITAH ASYARI', 'BRI', '3177.01.007419.53.9', 'BRI', 'BRI', 'NURBAITAH ASYARI', NULL, NULL, '2022-01-14 07:32:23', '2022-01-14 07:32:23');
-INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat_rek`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
 (5337, '01157', '1803711', NULL, '0', NULL, NULL, 'SUHARTINI', 'BTPN', '0016.1.047619', 'BTPN KC-MALANG', 'BTPN KC-MALANG', 'SUHARTINI', NULL, NULL, '2022-01-14 07:32:23', '2022-01-14 07:32:23'),
 (5338, '01158', '4091220', NULL, '0', NULL, NULL, 'MARSUDIYANTO', 'BNI', '0046667437', 'BNI Tuban', 'BNI Tuban', 'Marsudiyanto', NULL, NULL, '2022-01-14 07:32:23', '2022-01-14 07:32:23'),
 (5339, '01159', '3094506', NULL, '0', NULL, NULL, 'SOESANTO', 'BTPN', '0211-1-021778', 'BTPN KCP Gresik', 'BTPN KCP Gresik', 'Soesanto', NULL, NULL, '2022-01-14 07:32:23', '2022-01-14 07:32:23'),
@@ -12382,7 +12384,7 @@ INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `
 (5576, '01411', '2407090', NULL, '0', NULL, NULL, 'SUMINTO', 'MANDIRI', '2472807212120', 'MANDIRI TASPEN KC SURABAYA', 'MANDIRI TASPEN KC SURABAYA', 'SUMINTO', NULL, NULL, '2022-01-14 07:32:26', '2022-01-14 07:32:26'),
 (5577, '01412', '3851556', NULL, '0', NULL, NULL, 'ENDANG SRI WINDARI', 'BNI', '1227434648', 'BNI KC SIDOARJO', 'BNI KC SIDOARJO', 'ENDANG SRI WINDARI', NULL, NULL, '2022-01-14 07:32:26', '2022-01-14 07:32:26'),
 (5578, '01413', '3256287', NULL, '0', NULL, NULL, 'SURONO, IR.', 'Mandiri', '2752806305716', 'Mandiri Taspen KC Sby', 'Mandiri Taspen KC Sby', 'SURONO', NULL, NULL, '2022-01-14 07:32:26', '2022-01-14 07:32:26');
-INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat_rek`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
 (5579, '01414', '1947066', NULL, '0', NULL, NULL, 'Suci Lelono Dewi', 'MANDIRI', '178-00-0232787-8', 'MANDIRI KCP GKB', 'MANDIRI KCP GKB', 'SUCI LELONO DEWI', NULL, NULL, '2022-01-14 07:32:26', '2022-01-14 07:32:26'),
 (5580, '01415', '2195622', NULL, '0', NULL, NULL, 'ISNOENIE', 'Mandiri', '140-00-9608407-5', 'Mandiri Cabang Pondok Chandra Surabaya', 'Mandiri Cabang Pondok Chandra Surabaya', 'ISNOENIE', NULL, NULL, '2022-01-14 07:32:26', '2022-01-14 07:32:26'),
 (5581, '01416', '3051000', NULL, '0', NULL, NULL, 'WIGNYO PRAYUGI', 'BNI', '0046674386', 'BNI TUBAN', 'BNI TUBAN', 'WIGNYO PRAYUGI', NULL, NULL, '2022-01-14 07:32:26', '2022-01-14 07:32:26'),
@@ -12604,7 +12606,7 @@ INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `
 (5797, '01650', '2400074', NULL, '0', NULL, NULL, 'ABD. GANI', 'BNI', '0046671534', 'BNI KC-TUBAN', 'BNI KC-TUBAN', 'ABD. GANI', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
 (5798, '01651', '2842861', NULL, '0', NULL, NULL, 'SUWONDO', 'MANDIRI', '140-00-9608018-0', 'MANDIRI KC-GRESIK', 'MANDIRI KC-GRESIK', 'SUWONDO BIN WONGSO HARTONO', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
 (5799, '01652', '3299793', NULL, '0', NULL, NULL, 'SENTOT TEGUH IMAM S.', 'MANDIRI', '2472808925802', 'MANDIRI TASPEN KK GRESIK', 'MANDIRI TASPEN KK GRESIK', 'SENTOT TEGUH IMAM SUHARSONO', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
-(5800, '01653', '3269362', NULL, '0', NULL, NULL, 'BAMBANG HERMANTO', 'MANDIRI', '140-00-9506860-8', 'MANDIRI KCP-GRESIK', 'MANDIRI KCP-GRESIK', 'BAMBANG HERMANTO', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
+(5800, '01653', '3269362', NULL, '0', NULL, NULL, 'BAMBANG HERMANTO', 'Mandiri', '1400095068608', 'MANDIRI KCP-GRESIK', 'MANDIRI KCP-GRESIK', 'BAMBANG HERMANTO', 'N', NULL, '2022-01-14 07:32:29', '2022-02-05 12:33:58'),
 (5801, '01654', '2263020', NULL, '0', NULL, NULL, 'ELLY SOELISTYOWATI', 'MANDIRI', '140-00-0694961-5', 'MANDIRI KCP-GRESIK', 'MANDIRI KCP-GRESIK', 'ELLY SOELISTYOWATI', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
 (5802, '01655', '2107754', NULL, '0', NULL, NULL, 'UMI KULSUM', 'BRI', '6206.01.005990.53.3', 'BRI GRESIK', 'BRI GRESIK', 'UMI KULSUM', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
 (5803, '01656', '2205963', NULL, '0', NULL, NULL, 'TUKIYAT', 'MANDIRI', '140-00-9608194-9', 'MANDIRI KCP-GRESIK', 'MANDIRI KCP-GRESIK', 'TUKIYAT', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
@@ -12622,7 +12624,7 @@ INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `
 (5815, '01669', '11593252', NULL, '504820', NULL, NULL, 'I KETUT ARSHA PUTRA, IR.', 'MANDIRI', '1400090045395', 'MANDIRI KC-GRESIK', 'MANDIRI KC-GRESIK', 'I KETUT ARSHA PUTRA, Ir., MM.', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
 (5816, '01670', '2259809', NULL, '0', NULL, NULL, 'SUTOYO', 'MANDIRI', '1400093064294', 'MANDIRI KC-GRESIK', 'MANDIRI KC-GRESIK', 'SUTOYO', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
 (5817, '01671', '3204222', NULL, '0', NULL, NULL, 'TRIONGKO PANDAM W., IR.', 'BTPN', '0211.1.026702', 'BTPN GRESIK', 'BTPN GRESIK', 'TRIONGKO PANDAM WAHYUDI, IR', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29');
-INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat_rek`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
 (5818, '01672', '2939859', NULL, '0', NULL, NULL, 'ZAWAWI', 'MANDIRI', '140.00.9506812.9', 'MANDIRI KCP-GResik', 'MANDIRI KCP-GResik', 'ZAWAWI', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
 (5819, '01673', '2716266', NULL, '0', NULL, NULL, 'WIBOWO', 'Mandiri', '140-00-9607971-1', 'Mandiri KCP-Gresik', 'Mandiri KCP-Gresik', 'WIBOWO', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
 (5820, '01674', '3204222', NULL, '0', NULL, NULL, 'SOPAN SILAN', 'Mandiri', '140.009608034.7', 'Mandiri KC GUSG', 'Mandiri KC GUSG', 'SOPAN', NULL, NULL, '2022-01-14 07:32:29', '2022-01-14 07:32:29'),
@@ -12859,7 +12861,7 @@ INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `
 (6051, '01911', '4691938', NULL, '0', NULL, NULL, 'ILMANZA RESTUADI K., IR.,MIT', 'MANDIRI', '140-00-04569829', 'MANDIRI KCP GU SG', 'MANDIRI KCP GU SG', 'Ir. ILMANZA RESTUADI KURNIAWAN', NULL, NULL, '2022-01-14 07:32:32', '2022-01-14 07:32:32'),
 (6052, '01912', '1471893', NULL, '0', NULL, NULL, 'ASPINGAH', 'BRI', '620601014763533', 'BRI UNIT KEMBANGAN GRESIK', 'BRI UNIT KEMBANGAN GRESIK', 'ASPINGAH', NULL, NULL, '2022-01-14 07:32:32', '2022-01-14 07:32:32'),
 (6053, '01913', '1174760', NULL, '0', NULL, NULL, 'Untari', 'BTPN', '02111030191', 'BTPN KCP GRESIK', 'BTPN KCP GRESIK', 'UNTARI', NULL, NULL, '2022-01-14 07:32:32', '2022-01-14 07:32:32');
-INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
+INSERT INTO `rekening_pensiun` (`id`, `nopeserta`, `upensiun`, `rapel`, `pph`, `statuspajak`, `pajak`, `nama_penerima`, `bank`, `norekening`, `cabang`, `alamat_rek`, `atasnama`, `jenis`, `status`, `created_at`, `updated_at`) VALUES
 (6054, '01914', '1392492', NULL, '0', NULL, NULL, 'MUHAMMAD YUSUF', 'BTPN', '0211.1.028284', 'BTPN GRESIK', 'BTPN GRESIK', 'MUHAMMAD YUSUF', NULL, NULL, '2022-01-14 07:32:32', '2022-01-14 07:32:32'),
 (6055, '01915', '2453155', NULL, '0', NULL, NULL, 'SAMSUL ARIF', 'MANDIRI', '2752806960414', 'MANDIRI TASPEN KC SURABAYA', 'MANDIRI TASPEN KC SURABAYA', 'SAMSUL ARIF', NULL, NULL, '2022-01-14 07:32:32', '2022-01-14 07:32:32'),
 (6056, '01916', '662287', NULL, '0', NULL, NULL, 'MARIA JUANA SUPRAPTI', 'MANDIRI', '142-00-1700017-4', 'MANDIRI KCP SURABAYA UNAIR', 'MANDIRI KCP SURABAYA UNAIR', 'MARIA JUANA SUPRAPTI', NULL, NULL, '2022-01-14 07:32:32', '2022-01-14 07:32:32'),
@@ -13002,8 +13004,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('2GR52hjBDWliqWT2R5Lx4GzS7vOGuPLx2pGCOcdk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSkU0M2tEaDgwV1NRbEh3c1ZlcWY4ZnRFTzZWOExieU1zbHRQNVJuNiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMjQ6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9wZW5zaS9wZW5zaXVuL2V5SnBkaUk2SWtZclZtZENXVFZEVXpkdlRtODBNR0o2VmxBd1NFRTlQU0lzSW5aaGJIVmxJam9pUTFCdmMyOHdkM1ZMVFVGV2J6WklkUzl6TkRjeVFUMDlJaXdpYldGaklqb2lZakZqTnpWbVptRTNPREk1Wm1Vek1XVXpOV1V3TXpGbFpHSTJOV1F3TVRka01qa3laV0U0T0RoaE5EVTNNelprTUdZd09EVTBNREJsWm1NeVlqUXhNeUo5Ijt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI0OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuc2l1bi9leUpwZGlJNklrWXJWbWRDV1RWRFV6ZHZUbTgwTUdKNlZsQXdTRUU5UFNJc0luWmhiSFZsSWpvaVExQnZjMjh3ZDNWTFRVRldielpJZFM5ek5EY3lRVDA5SWl3aWJXRmpJam9pWWpGak56Vm1abUUzT0RJNVptVXpNV1V6TldVd016RmxaR0kyTldRd01UZGtNamt5WldFNE9EaGhORFUzTXpaa01HWXdPRFUwTURCbFptTXlZalF4TXlKOSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1643973886),
-('q0TeVZhaXD9h9lnNeeExW1NNJiJCDhpWezF9RaJW', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoiY1JSR2hZbkNoRDBvdzcwU29mRVVRSDVWRDBXcWE4VTQwYUxhOUJNVCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ5OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuZ2tpbmlhbj9tb2hvbj0xNTc1Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjQ7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MTE6InN3ZWV0X2FsZXJ0IjthOjA6e319', 1643978409);
+('ObruHk2jfliamwYPWtLxU3Drm3MHkxcF2rNpf9IN', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiVVdxc3N5cXVTQnczNGM3TVBKSVBrYXgxd1lpTjFIdVRIWnhiZ20yRiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ3OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuZ2tpbmlhbi9jZXRha3BlbmdraW5pYW5kYXRhL2V5SnBkaUk2SWxCWWVHazFTRWczTkZsaU9GaFVXRGRVY0c1aGVsRTlQU0lzSW5aaGJIVmxJam9pT1ZsU1ZUQm5aQ3RXVFVwVmVGRlFZWGQyY21adlVUMDlJaXdpYldGaklqb2laVGcwTVRSa1lXRTRNREptWlRnM016UTBObVUzWmpZNFlUbGlPVGxoTldKbVkyWTNOakppWVdFNU1HRmtNV1ZrTjJaa01UQTNNVEJsTmpOaU5EbGpOQ0o5Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjQ7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MTE6InN3ZWV0X2FsZXJ0IjthOjA6e319', 1644119603),
+('ozxc5Cjf44GZwEfBjth8uR71wyrgHIDLdsRfqB94', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZlQ0bXN4WFJvTUdOSWFTNG1tRzR4VDZNaklQRHAxa2xUUnFYVkJTWCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9hZG1pbi9sYXBvcmFuLWJlcml0YWR1a2EiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjt9', 1644082022);
 
 -- --------------------------------------------------------
 
@@ -13082,7 +13084,8 @@ CREATE TABLE `sketerangan` (
 --
 
 INSERT INTO `sketerangan` (`id`, `nosketerangan`, `nopeserta`, `name`, `alamat`, `nohp`, `email`, `keterangan`, `jenis`, `status`, `file`, `created_at`, `updated_at`) VALUES
-(2, 'SK-0122-001', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, NULL, '1', 'sketerangan_00011_2022-01-26.pdf', '2022-01-13 02:37:16', '2022-01-26 04:35:11');
+(2, 'SK-0122-001', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, NULL, '1', 'sketerangan_00011_2022-01-26.pdf', '2022-01-13 02:37:16', '2022-01-26 04:35:11'),
+(3, 'SK-0222-002', '01653', 'BAMBANG HERMANTO', 'Jl. Parkit BA-01, GKA', '08113338857', NULL, NULL, '1', NULL, NULL, '2022-02-05 13:39:15', '2022-02-05 13:39:15');
 
 -- --------------------------------------------------------
 
@@ -14980,7 +14983,7 @@ ALTER TABLE `biodata`
 -- AUTO_INCREMENT for table `biodata_update`
 --
 ALTER TABLE `biodata_update`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1576;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1580;
 
 --
 -- AUTO_INCREMENT for table `data_keluarga`
@@ -15004,7 +15007,7 @@ ALTER TABLE `jenispensiun`
 -- AUTO_INCREMENT for table `lampiran`
 --
 ALTER TABLE `lampiran`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `lampiran_anak`
@@ -15016,7 +15019,7 @@ ALTER TABLE `lampiran_anak`
 -- AUTO_INCREMENT for table `lampiran_dudajanda`
 --
 ALTER TABLE `lampiran_dudajanda`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `lampiran_pensiun`
@@ -15064,7 +15067,7 @@ ALTER TABLE `perm_anak`
 -- AUTO_INCREMENT for table `perm_dudajanda`
 --
 ALTER TABLE `perm_dudajanda`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `perm_karyawan`
@@ -15106,7 +15109,7 @@ ALTER TABLE `seting_jadwal`
 -- AUTO_INCREMENT for table `sketerangan`
 --
 ALTER TABLE `sketerangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `skpenetapan`

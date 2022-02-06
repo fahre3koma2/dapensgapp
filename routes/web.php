@@ -234,6 +234,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/pengkinian/form4/{id}', [PengkinianController::class, 'form4'])->name('pengkiniandata-form4');
 
         Route::get('/pengkinian/formedit1/{id}', [PengkinianController::class, 'formedit1'])->name('pengkiniandata-formedit1');
+        Route::get('/pengkinian/cetakpengkiniandata/{id}', [PengkinianController::class, 'cetakpengkiniandata'])->name('cetakpengkiniandata');
 
         Route::post('/pengkinian-upload', [PengkinianController::class, 'upload'])->name('pengkinian.upload');
         Route::post('/pengkinian-deletefile', [PengkinianController::class, 'deleteFile'])->name('pengkinian.deletefile');

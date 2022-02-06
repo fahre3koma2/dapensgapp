@@ -206,6 +206,16 @@ hr.new5 {
   border: 3px solid #ff7800;
 }
 
+#popup {
+    display:none;
+    position:absolute;
+    margin:0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 50px 2px #000;
+}
+
   </style>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
  <style>

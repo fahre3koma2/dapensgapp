@@ -32,7 +32,7 @@
             @csrf
             <fieldset>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <div class="form-field">
                   <label>Nama Pelapor <span class="red">*</span></label>
                   <input name="nama_pelapor" type="text" required>
@@ -42,26 +42,14 @@
               </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Nama Pensiunan (yang meninggal dunia) <span class="red">*</span></label>
-                  <input name="nama_peserta" type="text" required>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-field">
-                  <label>No Pensiun<span class="red">*</span></label>
-                  <input name="nopensiun" type="text" required>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-field">
                   <label>Nomor HP Pelapor <span class="red">*</span></label>
-                  <input name="notelp" type="number" required>
+                  <input name="notelp" type="text" required>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <div class="form-field">
-                  <label>Tanggal Meninggal <span class="red">*</span></label>
-                  <input name="tgl_acara" type="text" id="datepicker" required>
+                  <label>Alamat Email Pelapor<span class="red">*</span></label>
+                  <input name="email" type="text" required>
                 </div>
               </div>
               <div class="col-md-6">
@@ -78,10 +66,28 @@
                   </select>
                 </div>
               </div>
+              <div class="col-md-8">
+                <div class="form-field">
+                  <label>Nama Terlapor Pensiunan (Bapak / Ibu / Anak) <span class="red">*</span></label>
+                  <input name="nama_peserta" type="text" required>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-field">
+                  <label>No Pensiun<span class="red">*</span></label>
+                  <input name="nopensiun" type="text" required>
+                </div>
+              </div>
               <div class="col-md-6">
                 <div class="form-field">
-                  <label>Alamat (Kota/Provinsi)<span class="red">*</span></label>
-                  <textarea name="alamat" required></textarea>
+                  <label>Tanggal Meninggal <span class="red">*</span></label>
+                  <input name="tgl_acara" type="text" id="datepicker" required>
+                </div>
+              </div>
+                <div class="col-md-8">
+                <div class="form-field">
+                  <label>Alamat Duka<span class="red">*</span></label>
+                  <textarea name="alamat_duka" required></textarea>
                 </div>
               </div>
               <div class="col-md-6">
