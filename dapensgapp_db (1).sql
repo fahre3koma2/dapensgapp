@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 07, 2022 at 01:58 AM
+-- Generation Time: Feb 07, 2022 at 04:29 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -13004,9 +13004,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('fHQzSY1JiCVNFtHg7zASIp5Vr8Qa114dFwMm6D6C', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoia2JCT1hsaE5Fa2x0SDc1YU96bnF3WlU0dmpSTWhLVDkwQTRINlN1bSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM4OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvYWRtaW4vaW1wb3J0ZmlsZSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO30=', 1644198708),
 ('ObruHk2jfliamwYPWtLxU3Drm3MHkxcF2rNpf9IN', 24, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiVVdxc3N5cXVTQnczNGM3TVBKSVBrYXgxd1lpTjFIdVRIWnhiZ20yRiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ3OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcGVuc2kvcGVuZ2tpbmlhbi9jZXRha3BlbmdraW5pYW5kYXRhL2V5SnBkaUk2SWxCWWVHazFTRWczTkZsaU9GaFVXRGRVY0c1aGVsRTlQU0lzSW5aaGJIVmxJam9pT1ZsU1ZUQm5aQ3RXVFVwVmVGRlFZWGQyY21adlVUMDlJaXdpYldGaklqb2laVGcwTVRSa1lXRTRNREptWlRnM016UTBObVUzWmpZNFlUbGlPVGxoTldKbVkyWTNOakppWVdFNU1HRmtNV1ZrTjJaa01UQTNNVEJsTmpOaU5EbGpOQ0o5Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjQ7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MTE6InN3ZWV0X2FsZXJ0IjthOjA6e319', 1644119603),
-('ozxc5Cjf44GZwEfBjth8uR71wyrgHIDLdsRfqB94', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZlQ0bXN4WFJvTUdOSWFTNG1tRzR4VDZNaklQRHAxa2xUUnFYVkJTWCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9hZG1pbi9sYXBvcmFuLWJlcml0YWR1a2EiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjt9', 1644082022);
+('ozxc5Cjf44GZwEfBjth8uR71wyrgHIDLdsRfqB94', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZlQ0bXN4WFJvTUdOSWFTNG1tRzR4VDZNaklQRHAxa2xUUnFYVkJTWCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9hZG1pbi9sYXBvcmFuLWJlcml0YWR1a2EiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjt9', 1644082022),
+('UQXMolwbUiozV3O1HHl7iiYfDIMqFRSZh4dK5KxR', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiaUtJZW9YZm5HQVNPQ0RGZ0F0NWoxQXVHUUt6cWtuSzM0S1U4aXp6UyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ4OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvYWRtaW4vcGVybW9ob25hbi12ZXJpZmlrYXNpL2V5SnBkaUk2SWpoVE4yTm9iazlJWmtKeGJGSnNZa3MwTkRBM1ptYzlQU0lzSW5aaGJIVmxJam9pWVdWdFVta3lhRWt6T0doS1FYQXplVlZVYlVadlFUMDlJaXdpYldGaklqb2lNVEpqTkRobVlUTTJNelprWkdVNVpHTTVaV1V5TXpVek5HSXhNR1F5WTJOaFpqTTROalpsTXpCbVpXUmhabUpoT0RnNVpERTRPREpqWWpBMU5qWTBOU0o5L2R1ZGFqYW5kYSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO30=', 1644208140);
 
 -- --------------------------------------------------------
 
@@ -13029,7 +13029,7 @@ CREATE TABLE `seting_jadwal` (
 --
 
 INSERT INTO `seting_jadwal` (`id`, `nama`, `tgl_awal`, `tgl_akhir`, `keterangan`, `created_at`, `updated_at`) VALUES
-(1, 'Periode 1 Pengkinian Data', '2022-02-04', '2022-02-05', 'Periode', NULL, NULL);
+(1, 'Periode 1 Pengkinian Data', '2022-02-04', '2022-02-10', 'Periode', NULL, NULL);
 
 -- --------------------------------------------------------
 
