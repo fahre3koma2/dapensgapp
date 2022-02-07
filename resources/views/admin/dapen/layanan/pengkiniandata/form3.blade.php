@@ -64,7 +64,7 @@
                                             @if ($errors->has('file_kk')) <span class="text-danger">{{ $errors->first('file_kk') }}</span> @endif
                                         </div>
                                         <div class="col-sm-4">
-                                             <button type="submit" data-direction="next" class="btn btn-sm btn-info">Upload</button>
+                                             <button type="submit" data-direction="next" class="btn btn-sm btn-info">Unggah</button>
                                         </div>
                                     </div>
                                 {{ Form::close() }}

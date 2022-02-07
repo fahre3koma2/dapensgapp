@@ -29,7 +29,7 @@
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_center">
-            <h2>Panduan Pendaftaran User</h2>
+            <h2>Laporan Keuangan</h2>
             <p class="large">Dana Pensiun Semen Gresik</p>
           </div>
         </div>

@@ -105,7 +105,7 @@
                     <td>1. </td>
                     <td>SK. Pemberhentian  dari  Perusahaan</td>
                     <td>
-                        @if($mohon->lampiran->file_skperusahaan)
+                        @if($mohon->lampiran->file_surat_kematian)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>
@@ -114,17 +114,6 @@
                   </tr>
                   <tr>
                     <td>2. </td>
-                    <td>Surat Nikah</td>
-                    <td>
-                        @if($mohon->lampiran->file_surat_nikah)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3. </td>
                     <td>Kartu Keluarga (KK)</td>
                     <td>
                         @if($mohon->lampiran->file_kk)
@@ -134,6 +123,18 @@
                         @endif
                     </td>
                   </tr>
+                  <tr>
+                    <td>3. </td>
+                    <td>Buku Tabungan Janda/Duda</td>
+                    <td>
+                        @if($mohon->lampiran->file_surat_nikah)
+                            <i class="fa fa-check"></i>
+                        @else
+                            <i class="fa fa-times"></i>
+                        @endif
+                    </td>
+                  </tr>
+
 
                 </tbody>
               </table>
@@ -152,7 +153,7 @@
           <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-lg-12">
-              <button disabled name="submit" id="submit" type="button" class="btn btn-primary pull-right finish" style="margin-right: 5px;" data-id="{{ $mohon->id }}" data-file="finish_{{ $mohon->id }}"> <i class="fa fa-credit-card"></i> Submit </button>
+              <button disabled name="submit" id="submit" type="button" class="btn btn-primary pull-right finish" style="margin-right: 5px;" data-id="{{ $mohon->id }}" data-file="finish_{{ $mohon->id }}"> <i class="fa fa-credit-card"></i> Kirim </button>
                 {{ Form::open(['url' => route('pensi.permohonandudajanda.kirim', [Crypt::encrypt($mohon->id)]), 'method' => 'post', 'id' => 'finish_'.$mohon->id ]) }}
                 {{ csrf_field() }}
                 {{ Form::close() }}

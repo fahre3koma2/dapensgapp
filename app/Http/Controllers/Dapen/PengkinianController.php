@@ -428,7 +428,7 @@ class PengkinianController extends Controller
                 'mohon' => $mohon,
             ];
 
-            alert()->success('Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valida & lengkap', 'Berhasil')->persistent('Ya');
+            alert()->success('Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valid & lengkap', 'Berhasil')->persistent('Ya');
             return redirect()->route('pensi.pengkinian.index', $data)->with('success', 'Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valid & lengkap');
         }
     }

@@ -348,8 +348,8 @@ class UserController extends Controller
 
     public function fileImport(Request $request)
     {
-        Excel::import(new RekeningImport, $request->file('file')->store('temp'));
-        //Excel::import(new UsersImport, $request->file('file')->store('temp'));
+        //Excel::import(new RekeningImport, $request->file('file')->store('temp'));
+        Excel::import(new UsersImport, $request->file('file')->store('temp'));
         //Excel::import(new BiodataImport, $request->file('file')->store('temp'));
         return back();
     }

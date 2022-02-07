@@ -288,14 +288,14 @@ class PermohonanDudaJandaController extends Controller
 
     public function upload(Request $request)
     {
-        if ($request->type == "file_skperusahaan") {
+        if ($request->type == "file_surat_kematian") {
             $this->validate(
                 $request,
-                ['file_skperusahaan' => 'required|mimes:pdf,jpg,jpeg,png|max:5000'],
+                ['file_surat_kematian' => 'required|mimes:pdf,jpg,jpeg,png|max:5000'],
                 [
-                    'file_skperusahaan.required' => 'Tidak ada file yang di upload',
-                    'file_skperusahaan.mimes' => 'File harus pdf',
-                    'file_skperusahaan.max' => 'File tidak boleh lebih dari 5 mb',
+                    'file_surat_kematian.required' => 'Tidak ada file yang di upload',
+                    'file_surat_kematian.mimes' => 'File harus pdf',
+                    'file_surat_kematian.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
         } elseif ($request->type == "file_foto") {
@@ -402,7 +402,7 @@ class PermohonanDudaJandaController extends Controller
     {
         $mohon = PermohonanDudaJanda::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
 
-        if (is_null($mohon->lampiran->file_skperusahaan) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikah)) {
+        if (is_null($mohon->lampiran->file_surat_kematian) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_tabungan)) {
 
             // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
             alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');
@@ -418,7 +418,7 @@ class PermohonanDudaJandaController extends Controller
                 'mohon' => $mohon,
             ];
 
-            alert()->success('Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valida & lengkap', 'Berhasil')->persistent('Ya');
+            alert()->success('Permohonan akan di prosess maksimal 3 x 24 Jam setelah data di terima valid & lengkap', 'Berhasil')->persistent('Ya');
 
             return redirect()->route('pensi.permohonandudajanda.index', $data);
         }

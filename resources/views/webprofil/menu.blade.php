@@ -68,7 +68,6 @@
                             </ul>
                         </li>
                         <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('home') !!}" @endif>Pengkinian Data</a></li>
-                        <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('home') !!}" @endif>Cek Data Penerima MP</a></li>
                         <li><a href="#">Layanan Mandiri</a>
                             <ul>
                                 <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('home') !!}" @endif>Permintaan SK Penetapan MP</a></li>
