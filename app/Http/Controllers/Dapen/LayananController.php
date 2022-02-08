@@ -295,7 +295,7 @@ class LayananController extends Controller
             'mohon' => $mohon,
         ];
 
-        alert()->success('Berhasil', 'Permohonan berhasil di tambahkan');
+        alert()->success('Permintaan akan di prosess maksimal 2 x 24 Jam di hari kerja, dan di bisa di download pada menu permohonan surat keterangan', 'Berhasil')->persistent('Ya');
 
         return redirect()->route('pensi.sketerangan');
     }

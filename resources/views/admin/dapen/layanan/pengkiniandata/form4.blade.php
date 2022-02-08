@@ -190,6 +190,50 @@
                         @endif
                     </td>
                   </tr>
+                  <tr>
+                    <td>2. </td>
+                    <td>Surat Keterangan Meninggal</td>
+                    <td>
+                        @if($user->lampiran->file_kk)
+                            <i class="fa fa-check"></i>
+                        @else
+                            <i class="fa fa-times"></i>
+                        @endif
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3. </td>
+                    <td>Surat Nikah</td>
+                    <td>
+                        @if($user->lampiran->file_kk)
+                            <i class="fa fa-check"></i>
+                        @else
+                            <i class="fa fa-times"></i>
+                        @endif
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4. </td>
+                    <td>Surat Cerai</td>
+                    <td>
+                        @if($user->lampiran->file_lain2)
+                            <i class="fa fa-check"></i>
+                        @else
+                            <i class="fa fa-times"></i>
+                        @endif
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5. </td>
+                    <td>Surat Keterangan Bekerja</td>
+                    <td>
+                        @if($user->lampiran->file_lain2)
+                            <i class="fa fa-check"></i>
+                        @else
+                            <i class="fa fa-times"></i>
+                        @endif
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -200,7 +244,7 @@
           <div class="checkbox">
               <label>
                   <input type="checkbox" value="" onchange="activateButton(this)">
-                Dengan ini saya menyatakan pelaporan ini dibuat dengan sebenar-benarnya dengan nomor telpon yang saya cantumkan saya bersedia untuk di hubungi oleh pihak Dana Pensiun Semen Gresik untuk di konfirmasi. *
+                Dengan ini saya menyatakan pelaporan pengkinian data ini di buat dengan sebenar-benarnya dan saya bertanggung jawab atas segala konsekuensi perubahan data. *
               </label>
           </div>
           <br/>

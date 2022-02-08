@@ -103,7 +103,7 @@
                 <tbody>
                   <tr>
                     <td>1. </td>
-                    <td>SK. Pemberhentian  dari  Perusahaan</td>
+                    <td>File Surat Kematian</td>
                     <td>
                         @if($mohon->lampiran->file_surat_kematian)
                             <i class="fa fa-check"></i>
@@ -134,8 +134,6 @@
                         @endif
                     </td>
                   </tr>
-
-
                 </tbody>
               </table>
             </div>
@@ -146,7 +144,7 @@
           <div class="checkbox">
               <label>
                   <input type="checkbox" value="" onchange="activateButton(this)">
-                Dengan ini saya menyatakan pelaporan ini dibuat dengan sebenar-benarnya dengan nomor telpon yang saya cantumkan saya bersedia untuk di hubungi oleh pihak Dana Pensiun Semen Gresik untuk di konfirmasi. *
+                Dengan ini saya menyatakan permohonan ini dibuat dengan sebenar-benarnya dan saya bertanggung jawab atas segala konsekuensi perubahan data.*
               </label>
           </div>
           <br/>

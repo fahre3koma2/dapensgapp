@@ -19,8 +19,9 @@
           <div class="step-app">
             <ul class="step-steps">
               <li class="active"><a href="#"><span class="number">1</span> Data Identitas</a></li>
-              <li><a href="#"><span class="number">2</span> Data Lampiran</a></li>
-              <li><a href="#"><span class="number">3</span> Submit</a></li>
+              <li><a href="#"><span class="number">2</span> Data Keluarga</a></li>
+              <li><a href="#"><span class="number">3</span> Data Lampiran</a></li>
+              <li><a href="#"><span class="number">4</span> Submit</a></li>
             </ul>
          </div>
 
@@ -35,74 +36,86 @@
         @csrf
             <div class="row m-t-2">
             <div class="col-md-6">
+                <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                        <label>No Peserta / Pensiun: </label>
+                        <input class="form-control" type="text" name="nopeserta" value="{{ $user->nopeserta }}" disabled>
+                        <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->nopeserta }}">
+                        <input class="form-control" type="hidden" name="user_id" value="{{ $user->user_id }}">
+                        <input class="form-control" type="hidden" name="nik" value="{{ $user->nik }}">
+                        <input class="form-control" type="hidden" name="jenis" value="{{ $user->jenis }}">
+                        <input class="form-control" type="hidden" name="name" value="{{ $user->name }}">
+                        <input class="form-control" type="hidden" name="tgl_lahir" value="{{ $user->tgl_lahir }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label>Jenis Pensiun:</label>
+                        <input class="form-control" type="text" name="nopeserta" value="{{ $user->jenis }}" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-6">
                 <div class="form-group">
-                <label>No Peserta / Pensiun:</label>
-                <input class="form-control" type="text" name="nopeserta" value="{{ $user->nopeserta.'-'.$user->jenis }}" disabled>
-                <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->nopeserta }}">
-                <input class="form-control" type="hidden" name="user_id" value="{{ $user->user_id }}">
-                <input class="form-control" type="hidden" name="nik" value="{{ $user->nik }}">
-                <input class="form-control" type="hidden" name="jenis" value="{{ $user->jenis }}">
+                <label>No Reff:</label>
+                <input class="form-control" type="text" name="noreff">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Nama :</label>
-                <input class="form-control" type="text" name="name" value="{{ $user->name }}" readonly="readonly">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                <label>Tempat Lahir :</label>
-                <input class="form-control" type="text" name="tempat_lahir" value="{{ $user->tempat_lahir }}" readonly="readonly">
+                <input class="form-control" type="text" name="name" value="{{ $nama->nama ? $nama->nama : $nama->name }}" disabled="disabled">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Tanggal Lahir :</label>
-                <input class="form-control" type="date" name="tgl_lahir" value="{{ $user->tgl_lahir }}" readonly="readonly">
+                <input class="form-control" type="date" name="tgl_lahir" value="{{ $nama->tgl_lahir }}" disabled="disabled">
                 </div>
             </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label>Alamat :</label>
+                    <label>Alamat : <span style="color:red"> <strong>*</strong></span> </label>
                     <textarea rows="2" class="form-control" name="alamat" required>{{ $user->alamat }}</textarea>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                    <label>Kelurahan:</label>
+                    <label>Kelurahan: <span style="color:red"> <strong>*</strong></span></label>
                     <input class="form-control" type="text" name="kelurahan" value="{{ $user->kelurahan }}">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                    <label>RT:</label>
+                    <label>RT: <span style="color:red"> <strong>*</strong></span></label>
                     <input class="form-control" type="text" name="rt" value="{{ $user->rt }}">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                    <label>RW:</label>
+                    <label>RW: <span style="color:red"> <strong>*</strong></span></label>
                     <input class="form-control" type="text" name="rw" value="{{ $user->rw }}">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                    <label>Kota :</label>
+                    <label>Kota : <span style="color:red"> <strong>*</strong></span></label>
                     <input class="form-control" type="text" name="kota" value="{{ $user->kota }}">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                    <label>Kode Pos :</label>
+                    <label>Kode Pos : <span style="color:red"> <strong>*</strong></span></label>
                     <input class="form-control" type="text" name="kodepos" value="{{ $user->kodepos }}">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                    <label>No Handphone :</label>
+                    <label>No Handphone : <span style="color:red"> <strong>*</strong></span></label>
                     <input class="form-control" type="text" name="nohp" value="{{ $user->nohp }}" required>
                     </div>
                 </div>
@@ -114,16 +127,16 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Status Perkawinan :</label>
+                        <label>Status Perkawinan : <span style="color:red"> <strong>*</strong></span></label>
                         <div class="c-inputs-stacked">
                             <label class="inline custom-control custom-radio block">
                             <input type="radio" name="jenis" value="N" {{ $user->jenis == 'N' ? 'checked' : '' }} required>
                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Menikah</span> </label>
                             <label class="inline custom-control custom-radio block">
-                            <input type="radio" name="jenis" value="D" {{ $user->kawin == 'D' ? 'checked' : '' }} required>
+                            <input type="radio" name="jenis" value="D" {{ $user->jenis == 'D' ? 'checked' : '' }} required>
                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Duda</span> </label>
                             <label class="inline custom-control custom-radio block">
-                            <input type="radio" name="jenis" value="J" {{ $user->kawin == 'J' ? 'checked' : '' }} required>
+                            <input type="radio" name="jenis" value="J" {{ $user->jenis == 'J' ? 'checked' : '' }} required>
                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Janda</span> </label>
                         </div>
                     </div>
@@ -169,10 +182,10 @@
         <div class="step-footer pull-right">
             {{--  <button data-direction="prev" class="btn btn-light">Previous</button>  --}}
             @if($edit)
-                <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Lanjutkan</button>
+                <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Submit</button>
             @else
                 {{--  <a href="{!! url('pensi/permohonan/karyawan/formedit1', ['id' => encrypt($user->id )]) !!}" data-direction="next" class="btn btn-warning">Edit</a> |  --}}
-                <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Lanjutkan</button>
+                <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Submit</button>
             @endif
         </div>
         </form>

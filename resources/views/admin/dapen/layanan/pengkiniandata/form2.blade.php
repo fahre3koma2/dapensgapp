@@ -28,18 +28,20 @@
                     <br/>
                     <h5 class="text-green m-b-3">Data Keluarga</h5>
                     <div class="table-responsive">
+                        {!! Form::model($mohon, ['route' => ['pensi.keluarga.update', encrypt($mohon->id)], 'method'=>'patch']) !!}
+                         @csrf
                         <table class="table">
-                            <thead class="thead-dark">
+                            <thead class="thead-dark" align="center">
                                 <tr>
                                 <th scope="col">Nama Anggota Keluarga</th>
                                 <th scope="col">Jenis Kelamin</th>
                                 <th scope="col">Hubungan Keluarga</th>
                                 <th scope="col">Tanggal Lahir</th>
+                                <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
-
                                 @foreach ($mohon->keluarga as $item)
                                 <tr>
                                     <th scope="row">{{$item->nama}}</th>
@@ -60,6 +62,24 @@
                                         @endif
                                     </td>
                                     <td>{{$item->tgl_lahir}}</td>
+                                    <td>
+                                        <div class="c-inputs-stacked">
+                                            <label class="inline custom-control custom-radio block">
+                                            <input type="radio" name="jenis_{{$no}}" value="nikah_{{$item->id}}" {{ $item->st_nikah == 1 ? 'checked' : '' }}>
+                                            <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Menikah</span> </label>
+                                            <label class="inline custom-control custom-radio block">
+                                            <input type="radio" name="jenis_{{$no}}" value="wafat_{{$item->id}}" {{ $item->st_wafat == 1 ? 'checked' : '' }}>
+                                            <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Meninggal</span> </label>
+                                            <label class="inline custom-control custom-radio block">
+                                            @if($item->hubungan == 'A')
+                                            <input type="radio" name="jenis_{{$no}}" value="kerja_{{$item->id}}" {{ $item->st_kerja == 1 ? 'checked' : '' }}>
+                                            <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Bekerja</span> </label>
+                                            @else
+                                            <input type="radio" name="jenis_{{$no}}" value="cerai_{{$item->id}}" {{ $item->st_cerai == 1 ? 'checked' : '' }}>
+                                            <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Cerai</span> </label>
+                                            @endif
+                                        </div>
+                                    </td>
                                     {{--  <td>
                                         <button type="button" class="btn btn-sm btn-danger delete" data-id="{{ $item->id }}" data-file="{{$item->id}}"><i class="fa fa-trash"></i> Hapus</button>
                                         {{ Form::open(['url'=>route('pensi.keluarga.destroy', [Crypt::encrypt($item->id)]), 'method'=>'delete', 'id' => $item->id, 'style' => 'display: none;']) }}
@@ -70,8 +90,15 @@
                                 @php $no++; @endphp
                                 @endforeach
                             </tbody>
-                            </table>
+                        </table>
+                            <button type="submit" data-direction="next" class="btn btn-success pull-right"> <i class="fa fa-refresh"> </i> Simpan</button>
+                        </form>
                     </div>
+                    <br/>
+                    <ul>
+                        <li class="text-danger">Jika ada perubahan status silahkan di pilih kemudian klik tombol simpan</li>
+                        <li class="text-danger">Jika tidak ada perubahan status silahkan klik tombol Submit untuk melanjutkan Pengkinian Data</li>
+                    </ul>
                 </div>
                 <br/><br/><br/><br/>
                 {{--  <div class="row m-t-3">
@@ -171,7 +198,7 @@
                 </div>  --}}
               </div>
             <div class="step-footer">
-                <a href="{!! url('pensi/pengkinian/form3', ['id' => encrypt($mohon->id )]) !!}" type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Selanjutnya</a>
+                <a href="{!! url('pensi/pengkinian/form3', ['id' => encrypt($mohon->id )]) !!}" type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Submit</a>
             </div>
             </div>
           </div>

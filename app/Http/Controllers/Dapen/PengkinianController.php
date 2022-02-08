@@ -71,18 +71,30 @@ class PengkinianController extends Controller
         $cekuser = User::query()->with(['biodata', 'biodataupdate'])->find(decrypt($id));
 
         if($cekuser->biodataupdate){
-            $user = BiodataUpdate::with('rekening')->where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 1], ['tampil', null], ['verifikasi', null]])->orderBy('updated_at', 'desc')->first();
+            $user = BiodataUpdate::with('rekening', 'keluarga')->where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 1], ['tampil', null], ['verifikasi', null]])->orderBy('updated_at', 'desc')->first();
             if($user) {
                 alert()->warning('Masih Ada Permohonan yang belum selesai', 'Gagal');
                 return redirect()->back()->withInput();
             } else {
-                $user = BiodataUpdate::with('rekening')->where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 2], ['tampil', 1]])->orderBy('updated_at', 'desc')->first();
+                $user = BiodataUpdate::with('rekening', 'keluarga')->where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 2], ['tampil', 1]])->orderBy('updated_at', 'desc')->first();
             }
 
         }else{
-            $user = Biodata::with('rekening')->where('nopeserta', $cekuser->biodata->nopeserta)->first();
+            $user = Biodata::with('rekening', 'keluarga')->where('nopeserta', $cekuser->biodata->nopeserta)->first();
         }
         //dd($user);
+        if($user->jenis == 'D'){
+            $nama =  $user->keluarga->where('hubungan', 'I')->first();
+        } elseif ($user->jenis == 'J') {
+            $nama =  $user->keluarga->where('hubungan', 'S')->first();
+        } elseif ($user->jenis == 'A') {
+            $nama =  $user->keluarga->where('hubungan', 'A')->where('st_kerja', 0)->where('st_nikah', 0)->first();
+            if($nama == null){
+               $nama = $user;
+            }
+        } else {
+            $nama = $user;
+        }
 
             $menu = 'permohonan';
             $edit = false;
@@ -93,6 +105,7 @@ class PengkinianController extends Controller
                 'edit' => $edit,
                 'user' => $user,
                 'mohon' => $mohon,
+                'nama' => $nama,
             ];
 
             return view('admin.dapen.layanan.pengkiniandata.form1', $data);
@@ -159,11 +172,25 @@ class PengkinianController extends Controller
 
         $user = BiodataUpdate::query()->with(['rekening','lampiran'])->find(decrypt($id));
         // $user = User::where('id', $mohon->user_id)->first();
+        if ($user->jenis == 'D') {
+            $nama =  $user->keluarga->where('hubungan', 'I')->first();
+        } elseif ($user->jenis == 'J') {
+            $nama =  $user->keluarga->where('hubungan', 'S')->first();
+        } elseif ($user->jenis == 'A') {
+            $nama =  $user->keluarga->where('hubungan', 'A')->where('st_kerja', 0)->where('st_nikah', 0)->first();
+            if ($nama == null) {
+                $nama = $user;
+            }
+        } else {
+            $nama = $user;
+        }
+
 
         $data = [
             'menu' => $menu,
             'edit' => $edit,
             'user' => $user,
+            'nama' => $nama,
         ];
 
         return view('admin.dapen.layanan.pengkiniandata.form1', $data);
@@ -241,7 +268,6 @@ class PengkinianController extends Controller
     public function update(Request $request, $id)
     {
         //
-        //
         $data = $request->except('_token');
 
         try {
@@ -279,14 +305,14 @@ class PengkinianController extends Controller
                     'file_skperusahaan.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
-        } elseif ($request->type == "file_foto") {
+        } elseif ($request->type == "file_surat_nikah") {
             $this->validate(
                 $request,
-                ['file_foto' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                ['file_surat_nikah' => 'required|mimes:pdf,jpg,jpeg,png|max:5000'],
                 [
-                    'file_foto.required' => 'Tidak ada file yang di upload',
-                    'file_foto.mimes' => 'File harus pdf',
-                    'file_foto.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_surat_nikah.required' => 'Tidak ada file yang di upload',
+                    'file_surat_nikah.mimes' => 'File harus pdf',
+                    'file_surat_nikah.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
         } elseif ($request->type == "file_ktp") {
@@ -309,14 +335,14 @@ class PengkinianController extends Controller
                     'file_kk.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
-        } elseif ($request->type == "file_npwp") {
+        } elseif ($request->type == "file_surat_kematian") {
             $this->validate(
                 $request,
-                ['file_npwp' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                ['file_surat_kematian' => 'required|mimes:pdf,jpg,jpeg,png|max:5000'],
                 [
-                    'file_npwp.required' => 'Tidak ada file yang di upload',
-                    'file_npwp.mimes' => 'File harus pdf',
-                    'file_npwp.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_surat_kematian.required' => 'Tidak ada file yang di upload',
+                    'file_surat_kematian.mimes' => 'File harus pdf',
+                    'file_surat_kematian.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
         } elseif ($request->type == "file_tabungan") {
@@ -346,7 +372,7 @@ class PengkinianController extends Controller
                 [
                     'file_lain1.required' => 'Tidak ada file yang di upload',
                     'file_lain1.mimes' => 'File harus pdf',
-                    'file_lain1.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_lain1.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
         } elseif ($request->type == "file_lain2") {
@@ -356,7 +382,7 @@ class PengkinianController extends Controller
                 [
                     'file_lain2.required' => 'Tidak ada file yang di upload',
                     'file_lain2.mimes' => 'File harus pdf',
-                    'file_lain2.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_lain2.max' => 'File tidak boleh lebih dari 5 mb',
                 ]
             );
         } elseif ($request->type == "file_lain3") {

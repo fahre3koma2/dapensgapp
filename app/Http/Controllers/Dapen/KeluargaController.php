@@ -115,6 +115,44 @@ class KeluargaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->except('_token', '_method');
+
+        try {
+
+            foreach ($data as $key) {
+                $kel = explode("_", $key);
+
+                $mohon = DataKeluarga::query()->find($kel[1]);
+                if($kel[0] == 'cerai'){
+                    $status['st_cerai'] = 1;
+                    $status['st_wafat'] = 0;
+                    $status['st_kerja'] = 0;
+                    $status['st_nikah'] = 0;
+                } elseif ($kel[0] == 'wafat') {
+                    $status['st_wafat'] = 1;
+                    $status['st_kerja'] = 0;
+                    $status['st_nikah'] = 0;
+                    $status['st_cerai'] = 0;
+                } elseif ($kel[0] == 'kerja') {
+                    $status['st_kerja'] = 1;
+                    $status['st_nikah'] = 0;
+                    $status['st_cerai'] = 0;
+                    $status['st_wafat'] = 0;
+                } else {
+                    $status['st_nikah'] = 1;
+                    $status['st_cerai'] = 0;
+                    $status['st_wafat'] = 0;
+                    $status['st_kerja'] = 0;
+                }
+                //dd($status);
+                $mohon->update($status);
+            }
+
+            alert()->success('Data Keluarga Berhasil Di Perbaruhi, Silahkan klik Submit untuk lanjut', 'Berhasil')->persistent('Ya');
+            return redirect()->route('pensi.pengkiniandata-form2', ['id' => $id])->with('message', 'Operation Successful !');
+        } catch (Exception $ex) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**

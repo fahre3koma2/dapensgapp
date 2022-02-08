@@ -16,13 +16,13 @@
       <div class="card-body">
         <h4 class="text-black m-b-3">Permohonan</h4>
         {{--  <div id="demo">  --}}
-          <div class="step-app">
+          {{--  <div class="step-app">
             <ul class="step-steps">
               <li class="done"><a href="#"><span class="number">1</span> Data Identitas</a></li>
               <li class="done"><a href="#"><span class="number">2</span> Data Lampiran</a></li>
               <li class="active"><a href="#"><span class="number">3</span> Submit</a></li>
             </ul>
-         </div>
+         </div>  --}}
 
         <div class="step-tab-panel">
         <br/>
@@ -103,41 +103,18 @@
                 <tbody>
                   <tr>
                     <td>1. </td>
-                    <td>SK. Pemberhentian  dari  Perusahaan</td>
+                    <td><a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_kematian) }}" title="download-view" target="_blank"> File Surat Kematian </a></td>
                     <td>
-                        @if($mohon->lampiran->file_skperusahaan)
+                        @if($mohon->lampiran->file_surat_kematian)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>
                         @endif
                     </td>
-
                   </tr>
                   <tr>
                     <td>2. </td>
-                    <td>Foto berwarna ukuran 3 x 4</td>
-                    <td>
-                        @if($mohon->lampiran->file_foto)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                     <td>3. </td>
-                    <td>Kartu Tanda Penduduk (KTP)</td>
-                    <td>
-                        @if($mohon->lampiran->file_ktp)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4. </td>
-                    <td>Kartu Keluarga (KK)</td>
+                    <td><a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_kk) }}" title="download-view" target="_blank"> Kartu Keluarga (KK) </a></td>
                     <td>
                         @if($mohon->lampiran->file_kk)
                             <i class="fa fa-check"></i>
@@ -147,28 +124,16 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>5. </td>
-                    <td>Kartu NPWP</td>
+                    <td>3. </td>
+                    <td> <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_nikah) }}" title="download-view" target="_blank"> Buku Tabungan Janda/Duda </a></td>
                     <td>
-                        @if($mohon->lampiran->file_npwp)
+                        @if($mohon->lampiran->file_surat_nikah)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>
                         @endif
                     </td>
                   </tr>
-                  <tr>
-                    <td>6. </td>
-                    <td>Buku Tabungan</td>
-                    <td>
-                        @if($mohon->lampiran->file_tabungan)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
-                    </td>
-                  </tr>
-
                 </tbody>
               </table>
             </div>

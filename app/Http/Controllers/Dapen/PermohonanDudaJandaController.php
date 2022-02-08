@@ -61,7 +61,7 @@ class PermohonanDudaJandaController extends Controller
     public function form1($id)
     {
         //
-        $user = User::query()->with(['biodata', 'keluarga', 'keluarga'])->find(decrypt($id));
+        $user = User::query()->with(['biodata', 'keluarga'])->find(decrypt($id));
         $cek = PermohonanDudaJanda::where('nopeserta', $user->biodata->nopeserta)->where('status', null)->count();
 
         if($cek > 0)
@@ -148,11 +148,13 @@ class PermohonanDudaJandaController extends Controller
         $edit = true;
 
         $mohon = PermohonanDudaJanda::query()->find(decrypt($id));
-        //dd($mohon);
+        $user = User::with('biodata','keluarga')->where('id', $mohon->biodata->user_id)->first();
+        //dd($user->biodata);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
             'mohon' => $mohon,
+            'user' => $user,
         ];
 
         return view('admin.dapen.permohonandudajanda.form1', $data);

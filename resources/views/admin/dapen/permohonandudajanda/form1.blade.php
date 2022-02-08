@@ -34,14 +34,25 @@
         @endif
         @csrf
             <div class="row m-t-2">
-            <div class="col-md-6">
-                <div class="form-group">
-                <label>No Peserta / Pensiun:</label>
-                <input class="form-control" type="text" name="nopeserta" value="{{ $edit ? $mohon->nopeserta : $user->biodata->nopeserta }}" disabled>
-                <input class="form-control" type="hidden" name="nopeserta" value="{{ $edit ? $mohon->nopeserta : $user->biodata->nopeserta }}">
+                <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label>No Peserta / Pensiun:</label>
+                        <input class="form-control" type="text" name="nopeserta" value="{{ $edit ? $mohon->nopeserta : $user->biodata->nopeserta }}" disabled>
+                        <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->biodata->nopeserta }}">
+                        <input class="form-control" type="hidden" name="jenis" value="{{ $user->biodata->jenis }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label>Jenis Pensiun:</label>
+                        <input class="form-control" type="text" name="nopeserta" value="{{ $edit ? $mohon->jenis : $user->biodata->jenis }}" disabled>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
-        </div>
              <div class="row m-t-2">
             <div class="col-md-6">
                 <div class="form-group">
@@ -51,7 +62,6 @@
                     <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
                     @endforeach
                 @endif
-                <span id="helpBlock2" class="help-block-warning"> Nama Istri / Suami yang berhak atas manfaat pensiun adalah yang terdaftar sesuai SK Penetapan dari PT. Semen Indonesia</span>
                 </div>
             </div>
             <div class="col-md-6">
@@ -60,9 +70,15 @@
                 <input class="form-control" type="text" name="name_pensiun" value="{!! $edit ? $mohon->name_pensiun : $user->biodata->name !!}" readonly="readonly">
                 </div>
             </div>
-
-
-            <div class="col-md-6">
+            <div class="col-md-12">
+                <span id="helpBlock2" class="help-block-warning" style="color:green"> Nama Istri / Suami yang berhak atas manfaat pensiun adalah yang terdaftar sesuai SK Penetapan dari PT. Semen Indonesia</span>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                &nbsp;
+                </div>
+            </div>
+             <div class="col-md-6">
                 <div class="form-group">
                 <label>No Handphone / HP :</label>
                 <input class="form-control" type="text" name="nohp" value="{!! $edit ? $mohon->nohp : $user->biodata->nohp !!}" required>

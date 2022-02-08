@@ -79,9 +79,14 @@ class PensiController extends Controller
 
         if ($biodata->count() > 0){
             $user = BiodataUpdate::with('keluarga', 'rekening')->where([['nopeserta', $pensi->nopeserta], ['tampil', 1], ['verifikasi', 1]])->first();
+            if($user == null)
+            {
+                $user = Biodata::with('keluarga', 'rekening')->where('nopeserta', $pensi->nopeserta)->first();
+            }
         } else {
             $user = Biodata::with('keluarga', 'rekening')->where('nopeserta', $pensi->nopeserta)->first();
         }
+
 
         $jenis = AdminJenisPensiun::query()->get()->sortBy('id');
         $lampiran = Lampiran::where('nopeserta', $pensi->nopeserta)->first();
