@@ -6,11 +6,21 @@
         @csrf
         <div class="row">
         <div class="col-md-6">
-        <div class="form-group has-feedback">
-            <label class="control-label">No Pensiun Dapen SG</label>
-            <input class="form-control" type="text" value="{{ $user->nopeserta.'-'.$user->jenis }}" disabled>
-            <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->nopeserta }}">
-            <span class="fa fa-user-circle-o form-control-feedback" aria-hidden="true"></span> </div>
+        <div class="row">
+            <div class="col-md-8">
+            <div class="form-group has-feedback">
+                <label class="control-label">No Pensiun Dapen SG</label>
+                <input class="form-control" type="text" value="{{ $user->nopeserta }}" disabled>
+                <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->nopeserta }}">
+                <span class="fa fa-user-circle-o form-control-feedback" aria-hidden="true"></span> </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group has-feedback">
+                <label class="control-label">Jenis Pensiun</label>
+                <input class="form-control" type="text" value="{{ $user->jenis }}" disabled>
+                <span class="fa fa-user-circle form-control-feedback" aria-hidden="true"></span> </div>
+            </div>
+        </div>
         </div>
         <div class="col-md-6">
         <div class="form-group has-feedback">

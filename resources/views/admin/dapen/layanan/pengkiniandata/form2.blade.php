@@ -198,7 +198,7 @@
                 </div>  --}}
               </div>
             <div class="step-footer">
-                <a href="{!! url('pensi/pengkinian/form3', ['id' => encrypt($mohon->id )]) !!}" type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Submit</a>
+                <a href="{!! url('pensi/pengkinian/form3', ['id' => encrypt($mohon->id )]) !!}" type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Lanjutkan</a>
             </div>
             </div>
           </div>

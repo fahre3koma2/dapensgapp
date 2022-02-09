@@ -61,6 +61,10 @@
                     @foreach($user->keluarga->where('hubungan', 'I') as $kel)
                     <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
                     @endforeach
+                @else($user->biodata->sex == 'P')
+                    @foreach($user->keluarga->where('hubungan', 'S') as $kel)
+                    <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
+                    @endforeach
                 @endif
                 </div>
             </div>

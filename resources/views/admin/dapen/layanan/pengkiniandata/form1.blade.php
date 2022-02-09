@@ -28,6 +28,7 @@
         <div class="step-tab-panel">
         <br/>
         <h5 class="text-green m-b-3">Biodata</h5>
+        <span style="color:red"> <strong>* ) Wajib di isi</strong></span>
          @if ($edit)
         {!! Form::model($user, ['route' => ['pensi.pengkinian.update', encrypt($user->id)], 'method'=>'patch']) !!}
         @else
@@ -86,31 +87,31 @@
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Kelurahan: <span style="color:red"> <strong>*</strong></span></label>
-                    <input class="form-control" type="text" name="kelurahan" value="{{ $user->kelurahan }}">
+                    <input class="form-control" type="text" name="kelurahan" value="{{ $user->kelurahan }}" required>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                     <label>RT: <span style="color:red"> <strong>*</strong></span></label>
-                    <input class="form-control" type="text" name="rt" value="{{ $user->rt }}">
+                    <input class="form-control" type="text" name="rt" value="{{ $user->rt }}" required>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                     <label>RW: <span style="color:red"> <strong>*</strong></span></label>
-                    <input class="form-control" type="text" name="rw" value="{{ $user->rw }}">
+                    <input class="form-control" type="text" name="rw" value="{{ $user->rw }}" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Kota : <span style="color:red"> <strong>*</strong></span></label>
-                    <input class="form-control" type="text" name="kota" value="{{ $user->kota }}">
+                    <input class="form-control" type="text" name="kota" value="{{ $user->kota }}" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Kode Pos : <span style="color:red"> <strong>*</strong></span></label>
-                    <input class="form-control" type="text" name="kodepos" value="{{ $user->kodepos }}">
+                    <input class="form-control" type="text" name="kodepos" value="{{ $user->kodepos }}" required>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -182,10 +183,10 @@
         <div class="step-footer pull-right">
             {{--  <button data-direction="prev" class="btn btn-light">Previous</button>  --}}
             @if($edit)
-                <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Submit</button>
+                <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Lanjutkan</button>
             @else
                 {{--  <a href="{!! url('pensi/permohonan/karyawan/formedit1', ['id' => encrypt($user->id )]) !!}" data-direction="next" class="btn btn-warning">Edit</a> |  --}}
-                <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Submit</button>
+                <button type="submit" data-direction="next" class="btn btn-primary"> <i class="fa fa-arrow-right"> </i> Lanjutkan</button>
             @endif
         </div>
         </form>

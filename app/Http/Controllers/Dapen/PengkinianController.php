@@ -221,7 +221,7 @@ class PengkinianController extends Controller
         try {
 
             $data['nopd'] = $nextNumber;
-            $data['baru'] = 1;
+            //$data['baru'] = 1;
             $mohon = BiodataUpdate::create($data);
             $rekening = RekeningPensiun::where('nopeserta', $data['nopeserta'])->first();
             $rekening->update($data);
