@@ -145,4 +145,32 @@ class InformasiController extends Controller
 
         return view('webprofil.informasi.download', $data);
     }
+
+    public function pengkiniandata()
+    {
+        //
+        $menu = 'pengkiniandata';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('webprofil.informasi.pengkiniandata', $data);
+    }
+
+    public function lupapassword()
+    {
+        //
+        $menu = 'lupapassword';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('webprofil.informasi.lupapassword', $data);
+    }
 }

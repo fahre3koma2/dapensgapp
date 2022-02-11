@@ -77,6 +77,8 @@ use App\Http\Controllers\Dapen\PengkinianController;
     //Informasi
     Route::get('informasi/pdp', [InformasiController::class, 'pdp'])->name('pdp');
     Route::get('informasi/laporankeuangan', [InformasiController::class, 'laporankeuangan'])->name('laporankeuangan');
+    Route::get('informasi/pengkiniandata', [InformasiController::class, 'pengkiniandata'])->name('pengkiniandata');
+    Route::get('informasi/lupapassword', [InformasiController::class, 'lupapassword'])->name('lupapassword');
     Route::get('informasi/panduan', [InformasiController::class, 'panduan'])->name('panduan');
     Route::get('informasi/downloadform', [InformasiController::class, 'downloadform'])->name('downloadform');
 

@@ -97,7 +97,7 @@
                     <br/>
                     <ul>
                         <li class="text-danger">Jika ada perubahan status silahkan di pilih kemudian klik tombol simpan</li>
-                        <li class="text-danger">Jika tidak ada perubahan status silahkan klik tombol Submit untuk melanjutkan Pengkinian Data</li>
+                        <li class="text-danger">Jika tidak ada perubahan status silahkan klik tombol Lanjutkan untuk melanjutkan Pengkinian Data</li>
                     </ul>
                 </div>
                 <br/><br/><br/><br/>

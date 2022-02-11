@@ -354,7 +354,7 @@
 </div>
 <!-- end section -->
     <div id="popup" class="popup panel panel-warning">
-        <img src="{{ url('webprof/images/dapen/sosmed.jpg') }}" alt="popup" />
+        <img src="{{ url('webprof/images/dapen/splashscreen.jpg') }}" width="100%" alt="popup" />
         <div class="panel-footer">
             <button id="close" class="btn btn-warning pull-right">Tutup</button>
         </div>

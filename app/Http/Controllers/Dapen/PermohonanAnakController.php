@@ -60,7 +60,23 @@ class PermohonanAnakController extends Controller
     public function form1($id)
     {
         //
-        $user = User::query()->with(['biodata'])->find(decrypt($id));
+        $user = User::query()->with(['biodata', 'keluarga'])->find(decrypt($id));
+
+        $keluarga = DataKeluarga::where('nopeserta', $user->nopeserta)->where('hubungan', 'A')->where('st_wafat', 0)->where('st_kerja', 0)->where('st_nikah', 0)->orderBy('urut', 'desc')->get();
+
+        foreach($keluarga as $item) {
+            //$selisih = date_diff(date_create($item->tgl_lahir), date_create($tanggal));
+            $selisih = Carbon::parse($item->tgl_lahir)->age;
+            if($selisih < 25){
+                    $namaanak = $item->nama;
+                }
+        }
+
+        if ($keluarga->isEmpty()) {
+            alert()->warning('Tidak ada yang berhak', 'Gagal');
+            return redirect()->back()->withInput();
+        }
+
         $cek = PermohonanAnak::where('nopeserta', $user->biodata->nopeserta)->where('status', null)->count();
 
         if($cek > 0)
@@ -79,6 +95,7 @@ class PermohonanAnakController extends Controller
                 'edit' => $edit,
                 'user' => $user,
                 'mohon' => $mohon,
+                'namaanak' => $namaanak,
             ];
 
             return view('admin.dapen.permohonananak.form1', $data);

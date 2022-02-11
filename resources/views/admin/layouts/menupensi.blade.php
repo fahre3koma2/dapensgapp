@@ -24,7 +24,7 @@
             </li>
         </ul>
     </li>
-    <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt" style="color:black"></i> <span> Permohonan </span> </a>
+    <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="#"> <i class="icon-share-alt" style="color:black"></i> <span> Permohonan </span> </a>
         <ul>
             <li><a href="{!! url('/pensi/permohonandudajanda ') !!}">Permohonan Pembayaran MP Janda/Duda</a></li>
             {{--  <li><a href="{!! url('/pensi/permohonan') !!}">Permohonan Pembayaran MP </a></li>  --}}
@@ -34,19 +34,13 @@
     </li>
     <li class="{{ $menu == 'faq' ? 'active' : '' }}"> <a href="{!! url('pensi/faq') !!}"> <i class="icon-question" style="color:black"></i> <span> Informasi </span> </a>
         <ul>
-            <li><a href="{!! url('pensi/faq') !!}">Panduan</a></li>
-            {{--  <li><a href="{!! url('pensi/faq') !!}">Download</a>
+            <li><a href="{!! url('pensi/faq') !!}">Panduan</a>
                 <ul>
-                    <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP</a></li>
-                    <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP Sekaligus</a></li>
-                    <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP Anak</a></li>
-                    <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pindah Rekening</a></li>
-                    <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Pembayaran MP ke Waris</a></li>
-                    <li><a href="{!! url('/pensi/downloadinfo') !!}">Permohonan Verifikasi Pengkinian Daya</a></li>
-                    <li><a href="{!! url('/pensi/downloadinfo') !!}">Surat Kuasa</a></li>
+                    <li><a href="{!! url('/pensi/informasi/dataulang') !!}">Cara Pengkinian Data</a></li>
+                    <li><a href="{!! url('/pensi/informasi/daftaruser') !!}">Cara Pendaftaran User</a></li>
+                    <li><a href="{!! url('/pensi/informasi/gantipass') !!}">Cara Pendaftaran User</a></li>
                 </ul>
             </li>
-            <li><a href="{!! url('pensi/faq') !!}">FAQ</a></li>  --}}
         </ul>
     </li>
     {{--  <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-bubbles"></i> <span> Kontak Kami </span> </a> </li>  --}}

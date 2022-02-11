@@ -214,6 +214,7 @@ hr.new5 {
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 50px 2px #000;
+    z-index:100;
 }
 
   </style>

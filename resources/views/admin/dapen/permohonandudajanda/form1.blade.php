@@ -57,11 +57,11 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Nama :</label>
-                @if($user->biodata->sex == 'L')
+                @if($user->biodata->jenis== 'A')
                     @foreach($user->keluarga->where('hubungan', 'I') as $kel)
                     <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
                     @endforeach
-                @else($user->biodata->sex == 'P')
+                @elseif($user->biodata->jenis == 'D')
                     @foreach($user->keluarga->where('hubungan', 'S') as $kel)
                     <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
                     @endforeach

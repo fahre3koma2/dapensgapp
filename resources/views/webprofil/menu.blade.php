@@ -83,11 +83,11 @@
                     <ul>
                         <li><a href="{!! url('informasi/pdp') !!}">PDP</a></li>
                         <li><a href="{!! url('informasi/laporankeuangan') !!}">Laporan Keuangan</a></li>
-                        <li><a href="{!! url('informasi/panduan') !!}">Panduan</a>
+                        <li><a href="#">Panduan</a>
                             <ul>
-                                <li><a href="{!! url('informasi/dataulang') !!}">Cara Data Ulang</a></li>
+                                <li><a href="{!! url('informasi/pengkiniandata') !!}">Cara Pengkinian Data</a></li>
                                 <li><a href="{!! url('informasi/daftaruser') !!}">Cara Pendaftaran User</a></li>
-                                <li><a href="{!! url('informasi/gantipass') !!}">Cara Mengganti Password</a></li>
+                                <li><a href="{!! url('informasi/lupapassword') !!}">Cara Mengganti Password</a></li>
                             </ul>
                         </li>
                         <li><a href="{!! url('informasi/downloadform') !!}">Unduh Formulir</a>
