@@ -158,6 +158,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
         Route::get('/downloadinfo', [InfoPensiController::class, 'downloadinfo'])->name('downloadinfo');
         Route::get('/layananinfo', [InfoLayananController::class, 'layananinfo'])->name('layananinfo');
+        Route::get('informasi/pengkiniandata', [InfoPensiController::class, 'pengkiniandata'])->name('pengkiniandata');
+        Route::get('informasi/lupapassword', [InfoPensiController::class, 'lupapassword'])->name('lupapassword');
 
         Route::get('/layanan/skpenetapan', [InfoLayananController::class, 'skpenetapan'])->name('skpenetapan');
         Route::get('/layanan/skpenetapan/tambah/{id}', [InfoLayananController::class, 'skpenetapancreate'])->name('skpenetapan.create');
