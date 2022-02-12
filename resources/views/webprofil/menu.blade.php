@@ -86,7 +86,7 @@
                         <li><a href="#">Panduan</a>
                             <ul>
                                 <li><a href="{!! url('informasi/pengkiniandata') !!}">Cara Pengkinian Data</a></li>
-                                <li><a href="{!! url('informasi/daftaruser') !!}">Cara Pendaftaran User</a></li>
+                                <li><a href="{!! url('informasi/daftaruser') !!}">Cara Panduan Login</a></li>
                                 <li><a href="{!! url('informasi/lupapassword') !!}">Cara Mengganti Password</a></li>
                             </ul>
                         </li>

@@ -14,7 +14,7 @@ class BiodataUpdate extends Model
     use HasFactory;
     protected $table = 'biodata_update';
     protected $fillable = [
-        'user_id', 'name', 'nohp', 'jabatan', 'unit', 'alamat', 'kelurahan', 'rt', 'rw', 'kota', 'kodepos', 'status', 'nopegawai', 'file', 'nopeserta', 'berhak', 'jenis', 'sex', 'tempat_lahir', 'tgl_lahir', 'nik', 'nik_berhak', 'npwp', 'email_user', 'baru', 'verifikasi', 'tampil', 'kawin', 'nopd', 'urut'
+        'user_id', 'name', 'nohp', 'jabatan', 'unit', 'alamat', 'kelurahan', 'rt', 'rw', 'kota', 'kodepos', 'status', 'nopegawai', 'file', 'nopeserta', 'berhak', 'jenis', 'sex', 'tempat_lahir', 'tgl_lahir', 'nik', 'nik_berhak', 'npwp', 'email_user', 'baru', 'verifikasi', 'tampil', 'kawin', 'nopd', 'urut', 'data_kel',
     ];
 
     public function user()

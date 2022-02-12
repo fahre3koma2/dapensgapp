@@ -21,7 +21,7 @@
               <li class="done"><a href="#"><span class="number">1</span> Data Identitas</a></li>
               <li class="active"><a href="#"><span class="number">2</span> Data Keluarga</a></li>
               <li><a href="#"><span class="number">3</span> Data Lampiran</a></li>
-              <li><a href="#"><span class="number">4</span> Submit</a></li>
+              <li><a href="#"><span class="number">4</span> Ringkasan</a></li>
             </ul>
               <div class="step-tab-panel">
                 <div class="col-lg-12 m-b-3">
@@ -68,9 +68,6 @@
                                             <input type="radio" name="jenis_{{$no}}" value="nikah_{{$item->id}}" {{ $item->st_nikah == 1 ? 'checked' : '' }}>
                                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Menikah</span> </label>
                                             <label class="inline custom-control custom-radio block">
-                                            <input type="radio" name="jenis_{{$no}}" value="wafat_{{$item->id}}" {{ $item->st_wafat == 1 ? 'checked' : '' }}>
-                                            <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Meninggal</span> </label>
-                                            <label class="inline custom-control custom-radio block">
                                             @if($item->hubungan == 'A')
                                             <input type="radio" name="jenis_{{$no}}" value="kerja_{{$item->id}}" {{ $item->st_kerja == 1 ? 'checked' : '' }}>
                                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Bekerja</span> </label>
@@ -78,6 +75,10 @@
                                             <input type="radio" name="jenis_{{$no}}" value="cerai_{{$item->id}}" {{ $item->st_cerai == 1 ? 'checked' : '' }}>
                                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Cerai</span> </label>
                                             @endif
+                                            <label class="inline custom-control custom-radio block">
+                                            <input type="radio" name="jenis_{{$no}}" value="wafat_{{$item->id}}" {{ $item->st_wafat == 1 ? 'checked' : '' }}>
+                                            <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Meninggal</span> </label>
+
                                         </div>
                                     </td>
                                     {{--  <td>

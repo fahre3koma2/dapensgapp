@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin\DataKeluarga;
 
 use Alert;
+use App\Models\BiodataUpdate;
 use Exception;
 use Crypt;
 use Validator;
@@ -116,13 +117,13 @@ class KeluargaController extends Controller
     {
         //
         $data = $request->except('_token', '_method');
-
+        //dd(decrypt($id));
         try {
 
             foreach ($data as $key) {
                 $kel = explode("_", $key);
 
-                $mohon = DataKeluarga::query()->find($kel[1]);
+                $kelu = DataKeluarga::query()->find($kel[1]);
                 if($kel[0] == 'cerai'){
                     $status['st_cerai'] = 1;
                     $status['st_wafat'] = 0;
@@ -145,10 +146,14 @@ class KeluargaController extends Controller
                     $status['st_kerja'] = 0;
                 }
                 //dd($status);
-                $mohon->update($status);
+                $kelu->update($status);
             }
 
-            alert()->success('Data Keluarga Berhasil Di Perbaruhi, Silahkan klik Submit untuk lanjut', 'Berhasil')->persistent('Ya');
+            $stat['data_kel'] = 1;
+            $mohon = BiodataUpdate::query()->find(decrypt($id));
+            $mohon->update($stat);
+
+            alert()->success('Data Keluarga Berhasil Di Perbaruhi, Silahkan klik Lanjutkan', 'Berhasil')->persistent('Ya');
             return redirect()->route('pensi.pengkiniandata-form2', ['id' => $id])->with('message', 'Operation Successful !');
         } catch (Exception $ex) {
             return redirect()->back()->withInput();

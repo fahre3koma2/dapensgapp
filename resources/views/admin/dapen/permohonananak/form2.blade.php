@@ -19,9 +19,8 @@
           <div class="step-app">
             <ul class="step-steps">
               <li class="done"><a href="#"><span class="number">1</span> Data Identitas</a></li>
-              <li class="done"><a href="#"><span class="number">2</span> Data Anak</a></li>
-              <li class="active"><a href="#"><span class="number">3</span> Data Lampiran</a></li>
-              <li><a href="#"><span class="number">4</span> Submit</a></li>
+              <li class="active"><a href="#"><span class="number">2</span> Data Lampiran</a></li>
+              <li><a href="#"><span class="number">3</span> Ringkasan</a></li>
             </ul>
               <div class="step-tab-panel">
                 <div class="col-lg-12 m-b-3">

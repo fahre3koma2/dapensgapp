@@ -48,8 +48,9 @@
                 <div class="information_bottom text_align_center">
                   <div class="icon_bottom"> <i class="fa fa-user" aria-hidden="true"></i> </div>
                   <div class="info_cont">
+                      <h5>Customer Service</h5>
                     <h4>+6231 3984492</h4>
-                    <p>Senin - Jumat 8:30 - 6:30 </p>
+                    <p>Senin - Jumat 07:30 - 16:30 </p>
                   </div>
                 </div>
               </div>
@@ -57,7 +58,7 @@
                 <div class="information_bottom text_align_center">
                   <div class="icon_bottom"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
                   <div class="info_cont">
-                    <h4>dapensg@info.com</h4>
+                    <h4>dapensg@indo.net.id</h4>
                     <p>24/7 online support</p>
                   </div>
                 </div>

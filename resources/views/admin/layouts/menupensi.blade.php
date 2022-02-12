@@ -37,7 +37,7 @@
             <li><a href="{!! url('pensi/faq') !!}">Panduan</a>
                 <ul>
                     <li><a href="{!! url('/pensi/informasi/pengkiniandata') !!}">Cara Pengkinian Data</a></li>
-                    <li><a href="{!! url('/pensi/informasi/daftaruser') !!}">Cara Pendaftaran User</a></li>
+                    <li><a href="{!! url('/pensi/informasi/daftaruser') !!}">Cara Panduan Login</a></li>
                     <li><a href="{!! url('/pensi/informasi/lupapassword') !!}">Cara Cara Mengganti Password</a></li>
                 </ul>
             </li>

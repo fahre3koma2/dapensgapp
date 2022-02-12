@@ -21,7 +21,7 @@
               <li class="done"><a href="#"><span class="number">1</span> Data Identitas</a></li>
               {{--  <li class="done"><a href="#"><span class="number">2</span> Data Anak</a></li>  --}}
               <li class="done"><a href="#"><span class="number">2</span> Data Lampiran</a></li>
-              <li class="active"><a href="#"><span class="number">3</span> Submit</a></li>
+              <li class="active"><a href="#"><span class="number">3</span> Ringkasan</a></li>
             </ul>
          </div>
 

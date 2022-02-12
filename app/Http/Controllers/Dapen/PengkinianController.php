@@ -22,6 +22,8 @@ use Carbon\Carbon;
 use PDF;
 use Carbon\CarbonPeriod;
 
+use function PHPUnit\Framework\isNull;
+
 class PengkinianController extends Controller
 {
     /**
@@ -71,7 +73,7 @@ class PengkinianController extends Controller
         $cekuser = User::query()->with(['biodata', 'biodataupdate'])->find(decrypt($id));
 
         if($cekuser->biodataupdate){
-            $user = BiodataUpdate::with('rekening', 'keluarga')->where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', 1], ['tampil', null], ['verifikasi', null]])->orderBy('updated_at', 'desc')->first();
+            $user = BiodataUpdate::with('rekening', 'keluarga')->where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', null], ['tampil', null], ['verifikasi', null]])->orderBy('updated_at', 'desc')->first();
             if($user) {
                 alert()->warning('Masih Ada Permohonan yang belum selesai', 'Gagal');
                 return redirect()->back()->withInput();
@@ -82,7 +84,7 @@ class PengkinianController extends Controller
         }else{
             $user = Biodata::with('rekening', 'keluarga')->where('nopeserta', $cekuser->biodata->nopeserta)->first();
         }
-        //dd($user);
+        //dd($user->keluarga);
         if($user->jenis == 'D'){
             $nama =  $user->keluarga->where('hubungan', 'I')->first();
         } elseif ($user->jenis == 'J') {
@@ -118,8 +120,8 @@ class PengkinianController extends Controller
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = BiodataUpdate::query()->with(['keluarga'])->find(decrypt($id));
-        //dd($mohon);
+        $mohon = BiodataUpdate::query()->with(['keluarga', 'lampiran'])->find(decrypt($id));
+        //dd($mohon->keluarga);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
@@ -133,10 +135,15 @@ class PengkinianController extends Controller
     public function form3($id)
     {
         //
+
         $menu = 'permohonan';
         $edit = false;
 
-        $mohon = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
+        $mohon = BiodataUpdate::with('lampiran')->where('data_kel', 1)->where('id', decrypt($id))->first();
+        if($mohon == null){
+            alert()->warning('Mohon untuk klik tombol simpan terlebih dahulu', 'Gagal');
+            return redirect()->back()->withInput();
+        }
         //dd($mohon);
         $data = [
             'menu' => $menu,

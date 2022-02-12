@@ -20,13 +20,14 @@
             <ul class="step-steps">
               <li class="active"><a href="#"><span class="number">1</span> Data Identitas</a></li>
               <li><a href="#"><span class="number">2</span> Data Lampiran</a></li>
-              <li><a href="#"><span class="number">3</span> Submit</a></li>
+              <li><a href="#"><span class="number">3</span> Ringkasan</a></li>
             </ul>
          </div>
 
         <div class="step-tab-panel">
         <br/>
         <h5 class="text-green m-b-3">Biodata</h5>
+        <span style="color:red"> <strong>* ) Wajib di isi</strong></span>
         @if ($edit)
         {!! Form::model($mohon, ['route' => ['pensi.permohonandudajanda.update', encrypt($mohon->id)], 'method'=>'patch']) !!}
         @else
@@ -57,7 +58,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Nama :</label>
-                @if($user->biodata->jenis== 'A')
+                @if($user->biodata->jenis== 'J')
                     @foreach($user->keluarga->where('hubungan', 'I') as $kel)
                     <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
                     @endforeach
@@ -65,6 +66,8 @@
                     @foreach($user->keluarga->where('hubungan', 'S') as $kel)
                     <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
                     @endforeach
+                @else
+                    <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $user->biodata->nama !!}" readonly="readonly">
                 @endif
                 </div>
             </div>
@@ -84,13 +87,13 @@
             </div>
              <div class="col-md-6">
                 <div class="form-group">
-                <label>No Handphone / HP :</label>
+                <label>No Handphone / HP : <span style="color:red"> <strong>*</strong></span></label>
                 <input class="form-control" type="text" name="nohp" value="{!! $edit ? $mohon->nohp : $user->biodata->nohp !!}" required>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                <label>Alamat Rumah:</label>
+                <label>Alamat Rumah: <span style="color:red"> <strong>*</strong></span></label>
                 <textarea rows="2" class="form-control" name="alamat" required> {!! $edit ? $mohon->alamat : $user->biodata->alamat !!} </textarea>
                 </div>
             </div>

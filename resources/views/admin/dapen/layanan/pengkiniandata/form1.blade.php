@@ -21,7 +21,7 @@
               <li class="active"><a href="#"><span class="number">1</span> Data Identitas</a></li>
               <li><a href="#"><span class="number">2</span> Data Keluarga</a></li>
               <li><a href="#"><span class="number">3</span> Data Lampiran</a></li>
-              <li><a href="#"><span class="number">4</span> Submit</a></li>
+              <li><a href="#"><span class="number">4</span> Ringkasan</a></li>
             </ul>
          </div>
 
@@ -60,8 +60,8 @@
             </div>
              <div class="col-md-6">
                 <div class="form-group">
-                <label>No Reff:</label>
-                <input class="form-control" type="text" name="noreff">
+                {{--  <label>No Reff:</label>
+                <input class="form-control" type="text" name="noreff">  --}}
                 </div>
             </div>
             <div class="col-md-6">

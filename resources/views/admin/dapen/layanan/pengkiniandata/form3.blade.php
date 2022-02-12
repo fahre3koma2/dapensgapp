@@ -21,7 +21,7 @@
               <li class="done"><a href="#"><span class="number">1</span> Data Identitas</a></li>
               <li class="done"><a href="#"><span class="number">2</span> Data Keluarga</a></li>
               <li class="active"><a href="#"><span class="number">3</span> Data Lampiran</a></li>
-              <li><a href="#"><span class="number">4</span> Submit</a></li>
+              <li><a href="#"><span class="number">4</span> Ringkasan</a></li>
             </ul>
               <div class="step-tab-panel">
                 <div class="col-lg-12 m-b-3">
@@ -56,7 +56,7 @@
                                 {!! Form::open(['url' => route('pensi.pengkinian.upload'), 'method' => 'post', 'id' => 'file_kk', 'files' => true]) !!}
                                     <div class="form-group row">
                                         <div class="col-sm-8">
-                                            <label for="file_kk">Silahkan Input File</label>
+                                            <label for="file_kk">Masukkan File</label>
                                             <input class="form-control" type="hidden" name="type" value="file_kk">
                                             <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
                                             <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
@@ -92,7 +92,7 @@
                                 {!! Form::open(['url' => route('pensi.pengkinian.upload'), 'method' => 'post', 'id' => 'file_surat_kematian', 'files' => true]) !!}
                                     <div class="form-group row">
                                         <div class="col-sm-8">
-                                            <label for="file_surat_kematian">Silahkan Input File</label>
+                                            <label for="file_surat_kematian">Masukkan File</label>
                                             <input class="form-control" type="hidden" name="type" value="file_surat_kematian">
                                             <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
                                             <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
@@ -128,7 +128,7 @@
                                 {!! Form::open(['url' => route('pensi.pengkinian.upload'), 'method' => 'post', 'id' => 'file_surat_nikah', 'files' => true]) !!}
                                     <div class="form-group row">
                                         <div class="col-sm-8">
-                                            <label for="file_surat_nikah">Silahkan Input File</label>
+                                            <label for="file_surat_nikah">Masukkan File</label>
                                             <input class="form-control" type="hidden" name="type" value="file_surat_nikah">
                                             <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
                                             <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
@@ -164,7 +164,7 @@
                                 {!! Form::open(['url' => route('pensi.pengkinian.upload'), 'method' => 'post', 'id' => 'file_lain1', 'files' => true]) !!}
                                     <div class="form-group row">
                                         <div class="col-sm-8">
-                                            <label for="file_lain1">Silahkan Input File</label>
+                                            <label for="file_lain1">Masukkan File</label>
                                             <input class="form-control" type="hidden" name="type" value="file_lain1">
                                             <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
                                             <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
@@ -200,7 +200,7 @@
                                 {!! Form::open(['url' => route('pensi.pengkinian.upload'), 'method' => 'post', 'id' => 'file_lain2', 'files' => true]) !!}
                                     <div class="form-group row">
                                         <div class="col-sm-8">
-                                            <label for="file_lain2">Silahkan Input File</label>
+                                            <label for="file_lain2">Masukkan File</label>
                                             <input class="form-control" type="hidden" name="type" value="file_lain2">
                                             <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
                                             <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
@@ -236,7 +236,7 @@
                                 {!! Form::open(['url' => route('pensi.pengkinian.upload'), 'method' => 'post', 'id' => 'file_ktp', 'files' => true]) !!}
                                     <div class="form-group row">
                                         <div class="col-sm-8">
-                                            <label for="file_ktp">Silahkan Input File</label>
+                                            <label for="file_ktp">Masukkan File</label>
                                             <input class="form-control" type="hidden" name="type" value="file_ktp">
                                             <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
                                             <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
