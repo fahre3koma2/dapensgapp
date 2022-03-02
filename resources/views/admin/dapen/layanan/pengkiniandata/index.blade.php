@@ -16,9 +16,15 @@
         <div class="card-body">
             <div class="ml-auto text-center">
                 <h3 class="text-black"> Pengkinian Data</h3>
-                <p> Pengkinian Data dari Tanggal  {{ Carbon\Carbon::parse($jadwal->tgl_awal)->isoFormat('D MMMM Y')}} sampai tanggal {{ Carbon\Carbon::parse($jadwal->tgl_akhir)->isoFormat('D MMMM Y')}} </p>
-                @if((date('Y-m-d') >= $jadwal->tgl_awal) && (date('Y-m-d') <= $jadwal->tgl_akhir))
-                <a href="{!! url('pensi/pengkinian/form1/'.encrypt($idu)) !!}" class="btn btn-warning"> <i class="fa fa-user-circle-o"> </i> Pengkinian Data </a>
+                 <hr/>
+                <p> Pengkinian Data Periode I dari Tanggal  {{ Carbon\Carbon::parse($periode->tgl_awal1)->isoFormat('D MMMM Y')}} sampai tanggal {{ Carbon\Carbon::parse($periode->tgl_akhir1)->isoFormat('D MMMM Y')}} </p>
+                @if((date('Y-m-d') >= $periode->tgl_awal1) && (date('Y-m-d') <= $periode->tgl_akhir1))
+                <a href="{!! url('pensi/pengkinian/form1/'.encrypt($idu).'/'.$periode->tahun1) !!}" class="btn btn-warning"> <i class="fa fa-user-circle-o"> </i> Pengkinian Data </a>
+                @endif
+                <hr/>
+                <p> Pengkinian Data Periode II dari Tanggal  {{ Carbon\Carbon::parse($periode->tgl_awal2)->isoFormat('D MMMM Y')}} sampai tanggal {{ Carbon\Carbon::parse($periode->tgl_akhir2)->isoFormat('D MMMM Y')}} </p>
+                @if((date('Y-m-d') >= $periode->tgl_awal2) && (date('Y-m-d') <= $periode->tgl_akhir2))
+                <a href="{!! url('pensi/pengkinian/form1/'.encrypt($idu).'/'.$periode->tahun2) !!}" class="btn btn-warning"> <i class="fa fa-user-circle-o"> </i> Pengkinian Data </a>
                 @endif
             </div>
         </div>
@@ -60,7 +66,7 @@
                                 {{ Carbon\Carbon::parse($item->updated_at)->isoFormat('D MMMM Y')}}
                             </td>
                             <td>
-                                @if($tgl_selesai <= date('Y-m-d'))
+                                @if($item->verifikasi == 1)
                                      <a href="{!! url('pensi/pengkinian/cetakpengkiniandata/'.encrypt($item->nopeserta)) !!}" class="btn btn-sm btn-success"> Download </a>
                                 @else
                                     {{ Carbon\Carbon::parse($tgl)->isoFormat('D MMMM Y')}}

@@ -48,6 +48,7 @@
                         <input class="form-control" type="hidden" name="jenis" value="{{ $user->jenis }}">
                         <input class="form-control" type="hidden" name="name" value="{{ $user->name }}">
                         <input class="form-control" type="hidden" name="tgl_lahir" value="{{ $user->tgl_lahir }}">
+                        <input class="form-control" type="hidden" name="periode" value="{{ $periode }}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -162,12 +163,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Bank :</label>
-                    <select class="custom-select form-control" name="bank" required>
+                    <input class="form-control" type="text" name="bank" value="{!! $user->rekening ? $user->rekening->bank : '' !!}" required>
+                    {{--  <select class="custom-select form-control" name="bank" required>
                         <option value="Mandiri" {{ $user->rekening ? $user->rekening->bank == 'Mandiri' ? 'selected' : '' : '' }}>Mandiri</option>
                         <option value="BNI" {{ $user->rekening ? $user->rekening->bank == 'BNI' ? 'selected' : '' : '' }}>BNI</option>
                         <option value="BRI" {{ $user->rekening ? $user->rekening->bank == 'BRI' ? 'selected' : '' : '' }}>BRI</option>
                         <option value="BTPN" {{ $user->rekening ? $user->rekening->bank == 'BTPN' ? 'selected' : '' : '' }}>BTPN</option>
-                    </select>
+                    </select>  --}}
                     </div>
                 </div>
                 <div class="col-md-6">

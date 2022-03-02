@@ -23,7 +23,7 @@
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;">Nama Pensiunan</span></span></td>
 <td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
-<td style="width: 75.4789%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><span style="font-weight: bold;">{{ $user1->name }}</span></span></td>
+<td style="width: 75.4789%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><span style="font-weight: bold;">{{ $nama->nama ? $nama->nama : $nama->name }}</span></span></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.9" style="font-family: Arial; font-size: 12.9px; color: #000000;">Tgl. Lahir&nbsp;</span><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><br /></span></span></td>
@@ -85,7 +85,7 @@
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">Nama Pensiunan</span></span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
-<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $user2->name }}</span></span></span></td>
+<td style="width: 95.5087%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">&nbsp;{{ $nama->nama ? $nama->nama : $nama->name }}</span></span></span></td>
 </tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_12.3" style="font-family: Arial; font-size: 12.3px; color: #000000;">Tempat, Tgl. Lahir</span></span></td>

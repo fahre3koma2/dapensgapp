@@ -10,6 +10,7 @@ use App\Models\Biodata;
 use App\Models\Admin\Lampiran;
 use App\Models\Admin\Jadwal;
 use App\Models\Admin\RekeningPensiun;
+use App\Models\Admin\Periode;
 
 use Alert;
 use Exception;
@@ -37,7 +38,7 @@ class PengkinianController extends Controller
         $idu = auth()->user()->id;
 
         $biodata = BiodataUpdate::where('user_id', $idu)->orderBy('updated_at', 'desc')->get();
-        $jadwal = Jadwal::query()->first();
+        $periode = Periode::where('tahun', date('Y'))->first();
 
         $user = is_null($biodata) ?  $biodata[0]->user_id : null;
 
@@ -50,7 +51,7 @@ class PengkinianController extends Controller
             'biodata' => $biodata,
             'user' => $user,
             'idu' => $idu,
-            'jadwal' => $jadwal,
+            'periode' => $periode,
 
         ];
 
@@ -67,10 +68,16 @@ class PengkinianController extends Controller
         //
     }
 
-    public function form1($id)
+    public function form1($id , $periode)
     {
         //
         $cekuser = User::query()->with(['biodata', 'biodataupdate'])->find(decrypt($id));
+        $cekperiode = BiodataUpdate::where('periode', $periode)->where('user_id', decrypt($id))->first();
+
+        if ($cekperiode) {
+            alert()->warning('Sudah melakukan pengkinian data periode ini', 'Gagal');
+            return redirect()->back()->withInput();
+        }
 
         if($cekuser->biodataupdate){
             $user = BiodataUpdate::with('rekening', 'keluarga')->where([['nopeserta', $cekuser->biodata->nopeserta], ['baru', null], ['tampil', null], ['verifikasi', null]])->orderBy('updated_at', 'desc')->first();
@@ -84,11 +91,11 @@ class PengkinianController extends Controller
         }else{
             $user = Biodata::with('rekening', 'keluarga')->where('nopeserta', $cekuser->biodata->nopeserta)->first();
         }
-        //dd($user->keluarga);
+        //dd($cekuser->biodataupdate);
         if($user->jenis == 'D'){
-            $nama =  $user->keluarga->where('hubungan', 'I')->first();
-        } elseif ($user->jenis == 'J') {
             $nama =  $user->keluarga->where('hubungan', 'S')->first();
+        } elseif ($user->jenis == 'J') {
+            $nama =  $user->keluarga->where('hubungan', 'I')->first();
         } elseif ($user->jenis == 'A') {
             $nama =  $user->keluarga->where('hubungan', 'A')->where('st_kerja', 0)->where('st_nikah', 0)->first();
             if($nama == null){
@@ -108,6 +115,7 @@ class PengkinianController extends Controller
                 'user' => $user,
                 'mohon' => $mohon,
                 'nama' => $nama,
+                'periode' => $periode,
             ];
 
             return view('admin.dapen.layanan.pengkiniandata.form1', $data);

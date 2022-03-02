@@ -232,7 +232,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
         Route::resource('/pengkinian', PengkinianController::class);
 
-        Route::get('/pengkinian/form1/{id}', [PengkinianController::class, 'form1'])->name('pengkiniandata-form1');
+        Route::get('/pengkinian/form1/{id}/{periode}', [PengkinianController::class, 'form1'])->name('pengkiniandata-form1');
         Route::get('/pengkinian/form2/{id}', [PengkinianController::class, 'form2'])->name('pengkiniandata-form2');
         Route::get('/pengkinian/form3/{id}', [PengkinianController::class, 'form3'])->name('pengkiniandata-form3');
         Route::get('/pengkinian/form4/{id}', [PengkinianController::class, 'form4'])->name('pengkiniandata-form4');

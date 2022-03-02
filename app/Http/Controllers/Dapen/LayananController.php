@@ -129,7 +129,7 @@ class LayananController extends Controller
 
     public function cetakpengkiniandata($id)
     {
-
+        $tahun = date('Y');
         $biodata = BiodataUpdate::where('nopeserta', decrypt($id))->orderBy('updated_at', 'desc')->get();
 
         if ($biodata->count() > 1) {
@@ -141,10 +141,21 @@ class LayananController extends Controller
             $user2 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['baru', 1]])->first();
         }
 
+        if ($user1->jenis == 'D') {
+            $nama =  $user1->keluarga->where('hubungan', 'I')->first();
+        } elseif ($user1->jenis == 'J') {
+            $nama =  $user1->keluarga->where('hubungan', 'S')->first();
+        } elseif ($user1->jenis == 'A') {
+            $nama =  $user1->keluarga->where('hubungan', 'A')->where('st_kerja', 0)->where('st_nikah', 0)->first();
+            if ($nama == null) {
+                $nama = $user1;
+            }
+        } else {
+            $nama = $user1;
+        }
 
-
-        $pdf = PDF::loadview('admin.dapen.layanan.cetakpengkiniandata', ['user1' => $user1, 'user2' => $user2]);
-        return $pdf->download('laporan-pegawai-pdf.pdf');
+        $pdf = PDF::loadview('admin.dapen.layanan.cetakpengkiniandata', ['user1' => $user1, 'user2' => $user2, 'nama' => $nama]);
+        return $pdf->download('pengkiniandata_'.$user1->nopeserta.'_'.$tahun.'.pdf');
     }
 
     public function skpenetapan()
