@@ -2195,6 +2195,19 @@ input.field_custom {
 	color: #737373;
 }
 
+select.field_custom {
+    border: solid #e1e1e1 1px;
+    width: 100%;
+    background: #f8f8f8;
+    min-height: 50px;
+    padding: 5px 20px;
+    line-height: normal;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #737373;
+}
+
 textarea.field_custom {
 	border: solid #e1e1e1 1px;
 	width: 100%;

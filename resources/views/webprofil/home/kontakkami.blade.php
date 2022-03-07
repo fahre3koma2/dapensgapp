@@ -67,25 +67,29 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contant_form">
               <h2 class="text_align_center">Kirim Pesan</h2>
               <div class="form_section">
-                <form class="form_contant" action="index.html">
+                <form class="form_contant" action="{{ route('kontakkirim') }}" method="POST">
+                    @csrf
                   <fieldset>
                   <div class="row">
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Websire URL" type="text">
+                      <input class="field_custom" placeholder="Nama" name="nama" type="text">
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Your name" type="text">
+                      <input class="field_custom" placeholder="No Pensiun" name="nopeserta" type="text">
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Email adress" type="email">
+                      <input class="field_custom" placeholder="No Hp" name="nohp" type="text">
                     </div>
                     <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <input class="field_custom" placeholder="Phone number" type="text">
+                    <select name="kategori" class="field_custom">
+                        <option value="Pembayaran Gaji Pensiun">Pembayaran Gaji Pensiun</option>
+                        <option value="Informasi Lainnya">Informasi Lainnya</option>
+                    </select>
                     </div>
                     <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <textarea class="field_custom" placeholder="Messager"></textarea>
+                      <textarea class="field_custom" placeholder="Isi Pesan" name="pesan"></textarea>
                     </div>
-                    <div class="center"><a class="btn main_bt" href="#">SUBMIT NOW</a></div>
+                    <div class="center"><button class="btn main_bt" type="submit" name="submit" id="submit">SUBMIT NOW</button></div>
                   </div>
                   </fieldset>
                 </form>

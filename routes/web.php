@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PengkinianController as AdminPengkinianController
 use App\Http\Controllers\Admin\PelayananController;
 use App\Http\Controllers\Admin\PermohonanController as AdminPermohonanController;
 use App\Http\Controllers\Admin\LaporanController as AdminLaporanController;
+use App\Http\Controllers\Admin\AdminSetingController;
 
 use App\Http\Controllers\Webp\BerandaController;
 use App\Http\Controllers\Webp\ProfilController;
@@ -68,6 +69,7 @@ use App\Http\Controllers\Dapen\PengkinianController;
 
     Route::post('laporankirim', [LaporanController::class, 'laporankirim'])->name('laporankirim');
     Route::get('terimaberita/{id}', [LaporanController::class, 'terimaberita'])->name('terimaberita');
+    Route::get('terimapesan/{id}', [LaporanController::class, 'terimapesan'])->name('terimapesan');
 
     //Berita
     Route::get('berita/galeri', [BeritaController::class, 'galeri'])->name('galeri');
@@ -78,11 +80,13 @@ use App\Http\Controllers\Dapen\PengkinianController;
     Route::get('informasi/pdp', [InformasiController::class, 'pdp'])->name('pdp');
     Route::get('informasi/laporankeuangan', [InformasiController::class, 'laporankeuangan'])->name('laporankeuangan');
     Route::get('informasi/pengkiniandata', [InformasiController::class, 'pengkiniandata'])->name('pengkiniandata');
+    Route::get('informasi/loginuser', [InformasiController::class, 'loginuser'])->name('loginuser');
     Route::get('informasi/lupapassword', [InformasiController::class, 'lupapassword'])->name('lupapassword');
     Route::get('informasi/panduan', [InformasiController::class, 'panduan'])->name('panduan');
     Route::get('informasi/downloadform', [InformasiController::class, 'downloadform'])->name('downloadform');
 
     Route::get('kontakkami', [BerandaController::class, 'kontakkami'])->name('kontakkami');
+    Route::post('kontakkirim', [LaporanController::class, 'kontakkirim'])->name('kontakkirim');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
@@ -110,6 +114,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/pelayanan/skpenetapanshow/{id}', [PelayananController::class, 'skpenetapanshow'])->name('skpenetapanshow');
         Route::get('/pelayanan/sketeranganshow/{id}', [PelayananController::class, 'sketeranganshow'])->name('sketeranganshow');
         Route::post('/pelayanan/skpermintaan', [PelayananController::class, 'skupdate'])->name('skpermintaan.verifikasi');
+        Route::get('/pelayanan/kontakkami', [PelayananController::class, 'kontakkami'])->name('kontakkami');
+        Route::get('/pelayanan/kontakkamishow/{id}', [PelayananController::class, 'kontakkamishow'])->name('kontakkamishow');
+        Route::post('/pelayanan/kontakupdate', [PelayananController::class, 'kontakupdate'])->name('kontakkami.verifikasi');
 
         Route::resource('/laporan', AdminLaporanController::class);
         Route::get('/laporan-beritaduka', [AdminLaporanController::class, 'beritaduka'])->name('laporan-beritaduka');
@@ -131,6 +138,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/layanan/cetakpengkiniandata/{id}', [InfoLayananController::class, 'cetakpengkiniandata'])->name('cetakpengkiniandata');
 
         Route::resource('/layanan/pengkiniandata', AdminPengkinianController::class);
+
+        Route::resource('/seting', AdminSetingController::class);
+        Route::get('/seting-periode', [AdminSetingController::class, 'periode'])->name('seting-periode');
+        Route::get('/seting-periode/create', [AdminSetingController::class, 'periodecreate'])->name('seting-periode.create');
+        Route::get('/seting-periode/edit/{id}', [AdminSetingController::class, 'periodeedit'])->name('seting-periode.edit');
+        Route::post('/seting-periode/post', [AdminSetingController::class, 'periodepost'])->name('seting-periode.post');
+        Route::get('/seting-periode/update/{id}', [AdminSetingController::class, 'periodeupdate'])->name('seting-periode.update');
 
         Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
         Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');

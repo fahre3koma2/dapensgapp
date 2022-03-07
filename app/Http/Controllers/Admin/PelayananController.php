@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\BiodataUpdate;
 use App\Models\Admin\SKeterangan;
 use App\Models\Admin\SkPenetapan;
+use App\Models\Admin\KontakKami;
 
 
 class PelayananController extends Controller
@@ -228,6 +229,24 @@ class PelayananController extends Controller
         }
     }
 
+    public function kontakupdate(Request $request)
+    {
+        //
+        $data = $request->except('_token');
+
+        $filenya['status'] = '1';
+        $minta = KontakKami::query()->find($request->id);
+
+        $minta->update($filenya);
+
+        alert()->success(
+            'Berhasil',
+            'Pesan Berhasil Ubah Status'
+        );
+
+        return redirect()->route('admin.kontakkami');
+    }
+
     public function sketerangan()
     {
         //
@@ -248,6 +267,49 @@ class PelayananController extends Controller
 
         return view('admin.dapen.pelayanan.skadmin.index', $data);
     }
+
+    public function kontakkami()
+    {
+        //
+        $menu = 'pensi';
+        $edit = false;
+        $judul = 'Kontak Kami';
+
+        //dd(Carbon::parse('2019-03-01')->translatedFormat('d F Y'));
+        $mohon = KontakKami::query()->orderBy('created_at', 'desc')->get();
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'mohon' => $mohon,
+            'judul' => $judul
+        ];
+
+
+        return view('admin.dapen.pelayanan.kontakkami.index', $data);
+    }
+
+    public function kontakkamishow($id)
+    {
+        //
+        $menu = 'pensi';
+        $edit = false;
+        $judul = 'Kontak Kami';
+
+        //dd(Carbon::parse('2019-03-01')->translatedFormat('d F Y'));
+        $mohon = KontakKami::query()->find(decrypt($id));
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'mohon' => $mohon,
+            'judul' => $judul
+        ];
+
+
+        return view('admin.dapen.pelayanan.kontakkami.detail', $data);
+    }
+
 
     public function sketeranganshow($id)
     {

@@ -160,6 +160,20 @@ class InformasiController extends Controller
         return view('webprofil.informasi.pengkiniandata', $data);
     }
 
+    public function loginuser()
+    {
+        //
+        $menu = 'loginuser';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit
+        ];
+
+        return view('webprofil.informasi.loginuser', $data);
+    }
+
     public function lupapassword()
     {
         //

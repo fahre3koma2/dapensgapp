@@ -4,6 +4,7 @@
           <ul>
             <li class="{{ $menu == 'pegawai' ? 'active' : '' }}"><a href="{!! url('admin/user') !!}"><i class="fa fa-angle-right"></i> Pegawai</a></li>
             <li class="{{ $menu == 'pensi' ? 'active' : '' }}"><a href="{!! url('admin/pensi') !!}"><i class="fa fa-angle-right"></i> Pensiunan</a></li>
+            <li class="{{ $menu == 'periode' ? 'active' : '' }}"><a href="{!! url('admin/seting-periode') !!}"><i class="fa fa-angle-right"></i> Periode</a></li>
           </ul>
         </li>
         <li> <a href="#"> <i class="icon-speech" style="color:black"></i> <span>Profil</span> </a>
@@ -32,6 +33,7 @@
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Bukti Slip Manfaat Pensiun</a></li>
                 <li><a href="{!! url('/pensi/layananinfo') !!}">Penerbitan Kartu Pensiun</a></li>  --}}
                 <li><a href="{!! url('admin/pelayanan/sketerangan') !!}">Penerbitan Surat Keterangan</a></li>
+                <li><a href="{!! url('admin/pelayanan/kontakkami') !!}">Kontak Kami</a></li>
             </ul>
         </li>
         <li class="{{ $menu == 'galeri' ? 'active' : '' }}"> <a href="{!! url('admin/konten/galeri') !!}"> <i class="icon-share-alt" style="color:black"></i> <span> Permohonan </span> </a>

@@ -14,7 +14,7 @@
 <!-- loader -->
 {{--  <div class="bg_load"> <img class="loader_animation" src="{{ url('webprof/images/loaders/video.png') }}" alt="#" /> </div>  --}}
 <!-- end loader -->
-  <a href="https://api.whatsapp.com/send?phone=0987654321&text=Hello%21%20." class="floating" target="_blank">
+  <a href="https://api.whatsapp.com/send?phone=08113040444&text=Halo Admin, Saya mohon bantuan penyelesaian" class="floating" target="_blank">
     <i class="fa fa-whatsapp float-button"></i>
 </a>
 <!-- header -->

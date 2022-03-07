@@ -22,9 +22,11 @@
                 <a href="{!! url('pensi/pengkinian/form1/'.encrypt($idu).'/'.$periode->tahun1) !!}" class="btn btn-warning"> <i class="fa fa-user-circle-o"> </i> Pengkinian Data </a>
                 @endif
                 <hr/>
-                <p> Pengkinian Data Periode II dari Tanggal  {{ Carbon\Carbon::parse($periode->tgl_awal2)->isoFormat('D MMMM Y')}} sampai tanggal {{ Carbon\Carbon::parse($periode->tgl_akhir2)->isoFormat('D MMMM Y')}} </p>
-                @if((date('Y-m-d') >= $periode->tgl_awal2) && (date('Y-m-d') <= $periode->tgl_akhir2))
-                <a href="{!! url('pensi/pengkinian/form1/'.encrypt($idu).'/'.$periode->tahun2) !!}" class="btn btn-warning"> <i class="fa fa-user-circle-o"> </i> Pengkinian Data </a>
+                @if($periode->periode2 != null)
+                    <p> Pengkinian Data Periode II dari Tanggal  {{ Carbon\Carbon::parse($periode->tgl_awal2)->isoFormat('D MMMM Y')}} sampai tanggal {{ Carbon\Carbon::parse($periode->tgl_akhir2)->isoFormat('D MMMM Y')}} </p>
+                    @if((date('Y-m-d') >= $periode->tgl_awal2) && (date('Y-m-d') <= $periode->tgl_akhir2))
+                    <a href="{!! url('pensi/pengkinian/form1/'.encrypt($idu).'/'.$periode->tahun2) !!}" class="btn btn-warning"> <i class="fa fa-user-circle-o"> </i> Pengkinian Data </a>
+                    @endif
                 @endif
             </div>
         </div>
@@ -40,7 +42,7 @@
             @endif  --}}
             <div class="table-responsive">
                 @if($biodata)
-                <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
+                <table class="table table-bordered table-hover" data-name="cool-table">
                     <thead>
                         <tr>
                             <th width="2%">No</th>

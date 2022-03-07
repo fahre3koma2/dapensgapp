@@ -187,7 +187,7 @@ class PengkinianController extends Controller
 
         $user = BiodataUpdate::query()->with(['rekening','lampiran'])->find(decrypt($id));
         // $user = User::where('id', $mohon->user_id)->first();
-        if ($user->jenis == 'D') {
+        if ($user->jenis == 'U') {
             $nama =  $user->keluarga->where('hubungan', 'I')->first();
         } elseif ($user->jenis == 'J') {
             $nama =  $user->keluarga->where('hubungan', 'S')->first();

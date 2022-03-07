@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Admin\Laporan;
+use App\Models\Admin\KontakKami;
 
 class LaporanController extends Controller
 {
@@ -205,5 +206,46 @@ class LaporanController extends Controller
         ];
 
         return view('webprofil.layanan.terimaberitaduka', $data);
+    }
+
+    public function terimapesan($id)
+    {
+        $menu = 'Kontak';
+        $edit = false;
+        $berita = KontakKami::where('nolaporan', decrypt($id))->first();
+        //dd($berita);
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'berita' => $berita
+        ];
+
+        return view('webprofil.layanan.terimapesan', $data);
+    }
+
+    public function kontakkirim(Request $request)
+    {
+        //
+        $data = $request->except('_token');
+        //$tgl = date('Y-m-d', strtotime($request->tgl_acara));
+
+        $record = KontakKami::latest()->first();
+
+        if ($record) {
+            $expNum = explode('-', $record->nolaporan);
+            $nextNumber = "KK-" . date('d') . date('y') . '-' . sprintf("%03d", $expNum[2] + 1);
+        } else {
+            $nextNumber = "KK-" . date('d') . date('y') . '-00001';
+        }
+
+        try {
+
+            $data['nolaporan'] = $nextNumber;
+            $berita = KontakKami::create($data);
+
+            return redirect()->route('terimapesan', ['id' => encrypt($berita->nolaporan)])->with('message', 'Operation Successful !');
+        } catch (Exception $ex) {
+            return redirect()->back()->withInput();
+        }
     }
 }
