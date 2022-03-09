@@ -67,6 +67,15 @@
                     </div>
                   </div>
 
+                  <div class="form-group row">
+                    <label class="control-label text-right col-md-3">Periode 2 Aktif:</label>
+                    <div class="col-md-2">
+                        <select name="aktif" id="aktif" class="form-control">
+                            <option value="true" {{ $edit ? $mohon->aktif == 'true' ? 'selected' : '' : '' }}>Ya</option>
+                            <option value="false" {{ $edit ? $mohon->aktif == 'false' ? 'selected' : '' : '' }}>Tidak</option>
+                        </select>
+                    </div>
+                  </div>
 
                 </div>
                 <div class="form-actions">

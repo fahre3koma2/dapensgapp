@@ -44,7 +44,9 @@
                             <td>{{$item->tgl_awal2}}</td>
                             <td>{{$item->tgl_akhir2}}</td>
                             <td>
+                            @if(date('Y') == $item->tahun)
                                 <a href="{!! route('admin.seting-periode.edit', ['id' => encrypt($item->id)]) !!}" class="btn btn-sm btn-warning">Edit</a>
+                            @endif
                             </td>
                         </tr>
                         @php $no++; @endphp

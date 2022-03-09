@@ -144,7 +144,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/seting-periode/create', [AdminSetingController::class, 'periodecreate'])->name('seting-periode.create');
         Route::get('/seting-periode/edit/{id}', [AdminSetingController::class, 'periodeedit'])->name('seting-periode.edit');
         Route::post('/seting-periode/post', [AdminSetingController::class, 'periodepost'])->name('seting-periode.post');
-        Route::get('/seting-periode/update/{id}', [AdminSetingController::class, 'periodeupdate'])->name('seting-periode.update');
+        Route::put('/seting-periode/update/{id}', [AdminSetingController::class, 'periodeupdate'])->name('seting-periode.update');
 
         Route::post('/user/remove-role', [UserController::class, 'removeRole'])->name('remove-role');
         Route::post('/user/add-role', [UserController::class, 'addRole'])->name('add-role');

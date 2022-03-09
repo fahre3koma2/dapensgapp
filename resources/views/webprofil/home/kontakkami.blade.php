@@ -89,7 +89,7 @@
                     <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <textarea class="field_custom" placeholder="Isi Pesan" name="pesan"></textarea>
                     </div>
-                    <div class="center"><button class="btn main_bt" type="submit" name="submit" id="submit">SUBMIT NOW</button></div>
+                    <div class="center"><button class="btn main_bt" type="submit" name="submit" id="submit">KIRIM</button></div>
                   </div>
                   </fieldset>
                 </form>
