@@ -92,7 +92,7 @@ class PengkinianController extends Controller
             $user = Biodata::with('rekening', 'keluarga')->where('nopeserta', $cekuser->biodata->nopeserta)->first();
         }
         //dd($cekuser->biodataupdate);
-        if($user->jenis == 'D'){
+        if($user->jenis == 'U'){
             $nama =  $user->keluarga->where('hubungan', 'S')->first();
         } elseif ($user->jenis == 'J') {
             $nama =  $user->keluarga->where('hubungan', 'I')->first();

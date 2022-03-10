@@ -62,7 +62,7 @@
                     @foreach($user->keluarga->where('hubungan', 'I') as $kel)
                     <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
                     @endforeach
-                @elseif($user->biodata->jenis == 'D')
+                @elseif($user->biodata->jenis == 'U')
                     @foreach($user->keluarga->where('hubungan', 'S') as $kel)
                     <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
                     @endforeach
