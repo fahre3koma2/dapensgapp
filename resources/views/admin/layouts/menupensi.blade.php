@@ -34,7 +34,7 @@
     </li>
     <li class="{{ $menu == 'faq' ? 'active' : '' }}"> <a href="{!! url('pensi/faq') !!}"> <i class="icon-question" style="color:black"></i> <span> Informasi </span> </a>
         <ul>
-            <li><a href="{!! url('pensi/faq') !!}">Panduan</a>
+            <li><a href="#">Panduan</a>
                 <ul>
                     <li><a href="{!! url('/pensi/informasi/pengkiniandata') !!}">Cara Pengkinian Data</a></li>
                     <li><a href="{!! url('/pensi/informasi/daftaruser') !!}">Cara Panduan Login</a></li>

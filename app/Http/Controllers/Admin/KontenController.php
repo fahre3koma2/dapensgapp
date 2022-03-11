@@ -144,7 +144,7 @@ class KontenController extends Controller
     public function profilgambar()
     {
         //
-        $konten = konten::where('status', 'home')->get();
+        $konten = konten::query()->get();
 
         $menu = 'profilgambar';
         $edit = false;
@@ -156,5 +156,61 @@ class KontenController extends Controller
         ];
 
         return view('admin.konten.profilgambar', $data);
+    }
+
+    public function editgambar($id)
+    {
+        //
+        $konten = Konten::query()->find(decrypt($id));
+
+        $menu = 'profilgambar';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'konten' => $konten,
+        ];
+
+        return view('admin.konten.editgambar', $data);
+    }
+
+    public function updategambar(Request $request)
+    {
+        $data = $request->except('_token');
+
+        $this->validate(
+            $request,
+            [
+                'file' => 'required|mimes:mimes:jpeg,jpg,png|max:2000'
+            ],
+            [
+                'file.required' => 'Tidak ada file yang di upload',
+                'file.mimes' => 'File harus gambar format png/jpg',
+                'file.max' => 'File tidak boleh lebih dari 2 MB',
+            ]
+        );
+
+        // menyimpan data file yang diupload ke variabel $file
+
+        $image = $request->file('file');
+        $nama_file = 'slide'.$request->idx. '.' . $image->getClientOriginalExtension();
+
+        $tujuan_upload = 'webprof/images/dapen';
+        $image->move($tujuan_upload, $nama_file);
+
+        $data['file'] = $nama_file;
+
+        $user = Konten::query()->find($data['idx']);
+        // dd($user);
+        $user->update($data);
+
+        alert()->success(
+            'Berhasil',
+            'Foto berhasil di tambahkan'
+        );
+
+        //return redirect()->back()->with('message', 'Operation Successful !');
+        return redirect()->route('admin.profilgambar');
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use DB;
+use App\Models\Admin\Formulir;
 use App\Models\Admin\Panduan;
 
 
@@ -101,6 +102,23 @@ class InformasiController extends Controller
         return view('webprofil.informasi.panduan', $data);
     }
 
+    public function panduanuser($isi)
+    {
+        //
+        $menu = 'panduan';
+        $edit = false;
+
+        $mohon = Panduan::where('status', $isi)->first();
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'mohon' => $mohon
+        ];
+
+        return view('webprofil.informasi.panduanuseredit', $data);
+    }
+
     public function pdp()
     {
         //
@@ -135,7 +153,7 @@ class InformasiController extends Controller
         $menu = 'downloadform';
         $edit = false;
 
-        $form = Panduan::orderBy('id')->get();
+        $form = Formulir::orderBy('id')->get();
 
         $data = [
             'menu' => $menu,

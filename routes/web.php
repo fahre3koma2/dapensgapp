@@ -79,9 +79,10 @@ use App\Http\Controllers\Dapen\PengkinianController;
     //Informasi
     Route::get('informasi/pdp', [InformasiController::class, 'pdp'])->name('pdp');
     Route::get('informasi/laporankeuangan', [InformasiController::class, 'laporankeuangan'])->name('laporankeuangan');
-    Route::get('informasi/pengkiniandata', [InformasiController::class, 'pengkiniandata'])->name('pengkiniandata');
-    Route::get('informasi/loginuser', [InformasiController::class, 'loginuser'])->name('loginuser');
-    Route::get('informasi/lupapassword', [InformasiController::class, 'lupapassword'])->name('lupapassword');
+    Route::get('informasi/panduan-user/{isi}', [InformasiController::class, 'panduanuser'])->name('panduan-user');
+    // Route::get('informasi/pengkiniandata', [InformasiController::class, 'pengkiniandata'])->name('pengkiniandata');
+    // Route::get('informasi/loginuser', [InformasiController::class, 'loginuser'])->name('loginuser');
+    // Route::get('informasi/lupapassword', [InformasiController::class, 'lupapassword'])->name('lupapassword');
     Route::get('informasi/panduan', [InformasiController::class, 'panduan'])->name('panduan');
     Route::get('informasi/downloadform', [InformasiController::class, 'downloadform'])->name('downloadform');
 
@@ -101,6 +102,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::post('/pensi-foto', [UserController::class, 'uploadfoto'])->name('pensi-foto');
 
         Route::get('/konten/profilgambar', [KontenController::class, 'profilgambar'])->name('profilgambar');
+        Route::get('/konten/editgambar/{id}', [KontenController::class, 'editgambar'])->name('editgambar');
+        Route::post('/konten/updategambar', [KontenController::class, 'updategambar'])->name('updategambar');
+
         Route::get('/konten/visimisi', [KontenController::class, 'visimisi'])->name('visimisi');
         Route::get('/konten/sejarahpendirian', [KontenController::class, 'sejarahpendirian'])->name('sejarahpendirian');
         Route::get('/konten/pendiri', [KontenController::class, 'pendiri'])->name('pendiri');
@@ -140,6 +144,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::resource('/layanan/pengkiniandata', AdminPengkinianController::class);
 
         Route::resource('/seting', AdminSetingController::class);
+        Route::get('/seting-panduan', [AdminSetingController::class, 'panduan'])->name('seting-panduan');
+        Route::get('/seting-panduanedit/{id}', [AdminSetingController::class, 'panduanedit'])->name('seting-panduanedit');
+        Route::post('/seting-updatepanduan', [AdminSetingController::class, 'updatepanduan'])->name('seting-updatepanduan');
         Route::get('/seting-periode', [AdminSetingController::class, 'periode'])->name('seting-periode');
         Route::get('/seting-periode/create', [AdminSetingController::class, 'periodecreate'])->name('seting-periode.create');
         Route::get('/seting-periode/edit/{id}', [AdminSetingController::class, 'periodeedit'])->name('seting-periode.edit');

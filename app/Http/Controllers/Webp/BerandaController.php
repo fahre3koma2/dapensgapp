@@ -18,6 +18,7 @@ class BerandaController extends Controller
     {
         //
         $konten = konten::where('status', 'home')->get();
+        $splash = konten::where('status', 'splash')->first();
         $artikel = Artikel::where('kategori', 'Home')->orderBy('id')->paginate(3);
         $menu = 'beranda';
         $edit = false;
@@ -26,7 +27,8 @@ class BerandaController extends Controller
             'menu' => $menu,
             'edit' => $edit,
             'konten' => $konten,
-            'artikel' => $artikel
+            'artikel' => $artikel,
+            'splash' => $splash
         ];
 
         return view('webprofil.index', $data);

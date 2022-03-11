@@ -85,22 +85,12 @@
                         <li><a href="{!! url('informasi/laporankeuangan') !!}">Laporan Keuangan</a></li>
                         <li><a href="#">Panduan</a>
                             <ul>
-                                <li><a href="{!! url('informasi/pengkiniandata') !!}">Cara Pengkinian Data</a></li>
-                                <li><a href="{!! url('informasi/loginuser') !!}">Cara Panduan Login</a></li>
-                                <li><a href="{!! url('informasi/lupapassword') !!}">Cara Mengganti Password</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/panduanpengkinian') !!}">Cara Pengkinian Data</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/panduanlogin') !!}">Cara Panduan Login</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/gantipassword') !!}">Cara Mengganti Password</a></li>
                             </ul>
                         </li>
-                        <li><a href="{!! url('informasi/downloadform') !!}">Unduh Formulir</a>
-                            {{--  <ul>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP</a></li>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP Sekaligus</a></li>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP Anak</a></li>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pindah Rekening</a></li>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Pembayaran MP ke Waris</a></li>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Permohonan Verifikasi Pengkinian Daya</a></li>
-                                <li><a @if ($stat == null) type="button" data-toggle="modal" data-target="#myModal" @else href="{!! url('/pensi/downloadinfo') !!}" @endif>Surat Kuasa</a></li>
-                            </ul>  --}}
-                        </li>
+                        <li><a href="{!! url('informasi/downloadform') !!}">Unduh Formulir</a></li>
                     </ul>
                 </li>
                 <li> <a href="#">Berita</a>

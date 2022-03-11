@@ -83,7 +83,7 @@
                 </span> </div>
             </div>
           </div>
-          <div class="side_bar_blog">
+          {{--  <div class="side_bar_blog">
             <h4>Artikel Terbaru</h4>
             <div class="recent_post">
               <ul>
@@ -105,7 +105,7 @@
                 @endforeach
               </ul>
             </div>
-          </div>
+          </div>  --}}
           {{--  <div class="side_bar_blog">
             <h4>CATEGORIES</h4>
             <div class="categary">

@@ -50,7 +50,7 @@
                         <td><img src="{{ url('webprof/images/dapen/'.$item->file) }}" width="26%"></td>
                         <td>{{ $item->keterangan }}</td>
                         <td><span class="label label-success">{{ $item->status }}</span></td>
-                        <td><a type="button" class="btn btn-default"> <i class="icon-note" aria-hidden="true"></i> </a></td>
+                        <td><a href="{!! route('admin.editgambar', ['id' => encrypt($item->id)]) !!}" type="button" class="btn btn-default"> <i class="icon-note" aria-hidden="true"></i> </a></td>
                     </tr>
                 @php $no++; @endphp
                 @endforeach
