@@ -315,7 +315,7 @@ class PelayananController extends Controller
 
     public function kontakexcel()
     {
-        $tgl = date('d-m-YY');
+        $tgl = date('d-m-Y');
 
         return Excel::download(new KontakKamiExport, 'Kontakkami_'.$tgl.'.xlsx');
     }
