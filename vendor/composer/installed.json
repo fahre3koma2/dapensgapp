@@ -2898,30 +2898,30 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "3.1.34",
-            "version_normalized": "3.1.34.0",
+            "version": "3.1.37",
+            "version_normalized": "3.1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SpartnerNL/Laravel-Excel.git",
-                "reference": "d7446f0e808d83be128835c4b403c9e4a65b20f3"
+                "reference": "49ccd4142d3d7bce492d6bfb9dd9a27b12935408"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SpartnerNL/Laravel-Excel/zipball/d7446f0e808d83be128835c4b403c9e4a65b20f3",
-                "reference": "d7446f0e808d83be128835c4b403c9e4a65b20f3",
+                "url": "https://api.github.com/repos/SpartnerNL/Laravel-Excel/zipball/49ccd4142d3d7bce492d6bfb9dd9a27b12935408",
+                "reference": "49ccd4142d3d7bce492d6bfb9dd9a27b12935408",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "illuminate/support": "5.8.*|^6.0|^7.0|^8.0",
+                "illuminate/support": "5.8.*|^6.0|^7.0|^8.0|^9.0",
                 "php": "^7.0|^8.0",
                 "phpoffice/phpspreadsheet": "^1.18"
             },
             "require-dev": {
-                "orchestra/testbench": "^6.0",
+                "orchestra/testbench": "^6.0|^7.0",
                 "predis/predis": "^1.1"
             },
-            "time": "2021-12-02T16:17:16+00:00",
+            "time": "2022-02-28T10:20:04+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -2963,7 +2963,7 @@
             ],
             "support": {
                 "issues": "https://github.com/SpartnerNL/Laravel-Excel/issues",
-                "source": "https://github.com/SpartnerNL/Laravel-Excel/tree/3.1.34"
+                "source": "https://github.com/SpartnerNL/Laravel-Excel/tree/3.1.37"
             },
             "funding": [
                 {

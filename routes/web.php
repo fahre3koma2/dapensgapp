@@ -106,6 +106,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::post('/konten/updategambar', [KontenController::class, 'updategambar'])->name('updategambar');
 
         Route::get('/konten/visimisi', [KontenController::class, 'visimisi'])->name('visimisi');
+        Route::get('/konten/visimisiedit/{id}/{jenis}', [KontenController::class, 'visimisiedit'])->name('visimisiedit');
+        Route::put('/konten/visimisiupdate/{id}', [KontenController::class, 'visimisiupdate'])->name('visimisiupdate');
         Route::get('/konten/sejarahpendirian', [KontenController::class, 'sejarahpendirian'])->name('sejarahpendirian');
         Route::get('/konten/pendiri', [KontenController::class, 'pendiri'])->name('pendiri');
         Route::get('/konten/strukturorganisasi', [KontenController::class, 'strukturorganisasi'])->name('strukturorganisasi');
@@ -121,6 +123,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/pelayanan/kontakkami', [PelayananController::class, 'kontakkami'])->name('kontakkami');
         Route::get('/pelayanan/kontakkamishow/{id}', [PelayananController::class, 'kontakkamishow'])->name('kontakkamishow');
         Route::post('/pelayanan/kontakupdate', [PelayananController::class, 'kontakupdate'])->name('kontakkami.verifikasi');
+        Route::get('/pelayanan/kontakexcel', [PelayananController::class, 'kontakexcel'])->name('kontakexcel');
 
         Route::resource('/laporan', AdminLaporanController::class);
         Route::get('/laporan-beritaduka', [AdminLaporanController::class, 'beritaduka'])->name('laporan-beritaduka');

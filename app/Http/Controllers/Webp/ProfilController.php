@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Admin\Artikel;
+use App\Models\Admin\ProfilInfo;
 
 class ProfilController extends Controller
 {
@@ -92,9 +93,14 @@ class ProfilController extends Controller
         $menu = 'visimisi';
         $edit = false;
 
+        $visi = ProfilInfo::where('jenis', 'visi')->first();
+        $misi = ProfilInfo::where('jenis', 'misi')->get();
+
         $data = [
             'menu' => $menu,
-            'edit' => $edit
+            'edit' => $edit,
+            'visi' => $visi,
+            'misi' => $misi,
         ];
 
         return view('webprofil.profil.visimisi', $data);
@@ -106,9 +112,12 @@ class ProfilController extends Controller
         $menu = 'sejarah';
         $edit = false;
 
+        $sejarah = ProfilInfo::where('jenis', 'sejarah')->first();
+
         $data = [
             'menu' => $menu,
-            'edit' => $edit
+            'edit' => $edit,
+            'sejarah' => $sejarah,
         ];
 
         return view('webprofil.profil.sejarah', $data);

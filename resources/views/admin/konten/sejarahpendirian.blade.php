@@ -15,16 +15,16 @@
       <div class="card">
       <div class="card-body">
         <div class="row">
-           <div class="col-lg-8">
+           <div class="col-lg-12">
             <h4 class="text-black">Sejarah Pendirian</h4>
-            <ul>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Consectetur adipiscing elit</li>
-              <li>Integer molestie lorem at massa </li>
-            </ul>
-          </div>
-          <div class="col-lg-4">
-              <a href="" class="btn btn-nor btn-warning pull-right">Edit</a>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>{{ $sejarah->keterangan }}</td>
+                        <td> <a href="{{ url('admin/konten/visimisiedit/'.$sejarah->id.'/sejarah') }}" class="btn btn-nor btn-warning pull-right">Edit</a> </td>
+                    </tr>
+                </tbody>
+            </table>
           </div>
         </div>
         </div>

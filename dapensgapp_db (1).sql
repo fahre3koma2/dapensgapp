@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 09, 2022 at 04:26 AM
+-- Generation Time: Mar 11, 2022 at 08:45 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -9258,6 +9258,34 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `formulir`
+--
+
+CREATE TABLE `formulir` (
+  `id` int(10) NOT NULL,
+  `judul` varchar(255) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `keterangan` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `jenis` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `formulir`
+--
+
+INSERT INTO `formulir` (`id`, `judul`, `file`, `keterangan`, `status`, `jenis`, `created_at`, `updated_at`) VALUES
+(1, 'Formulir Pengajuan Manfaat Pensiun Normal', 'FormulirPengajuanMPNormal.doc', NULL, NULL, NULL, NULL, NULL),
+(2, 'Formulir Pengajuan Manfaat Pensiun Janda / Duda', 'FormulirPengajuanMPJandaatauDuda.doc', 'Manfaat Pensiun Janda/Duda diberikan kepada Janda/Duda dari Peserta/Pekerja Aktif dan Pensiunan meninggal dunia', NULL, NULL, NULL, NULL),
+(3, 'Formulir Pengajuan Manfaat Pensiun Anak', 'FormulirPengajuanMPAnak.doc', 'Manfaat Pensiun Anak diberikan kepada Anak dari Peserta/Pekerja Aktif dan Pensiunan meninggal dunia yang sudah tidak ada istrinya (bercerai/meninggal dunia).', NULL, NULL, NULL, NULL),
+(4, 'Surat Kuasa Manfaat Pensiun Anak', 'FormulirPengajuanMPterbaru.doc', '', NULL, NULL, NULL, NULL),
+(5, 'Formulir Pindah Rekening', 'FormulirPermohonanPindahRekening.doc', NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jenispensiun`
 --
 
@@ -9364,7 +9392,8 @@ CREATE TABLE `konten` (
 INSERT INTO `konten` (`id`, `konten`, `keterangan`, `keterangan2`, `keterangan3`, `file`, `status`, `created_at`, `updated_at`, `create_by`, `update_by`) VALUES
 (1, 'Gambar Home', 'Meraih Masa Depan Lebih Baik', 'Dana Pensiun Semen Gresik', NULL, 'slide1.jpg', 'home', '2021-12-21 07:50:09', '2021-12-21 07:50:11', NULL, NULL),
 (2, 'Gambar Home', 'Meraih Masa Depan Lebih Baik', 'Dana Pensiun Semen Gresik', NULL, 'slide2.jpg', 'home', '2021-12-21 07:50:09', '2021-12-21 07:50:11', NULL, NULL),
-(3, 'Gambar Home', 'Meraih Masa Depan Lebih Baik', 'Dana Pensiun Semen Gresik', NULL, 'slide3.jpg', 'home', '2021-12-21 07:50:09', '2021-12-21 07:50:11', NULL, NULL);
+(3, 'Gambar Home', 'Meraih Masa Depan Lebih Baik', 'Dana Pensiun Semen Gresik', NULL, 'slide3.jpg', 'home', '2021-12-21 07:50:09', '2021-12-21 07:50:11', NULL, NULL),
+(4, 'Splashscreen', 'Splashscreen Home', ' ', NULL, 'splashscreen.jpg', 'splash', '2022-03-10 06:58:57', '2022-03-10 06:59:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -11216,26 +11245,22 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 --
 
 CREATE TABLE `panduan` (
-  `id` int(10) NOT NULL,
+  `id` int(11) NOT NULL,
   `judul` varchar(255) DEFAULT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `keterangan` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  `jenis` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `status` varchar(25) DEFAULT NULL,
+  `created_at` varchar(255) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `panduan`
 --
 
-INSERT INTO `panduan` (`id`, `judul`, `file`, `keterangan`, `status`, `jenis`, `created_at`, `updated_at`) VALUES
-(1, 'Formulir Pengajuan Manfaat Pensiun Normal', 'FormulirPengajuanMPNormal.doc', NULL, NULL, NULL, NULL, NULL),
-(2, 'Formulir Pengajuan Manfaat Pensiun Janda / Duda', 'FormulirPengajuanMPJandaatauDuda.doc', 'Manfaat Pensiun Janda/Duda diberikan kepada Janda/Duda dari Peserta/Pekerja Aktif dan Pensiunan meninggal dunia', NULL, NULL, NULL, NULL),
-(3, 'Formulir Pengajuan Manfaat Pensiun Anak', 'FormulirPengajuanMPAnak.doc', 'Manfaat Pensiun Anak diberikan kepada Anak dari Peserta/Pekerja Aktif dan Pensiunan meninggal dunia yang sudah tidak ada istrinya (bercerai/meninggal dunia).', NULL, NULL, NULL, NULL),
-(4, 'Surat Kuasa Manfaat Pensiun Anak', 'FormulirPengajuanMPterbaru.doc', '', NULL, NULL, NULL, NULL),
-(5, 'Formulir Pindah Rekening', 'FormulirPermohonanPindahRekening.doc', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `panduan` (`id`, `judul`, `file`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Panduan Pengkinian Data', 'panduanpengkinian.pdf', 'panduanpengkinian', NULL, NULL),
+(2, 'Panduan Login Akun', 'panduanlogin.pdf', 'panduanlogin', NULL, NULL),
+(3, 'Panduan Ganti Password', 'gantipassword.pdf', 'gantipassword', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -11277,7 +11302,7 @@ CREATE TABLE `pengkinian_periode` (
 --
 
 INSERT INTO `pengkinian_periode` (`id`, `periode1`, `tgl_awal1`, `tgl_akhir1`, `tahun1`, `periode2`, `tgl_awal2`, `tgl_akhir2`, `tahun2`, `keterangan`, `tahun`, `aktif`, `created_at`, `updated_at`) VALUES
-(1, 'Periode 1 Pengkinian Data', '2022-03-01', '2022-03-31', '20221', NULL, '2022-04-01', '2022-03-31', '20222', NULL, '2022', 'false', NULL, '2022-03-09 10:28:15');
+(1, 'Periode 1 Pengkinian Data', '2022-01-01', '2022-06-30', '20221', NULL, '2022-04-01', '2022-03-31', '20222', NULL, '2022', 'false', NULL, '2022-03-10 10:42:03');
 
 -- --------------------------------------------------------
 
@@ -13075,7 +13100,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0WKeGjHIixJZ079HK4IOCBmBao21bSkkcfntq3TH', 1211, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiNFU1N2xUbXhqRmJRTDc0SWFEVjM5WVNteFdZSEp1U0hqTWdBMVJCWCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9wZW5zaS9wZW5na2luaWFuIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTIxMTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJDk0ZUhScC5LS0tNN3VLd1VIMGVrWU94eC9TVGMwTy95SkdhbEJHTEVIQkwvVUdMQVVmU1dDIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQ5NGVIUnAuS0tLTTd1S3dVSDBla1lPeHgvU1RjME8veUpHYWxCR0xFSEJML1VHTEFVZlNXQyI7fQ==', 1646799880);
+('bVAIu2BT4CM5hJS0tXZKqkWSQJyUO0EInszCSPHB', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiMHhhWGk3T0w4YndQNlNjOU85WUxBVWdrY1F1SDc1TDRsdTFGT2s4MSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI5OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvYXJ0aWtlbCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO30=', 1646979945);
 
 -- --------------------------------------------------------
 
@@ -16451,6 +16476,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`) USING BTREE;
 
 --
+-- Indexes for table `formulir`
+--
+ALTER TABLE `formulir`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `jenispensiun`
 --
 ALTER TABLE `jenispensiun`
@@ -16694,6 +16725,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `formulir`
+--
+ALTER TABLE `formulir`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `jenispensiun`
 --
 ALTER TABLE `jenispensiun`
@@ -16751,7 +16788,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `panduan`
 --
 ALTER TABLE `panduan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pengkinian_periode`

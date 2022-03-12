@@ -15,31 +15,32 @@
       <div class="card">
       <div class="card-body">
         <div class="row">
-           <div class="col-lg-8">
-            <h4 class="text-black">Ol Listing</h4>
-            <ol>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Consectetur adipiscing elit</li>
-              <li>Integer molestie lorem at massa </li>
-            </ol>
-          </div>
-          <div class="col-lg-4">
-              <a href="" class="btn btn-nor btn-warning pull-right">Edit</a>
+           <div class="col-lg-12">
+            <h4 class="text-black">Visi</h4>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>{{ $visi->keterangan }}</td>
+                        <td> <a href="{{ url('admin/konten/visimisiedit/'.$visi->id.'/visimisi') }}" class="btn btn-nor btn-warning pull-right">Edit</a> </td>
+                    </tr>
+                </tbody>
+            </table>
           </div>
           <div class="col-12">
             <hr class="m-t-5 m-b-5">
           </div>
-          <div class="col-lg-8">
-            <h4 class="text-black">Ul Listing</h4>
-            <ul>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Consectetur adipiscing elit</li>
-              <li>Integer molestie lorem at massa </li>
-            </ul>
-          </div>
-          <div class="col-lg-4">
-              <a href="" class="btn btn-nor btn-warning pull-right">Edit</a>
-          </div>
+          <div class="col-lg-12">
+            <h4 class="text-black">Misi</h4>
+            <table class="table table-hover">
+                <tbody>
+                @foreach($misi as $item)
+                    <tr>
+                        <td>{{ $item->keterangan }}</td>
+                        <td><a href="{{ route('admin.visimisiedit', $item->id) }}" class="btn btn-nor btn-warning pull-right">Edit</a></td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,8 @@ use App\Models\BiodataUpdate;
 use App\Models\Admin\SKeterangan;
 use App\Models\Admin\SkPenetapan;
 use App\Models\Admin\KontakKami;
+
+use App\Exports\KontakKamiExport;
 
 
 class PelayananController extends Controller
@@ -310,6 +313,12 @@ class PelayananController extends Controller
         return view('admin.dapen.pelayanan.kontakkami.detail', $data);
     }
 
+    public function kontakexcel()
+    {
+        $tgl = date('d-m-YY');
+
+        return Excel::download(new KontakKamiExport, 'Kontakkami_'.$tgl.'.xlsx');
+    }
 
     public function sketeranganshow($id)
     {

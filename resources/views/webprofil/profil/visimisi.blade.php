@@ -39,13 +39,13 @@
       <div class="col-lg-6 col-md-6 col-sm-12 about_cont_blog">
         <div class="full text_align_left">
             <h3>Visi</h3>
-                <p>Menjadi  Dana Pensiun yang mampu memberikan Manfaat Pensiun yang layak secara mandiri hingga Peserta terakhir.</p>
+                <p>{!! $visi->keterangan !!}</p>
                 <br>
             <h3>Misi</h3>
                 <ul>
-                    <li><i class="fa fa-circle"></i>Memberikan kesinambungan penghasilan bagi peserta dan keluarganya agar karyawan mendapat kepastian jaminan penghasilan di masa pensiun.</li>
-                    <li><i class="fa fa-circle"></i>Memberikan rasa aman dan tenang pada karyawan sehingga dapat meningkatkan kinerja dan motivasi.</li>
-                    <li><i class="fa fa-circle"></i>Mengelola kekayaan dana pensiun sesuai Arahan Investasi dan peraturan perundangan dan memberikan hasil investasi yang maksimal.</li>
+                    @foreach($misi as $item)
+                        <li><i class="fa fa-circle"></i>{!! $item->keterangan !!}</li>
+                    @endforeach
                 </ul>
         </div>
       </div>

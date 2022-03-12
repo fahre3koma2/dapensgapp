@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '9ce162a380fbf18c99cfb5c57f1f61615e6e7595',
+    'reference' => '21ce5dec6a231a58d3590f06fb207fc86a224664',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -558,7 +558,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '9ce162a380fbf18c99cfb5c57f1f61615e6e7595',
+      'reference' => '21ce5dec6a231a58d3590f06fb207fc86a224664',
     ),
     'laravel/sail' => 
     array (
@@ -634,12 +634,12 @@ private static $installed = array (
     ),
     'maatwebsite/excel' => 
     array (
-      'pretty_version' => '3.1.34',
-      'version' => '3.1.34.0',
+      'pretty_version' => '3.1.37',
+      'version' => '3.1.37.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'd7446f0e808d83be128835c4b403c9e4a65b20f3',
+      'reference' => '49ccd4142d3d7bce492d6bfb9dd9a27b12935408',
     ),
     'maennchen/zipstream-php' => 
     array (

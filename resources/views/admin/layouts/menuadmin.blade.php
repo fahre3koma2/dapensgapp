@@ -2,7 +2,6 @@
         <li><a href="{!! url('home') !!}"><i class="fa fa-dashboard" style="color:black"></i> <span>Dashboard</span></a></li>
         <li> <a href="#"> <i class="icon-home" style="color:black"></i> <span>Data Master</span> </a>
           <ul>
-            <li class="{{ $menu == 'pegawai' ? 'active' : '' }}"><a href="{!! url('admin/user') !!}"><i class="fa fa-angle-right"></i> Pegawai</a></li>
             <li class="{{ $menu == 'pensi' ? 'active' : '' }}"><a href="{!! url('admin/pensi') !!}"><i class="fa fa-angle-right"></i> Pensiunan</a></li>
             <li class="{{ $menu == 'periode' ? 'active' : '' }}"><a href="{!! url('admin/seting-periode') !!}"><i class="fa fa-angle-right"></i> Periode</a></li>
           </ul>

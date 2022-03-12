@@ -15,8 +15,7 @@
     <div class="card">
         <div class="card-body">
              <div class="ml-auto">
-                @php $idpensi = auth()->user()->id; @endphp
-                {{--  <a href="{!! url('pensi/layanan/sketerangan/tambah', ['id' => encrypt($idpensi)]) !!}" class="btn btn-sm btn-warning">Tambah File</a>  --}}
+                <a href="{!! route('admin.kontakexcel') !!}" class="btn btn-sm btn-success">Export Excel</a>
             </div>
             <div class="table-responsive">
                 <table id="example2" class="table table-bordered table-hover" data-name="cool-table">

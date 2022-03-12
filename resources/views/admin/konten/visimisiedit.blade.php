@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Konten Artikel</h1>
+      <h1>{{ $judul }}</h1>
       <ol class="breadcrumb">
         <li><a href="#">Konten</a></li>
-        <li><i class="fa fa-angle-right"></i> Konten Artikel</li>
+        <li><i class="fa fa-angle-right"></i> {{ $judul }}</li>
       </ol>
     </div>
 @endsection
@@ -16,44 +16,22 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-header bg-blue">
-              <h5 class="m-b-0">Tambah Artikel</h5>
+              <h5 class="m-b-0">Edit {{ $judul }}</h5>
             </div>
             <div class="card-body">
-                  <form class="form-horizontal" action="{{ $edit ? route('admin.artikel.update', ['artikel' => encrypt($konten->id)]) : route('admin.artikel.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                  <form class="form-horizontal" action="{{ $edit ? route('admin.visimisiupdate', ['id' => encrypt($konten->id)]) : route('admin.visimisiupdate') }}" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered">
                     @if ($edit)
                         {{ method_field('PUT') }}
                     @endif
                     @csrf
                 <div class="form-body">
-                  <div class="form-group row">
-                    <label class="control-label text-right col-md-1">Judul</label>
-                    <div class="col-md-10">
-                    <input placeholder="Judul" class="form-control" type="text" name="judul" value="{{ $edit ? $konten->judul : '' }}" required>
-                      </div>
-                  </div>
+
                   <div class="form-group row">
                     <label class="control-label text-right col-md-1">Keterangan</label>
                     <div class="col-md-10">
+                        <input class="form-control" type="hidden" name="judul" value="{{ $judul }}">
                       <textarea class="summernote" name="keterangan" required>{!! $edit ? $konten->keterangan : '' !!}</textarea>
                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label class="control-label text-right col-md-1">Kategori</label>
-                    <div class="col-md-4">
-                      <select class="form-control" name="kategori">
-                        @foreach ($kategori as $item)
-                            <option value="{{$item->nama}}" {{ $edit ? $konten->kategori == 'item->nama' ? 'actived' : '' : '' }}>{{$item->nama}}</option>
-                        @endforeach
-                       </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                   <label class="control-label text-right col-md-1">Foto</label>
-                   <div class="col-md-4">
-                    <input class="form-control" type="file" name="foto">
-                   </div>
                   </div>
 
                 </div>

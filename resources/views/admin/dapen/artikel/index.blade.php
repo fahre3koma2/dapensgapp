@@ -51,7 +51,7 @@
                         <td>@php $keterangan = strip_tags($item->keterangan); @endphp {{ Str::limit($keterangan, 32) }}</td>
                         <td>{{ $item->kategori }}</td>
                         <td>
-                            <a href="{!! url('admin/artikel/edit') !!}" class="btn btn-sm btn-primary btn-block">Edit</a>
+                            <a href="{!! route('admin.artikel.edit', ['artikel' => encrypt($item->id)]) !!}" class="btn btn-sm btn-primary btn-block">Edit</a>
                             <a href="{!! url('admin/artikel/hapus') !!}" class="btn btn-sm btn-danger btn-block">Hapus</a>
                         </td>
                     </tr>

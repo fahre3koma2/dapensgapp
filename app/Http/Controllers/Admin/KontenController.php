@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Admin\Konten;
+use App\Models\Admin\ProfilInfo;
 
 class KontenController extends Controller
 {
@@ -91,12 +92,61 @@ class KontenController extends Controller
         $menu = 'visimisi';
         $edit = false;
 
+        $visi = ProfilInfo::where('jenis', 'visi')->first();
+        $misi = ProfilInfo::where('jenis', 'misi')->get();
+
         $data = [
             'menu' => $menu,
-            'edit' => $edit
+            'edit' => $edit,
+            'visi' => $visi,
+            'misi' => $misi,
         ];
 
         return view('admin.konten.visimisi', $data);
+    }
+
+    public function visimisiedit($id, $jenis)
+    {
+        //
+        $menu = 'visimisi';
+        $edit = true;
+
+        if($jenis == 'sejarah'){
+            $judul = 'Sejarah Pendirian';
+        } else {
+            $judul = 'Visi Misi';
+        }
+
+        $konten = ProfilInfo::query()->find($id);
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'judul' => $judul,
+            'konten' => $konten,
+        ];
+
+        return view('admin.konten.visimisiedit', $data);
+    }
+
+    public function visimisiupdate(Request $request, $id)
+    {
+        //
+        $data = $request->except('_token');
+
+        try {
+
+            $artikel = ProfilInfo::query()->find(decrypt($id));
+            $artikel->update($data);
+
+            if($request->judul == 'Visi Misi') {
+                return redirect()->route('admin.visimisi')->with('message', 'Operation Successful !');
+            } else {
+                return redirect()->route('admin.sejarahpendirian')->with('message', 'Operation Successful !');
+            }
+        } catch (Exception $ex) {
+            return redirect()->back()->withInput();
+        }
     }
 
     public function sejarahpendirian()
@@ -104,10 +154,15 @@ class KontenController extends Controller
         //
         $menu = 'sejarahpendirian';
         $edit = false;
+        $judul = 'Sejarah Pendirian';
+
+        $sejarah = ProfilInfo::where('jenis', 'sejarah')->first();
 
         $data = [
             'menu' => $menu,
-            'edit' => $edit
+            'edit' => $edit,
+            'judul' => $judul,
+            'sejarah' => $sejarah,
         ];
 
         return view('admin.konten.sejarahpendirian', $data);

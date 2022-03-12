@@ -42,7 +42,7 @@
       <div class="col-lg-6 col-md-6 col-sm-12 about_cont_blog">
         <div class="full text_align_left">
             <h3>Sejarah</h3>
-                <p>Dana Pensiun ini merupakan kelanjutan dari Yayasan Dana Pensiun Karyawan PT Semen Gresik (Persero) yang dibentuk berdasarkan Akta Notaris Goesti Djohan Nomor 280 tanggal 27 Maret 1974 dengan nama Yayasan Dana Pensiun Karyawan PT Semen Gresik (Persero) yang telah mendapat persetujuan Menteri berdasarkan surat Nomor B 7774/DJM/111.5/12/1976 tanggal 18 Desember 1976, kemudian disesuaikan dengan Undang-undang Dana Pensiun dan peraturan pelaksanaannya, dengan nama Dana Pensiun Semen Gresik, dan telah disahkan berdasarkan Keputusan Menteri Keuangan Republik Indonesia Nomor: KEP – 003/KM.17/1999 tanggal 11 Januari 1999 dan terakhir disahkan berdasarkan Keputusan Dewan Komisioner Otoritas Jasa Keuangan Nomor: KEP-1035/NB.11/2018 tanggal 16 Nopember 2018.</p>
+                <p> {!! $sejarah->keterangan !!}</p>
                 <br>
         </div>
       </div>

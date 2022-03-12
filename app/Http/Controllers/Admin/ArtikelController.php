@@ -134,6 +134,20 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         //
+        $menu = 'artikel';
+        $edit = true;
+        $kategori = Kategori::query()->get()->sortBy('id');
+        $konten = Artikel::query()->find(decrypt($id));
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'kategori' => $kategori,
+            'konten' => $konten,
+        ];
+
+        return view('admin.dapen.artikel.create', $data);
+
     }
 
     /**
@@ -146,6 +160,17 @@ class ArtikelController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->except('_token');
+
+        try {
+
+            $artikel = Artikel::query()->find(decrypt($id));
+            $artikel->update($data);
+
+            return redirect()->route('admin.artikel')->with('message', 'Operation Successful !');
+        } catch (Exception $ex) {
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
