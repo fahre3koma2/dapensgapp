@@ -36,7 +36,7 @@
                 @foreach($misi as $item)
                     <tr>
                         <td>{{ $item->keterangan }}</td>
-                        <td><a href="{{ route('admin.visimisiedit', $item->id) }}" class="btn btn-nor btn-warning pull-right">Edit</a></td>
+                        <td><a href="{{ url('admin/konten/visimisiedit/'.$item->id.'/visimisi') }}" class="btn btn-nor btn-warning pull-right">Edit</a></td>
                     </tr>
                 @endforeach
                 </tbody>
