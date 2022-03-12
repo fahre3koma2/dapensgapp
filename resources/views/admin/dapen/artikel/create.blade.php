@@ -43,7 +43,7 @@
                     <div class="col-md-4">
                       <select class="form-control" name="kategori">
                         @foreach ($kategori as $item)
-                            <option value="{{$item->nama}}" {{ $edit ? $konten->kategori == 'item->nama' ? 'actived' : '' : '' }}>{{$item->nama}}</option>
+                            <option value="{{$item->nama}}" {{ $edit ? $konten->kategori == $item->nama ? 'selected' : '' : '' }}>{{$item->nama}}</option>
                         @endforeach
                        </select>
                     </div>
@@ -53,6 +53,7 @@
                    <label class="control-label text-right col-md-1">Foto</label>
                    <div class="col-md-4">
                     <input class="form-control" type="file" name="foto">
+                     @if ($errors->has('foto')) <span class="text-danger">{{ $errors->first('foto') }}</span> @endif
                    </div>
                   </div>
 
@@ -63,7 +64,7 @@
                       <div class="row">
                         <div class="offset-sm-3 col-md-9">
                           <button type="submit" class="btn btn-success"> Submit</button>
-                          <button type="button" class="btn btn-inverse">Cancel</button>
+                          <a href="{{ route('admin.artikel.index') }}" class="btn btn-info">Cancel</a>
                         </div>
                       </div>
                     </div>

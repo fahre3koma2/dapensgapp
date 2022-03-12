@@ -15,6 +15,7 @@ use Validator;
 use Carbon\Carbon;
 use Image;
 use Str;
+use File;
 
 class ArtikelController extends Controller
 {
@@ -26,7 +27,7 @@ class ArtikelController extends Controller
     public function index()
     {
         //
-        $konten = Artikel::query()->get();
+        $konten = Artikel::where('kategori', '!=', 'Home')->get();
 
         $menu = 'artikel';
         $edit = false;
@@ -162,12 +163,50 @@ class ArtikelController extends Controller
         //
         $data = $request->except('_token');
 
+        $this->validate(
+            $request,
+            [
+                'foto' => 'mimes:jpeg,jpg,png|max:5000'
+            ],
+            [
+                'foto.mimes' => 'File harus gambar format png/jpg',
+                'foto.max' => 'File tidak boleh lebih dari 2 MB',
+            ]
+        );
+
         try {
 
             $artikel = Artikel::query()->find(decrypt($id));
-            $artikel->update($data);
 
-            return redirect()->route('admin.artikel')->with('message', 'Operation Successful !');
+            if ($request->hasFile('foto')) {
+
+                // menyimpan data file yang diupload ke variabel $file
+                $image = $request->file('foto');
+                $kategori = $request->kategori;
+                $string = Str::random(12);
+                $nama_file = $kategori . '_' . $string . '.' . $image->getClientOriginalExtension();
+
+                // isi dengan nama folder tempat kemana file diupload
+                $filePath = public_path('dapen/artikel/thumb');
+
+                $img = Image::make($image->path());
+                $img->resize(150, 150, function ($const) {
+                    $const->aspectRatio();
+                })->save($filePath . '/' . $nama_file);
+
+                $tujuan_upload = 'dapen/artikel';
+                $image->move($tujuan_upload, $nama_file);
+
+                $data['gambar'] = $nama_file;
+                $artikel->update($data);
+
+            } else {
+
+                $data['gambar'] = $artikel->gambar;
+                $artikel->update($data);
+            }
+
+            return redirect()->route('admin.artikel.index')->with('message', 'Operation Successful !');
         } catch (Exception $ex) {
             return redirect()->back()->withInput();
         }
@@ -182,5 +221,18 @@ class ArtikelController extends Controller
     public function destroy($id)
     {
         //
+        $berkasnya = Artikel::where('id', decrypt($id))->first();
+
+        File::delete('dapen/artikel/thumb/' . $berkasnya->gambar);
+        File::delete('dapen/artikel/' . $berkasnya->gambar);
+
+        Artikel::where('id', decrypt($id))->delete();
+
+        alert()->success(
+            'Berhasil',
+            'Foto Artikel berhasil di hapus'
+        );
+
+        return redirect()->route('admin.artikel.index');
     }
 }
