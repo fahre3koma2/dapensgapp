@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dapen;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Admin\Panduan;
 use App\Models\Admin\Laporan;
 use App\Models\User;
 
@@ -116,6 +117,25 @@ class InformasiController extends Controller
         ];
 
         return view('admin.dapen.layanan.laporberitaduka', $data);
+    }
+
+    public function panduanuser($isi)
+    {
+        //
+        $menu = 'panduan';
+        $edit = false;
+        $judul = $isi;
+
+        $mohon = Panduan::where('status', $isi)->first();
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'mohon' => $mohon,
+            'judul' => $judul,
+        ];
+
+        return view('admin.dapen.informasi.pengkiniandata', $data);
     }
 
     public function pengkiniandata()

@@ -260,6 +260,27 @@ class LayananController extends Controller
     {
         //
         $user = User::query()->with(['biodata'])->find(decrypt($id));
+        $biodata = BiodataUpdate::where('nopeserta', $user->nopeserta)->orderBy('updated_at', 'desc')->get();
+
+        if ($biodata->count() > 1) {
+            $user = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['tampil', 1], ['verifikasi', 1], ['baru', 2]])->orderBy('created_at', 'desc')->first();
+        } else {
+            $user = Biodata::where([['nopeserta', $biodata[0]->nopeserta]])->first();
+        }
+
+        if ($user->jenis == 'D') {
+            $nama =  $user->keluarga->where('hubungan', 'I')->first();
+        } elseif ($user->jenis == 'J') {
+            $nama =  $user->keluarga->where('hubungan', 'S')->first();
+        } elseif ($user->jenis == 'A') {
+            $nama =  $user->keluarga->where('hubungan', 'A')->where('st_kerja', 0)->where('st_nikah', 0)->first();
+            if ($nama == null) {
+                $nama = $user;
+            }
+        } else {
+            $nama = $user;
+        }
+
         $cek = SKeterangan::where('nopeserta', $user->nopeserta)->where('status', null)->count();
 
         if ($cek > 0) {
@@ -274,6 +295,7 @@ class LayananController extends Controller
             'menu' => $menu,
             'edit' => $edit,
             'user' => $user,
+            'nama' => $nama,
         ];
 
 

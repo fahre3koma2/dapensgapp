@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Permohonan ...</h1>
+      <h1>Permohonan Surat Keterangan</h1>
       <ol class="breadcrumb">
         <li><a href="#">Pemohonan</a></li>
-        <li><i class="fa fa-angle-right"></i>Permohonan ...</li>
+        <li><i class="fa fa-angle-right"></i>Permohonan Surat Keterangan</li>
       </ol>
     </div>
 @endsection
@@ -28,27 +28,27 @@
                   <div class="form-group row">
                     <label class="control-label text-right col-md-3">No Peserta / Pensiun:</label>
                     <div class="col-md-9">
-                        <input class="form-control" type="text" name="nopeserta" value="{{ $user->biodata->nopeserta }}" disabled>
-                        <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->biodata->nopeserta }}">
+                        <input class="form-control" type="text" name="nopeserta" value="{{ $user->nopeserta }}" disabled>
+                        <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->nopeserta }}">
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="control-label text-right col-md-3">Nama</label>
                     <div class="col-md-9">
-                      <input class="form-control" type="text" name="name" value="{{ $user->biodata->name }}" readonly="readonly">
+                      <input class="form-control" type="text" name="name" value="{{ $nama->nama ? $nama->nama : $nama->name }}" readonly="readonly">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="control-label text-right col-md-3">Alamat</label>
                     <div class="col-md-9">
-                      <textarea rows="2" class="form-control" name="alamat" readonly="readonly">{{ $user->biodata->alamat }}</textarea>
+                      <textarea rows="2" class="form-control" name="alamat" readonly="readonly">{{ $user->alamat }}</textarea>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="control-label text-right col-md-3">No HP</label>
                     <div class="col-md-9">
-                      <input class="form-control" type="text" name="nohp" value="{{ $user->biodata->nohp }}" readonly="readonly">
+                      <input class="form-control" type="text" name="nohp" value="{{ $user->nohp }}" readonly="readonly">
                     </div>
                   </div>
                   <div class="form-group row">

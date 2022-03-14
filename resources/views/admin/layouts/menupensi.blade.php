@@ -32,13 +32,14 @@
             {{--  <li><a href="{!! url('/pensi/permohonanrekening') !!}">Permohonan Pindah Rekening</a></li>  --}}
         </ul>
     </li>
-    <li class="{{ $menu == 'faq' ? 'active' : '' }}"> <a href="{!! url('pensi/faq') !!}"> <i class="icon-question" style="color:black"></i> <span> Informasi </span> </a>
+    <li class="{{ $menu == 'faq' ? 'active' : '' }}"> <a href="#"> <i class="icon-question" style="color:black"></i> <span> Informasi </span> </a>
         <ul>
             <li><a href="#">Panduan</a>
                 <ul>
-                    <li><a href="{!! url('/pensi/informasi/pengkiniandata') !!}">Cara Pengkinian Data</a></li>
-                    <li><a href="{!! url('/pensi/informasi/daftaruser') !!}">Cara Panduan Login</a></li>
-                    <li><a href="{!! url('/pensi/informasi/lupapassword') !!}">Cara Cara Mengganti Password</a></li>
+                    <li><a href="{!! url('/pensi/informasi/panduan-user/panduanpengkinian') !!}">Panduan Pengkinian Data</a></li>
+                    <li><a href="{!! url('/pensi/informasi/panduan-user/panduanlogin') !!}">Panduan Login</a></li>
+                    <li><a href="{!! url('/pensi/informasi/panduan-user/gantipassword') !!}">Panduan Lupa Password</a></li>
+                    <li><a href="{!! url('/pensi/informasi/panduan-user/panduanslipmp') !!}">Panduan Cetak Slip MP</a></li>
                 </ul>
             </li>
         </ul>

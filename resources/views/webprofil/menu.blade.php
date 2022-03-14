@@ -85,9 +85,10 @@
                         <li><a href="{!! url('informasi/laporankeuangan') !!}">Laporan Keuangan</a></li>
                         <li><a href="#">Panduan</a>
                             <ul>
-                                <li><a href="{!! url('informasi/panduan-user/panduanpengkinian') !!}">Cara Pengkinian Data</a></li>
-                                <li><a href="{!! url('informasi/panduan-user/panduanlogin') !!}">Cara Panduan Login</a></li>
-                                <li><a href="{!! url('informasi/panduan-user/gantipassword') !!}">Cara Mengganti Password</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/panduanpengkinian') !!}">Panduan Pengkinian Data</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/panduanlogin') !!}">Panduan Login</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/gantipassword') !!}">Panduan Lupa Password</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/panduanslipmp') !!}">Panduan Cetak Slip MP</a></li>
                             </ul>
                         </li>
                         <li><a href="{!! url('informasi/downloadform') !!}">Unduh Formulir</a></li>

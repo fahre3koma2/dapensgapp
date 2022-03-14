@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Panduan Pengkinian Data</h1>
+      <h1>{{$mohon->judul}}</h1>
       <ol class="breadcrumb">
         <li><a href="#">Home</a></li>
-        <li><i class="fa fa-angle-right"></i> Panduan Pengkinian Data</li>
+        <li><i class="fa fa-angle-right"></i> {{$mohon->judul}}</li>
       </ol>
     </div>
 @endsection
@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-body">
                         <center>
-                        <p><embed src="{{ url('webprof/filedapen/panduan_pengkinian.pdf') }}" type="application/pdf" width="800" height="800" data-mce-fragment="1"></embed></p>
+                        <p><embed src="{{ url('webprof/filedapen/'.$mohon->file) }}" type="application/pdf" width="800" height="800" data-mce-fragment="1"></embed></p>
                         </center>
                     </div>
                 </div>
