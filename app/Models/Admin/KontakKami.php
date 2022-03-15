@@ -10,6 +10,6 @@ class KontakKami extends Model
     protected $table = "kontakkami";
 
     protected $fillable = [
-        'id', 'nolaporan', 'nama', 'nopeserta', 'nohp', 'katergori', 'pesan', 'status', 'created_at', 'updated_at',
+        'id', 'nolaporan', 'nama', 'nopeserta', 'nohp', 'kategori', 'pesan', 'status', 'created_at', 'updated_at',
     ];
 }

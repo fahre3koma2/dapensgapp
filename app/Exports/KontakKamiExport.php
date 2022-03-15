@@ -14,13 +14,13 @@ class KontakKamiExport implements FromCollection, WithHeadings
     public function collection()
     {
         return KontakKami::query()
-        ->select('nolaporan', 'nopeserta', 'nama', 'nohp', 'pesan')
+        ->select('nolaporan', 'nopeserta', 'nama', 'nohp', 'kategori', 'pesan')
         ->get();
     }
 
     public function headings(): array
     {
-        return ["No Laporan", "No Pensiun", "Nama", "No HP", "Pesan"];
+        return ["No Laporan", "No Pensiun", "Nama", "No HP", "Kategori", "Pesan"];
     }
 }
 
