@@ -57,7 +57,7 @@
             <div class="card-body">
             <h4 class="text-black">Biodata Berhak</h4></br>
               <div class="box-body"> <strong><i class="fa fa-book margin-r-5"></i> Nama</strong>
-                <input class="form-control" type="text" name="name" value="{{ $user->berhak }}" {{ $edit ? '' : 'disabled' }}>
+                <input class="form-control" type="text" name="name" value="{{ $nama->nama ? $nama->nama : $nama->name }}" {{ $edit ? '' : 'disabled' }}>
                 <hr>
                 <strong><i class="fa fa-map-marker margin-r-5"></i> Alamat</strong>
                 <input class="form-control" type="text" name="name" value="{{ $user->alamat }}" {{ $edit ? '' : 'disabled' }}>

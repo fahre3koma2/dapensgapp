@@ -25,7 +25,7 @@
         <div class="col-md-6">
         <div class="form-group has-feedback">
             <label class="control-label">Nama Lengkap</label>
-            <input class="form-control" type="text" name="name" value="{{ $user->name }}" {{ $edit ? '' : 'disabled' }}>
+            <input class="form-control" type="text" name="name" value="{{ $nama->nama ? $nama->nama : $nama->name }}" {{ $edit ? '' : 'disabled' }}>
             <span class="fa fa-user form-control-feedback" aria-hidden="true"></span> </div>
         </div>
         <div class="col-md-12">

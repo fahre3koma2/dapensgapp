@@ -1,6 +1,16 @@
 <div id="_0:0" class="pos" style="top: 0;">
-<div id="_118:29" class="pos" style="top: 29; left: 118;"><span id="_16.0" style="font-family: Arial; font-size: 16.0px; color: #000000;"> DANA PENSIUN SEMEN GRESIK</span></div>
+<div id="_118:29" class="pos" style="top: 29; left: 118;">
+<table style="border-collapse: collapse; width: 100%; height: 18px;" border="0">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 14.7687%; height: 18px;"><img src="{{ url('dapen/logo/logo.png') }}" alt="" width="80%" /></td>
+<td style="width: 85.2313%; height: 18px;">
+<div id="_118:29" class="pos" style="top: 29; left: 118;"><strong><span id="_16.0" style="font-family: Arial; font-size: 16.0px; color: #000000;">DANA PENSIUN SEMEN GRESIK</span></strong></div>
 <div id="_119:50" class="pos" style="top: 50; left: 119;"><span id="_10.7" style="font-family: Arial; font-size: 10.7px; color: #000000;"> Kantor: Jalan R.A. Kartini No. 23, Gresik - 61122</span></div>
+</td>
+</tr>
+</tbody>
+</table>
 <div id="_616:72" class="pos" style="text-align: right;"><span id="_12.1" style="font-family: Arial; font-size: 12.1px; color: #000000;"> Tanggal Dicetak : {{ date('d-m-y') }}</span></div>
 <div class="pos" style="top: 91; left: 50;">
 <table style="width: 100%; border-collapse: collapse; background-color: #000000; height: 18px;" border="0">
@@ -43,12 +53,12 @@
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;">Status Perkawinan</span><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;"><br /></span></td>
 <td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
-<td style="width: 75.4789%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><span style="font-weight: bold;">{{ $user1->jenis }}</span></span></td>
+<td style="width: 75.4789%; height: 18px;"></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;">Jenis Pensiun</span><span id="_12.5" style="font-family: Arial; font-size: 12.5px; color: #000000;"><br /></span></td>
 <td style="width: 2.1073%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;"> : </span></td>
-<td style="width: 75.4789%; height: 18px;"></td>
+<td style="width: 75.4789%; height: 18px;"><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><span style="font-weight: bold;">{{ $user1->jenis }}</span></span></td>
 </tr>
 <tr style="height: 18px;">
 <td style="width: 22.4137%; height: 18px;"><span id="_12.6" style="font-family: Arial; font-size: 12.6px; color: #000000;">N.P.W.P&nbsp; &nbsp;</span><span id="_12.2" style="font-family: Arial; font-size: 12.2px; color: #000000;"><br /></span></td>
@@ -77,6 +87,11 @@
 <div class="pos" style="padding-left: 40px;">
 <table style="height: 171px; width: 98.7844%; border-collapse: collapse;">
 <tbody>
+<tr>
+<td style="width: 26.2237%;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;">&nbsp;</span></td>
+<td style="width: 2.20264%;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">&nbsp;</span></span></td>
+<td style="width: 95.5087%;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span style="font-weight: bold;">&nbsp;</span></span></td>
+</tr>
 <tr style="height: 19px;">
 <td style="width: 26.2237%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;">No. Pensiun</span></td>
 <td style="width: 2.20264%; height: 19px;"><span id="_12.7" style="font-family: Arial; font-size: 12.7px; color: #000000;"><span id="_14.1" style="font-size: 14.1px;">:</span></span></td>
@@ -159,7 +174,8 @@
 <tr style="height: 18px;">
 <td style="width: 33.3333%; height: 18px;">&nbsp;</td>
 <td style="width: 9.32639%; height: 18px;">&nbsp;</td>
-<td style="width: 57.3402%; height: 18px;">.................................., ...........................</td>
+
+<td style="width: 57.3402%; height: 18px;">.................................., {{ Carbon\Carbon::parse($user2->updated_at)->isoFormat('D MMMM Y')}}</td>
 </tr>
 <tr style="height: 205px;">
 <td style="width: 33.3333%; height: 205px;">&nbsp;</td>

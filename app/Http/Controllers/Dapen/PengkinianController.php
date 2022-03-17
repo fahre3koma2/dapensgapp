@@ -476,17 +476,32 @@ class PengkinianController extends Controller
 
     public function cetakpengkiniandata($id)
     {
+        $tahun = date('Y');
         $biodata = BiodataUpdate::where('nopeserta', decrypt($id))->orderBy('updated_at', 'desc')->get();
 
         if ($biodata->count() > 1) {
-            $user1 = BiodataUpdate::with('keluarga')->where([['nopeserta', $biodata[0]->nopeserta], ['tampil', 1], ['verifikasi', 1], ['baru', 2]])->orderBy('created_at', 'desc')->first();
-            $user2 = BiodataUpdate::with('keluarga')->where([['nopeserta', $biodata[0]->nopeserta], ['baru', 1]])->first();
+            $user1 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['tampil', 1], ['verifikasi', 1], ['baru', 2]])->orderBy('created_at', 'desc')->first();
+            $user2 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['tampil', null], ['verifikasi', null], ['baru', 1]])->first();
         } else {
-            $user1 = Biodata::with('keluarga')->where([['nopeserta', $biodata[0]->nopeserta]])->first();
-            $user2 = BiodataUpdate::with('keluarga')->where([['nopeserta', $biodata[0]->nopeserta], ['baru', 1]])->first();
+
+            $user1 = Biodata::where([['nopeserta', $biodata[0]->nopeserta]])->first();
+            $user2 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['baru', 2], ['verifikasi', 1], ['tampil', 1]])->first();
         }
 
-        $pdf = PDF::loadview('admin.dapen.layanan.cetakpengkiniandata', ['user1' => $user1, 'user2' => $user2]);
+        if ($user1->jenis == 'U') {
+            $nama =  $user1->keluarga->where('hubungan', 'S')->first();
+        } elseif ($user1->jenis == 'J') {
+            $nama =  $user1->keluarga->where('hubungan', 'I')->first();
+        } elseif ($user1->jenis == 'A') {
+            $nama =  $user1->keluarga->where('hubungan', 'A')->where('st_kerja', 0)->where('st_nikah', 0)->first();
+            if ($nama == null) {
+                $nama = $user1;
+            }
+        } else {
+            $nama = $user1;
+        }
+
+        $pdf = PDF::loadview('admin.dapen.layanan.cetakpengkiniandata', ['user1' => $user1, 'user2' => $user2, 'nama' => $nama]);
         return $pdf->download('laporan-pegawai-pdf.pdf');
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 12, 2022 at 03:41 AM
+-- Generation Time: Mar 15, 2022 at 02:21 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.2
 
@@ -49,10 +49,9 @@ CREATE TABLE `artikel` (
 --
 
 INSERT INTO `artikel` (`id`, `judul`, `keterangan`, `gambar`, `jenis`, `kategori`, `status`, `bagian`, `views`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(2, 'Teknologi', '<p>Teknologi Informasi Digital</p>', 'Teknologi Informasi_FpbUEg6pzCG0.jpg', NULL, 'Teknologi Informasi', NULL, NULL, NULL, '2022-01-03 07:54:23', '2022-01-03 07:54:23', NULL, NULL),
+(2, 'Teknologi', '<p>Teknologi Informasi Digital 22</p>', 'Teknologi Informasi_FpbUEg6pzCG0.jpg', NULL, 'Informasi Terkini', NULL, NULL, NULL, '2022-01-03 07:54:23', '2022-03-12 04:24:31', NULL, NULL),
 (3, 'Determinant Age at First Marriage Among Women in East Java', '<p><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span></p><p><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\"><br></span><br></p>', 'Kepesertaan_0NpwnBAOyu3B.jpg', NULL, 'Kepesertaan', NULL, NULL, NULL, '2022-02-04 04:03:12', '2022-01-04 04:03:12', NULL, NULL),
-(4, 'Take a deep dive and try our list', 'Memberikan rasa aman dan tenang pada karyawan sehingga dapat meningkatkan kinerja dan motivasi.2', 'Majalah Info_GNAAuQOFzcv8.jpg', NULL, 'Majalah Info', NULL, NULL, NULL, '2022-03-04 04:20:55', '2022-03-12 01:43:22', NULL, NULL),
-(5, 'PRIVACY POLICY', '<p>Eget dolor morbi non arcu risus quis. Enim sed faucibus turpis in eu mi. Massa id neque aliquam vestibulum morbi blandit cursus risus at. Quis enim lobortis scelerisque fermentum dui faucibus. Et malesuada fames ac turpis egestas sed. Sed augue lacus viverra vitae congue. Faucibus scelerisque eleifend donec pretium vulputate. Interdum varius sit amet mattis vulputate. Aliquam sem et tortor consequat id porta nibh venenatis cras. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. Nisl tincidunt eget nullam non nisi est sit amet facilisis. Faucibus et molestie ac feugiat sed lectus. Turpis in eu mi bibendum neque egestas congue quisque egestas. Ornare massa eget egestas purus viverra accumsan in.</p><p><br></p><p>Faucibus in ornare quam viverra orci sagittis eu volutpat. Sapien pellentesque habitant morbi tristique senectus et netus et. Tristique sollicitudin nibh sit amet commodo nulla facilisi. Ultrices tincidunt arcu non sodales neque sodales ut. Sed elementum tempus egestas sed sed risus pretium. Suspendisse interdum consectetur libero id. Est placerat in egestas erat imperdiet sed euismod nisi porta. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Justo donec enim diam vulputate ut. Feugiat scelerisque varius morbi enim nunc. Erat nam at lectus urna duis convallis convallis. Massa tincidunt dui ut ornare lectus sit amet. Scelerisque fermentum dui faucibus in ornare quam viverra orci. Tellus pellentesque eu tincidunt tortor aliquam. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Sed felis eget velit aliquet sagittis. Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Posuere morbi leo urna molestie at elementum. Venenatis lectus magna fringilla urna porttitor rhoncus dolor.</p><p><br></p><p>Proin nibh nisl condimentum id venenatis. Vel pretium lectus quam id. Vehicula ipsum a arcu cursus vitae congue. Eleifend mi in nulla posuere sollicitudin aliquam. Vitae et leo duis ut diam. Id aliquet risus feugiat in ante metus. Adipiscing tristique risus nec feugiat in fermentum posuere urna. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Gravida in fermentum et sollicitudin ac orci. Consequat nisl vel pretium lectus quam id leo in. Tortor pretium viverra suspendisse potenti nullam ac tortor. Tortor vitae purus faucibus ornare suspendisse sed. Lorem donec massa sapien faucibus et molestie ac feugiat sed. Pretium vulputate sapien nec sagittis aliquam malesuada. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Mauris commodo quis imperdiet massa tincidunt nunc.</p><p><br></p><p>Justo nec ultrices dui sapien eget mi. Massa tempor nec feugiat nisl pretium fusce id velit. Consequat nisl vel pretium lectus quam id leo in vitae. Senectus et netus et malesuada fames ac turpis egestas maecenas. Semper quis lectus nulla at. Nisi scelerisque eu ultrices vitae auctor. Quis blandit turpis cursus in hac habitasse platea. Viverra justo nec ultrices dui sapien eget mi proin. In iaculis nunc sed augue lacus viverra. Eget nunc lobortis mattis aliquam faucibus purus. Enim nulla aliquet porttitor lacus luctus. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Viverra nibh cras pulvinar mattis nunc. Tellus mauris a diam maecenas. Tristique sollicitudin nibh sit amet commodo nulla facilisi. Varius duis at consectetur lorem.</p>', 'Umum_2O0P8JWDI0Ni.jpg', NULL, 'Umum', NULL, NULL, NULL, '2022-01-04 04:22:05', '2022-01-04 04:22:05', NULL, NULL),
+(4, 'Take a deep dive and try our list', 'Memberikan rasa aman dan tenang pada karyawan sehingga dapat meningkatkan kinerja dan motivasi. Semua Binary', 'Majalah Info_ybxf7GjJJijd.jpg', NULL, 'Majalah Info', NULL, NULL, NULL, '2022-03-04 04:20:55', '2022-03-12 05:27:03', NULL, NULL),
 (6, 'Layanan Pelanggan', '<p dir=\"ltr\" style=\"line-height:1.295;text-align: justify;margin-top:0pt;margin-bottom:8pt;\"><span style=\"font-size:11pt;font-family:Calibri,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Layanan Pelanggan Dana Pensiun Semen Gresik bertempat di Jalan RA. Kartini No. 23 Gresik Lantai 2. Para Pensiunan yang datang akan di layani oleh 1 orang karyawan Dana Pensiun Semen Gresik yang ramah dan siap membantu serta memberikan informasi secara lengkap dan jelas.&nbsp;</span></p><p dir=\"ltr\" style=\"line-height:1.295;text-align: justify;margin-top:0pt;margin-bottom:8pt;\"><span style=\"font-size:11pt;font-family:Calibri,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Pelayanan melalui digitalisasi ini diharapkan akan meningkatkan pelayanan&nbsp;</span></p><p dir=\"ltr\" style=\"line-height:1.295;text-align: justify;margin-top:0pt;margin-bottom:8pt;\"><span style=\"font-size:11pt;font-family:Calibri,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Tersedia Layanan Pelanggan secara online yang menyediakan Update Pengkinian Data, Layanan Mandiri seperti&nbsp; Permintaan SK Penetapan MP, Bukti Potong Pajak, Bukti Slip MP, dan Permintaan Surat Keterangan. Melalui pelayanan secara digitalisasi diharapkan akan meningkatkan pelayanan kami dan memberi keuntungan pada para pensiunan Dana Pensiun Semen Gresik.</span></p><p><span id=\"docs-internal-guid-20f4ab9b-7fff-7f91-a5f0-aab8fc064090\"></span></p><p dir=\"ltr\" style=\"line-height:1.295;text-align: justify;margin-top:0pt;margin-bottom:8pt;\"><span style=\"font-size:11pt;font-family:Calibri,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Bapak/ Ibu Pensiunan Dana Pensiun Semen Gresik bisa menghubungi Layanan Pelanggan di nomor (031) 3984492. Selain itu para pensiunan Dana Pensiun Semen Gresik dapat menghubungi via Whatsapp dimana para pengunjung website Dana Pensiun Semen Gresik bisa melakukan percakapan secara interaktif dengan Dana Pensiun Semen Gresik</span></p>', 'Home_e4fqHgVkds6P.jpg', NULL, 'Home', NULL, NULL, NULL, '2022-01-19 01:44:36', '2022-01-19 01:44:36', NULL, NULL),
 (7, 'Dapen SG', '<p dir=\"ltr\" style=\"line-height:1.295;text-align: justify;margin-top:0pt;margin-bottom:8pt;\"><span style=\"font-size:11pt;font-family:Calibri,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Dana Pensiun Semen Gresik (DPSG) adalah Badan Hukum yang menyelenggarakan program pensiun, yaitu suatu program yang menjanjikan sejumlah uang yang pembayarannya secara berkala dan dikaitkan dengan pencapaian usia tertentu. Program pensiun yang diselenggarakan oleh DPSG adalah </span><span style=\"font-size:11pt;font-family:Calibri,sans-serif;color:#000000;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Program Pensiun Manfaat Pasti (PPMP).</span></p><p dir=\"ltr\" style=\"line-height:1.295;text-align: justify;margin-top:0pt;margin-bottom:8pt;\"><span style=\"font-size:11pt;font-family:Calibri,sans-serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Visi Misi Dana Pensiun Semen Gresik yaitu memberikan Manfaat Pensiun yang layak secara mandiri hingga Peserta terakhir dan Misi kami adalah memberikan kesinambungan penghasilan bagi peserta dan keluarga, Memberikan rasa aman dan tenang pada karyawan untuk meningkatkan kinerja dan motivasi, juga mengelola kekayaan Dana Pensiun Semen Gresik sesuai Arahan Investasi.</span></p><p><span id=\"docs-internal-guid-c1084cfc-7fff-d72f-93c0-da91e9261ce3\"><span style=\"font-size: 11pt; font-family: Calibri, sans-serif; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Oleh karena itu, agar dapat memenuhi harapan para </span><span style=\"font-size: 11pt; font-family: Calibri, sans-serif; background-color: transparent; font-style: italic; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Stakeholder</span><span style=\"font-size: 11pt; font-family: Calibri, sans-serif; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">, Dana Pensiun harus dikelola secara profesional. Salah satu cara guna memenuhi tuntutan profesionalisme tersebut, adalah dengan menerapkan </span><span style=\"font-size: 11pt; font-family: Calibri, sans-serif; background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Tata Kelola Dana Pensiun Yang Baik</span><span style=\"font-size: 11pt; font-family: Calibri, sans-serif; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">, sebagaimana ditetapkan dalam Surat Keputusan Direksi PT Semen Indonesia (Persero) Tbk Nomor : 053/Kpts/Dir/2015&nbsp; tanggal 31 Juli 2015. Pedoman Tata Kelola Dana Pensiun saat ini masih mengacu kepada POJK No. 16/POJK.05/2016.</span></span><br></p>', 'Home_3IS0hM0NfkfN.jpg', NULL, 'Home', NULL, NULL, NULL, '2022-01-19 01:49:12', '2022-01-19 01:49:12', NULL, NULL),
 (8, 'Pojok Inspirasi', '<p><span id=\"docs-internal-guid-01427b37-7fff-6076-fb91-03636ccd731c\"><span style=\"font-size: 11pt; font-family: Calibri, sans-serif; background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Berbagai Berita, Opini, dan kiat Sukses Bisnis yang dijalani para Pensiunan Dana Pensiun Semen Gresik tertuang dalam wadah Pojok Inspirasi website Dana Pensiun Semen Gresik. </span></span><br></p>', 'Home_BdFluZPC16Wq.jpg', NULL, 'Home', NULL, NULL, NULL, '2022-01-19 01:49:48', '2022-01-19 01:49:48', NULL, NULL);
@@ -1725,7 +1724,7 @@ INSERT INTO `biodata_update` (`id`, `user_id`, `name`, `nohp`, `jabatan`, `unit`
 (1579, 1221, 'BAMBANG HERMANTO', '08113338857', NULL, NULL, 'Jl. Parkit BA-01, GKA', NULL, NULL, NULL, 'GRESIK', NULL, '2022-02-05 12:35:09', '2022-02-05 12:35:09', NULL, NULL, NULL, '01653', NULL, 'N', NULL, NULL, NULL, '1957-11-03', '3525140311570003', NULL, '470202573612000', NULL, NULL, NULL, NULL, 'PD-0222-005', NULL, NULL, NULL),
 (1581, 28, 'H. ABDOEL SALAM', '08531497285', NULL, NULL, 'Jl Dr. Soetomo II B / 3 Ngipik', 'Asli', '08', '09', 'GRESIK', '61119', '2022-02-09 05:11:05', '2022-02-14 03:47:23', NULL, NULL, NULL, '00023', NULL, 'J', NULL, NULL, NULL, '1932-01-01', '35251647073500012', NULL, NULL, NULL, '2', '1', '1', 'PD-0222-007', NULL, NULL, NULL),
 (1587, 1473, 'MUSTAHA', '081233484332', NULL, NULL, 'Perum GKGA Blok DD-25 Kebomas', 'Asli', '08', '08', 'GRESIK', '61161', '2022-02-12 16:18:43', '2022-02-12 16:18:43', NULL, NULL, NULL, '01912', NULL, 'J', NULL, NULL, NULL, '1966-01-01', '3525140608620003', NULL, '491653978612000', NULL, NULL, NULL, NULL, 'PD-0222-009', NULL, NULL, NULL),
-(1588, 1472, 'ILMANZA RESTUADI K., IR., MIT.', '08123595118', NULL, NULL, 'Jl. Surakarta No. 11 GKB', 'Kelurahan', '08', '08', 'GRESIK', '61122', '2022-03-02 07:04:41', '2022-03-02 07:27:07', NULL, NULL, NULL, '01911', NULL, 'D', NULL, NULL, NULL, '1969-03-30', '3525143003690002', NULL, '470233859612000', NULL, NULL, NULL, NULL, 'PD-0322-010', NULL, '1', '20221');
+(1588, 1472, 'ILMANZA RESTUADI K., IR., MIT.', '08123595118', NULL, NULL, 'Jl. Surakarta No. 11 GKB', 'Kelurahan', '08', '08', 'GRESIK', '61122', '2022-03-02 07:04:41', '2022-03-02 07:27:07', NULL, NULL, NULL, '01911', NULL, 'U', NULL, NULL, NULL, '1969-03-30', '3525143003690002', NULL, '470233859612000', NULL, NULL, NULL, NULL, 'PD-0322-010', NULL, '1', '20221');
 
 -- --------------------------------------------------------
 
@@ -9348,7 +9347,7 @@ CREATE TABLE `kontakkami` (
   `nama` varchar(255) DEFAULT NULL,
   `nopeserta` varchar(255) DEFAULT NULL,
   `nohp` varchar(255) DEFAULT NULL,
-  `katergori` varchar(50) DEFAULT NULL,
+  `kategori` varchar(50) DEFAULT NULL,
   `pesan` text DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -9359,11 +9358,10 @@ CREATE TABLE `kontakkami` (
 -- Dumping data for table `kontakkami`
 --
 
-INSERT INTO `kontakkami` (`id`, `nolaporan`, `nama`, `nopeserta`, `nohp`, `katergori`, `pesan`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'KK-0422-00001', 'Jesi', NULL, '23123', NULL, 'asdasd', NULL, '2022-03-04 12:41:52', '2022-03-04 12:41:52'),
+INSERT INTO `kontakkami` (`id`, `nolaporan`, `nama`, `nopeserta`, `nohp`, `kategori`, `pesan`, `status`, `created_at`, `updated_at`) VALUES
 (3, 'KK-0422-002', 'Fitri', NULL, '23123', NULL, 'asda', NULL, '2022-03-04 12:42:22', '2022-03-04 12:42:22'),
-(4, 'KK-0422-003', 'Fitri', NULL, '23123', NULL, 'asda', NULL, '2022-03-04 12:44:22', '2022-03-04 12:44:22'),
-(5, 'KK-0422-004', 'Fitri', NULL, '23123', NULL, 'asda', '1', '2022-03-04 12:44:37', '2022-03-07 04:16:52');
+(6, 'KK-1522-005', 'Jefri', '82137123', '23123', 'Pembayaran Gaji Pensiun', 'Next Generation along with their description and slot location. Use the search options if you’re looking for specific card names or effects or to filter by slot type', NULL, '2022-03-15 01:57:36', '2022-03-15 01:57:36'),
+(7, 'KK-1522-006', 'Senna', '82137123', '23123', 'Informasi Lainnya', 'Next Generation along with their description and slot location. Use the search options if you’re looking for specific card names or effects or to filter by slot type', NULL, '2022-03-15 01:57:59', '2022-03-15 01:57:59');
 
 -- --------------------------------------------------------
 
@@ -11260,7 +11258,8 @@ CREATE TABLE `panduan` (
 INSERT INTO `panduan` (`id`, `judul`, `file`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Panduan Pengkinian Data', 'panduanpengkinian.pdf', 'panduanpengkinian', NULL, NULL),
 (2, 'Panduan Login Akun', 'panduanlogin.pdf', 'panduanlogin', NULL, NULL),
-(3, 'Panduan Ganti Password', 'gantipassword.pdf', 'gantipassword', NULL, NULL);
+(3, 'Panduan Ganti Password', 'gantipassword.pdf', 'gantipassword', NULL, NULL),
+(4, 'Panduan Cetak Slip MP', 'panduanslipmp.pdf', 'panduanslipmp', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -11495,7 +11494,7 @@ CREATE TABLE `profil_info` (
 INSERT INTO `profil_info` (`id`, `judul`, `keterangan`, `jenis`, `created_at`, `updated_at`) VALUES
 (1, 'Visi', 'Menjadi Dana Pensiun yang mampu memberikan Manfaat Pensiun yang layak secara mandiri hingga Peserta terakhir.', 'visi', NULL, '2022-03-12 01:52:47'),
 (2, 'Misi1', 'Memberikan kesinambungan penghasilan bagi peserta dan keluarganya agar karyawan mendapat kepastian jaminan penghasilan di masa pensiun.', 'misi', NULL, NULL),
-(4, 'Misi2', 'Memberikan rasa aman dan tenang pada karyawan sehingga dapat meningkatkan kinerja dan motivasi.', 'misi', NULL, '2022-03-12 01:50:47'),
+(4, 'Visi Misi', 'Memberikan rasa aman dan tenang pada karyawan sehingga dapat meningkatkan kinerja dan motivasi.', 'misi', NULL, '2022-03-12 03:50:04'),
 (5, 'Misi3', 'Mengelola kekayaan dana pensiun sesuai Arahan Investasi dan peraturan perundangan dan memberikan hasil investasi yang maksimal.', 'misi', NULL, NULL),
 (6, 'Sejarah Pendirian', 'Dana Pensiun ini merupakan kelanjutan dari Yayasan Dana Pensiun Karyawan PT Semen Gresik (Persero) yang dibentuk berdasarkan Akta Notaris Goesti Djohan Nomor 280 tanggal 27 Maret 1974 dengan nama Yayasan Dana Pensiun Karyawan PT Semen Gresik (Persero) yang telah mendapat persetujuan Menteri berdasarkan surat Nomor B 7774/DJM/111.5/12/1976 tanggal 18 Desember 1976, kemudian disesuaikan dengan Undang-undang Dana Pensiun dan peraturan pelaksanaannya, dengan nama Dana Pensiun Semen Gresik, dan telah disahkan berdasarkan Keputusan Menteri Keuangan Republik Indonesia Nomor: KEP – 003/KM.17/1999 tanggal 11 Januari 1999 dan terakhir disahkan berdasarkan Keputusan Dewan Komisioner Otoritas Jasa Keuangan Nomor: KEP-1035/NB.11/2018 tanggal 16 Nopember 2018.&nbsp;', 'sejarah', NULL, '2022-03-12 02:47:13');
 
@@ -13126,7 +13125,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('zrEkpxWcwb9ZJ9n2EaE1NQu1CDu5yCNIRynbP9Ii', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoidmx1MHRiSXo1c2dPQkRZdDRGNlNGN29UdDBxVE9OS2hORktCVTVwNiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM3OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvcHJvZmlsL3Zpc2ltaXNpIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7fQ==', 1647054072);
+('5ZXtqauCYWz2P92peKIJI2lSiWzeoV5yZmTdXwCM', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiM3BzajJhRDZraGJvemhZYkpMdVBIYnJKZUhDamtGNDdZZ0lGcGxtaSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM1OiJodHRwOi8vZGFwZW5zZ2FwcC5mYXIvYWRtaW4vc2V0aW5nLXBhbmR1YW5lZGl0L2V5SnBkaUk2SWs1MFNVZHpNa1JOVjJ4SlVHODNURWMxWWpFck1HYzlQU0lzSW5aaGJIVmxJam9pUkdvNVYzcGxORWhGU1V4Tk1qTm5RemxsZVV0cGR6MDlJaXdpYldGaklqb2lOR1kyTVRBd09HVXlabVk0Wm1VNE0ySmlNVFZsWTJSa016WmhNbUpqTUdFeE1tTmxZMlkxTTJNMk16WTRNbUV3TkdWa1ptRmxabVV5Tm1RMk1tSTJNeUo5Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQxNWJqSC4uN2tBQlh0bUxPRm9iTGd1ak9weXVlSFp6dU1KaW9NWUh6QWVTeGoyeVloaW5OLiI7fQ==', 1647242213),
+('jdNPKw1iyPS2RzR1NN550Xck42MoYzmKL0dVjTlH', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiMUZyR2lYWEhhaXV4bVdQUURoMXg2RTJoUGpYNU1zeFNYbHRVaVhUSSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDk6Imh0dHA6Ly9kYXBlbnNnYXBwLmZhci9hZG1pbi9wZWxheWFuYW4va29udGFrZXhjZWwiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkMTViakguLjdrQUJYdG1MT0ZvYkxndWpPcHl1ZUhaenVNSmlvTVlIekFlU3hqMnlZaGluTi4iO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDE1YmpILi43a0FCWHRtTE9Gb2JMZ3VqT3B5dWVIWnp1TUppb01ZSHpBZVN4ajJ5WWhpbk4uIjt9', 1647309610);
 
 -- --------------------------------------------------------
 
@@ -13207,7 +13207,7 @@ CREATE TABLE `sketerangan` (
 INSERT INTO `sketerangan` (`id`, `nosketerangan`, `nopeserta`, `name`, `alamat`, `nohp`, `email`, `keterangan`, `jenis`, `status`, `file`, `created_at`, `updated_at`) VALUES
 (2, 'SK-0122-001', '00011', 'Farendi Gio James', 'Jl. Dorang', '67567767567', NULL, NULL, NULL, '1', 'sketerangan_00011_2022-01-26.pdf', '2022-01-13 02:37:16', '2022-01-26 04:35:11'),
 (3, 'SK-0222-002', '01653', 'BAMBANG HERMANTO', 'Jl. Parkit BA-01, GKA', '08113338857', NULL, NULL, '1', '1', 'sketerangan_01653_2022-02-09.pdf', '2022-02-05 13:39:15', '2022-02-09 10:56:47'),
-(4, 'SK-0222-003', '01911', 'ILMANZA RESTUADI K., IR., MIT.', 'Jl. Surakarta No. 11 GKB', '08123595118', NULL, NULL, '1', NULL, NULL, '2022-02-11 03:26:24', '2022-02-11 03:26:24');
+(4, 'SK-0222-003', '01911', 'ILMANZA RESTUADI K., IR., MIT.', 'Jl. Surakarta No. 11 GKB', '08123595118', NULL, NULL, '1', '1', NULL, '2022-02-11 03:26:24', '2022-02-11 03:26:24');
 
 -- --------------------------------------------------------
 
@@ -16441,25 +16441,6 @@ INSERT INTO `users_copy1` (`id`, `name`, `email`, `email_verified_at`, `password
 (1560, 'BAMBANG TRIDOSO O., Ir.', '02006', NULL, '$2y$10$hZuX1WSSMuFxLLE7SowSSOvsx33ae6DZtwiTnmVaZQTxDpyF9lcSO', NULL, NULL, NULL, '2022-02-07 05:10:43', '2022-02-07 05:10:43', 'Pensiunan', '02006'),
 (1561, 'MUTTAQIEN', '02007', NULL, '$2y$10$ff4QeaZg.4EZK.vZtdBt4e6gnJD/cuWDRnhI.2JWshzFI7bEdmkQW', NULL, NULL, NULL, '2022-02-07 05:10:43', '2022-02-07 05:10:43', 'Pensiunan', '02007');
 
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `v_bank`
--- (See below for the actual view)
---
-CREATE TABLE `v_bank` (
-`bank` varchar(255)
-);
-
--- --------------------------------------------------------
-
---
--- Structure for view `v_bank`
---
-DROP TABLE IF EXISTS `v_bank`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_bank`  AS  select distinct `rekening_pensiun`.`bank` AS `bank` from `rekening_pensiun` where `rekening_pensiun`.`bank` is not null ;
-
 --
 -- Indexes for dumped tables
 --
@@ -16772,7 +16753,7 @@ ALTER TABLE `jenispensiun`
 -- AUTO_INCREMENT for table `kontakkami`
 --
 ALTER TABLE `kontakkami`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `lampiran`
@@ -16820,7 +16801,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `panduan`
 --
 ALTER TABLE `panduan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pengkinian_periode`
