@@ -44,8 +44,11 @@
                             <td>{{$item->nohp}}</td>
                              <td>@if($item->jenis == 1) Sebagai Pensiunan @else Untuk Anak Masuk Perguruan Tinggi  @endif</td>
                             <td>
-                                <a href="{!! url('pensi/layanan/cetaksk', [ 'jenis' => 'keterangan', 'id' => encrypt($item->id)]) !!}" class="btn btn-sm btn-info">Download</a>
-
+                                @if($item->file)
+                                <a href="{!! url('dapen/skpermintaan/sketerangan/'.$item->file) !!}" class="btn btn-sm btn-info">Download</a>
+                                @else
+                                <span class="label label-success">Di Proses</span>
+                                @endif
                             </td>
                         </tr>
                         @php $no++; @endphp

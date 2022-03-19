@@ -74,8 +74,8 @@
 <table style="height: 19px; width: 100%; border-collapse: collapse;" border="0">
 <tbody>
 <tr style="height: 11px;">
-<td style="width: 3.88606%; height: 19px;">
-<div id="_22:494" class="pos" style="top: 494; left: 22;"><span id="_12.2" style="font-style: italic; font-family: Times New Roman; font-size: 12.2px; color: #000000;"><span id="_15.0" style="font-weight: bold; font-style: normal; font-family: Arial; font-size: 15.0px;">*)</span></span></div>
+<td style="width: 3.88606%; height: 19px; background-color: #000000">
+<div id="_22:494" class="pos" style="top: 494; left: 22;"><span id="_12.2" style="font-style: italic; font-family: Times New Roman; font-size: 12.2px; color: #000000;"><span id="_15.0" style="font-weight: bold; font-style: normal; font-family: Arial; font-size: 15.0px;  color: #ffffff;">*)</span></span></div>
 </td>
 <td style="width: 96.1139%; height: 19px; background-color: #000000;">
 <div id="_22:494" class="pos" style="top: 494; left: 22;"><span id="_12.2" style="font-style: italic; font-family: Times New Roman; font-size: 12.2px; color: #000000;"> <span id="_15.0" style="font-weight: bold; font-style: normal; font-family: Arial; font-size: 15.0px; color: #ffffff;"> PERUBAHAN DATA PENSIUN </span></span><span style="color: #ffffff; font-family: Arial; font-size: 13px; font-style: italic;">( Diisi apabila ada perubahan ) </span><span id="_13.6" style="font-style: normal; font-size: 13.6px; color: #000000;"> TR</span></div>
@@ -175,16 +175,20 @@
 <td style="width: 33.3333%; height: 18px;">&nbsp;</td>
 <td style="width: 9.32639%; height: 18px;">&nbsp;</td>
 
-<td style="width: 57.3402%; height: 18px;">.................................., {{ Carbon\Carbon::parse($user2->updated_at)->isoFormat('D MMMM Y')}}</td>
+<td style="width: 57.3402%; height: 18px;">.................................., ..................................</td>
 </tr>
 <tr style="height: 205px;">
 <td style="width: 33.3333%; height: 205px;">&nbsp;</td>
 <td style="width: 9.32639%; height: 205px;">&nbsp;</td>
-<td style="width: 57.3402%; height: 205px; text-align: center;">Tanda Tangan / Cap Jempol<br />
+<td style="width: 57.3402%; height: 205px; text-align: center;">Tanda Tangan<br />
 <table style="width: 100%; border-collapse: collapse; height: 134px;" border="1">
 <tbody>
 <tr style="height: 134px;">
-<td style="width: 100%; height: 134px;">&nbsp;</td>
+<td style="width: 100%; height: 134px;"><center>
+    Disetujui dengan tanda tanggan digital pada :<br/>
+    {{ Carbon\Carbon::parse($user2->updated_at)->isoFormat('D MMMM Y')}} {{ $user2->updated_at->format('H:i:s')}} WIB
+    <br/>({{ $nama->nama ? $nama->nama : $nama->name }})
+</td>
 </tr>
 </tbody>
 </table>

@@ -40,6 +40,11 @@
                     <li><a href="{!! url('/pensi/informasi/panduan-user/panduanlogin') !!}">Panduan Login</a></li>
                     <li><a href="{!! url('/pensi/informasi/panduan-user/gantipassword') !!}">Panduan Lupa Password</a></li>
                     <li><a href="{!! url('/pensi/informasi/panduan-user/panduanslipmp') !!}">Panduan Cetak Slip MP</a></li>
+                    <li><a href="{!! url('/pensi/informasi/panduan-user/panduanbuktipotong') !!}">Panduan Cetak Bukti Potong</a></li>
+                    <li><a href="{!! url('/pensi/informasi/panduan-user/panduanberitaduka') !!}">Panduan Pelaporan Berita Duka</a></li>
+                    <li><a href="{!! url('/pensi/informasi/panduan-user/panduanjandaduda') !!}">Panduan Permohonan Pembayarn MP Janda / Duda</a></li>
+                    <li><a href="{!! url('/pensi/informasi/panduan-user/panduananak') !!}">Panduan Permohonan pembayaran MP Anak</a></li>
+                    <li><a href="{!! url('/pensi/informasi/panduan-user/panduansketerangan') !!}">Panduan Permintaan Surat Keterangan</a></li>
                 </ul>
             </li>
         </ul>

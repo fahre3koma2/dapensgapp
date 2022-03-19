@@ -43,7 +43,7 @@
               </div>
               <p> @php $keterangan = strip_tags($item->keterangan); @endphp {{ Str::limit($keterangan, 260) }}</p>
               <div class="bottom_info">
-                <div class="pull-left"><a class="btn btn-sm sqaure_bt" href="{{ route('artikel.show', ['artikel' => encrypt($item->id)]) }}">Read More<i class="fa fa-angle-right"></i></a></div>
+                <div class="pull-left"><a class="btn btn-sm sqaure_bt" href="{{ route('artikel.show', ['artikel' => encrypt($item->id)]) }}">Baca selengkapnya<i class="fa fa-angle-right"></i></a></div>
 
               </div>
             </div>

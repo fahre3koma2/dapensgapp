@@ -89,6 +89,12 @@
                                 <li><a href="{!! url('informasi/panduan-user/panduanlogin') !!}">Panduan Login</a></li>
                                 <li><a href="{!! url('informasi/panduan-user/gantipassword') !!}">Panduan Lupa Password</a></li>
                                 <li><a href="{!! url('informasi/panduan-user/panduanslipmp') !!}">Panduan Cetak Slip MP</a></li>
+
+                                <li><a href="{!! url('informasi/panduan-user/panduanbuktipotong') !!}">Panduan Cetak Bukti Potong</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/panduanberitaduka') !!}">Panduan Pelaporan Berita Duka</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/panduanjandaduda') !!}">Panduan Permohonan Pembayaran MP Janda / Duda</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/panduananak') !!}">Panduan Permohonan pembayaran MP Anak</a></li>
+                                <li><a href="{!! url('informasi/panduan-user/panduansketerangan') !!}">Panduan Permintaan Surat Keterangan</a></li>
                             </ul>
                         </li>
                         <li><a href="{!! url('informasi/downloadform') !!}">Unduh Formulir</a></li>

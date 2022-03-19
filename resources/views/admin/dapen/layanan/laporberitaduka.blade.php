@@ -39,7 +39,7 @@
                             <td>{{$item->nolaporan}}</td>
                             <td>{{$item->nopensiun}}</td>
                             <td>{{$item->nama_peserta}}</td>
-                            <td>{{$item->tgl_meninggal}}</td>
+                            <td>{{ Carbon\Carbon::parse($item->tgl_acara)->isoFormat('D MMMM Y')}}</td>
                             <td>{{$item->notelp}}</td>
                         </tr>
                         @php $no++; @endphp

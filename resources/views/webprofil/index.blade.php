@@ -308,46 +308,20 @@
         </div>
         </div>
         <div class="row">
+
+        @foreach($galeri as $gal)
         <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
             <div class="product_list">
             <div class="product_img">
-                <a href="{{ url('webprof/images/it_service/1.jpg')}}" class="glightbox">
-                    <img class="img-responsive" src="{{ url('webprof/images/it_service/1.jpg')}}" alt="image"> </a> </div>
+                <a href="{{ url('dapen/galeri/'.$gal->file)}}" class="glightbox">
+                    <img class="img-responsive" src="{{ url('dapen/galeri/'.$gal->file)}}" alt="image"> </a> </div>
                 <div class="center">
-                    <h4><a href="#">Galeri 1</a></h4>
+                    <h4><a href="#">{{ $gal->judul }}</a></h4>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-            <div class="product_list">
-            <div class="product_img">
-                <a href="{{ url('webprof/images/it_service/2.jpg')}}" class="glightbox">
-                     <img class="img-responsive" src="{{ url('webprof/images/it_service/2.jpg')}}" alt="image"> </a> </div>
-                <div class="center">
-                    <h4><a href="#">Galeri 2</a></h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-            <div class="product_list">
-            <div class="product_img">
-                <a href="{{ url('webprof/images/it_service/3.jpg')}}" class="glightbox">
-                    <img class="img-responsive" src="{{ url('webprof/images/it_service/3.jpg')}}" alt="image"> </a> </div>
-                <div class="center">
-                    <h4><a href="#">Galeri 3</a></h4>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-            <div class="product_list">
-            <div class="product_img">
-                <a href="{{ url('webprof/images/it_service/4.jpg')}}" class="glightbox">
-                    <img class="img-responsive" src="{{ url('webprof/images/it_service/4.jpg')}}" alt="image"> </a> </div>
-                <div class="center">
-                    <h4><a href="#">Galeri 4</a></h4>
-                </div>
-            </div>
-        </div>
+        @endforeach
+
         </div>
     </div>
   </div>

@@ -51,7 +51,7 @@ class ArtikelController extends Controller
         //
         $menu = 'artikel';
         $edit = false;
-        $kategori = Kategori::query()->get()->sortBy('id');
+        $kategori = Kategori::where('kode', '!=', 'HM')->get()->sortBy('id');
 
         $data = [
             'menu' => $menu,
@@ -234,5 +234,93 @@ class ArtikelController extends Controller
         );
 
         return redirect()->route('admin.artikel.index');
+    }
+
+    public function beranda()
+    {
+        //
+        $konten = Artikel::where('kategori', 'Home')->get();
+
+        $menu = 'artikel';
+        $edit = false;
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'konten' => $konten,
+        ];
+
+        return view('admin.dapen.beranda.index', $data);
+    }
+
+    public function editberanda($id)
+    {
+        //
+        $menu = 'artikel';
+        $edit = true;
+        $kategori = Kategori::query()->get()->sortBy('id');
+        $konten = Artikel::query()->find(decrypt($id));
+
+        $data = [
+            'menu' => $menu,
+            'edit' => $edit,
+            'kategori' => $kategori,
+            'konten' => $konten,
+        ];
+
+        return view('admin.dapen.beranda.create', $data);
+    }
+
+    public function updateberanda(Request $request, $id)
+    {
+        //
+        $data = $request->except('_token');
+
+        $this->validate(
+            $request,
+            [
+                'foto' => 'mimes:jpeg,jpg,png|max:5000'
+            ],
+            [
+                'foto.mimes' => 'File harus gambar format png/jpg',
+                'foto.max' => 'File tidak boleh lebih dari 2 MB',
+            ]
+        );
+
+        try {
+
+            $artikel = Artikel::query()->find(decrypt($id));
+
+            if ($request->hasFile('foto')) {
+
+                // menyimpan data file yang diupload ke variabel $file
+                $image = $request->file('foto');
+                $kategori = $request->kategori;
+                $string = Str::random(12);
+                $nama_file = $kategori . '_' . $string . '.' . $image->getClientOriginalExtension();
+
+                // isi dengan nama folder tempat kemana file diupload
+                $filePath = public_path('dapen/artikel/thumb');
+
+                $img = Image::make($image->path());
+                $img->resize(150, 150, function ($const) {
+                    $const->aspectRatio();
+                })->save($filePath . '/' . $nama_file);
+
+                $tujuan_upload = 'dapen/artikel';
+                $image->move($tujuan_upload, $nama_file);
+
+                $data['gambar'] = $nama_file;
+                $artikel->update($data);
+            } else {
+
+                $data['gambar'] = $artikel->gambar;
+                $artikel->update($data);
+            }
+
+            return redirect()->route('admin.beranda')->with('message', 'Operation Successful !');
+        } catch (Exception $ex) {
+            return redirect()->back()->withInput();
+        }
     }
 }

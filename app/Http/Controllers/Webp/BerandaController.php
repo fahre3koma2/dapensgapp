@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Konten;
 use App\Models\Admin\Artikel;
+use App\Models\Admin\Galeri;
 
 class BerandaController extends Controller
 {
@@ -20,6 +21,7 @@ class BerandaController extends Controller
         $konten = konten::where('status', 'home')->get();
         $splash = konten::where('status', 'splash')->first();
         $artikel = Artikel::where('kategori', 'Home')->orderBy('id')->paginate(3);
+        $galeri = Galeri::take(4)->get();
         $menu = 'beranda';
         $edit = false;
 
@@ -28,7 +30,8 @@ class BerandaController extends Controller
             'edit' => $edit,
             'konten' => $konten,
             'artikel' => $artikel,
-            'splash' => $splash
+            'splash' => $splash,
+            'galeri' => $galeri,
         ];
 
         return view('webprofil.index', $data);

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\PelayananController;
 use App\Http\Controllers\Admin\PermohonanController as AdminPermohonanController;
 use App\Http\Controllers\Admin\LaporanController as AdminLaporanController;
 use App\Http\Controllers\Admin\AdminSetingController;
+use App\Http\Controllers\Admin\GaleriController as AdminGaleriController;
 
 use App\Http\Controllers\Webp\BerandaController;
 use App\Http\Controllers\Webp\ProfilController;
@@ -111,6 +112,12 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/konten/sejarahpendirian', [KontenController::class, 'sejarahpendirian'])->name('sejarahpendirian');
         Route::get('/konten/pendiri', [KontenController::class, 'pendiri'])->name('pendiri');
         Route::get('/konten/strukturorganisasi', [KontenController::class, 'strukturorganisasi'])->name('strukturorganisasi');
+
+        Route::get('/konten/beranda', [AdminArtikelController::class, 'beranda'])->name('beranda');
+        Route::get('/konten/editberanda/{id}', [AdminArtikelController::class, 'editberanda'])->name('editberanda');
+        Route::put('/konten/updateberanda/{id}', [AdminArtikelController::class, 'updateberanda'])->name('updateberanda');
+
+        Route::resource('/galeri', AdminGaleriController::class);
 
         Route::resource('/artikel', AdminArtikelController::class);
 

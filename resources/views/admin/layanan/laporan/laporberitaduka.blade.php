@@ -29,6 +29,7 @@
                         <th>Nama Peserta</th>
                         <th>Tanggal Meninggal</th>
                         <th>No Telp</th>
+                        <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,8 +40,9 @@
                             <td>{{$item->nolaporan}}</td>
                             <td>{{$item->nopensiun}}</td>
                             <td>{{$item->nama_peserta}}</td>
-                            <td>{{$item->tgl_meninggal}}</td>
+                            <td>{{ Carbon\Carbon::parse($item->tgl_acara)->isoFormat('D MMMM Y')}}</td>
                             <td>{{$item->notelp}}</td>
+                            <td>{{$item->email}}</td>
                         </tr>
                         @php $no++; @endphp
                         @endforeach

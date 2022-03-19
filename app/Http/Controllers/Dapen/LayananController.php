@@ -138,7 +138,7 @@ class LayananController extends Controller
         } else {
 
             $user1 = Biodata::where([['nopeserta', $biodata[0]->nopeserta]])->first();
-            $user2 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['baru', 2], ['verifikasi', 1], ['tampil', 1]])->first();
+            $user2 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['baru', 1]])->first();
         }
 
         if ($user1->jenis == 'U') {
