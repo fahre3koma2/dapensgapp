@@ -74,8 +74,9 @@ use App\Http\Controllers\Dapen\PengkinianController;
 
     //Berita
     Route::get('berita/galeri', [BeritaController::class, 'galeri'])->name('galeri');
-    Route::get('berita/artikel', [BeritaController::class, 'artikel'])->name('artikel');
+
     Route::resource('/artikel', ArtikelController::class);
+    Route::get('/artikel/index/{kat}', [ArtikelController::class, 'index'])->name('artikel.index');
 
     //Informasi
     Route::get('informasi/pdp', [InformasiController::class, 'pdp'])->name('pdp');
@@ -120,6 +121,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::resource('/galeri', AdminGaleriController::class);
 
         Route::resource('/artikel', AdminArtikelController::class);
+        Route::get('/artikel/index/{kat}', [AdminArtikelController::class, 'index'])->name('artikel.index');
 
         Route::resource('/pelayananan', PelayananController::class);
         Route::get('/pelayanan/skpenetapan', [PelayananController::class, 'skpenetapan'])->name('skpenetapan');

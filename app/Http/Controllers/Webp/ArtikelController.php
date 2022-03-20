@@ -16,13 +16,13 @@ class ArtikelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($kat)
     {
         //
         $menu = 'artikel';
         $edit = false;
 
-        $konten = Artikel::where('kategori', '!=', 'Home')->orderBy('id', 'desc')->paginate(3);
+        $konten = Artikel::where('kategori', '!=', 'Home')->where('kategori', $kat)->orderBy('id', 'desc')->paginate(3);
         //$kategori = Kategori::query()->get()->sortBy('id');
 
         $kategori = DB::table('kategori')
@@ -42,6 +42,7 @@ class ArtikelController extends Controller
             'konten' => $konten,
             'kategori' => $kategori,
             'bulan' => $bulan,
+            'kat' => $kat,
         ];
 
         return view('webprofil.berita.artikel', $data);

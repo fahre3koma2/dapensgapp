@@ -64,7 +64,7 @@
                       <div class="row">
                         <div class="offset-sm-3 col-md-9">
                           <button type="submit" class="btn btn-success"> Submit</button>
-                          <a href="{{ route('admin.artikel.index') }}" class="btn btn-info">Cancel</a>
+                          <a href="{{ route('admin.artikel.index', ['kat' => 'umum']) }}" class="btn btn-info">Cancel</a>
                         </div>
                       </div>
                     </div>

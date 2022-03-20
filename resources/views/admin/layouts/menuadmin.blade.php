@@ -51,10 +51,10 @@
               <li class="{{ $menu == 'konten' ? 'active' : '' }}"><a href="{!! url('admin/konten/beranda') !!}"><i class="fa fa-angle-right"></i> Beranda</a></li>
               <li class="{{ $menu == 'konten' ? 'active' : '' }}"><a href="{!! url('admin/galeri') !!}"><i class="fa fa-angle-right"></i> Galeri</a></li>
             <li class="{{ $menu == 'konten' ? 'active' : '' }}"><a href="{!! url('admin/konten/profilgambar') !!}"><i class="fa fa-angle-right"></i> Konten Gambar</a></li>
-            <li class="{{ $menu == 'artikel' ? 'active' : '' }}"><a href="{!! url('admin/artikel') !!}"><i class="fa fa-angle-right"></i> Artikel</a>
+            <li class="{{ $menu == 'artikel' ? 'active' : '' }}"><a href="#"><i class="fa fa-angle-right"></i> Artikel</a>
                 <ul>
-                    <li><a href="{!! url('admin/seting-panduan') !!}">Umum</a></li>
-                     <li><a href="{!! url('admin/seting-panduan') !!}">Khusus</a></li>
+                    <li><a href="{!! url('admin/artikel/index/umum') !!}">Umum</a></li>
+                    <li><a href="{!! url('admin/artikel/index/khusus') !!}">Khusus</a></li>
                 </ul>
             </li>
           </ul>

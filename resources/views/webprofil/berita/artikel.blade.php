@@ -9,10 +9,10 @@
         <div class="full">
           <div class="title-holder">
             <div class="title-holder-cell text-left">
-              <h1 class="page-title">Artikel List</h1>
+              <h1 class="page-title">Artikel {{$kat}}</h1>
               <ol class="breadcrumb">
                 <li><a href="index.html">Home</a></li>
-                <li class="active">Artikel List</li>
+                <li class="active">Artikel {{$kat}}</li>
               </ol>
             </div>
           </div>

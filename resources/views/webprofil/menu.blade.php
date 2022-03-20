@@ -102,8 +102,8 @@
                 </li>
                 <li> <a href="#">Berita</a>
                     <ul>
-                        <li><a href="{!! url('/artikel') !!}">Artikel Umum</a></li>
-                        <li><a href="{!! url('/artikel') !!}">Artikel Khusus</a></li>
+                        <li><a href="{!! url('/artikel/index/umum') !!}">Artikel Umum</a></li>
+                        <li><a href="{!! url('/artikel/index/khusus') !!}">Artikel Khusus</a></li>
                     </ul>
                 </li>
 

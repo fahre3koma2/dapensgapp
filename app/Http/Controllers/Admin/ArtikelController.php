@@ -24,10 +24,10 @@ class ArtikelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($kat)
     {
         //
-        $konten = Artikel::where('kategori', '!=', 'Home')->get();
+        $konten = Artikel::where('kategori', '!=', 'Home')->where('kategori', $kat)->get();
 
         $menu = 'artikel';
         $edit = false;
@@ -36,6 +36,7 @@ class ArtikelController extends Controller
             'menu' => $menu,
             'edit' => $edit,
             'konten' => $konten,
+            'kat' => $kat
         ];
 
         return view('admin.dapen.artikel.index', $data);
@@ -112,7 +113,7 @@ class ArtikelController extends Controller
         );
 
         //return redirect()->back()->with('message', 'Operation Successful !');
-        return redirect()->route('admin.artikel.index');
+        return redirect()->route('admin.artikel.index', ['kat' => $kategori]);
     }
 
     /**
@@ -206,7 +207,7 @@ class ArtikelController extends Controller
                 $artikel->update($data);
             }
 
-            return redirect()->route('admin.artikel.index')->with('message', 'Operation Successful !');
+            return redirect()->route('admin.artikel.index', ['kat' => $artikel->kategori])->with('message', 'Operation Successful !');
         } catch (Exception $ex) {
             return redirect()->back()->withInput();
         }
@@ -233,7 +234,7 @@ class ArtikelController extends Controller
             'Foto Artikel berhasil di hapus'
         );
 
-        return redirect()->route('admin.artikel.index');
+        return redirect()->route('admin.artikel.index', ['kat' => $berkasnya->kategori] );
     }
 
     public function beranda()

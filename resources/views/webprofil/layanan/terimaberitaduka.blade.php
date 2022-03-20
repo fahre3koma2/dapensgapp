@@ -48,9 +48,9 @@
                   </div>
                   <div class="price_cont text_align_center">
                     <h2><p>Kontak Dapen SG</p></h2>
-                    <p>No Telepon : </p>
-                    <p>WA :</p>
-                    <p>Email : </p>
+                    <p>No Telepon : +6231 3984492</p>
+                    <p>WA : 08113040444</p>
+                    <p>Email : dpsg@indo.net.id</p>
                   </div>
                 </div>
                 <div class="price_bottom">

@@ -2,10 +2,10 @@
 
 @section('breadcrumb')
     <div class="content-header sty-one">
-      <h1>Konten Artikel</h1>
+      <h1>Konten Artikel {{$kat}}</h1>
       <ol class="breadcrumb">
         <li><a href="#">Konten</a></li>
-        <li><i class="fa fa-angle-right"></i> Konten Artikel</li>
+        <li><i class="fa fa-angle-right"></i> Konten Artikel {{$kat}}</li>
       </ol>
     </div>
 @endsection
@@ -22,7 +22,7 @@
             <div class="right-page-header">
             <div class="d-flex">
                 <div class="align-self-center">
-                    <h4 class="text-black m-b-1">Konten Artikel </h4>
+                    <h4 class="text-black m-b-1">Konten Artikel {{$kat}}</h4>
                 </div>
                 <div class="ml-auto">
                     <a href="{!! url('admin/artikel/create') !!}" class="btn btn-sm btn-primary btn-block">Tambah File</a>
