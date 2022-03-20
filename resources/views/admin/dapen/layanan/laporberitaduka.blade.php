@@ -29,6 +29,7 @@
                         <th>Nama Peserta</th>
                         <th>Tanggal Meninggal</th>
                         <th>No Telp</th>
+                        <th>Cetak</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,6 +42,7 @@
                             <td>{{$item->nama_peserta}}</td>
                             <td>{{ Carbon\Carbon::parse($item->tgl_acara)->isoFormat('D MMMM Y')}}</td>
                             <td>{{$item->notelp}}</td>
+                            <td><a href="{!! route('pensi.laporan.laporberitaduka-cetak', ['id' => encrypt($item->id)]) !!}" class="btn btn-sm btn-primary btn-block">Cetak Pelaporan</a></td>
                         </tr>
                         @php $no++; @endphp
                         @endforeach

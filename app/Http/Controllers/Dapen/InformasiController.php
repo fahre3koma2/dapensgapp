@@ -9,6 +9,17 @@ use App\Models\Admin\Panduan;
 use App\Models\Admin\Laporan;
 use App\Models\User;
 
+use Alert;
+use Exception;
+use Crypt;
+use Validator;
+use Image;
+use Str;
+use File;
+use Carbon\Carbon;
+use PDF;
+use Carbon\CarbonPeriod;
+
 class InformasiController extends Controller
 {
     /**
@@ -117,6 +128,15 @@ class InformasiController extends Controller
         ];
 
         return view('admin.dapen.layanan.laporberitaduka', $data);
+    }
+
+    public function laporberitadukacetak($id)
+    {
+
+        $berita = Laporan::query()->find(decrypt($id));
+
+        $pdf = PDF::loadview('admin.layanan.laporan.cetakberitaduka', ['berita' => $berita]);
+        return $pdf->download('laporan-beritaduka-pdf.pdf');
     }
 
     public function panduanuser($isi)

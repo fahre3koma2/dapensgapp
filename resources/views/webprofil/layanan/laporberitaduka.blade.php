@@ -87,7 +87,7 @@
                 <div class="col-md-8">
                 <div class="form-field">
                   <label>Alamat Duka<span class="red">*</span></label>
-                  <textarea name="alamat_duka" required></textarea>
+                  <textarea name="alamat" required></textarea>
                 </div>
               </div>
               <div class="col-md-6">

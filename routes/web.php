@@ -264,6 +264,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::post('/permohonanrekening-kirim/{id}', [PermohonanRekeningController::class, 'kirim'])->name('permohonanrekening.kirim');
 
         Route::get('/laporan/laporberitaduka', [InfoPensiController::class, 'laporberitaduka'])->name('laporan.laporberitaduka');
+        Route::get('/laporan/laporberitaduka-cetak/{id}', [InfoPensiController::class, 'laporberitadukacetak'])->name('laporan.laporberitaduka-cetak');
 
         Route::resource('/pengkinian', PengkinianController::class);
 
