@@ -127,7 +127,7 @@
                     <td>3. </td>
                     <td> <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_nikah) }}" title="download-view" target="_blank"> Buku Tabungan Janda/Duda </a></td>
                     <td>
-                        @if($mohon->lampiran->file_surat_nikah)
+                        @if($mohon->lampiran->file_tabungan)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>

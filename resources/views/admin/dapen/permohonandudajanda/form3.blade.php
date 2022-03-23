@@ -127,7 +127,7 @@
                     <td>3. </td>
                     <td>Buku Tabungan Janda/Duda</td>
                     <td>
-                        @if($mohon->lampiran->file_surat_nikah)
+                        @if($mohon->lampiran->file_tabungan)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>

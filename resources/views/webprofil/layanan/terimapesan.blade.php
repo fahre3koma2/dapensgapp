@@ -39,7 +39,7 @@
             <div class="row">
               <div class="price_table_inner margin_bottom_30">
                 <div class="price_head text_align_center white_fonts">
-                  <h5>Pesan Berhasil Dikirm</h5>
+                  <h5>Pesan Berhasil Dikirim</h5>
                   <p>Pesan Kontak Dapen Semen Gresik</p>
                 </div>
                 <div class="price_contant">

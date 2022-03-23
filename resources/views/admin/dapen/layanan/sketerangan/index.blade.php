@@ -42,7 +42,7 @@
                             <td>{{$item->nopeserta}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->nohp}}</td>
-                             <td>@if($item->jenis == 1) Sebagai Pensiunan @else Untuk Anak Masuk Perguruan Tinggi  @endif</td>
+                             <td>@if($item->jenis == 0) Sebagai Pensiunan @else Untuk Anak Masuk Perguruan Tinggi  @endif</td>
                             <td>
                                 @if($item->file)
                                 <a href="{!! url('dapen/skpermintaan/sketerangan/'.$item->file) !!}" class="btn btn-sm btn-info">Download</a>

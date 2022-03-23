@@ -47,7 +47,7 @@
                   </tr>
                   <tr>
                     <th>Nama :</th>
-                    <td>{{ $user->name }}</td>
+                    <td>{{ $nama->nama ? $nama->nama : $nama->name }}</td>
                   </tr>
                   <tr>
                     <th>Tanggal Lahir :</th>
@@ -146,7 +146,7 @@
                                     <span class="label label-success">Anak</span>
                                 @endif
                             </td>
-                            <td>{{$item->tgl_lahir}}</td>
+                            <td>{{ Carbon\Carbon::parse($item->tgl_lahir)->isoFormat('D MMMM Y')}}</td>
                             {{--  <td>
                                 <button type="button" class="btn btn-sm btn-danger delete" data-id="{{ $item->id }}" data-file="{{$item->id}}"><i class="fa fa-trash"></i> Hapus</button>
                                 {{ Form::open(['url'=>route('pensi.keluarga.destroy', [Crypt::encrypt($item->id)]), 'method'=>'delete', 'id' => $item->id, 'style' => 'display: none;']) }}
@@ -194,7 +194,7 @@
                     <td>2. </td>
                     <td>Surat Keterangan Meninggal</td>
                     <td>
-                        @if($user->lampiran->file_kk)
+                        @if($user->lampiran->file_surat_kematian)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>
@@ -205,7 +205,7 @@
                     <td>3. </td>
                     <td>Surat Nikah</td>
                     <td>
-                        @if($user->lampiran->file_kk)
+                        @if($user->lampiran->file_nikah)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>
@@ -216,7 +216,7 @@
                     <td>4. </td>
                     <td>Surat Cerai</td>
                     <td>
-                        @if($user->lampiran->file_lain2)
+                        @if($user->lampiran->file_lain1)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>

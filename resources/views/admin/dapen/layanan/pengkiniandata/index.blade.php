@@ -87,7 +87,7 @@
                             <td>
                                 @if ($item->baru)
                                 @else
-                                    <a href="{!! url('pensi/pengkinian/formedit1/'.encrypt($item->id)) !!}" class="btn btn-sm btn-warning"> Edit </a>
+                                    <a href="{!! url('pensi/pengkinian/formedit1/'.encrypt($item->id).'/'.$item->periode) !!}" class="btn btn-sm btn-warning"> Edit </a>
                                 @endif
                             </td>
                         </tr>

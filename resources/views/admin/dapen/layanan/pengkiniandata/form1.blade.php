@@ -135,7 +135,7 @@
                             <input type="radio" name="jenis" value="N" {{ $user->jenis == 'N' ? 'checked' : '' }} required>
                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Menikah</span> </label>
                             <label class="inline custom-control custom-radio block">
-                            <input type="radio" name="jenis" value="D" {{ $user->jenis == 'D' ? 'checked' : '' }} required>
+                            <input type="radio" name="jenis" value="D" {{ $user->jenis == 'U' ? 'checked' : '' }} required>
                             <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Duda</span> </label>
                             <label class="inline custom-control custom-radio block">
                             <input type="radio" name="jenis" value="J" {{ $user->jenis == 'J' ? 'checked' : '' }} required>

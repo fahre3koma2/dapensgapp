@@ -45,8 +45,10 @@
                              <td>{{$item->name_pensiun}}</td>
                             <td>{{$item->nohp}}</td>
                             <td>
-                                @if ($item->status)
-                                <span class="label label-success">Dikirim</span>
+                                @if ($item->status == 1)
+                                <span class="label label-info">Dikirim</span>
+                                @elseif ($item->status == 2)
+                                <span class="label label-success">Sudah Diverifikasi</span>
                                 @else
                                 <span class="label label-warning">Belum Dikirim</span>
                                 @endif

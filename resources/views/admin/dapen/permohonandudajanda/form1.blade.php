@@ -67,7 +67,7 @@
                     <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $kel->nama !!}" readonly="readonly">
                     @endforeach
                 @else
-                    <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $user->biodata->nama !!}" readonly="readonly">
+                    <input class="form-control" type="text" name="name" value="{!! $edit ? $mohon->name : $user->biodata->name !!}" readonly="readonly">
                 @endif
                 </div>
             </div>

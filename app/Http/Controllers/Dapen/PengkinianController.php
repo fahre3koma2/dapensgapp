@@ -170,16 +170,30 @@ class PengkinianController extends Controller
 
 
         $user = BiodataUpdate::query()->with(['lampiran', 'keluarga'])->find(decrypt($id));
+
+        if ($user->jenis == 'U') {
+            $nama =  $user->keluarga->where('hubungan', 'S')->first();
+        } elseif ($user->jenis == 'J') {
+            $nama =  $user->keluarga->where('hubungan', 'I')->first();
+        } elseif ($user->jenis == 'A') {
+            $nama =  $user->keluarga->where('hubungan', 'A')->where('st_kerja', 0)->where('st_nikah', 0)->first();
+            if ($nama == null) {
+                $nama = $user;
+            }
+        } else {
+            $nama = $user;
+        }
         //dd($user);
         $data = [
             'menu' => $menu,
             'edit' => $edit,
             'user' => $user,
+            'nama' => $nama,
         ];
         return view('admin.dapen.layanan.pengkiniandata.form4', $data);
     }
 
-    public function formedit1($id)
+    public function formedit1($id, $periode)
     {
         //
         $menu = 'permohonan';
@@ -206,6 +220,7 @@ class PengkinianController extends Controller
             'edit' => $edit,
             'user' => $user,
             'nama' => $nama,
+            'periode' => $periode,
         ];
 
         return view('admin.dapen.layanan.pengkiniandata.form1', $data);

@@ -197,6 +197,61 @@
           </div>
         </div>
       </div>
+       <div class="card m-t-3">
+          <div class="card">
+            <div class="card-header bg-orange">
+              <h5 class="m-b-0">Lampiran</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>File</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1. </td>
+                    <td>Kartu Keluarga (KK)</td>
+                    <td>
+                        <a href="{{ url('dapen/lampiran/'.$user2->nopeserta.'/'.$user2->lampiran->file_kk) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2. </td>
+                    <td>Surat Keterangan Meninggal</td>
+                    <td>
+                        <a href="{{ url('dapen/lampiran/'.$user2->nopeserta.'/'.$user2->lampiran->file_surat_kematian) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3. </td>
+                    <td>Surat Nikah</td>
+                    <td>
+                        <a href="{{ url('dapen/lampiran/'.$user2->nopeserta.'/'.$user2->lampiran->file_surat_nikah) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4. </td>
+                    <td>Surat Cerai</td>
+                    <td>
+                        <a href="{{ url('dapen/lampiran/'.$user2->nopeserta.'/'.$user2->lampiran->file_lain1) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5. </td>
+                    <td>Surat Keterangan Bekerja</td>
+                    <td>
+                        <a href="{{ url('dapen/lampiran/'.$user2->nopeserta.'/'.$user2->lampiran->file_lain2) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </div>
+        </div>
       <div class="card m-t-3">
         <div class="card-body">
             <div class="click2edit m-b-3">Silahakan Klik Verifikasi untuk Pengkinian Data Pensiunan</div>

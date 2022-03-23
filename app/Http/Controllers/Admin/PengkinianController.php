@@ -90,18 +90,18 @@ class PengkinianController extends Controller
         $menu = 'pensi';
         $edit = false;
 
-        $biodata = BiodataUpdate::where('nopeserta', decrypt($id))->orderBy('updated_at', 'desc')->get();
+        $biodata = BiodataUpdate::with(['lampiran', 'keluarga'])->where('nopeserta', decrypt($id))->orderBy('updated_at', 'desc')->get();
 
         if($biodata->count() > 1)
         {
-            $user1 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['tampil', 1], ['verifikasi', 1], ['baru', 2]])->orderBy('created_at', 'desc')->first();
-            $user2 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta], ['tampil', null], ['verifikasi', null], ['baru', 1]])->first();
+            $user1 = BiodataUpdate::with(['lampiran', 'keluarga'])->where([['nopeserta', $biodata[0]->nopeserta], ['tampil', 1], ['verifikasi', 1], ['baru', 2]])->orderBy('created_at', 'desc')->first();
+            $user2 = BiodataUpdate::with(['lampiran', 'keluarga'])->where([['nopeserta', $biodata[0]->nopeserta], ['tampil', null], ['verifikasi', null], ['baru', 1]])->first();
             $new = 1;
 
         }else{
 
-            $user1 = Biodata::where([['nopeserta', $biodata[0]->nopeserta]])->first();
-            $user2 = BiodataUpdate::where([['nopeserta', $biodata[0]->nopeserta] , ['baru', 1]])->first();
+            $user1 = Biodata::with(['lampiran', 'keluarga'])->where([['nopeserta', $biodata[0]->nopeserta]])->first();
+            $user2 = BiodataUpdate::with(['lampiran', 'keluarga'])->where([['nopeserta', $biodata[0]->nopeserta] , ['baru', 1]])->first();
             $new = 0;
         }
 

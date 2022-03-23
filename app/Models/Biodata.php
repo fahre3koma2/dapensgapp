@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Admin\DataKeluarga;
 use App\Models\Admin\RekeningPensiun;
+use App\Models\Admin\Lampiran;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Admin\Unit;
@@ -35,4 +36,10 @@ class Biodata extends Model
     {
         return $this->hasOne(RekeningPensiun::class, 'nopeserta', 'nopeserta');
     }
+
+    public function lampiran()
+    {
+        return $this->belongsTo(Lampiran::class, 'nopeserta', 'nopeserta');
+    }
+
 }

@@ -62,7 +62,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                <label>Janda/Duda dari :</label>
+                <label>Anak dari :</label>
                 <input class="form-control" type="text" name="name_pensiun" value="{!! $edit ? $mohon->name_pensiun : $user->biodata->name !!}" readonly="readonly">
                 </div>
             </div>

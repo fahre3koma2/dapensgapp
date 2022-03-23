@@ -116,7 +116,7 @@ class InformasiController extends Controller
             'mohon' => $mohon
         ];
 
-        return view('webprofil.informasi.panduanuseredit', $data);
+        return view('webprofil.informasi.panduanuser', $data);
     }
 
     public function pdp()
