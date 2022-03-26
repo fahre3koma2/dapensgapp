@@ -40,8 +40,8 @@
                         <div class="form-group">
                         <label>No Peserta / Pensiun:</label>
                         <input class="form-control" type="text" name="nopeserta" value="{{ $edit ? $mohon->nopeserta : $user->biodata->nopeserta }}" disabled>
-                        <input class="form-control" type="hidden" name="nopeserta" value="{{ $user->biodata->nopeserta }}">
-                        <input class="form-control" type="hidden" name="jenis" value="{{ $user->biodata->jenis }}">
+                        <input class="form-control" type="hidden" name="nopeserta" value="{{  $edit ? $mohon->nopeserta : $user->biodata->nopeserta }}">
+                        <input class="form-control" type="hidden" name="jenis" value="{{  $edit ? $mohon->jenis : $user->biodata->jenis }}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -63,7 +63,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                 <label>Anak dari :</label>
-                <input class="form-control" type="text" name="name_pensiun" value="{!! $edit ? $mohon->name_pensiun : $user->biodata->name !!}" readonly="readonly">
+                <input class="form-control" type="text" name="anak_dari" value="{!! $edit ? $mohon->anak_dari : $user->biodata->name !!}" readonly="readonly">
                 </div>
             </div>
             <div class="col-md-12">
@@ -93,32 +93,25 @@
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>No Rekening :</label>
-                    <input class="form-control" type="text" name="norekening" value="{!! $user->rekening->norekening !!}" required>
+                    <input class="form-control" type="text" name="norekening" value="{!! $edit ? $mohon->norekening : '' !!}" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Atas Nama :</label>
-                    <input class="form-control" type="text" name="atasnama" value="{!! $user->rekening->atasnama !!}" required>
-                    <input class="form-control" type="hidden" name="nama_penerima" value="{!! $user->rekening->atasnama !!}" required>
+                    <input class="form-control" type="text" name="atasnama" value="{!! $edit ? $mohon->atasnama : $namaanak !!}" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Bank :</label>
-                    <select class="custom-select form-control" name="bank" required>
-                        <option value="Mandiri" {{ $user->rekening->bank == 'Mandiri' ? 'selected' : '' }}>Mandiri</option>
-                        <option value="BNI" {{ $user->rekening->bank == 'BNI' ? 'selected' : ''}}>BNI</option>
-                        <option value="BRI" {{ $user->rekening->bank == 'BRI' ? 'selected' : ''}}>BRI</option>
-                        <option value="BTPN" {{ $user->rekening->bank == 'BTPN' ? 'selected' : ''}}>BTPN</option>
-                    </select>
+                    <input class="form-control" type="text" name="bank" value="{!! $edit ? $mohon->bank : '' !!}" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                     <label>Cabang :</label>
-                    <input class="form-control" type="text" name="cabang" value="{!! $user->rekening->cabang !!}" required>
-                    <input class="form-control" type="hidden" name="alamat_rek" value="{!! $user->rekening->cabang !!}" required>
+                    <input class="form-control" type="text" name="cabang" value="{!! $edit ? $mohon->cabang : '' !!}" required>
                     </div>
                 </div>
             </div>

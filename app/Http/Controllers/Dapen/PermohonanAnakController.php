@@ -323,14 +323,14 @@ class PermohonanAnakController extends Controller
                     'file_surat_nikahortu.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
-        } elseif ($request->type == "file_foto") {
+        } elseif ($request->type == "file_scan_anak") {
             $this->validate(
                 $request,
-                ['file_foto' => 'required|mimes:jpg,jpeg,png|max:1000'],
+                ['file_scan_anak' => 'required|mimes:jpg,jpeg,png|max:1000'],
                 [
-                    'file_foto.required' => 'Tidak ada file yang di upload',
-                    'file_foto.mimes' => 'File harus pdf',
-                    'file_foto.max' => 'File tidak boleh lebih dari 10 mb',
+                    'file_scan_anak.required' => 'Tidak ada file yang di upload',
+                    'file_scan_anak.mimes' => 'File harus pdf',
+                    'file_scan_anak.max' => 'File tidak boleh lebih dari 10 mb',
                 ]
             );
         } elseif ($request->type == "file_ktp") {
@@ -437,7 +437,7 @@ class PermohonanAnakController extends Controller
     {
         $mohon = PermohonanAnak::query()->with(['biodata', 'lampiran'])->find(decrypt($id));
 
-        if (is_null($mohon->lampiran->file_surat_kematian) || is_null($mohon->lampiran->file_foto) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikahortu) || is_null($mohon->lampiran->file_surat_kuasa) || is_null($mohon->lampiran->file_surat_sekolah) || is_null($mohon->lampiran->file_belum_nikah) || is_null($mohon->lampiran->file_surat_penghasilan)) {
+        if (is_null($mohon->lampiran->file_surat_kematian) || is_null($mohon->lampiran->file_scan_anak) || is_null($mohon->lampiran->file_ktp) || is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikahortu) || is_null($mohon->lampiran->file_surat_kuasa) || is_null($mohon->lampiran->file_surat_sekolah) || is_null($mohon->lampiran->file_belum_nikah) || is_null($mohon->lampiran->file_surat_penghasilan)) {
 
             // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
             alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');

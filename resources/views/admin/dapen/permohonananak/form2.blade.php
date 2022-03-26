@@ -105,31 +105,31 @@
                             </td>
                         </tr>
                         <tr>
-                            <td> <p class="font-weight-bold"> Foto berwarna ukuran 3 x 4 </p>
+                            <td> <p class="font-weight-bold"> Buku Rekening Anak </p>
                                 <ol style="list-style:square">
                                     <li>Ukuran maksimum 300KB</li>
                                     <li>file harus (jpg/Jpeg/Png)</li>
                                 </ol>
                             </td>
                             <td>
-                                @if ($mohon->lampiran->file_foto)
-                                    <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_foto) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a> |
-                                    <button type="button" class="btn btn-sm btn-danger" onclick="return hapusFile('file_foto_-'+'{{ $mohon->nopeserta }}')"><i class="fa fa-trash"></i> Hapus</button>
+                                @if ($mohon->lampiran->file_scan_anak)
+                                    <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_scan_anak) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a> |
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="return hapusFile('file_scan_anak_-'+'{{ $mohon->nopeserta }}')"><i class="fa fa-trash"></i> Hapus</button>
                                         <form action="{{ route('pensi.permohonananak.deletefile', ['id' => $mohon->nopeserta]) }}" method="post" id="file-file_foto_-{{ $mohon->nopeserta }}">
                                             @csrf
-                                            {{ Form::hidden('type', 'file_foto') }}
+                                            {{ Form::hidden('type', 'file_scan_anak') }}
                                             {{ Form::hidden('idx', encrypt($mohon->id) ) }}
                                         </form>
                                 @else
-                                {!! Form::open(['url' => route('pensi.permohonananak.upload'), 'method' => 'post', 'id' => 'file_foto', 'files' => true]) !!}
+                                {!! Form::open(['url' => route('pensi.permohonananak.upload'), 'method' => 'post', 'id' => 'file_scan_anak', 'files' => true]) !!}
                                     <div class="form-group row">
                                         <div class="col-sm-8">
-                                            <label for="file_foto">Silahkan Input File</label>
-                                            <input class="form-control" type="hidden" name="type" value="file_foto">
+                                            <label for="file_scan_anak">Silahkan Input File</label>
+                                            <input class="form-control" type="hidden" name="type" value="file_scan_anak">
                                             <input class="form-control" type="hidden" name="valueid" value="{{ $mohon->nopeserta }}">
                                             <input class="form-control" type="hidden" name="idx" value="{{ encrypt($mohon->id) }}">
-                                            <input type="file" name="file_foto" id="file_foto">
-                                            @if ($errors->has('file_foto')) <span class="text-danger">{{ $errors->first('file_foto') }}</span> @endif
+                                            <input type="file" name="file_scan_anak" id="file_scan_anak">
+                                            @if ($errors->has('file_scan_anak')) <span class="text-danger">{{ $errors->first('file_scan_anak') }}</span> @endif
                                         </div>
                                         <div class="col-sm-4">
                                              <button type="submit" data-direction="next" class="btn btn-sm btn-info">Upload</button>

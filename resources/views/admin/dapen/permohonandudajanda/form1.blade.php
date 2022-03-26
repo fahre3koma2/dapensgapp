@@ -48,7 +48,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                         <label>Jenis Pensiun:</label>
-                        <input class="form-control" type="text" name="nopeserta" value="{{ $edit ? $mohon->jenis : $user->biodata->jenis }}" disabled>
+                        <input class="form-control" type="text" name="jenis" value="{{ $edit ? $mohon->jenis : $user->biodata->jenis }}" readonly>
                         </div>
                     </div>
                 </div>

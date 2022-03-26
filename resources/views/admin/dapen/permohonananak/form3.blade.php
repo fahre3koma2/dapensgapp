@@ -47,8 +47,8 @@
                     <td>{{ $mohon->nopeserta }}</td>
                   </tr>
                  <tr>
-                    <th style="width:50%">NIK :</th>
-                    <td>{{ $mohon->nik }}</td>
+                    <th style="width:50%">No HP :</th>
+                    <td>{{ $mohon->nohp }}</td>
                   </tr>
                 </tbody></table>
               </div>
@@ -71,14 +71,14 @@
             <!-- /.col -->
         </div>
         <br/>
-        <div class="row">
+        {{--  <div class="row">
             <div class="col-lg-12 m-b-3">
               <h3 class="text-black"> Data Anak </h3>
             </div>
             <!-- /.col -->
-          </div>
+          </div>  --}}
 
-            <div class="row ">
+            {{--  <div class="row ">
             <!-- /.col -->
                 <div class="col-lg-6">
                 <div class="table-responsive">
@@ -149,7 +149,7 @@
                 </div>
                 </div>
                 <!-- /.col -->
-            </div>
+            </div>  --}}
             <br/>
            <div class="row">
             <div class="col-lg-12 m-b-3">
@@ -193,9 +193,9 @@
                   </tr>
                   <tr>
                     <td>2. </td>
-                    <td>Foto berwarna ukuran 3 x 4</td>
+                    <td>Buku Rekening Anak</td>
                     <td>
-                        @if($mohon->lampiran->file_foto)
+                        @if($mohon->lampiran->file_scan_anak)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>

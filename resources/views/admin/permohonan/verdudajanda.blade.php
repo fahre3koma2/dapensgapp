@@ -103,35 +103,23 @@
                 <tbody>
                   <tr>
                     <td>1. </td>
-                    <td><a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_kematian) }}" title="download-view" target="_blank"> File Surat Kematian </a></td>
+                    <td>File Surat Kematian</td>
                     <td>
-                        @if($mohon->lampiran->file_surat_kematian)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_kematian) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                     <td>2. </td>
-                    <td><a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_kk) }}" title="download-view" target="_blank"> Kartu Keluarga (KK) </a></td>
+                    <td>Kartu Keluarga (KK)</td>
                     <td>
-                        @if($mohon->lampiran->file_kk)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_kk) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                     <td>3. </td>
-                    <td> <a href="{{ url('dapen/lampiran/dudajanda/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_nikah) }}" title="download-view" target="_blank"> Buku Tabungan Janda/Duda </a></td>
+                    <td> Buku Tabungan Janda/Duda </td>
                     <td>
-                        @if($mohon->lampiran->file_tabungan)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_tabungan) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                 </tbody>

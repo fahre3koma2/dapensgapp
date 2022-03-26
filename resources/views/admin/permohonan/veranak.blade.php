@@ -71,7 +71,7 @@
             <!-- /.col -->
         </div>
         <br/>
-        <div class="row">
+        {{--  <div class="row">
             <div class="col-lg-12 m-b-3">
               <h3 class="text-black"> Data Anak </h3>
             </div>
@@ -149,7 +149,7 @@
                 </div>
                 </div>
                 <!-- /.col -->
-            </div>
+            </div>  --}}
             <br/>
            <div class="row">
             <div class="col-lg-12 m-b-3">
@@ -173,99 +173,63 @@
                     <td>1. </td>
                     <td>Surat Kematian orang tua</td>
                     <td>
-                        @if($mohon->lampiran->file_surat_kematian)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_kematian) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                     <td>2. </td>
                     <td>Surat Nikah Orang Tua</td>
                     <td>
-                        @if($mohon->lampiran->file_surat_nikahortu)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_nikahortu) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                     <td>2. </td>
-                    <td>Foto berwarna ukuran 3 x 4</td>
+                    <td>Buku Rekening Anak</td>
                     <td>
-                        @if($mohon->lampiran->file_foto)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_scan_anak) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                      <td>3. </td>
                     <td>Kartu Tanda Penduduk (KTP)</td>
                     <td>
-                        @if($mohon->lampiran->file_ktp)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_ktp) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                     <td>4. </td>
                     <td>Kartu Keluarga (KK)</td>
                     <td>
-                        @if($mohon->lampiran->file_kk)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_kk) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                     <td>5. </td>
                     <td> Surat Kuasa</td>
                     <td>
-                        @if($mohon->lampiran->file_surat_kuasa)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_kuasa) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                     <td>6. </td>
                     <td>Surat Keterangan Masih Sekolah</td>
                     <td>
-                        @if($mohon->lampiran->file_surat_sekolah)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_sekolah) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                     <td>7. </td>
                     <td>Surat Keterangan tidak Mempunyai Penghasilan</td>
                     <td>
-                        @if($mohon->lampiran->file_surat_penghasilan)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_surat_penghasilan) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
                   <tr>
                     <td>8. </td>
                     <td>Surat Keterangan Belum Pernah Nikah</td>
                     <td>
-                        @if($mohon->lampiran->file_belum_nikah)
-                            <i class="fa fa-check"></i>
-                        @else
-                            <i class="fa fa-times"></i>
-                        @endif
+                        <a href="{{ url('dapen/lampiran/anak/'.$mohon->nopeserta.'/'.$mohon->lampiran->file_belum_nikah) }}" title="download-view" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Lihat</a>
                     </td>
                   </tr>
 

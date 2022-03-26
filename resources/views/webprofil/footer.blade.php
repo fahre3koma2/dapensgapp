@@ -31,7 +31,7 @@
                         <input type="password" class="form-control" placeholder="Password" name="password" required="required">
                     </div>
                 <div class="form-group">
-                    <a href="https://api.whatsapp.com/send?phone=08113040444&text=Halo Admin, Saya lupa password" target="_blank" class="forgot-pass align-left">Lupa Password ?</a>
+                    <a href="https://api.whatsapp.com/send?phone=+628113040444&text=Halo Admin, Saya lupa password" target="_blank" class="forgot-pass align-left">Lupa Password ?</a>
                 </div>
                 <button class="btn" type="submit">Login</button>
                 </form>

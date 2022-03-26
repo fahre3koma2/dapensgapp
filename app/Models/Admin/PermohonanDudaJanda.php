@@ -13,7 +13,7 @@ class PermohonanDudaJanda extends Model
     protected $table = "perm_dudajanda";
 
     protected $fillable = [
-        'id', 'idperm_karyawan', 'nopeserta', 'name', 'name_pensiun', 'alamat', 'kelurahan', 'rt', 'rw', 'kota', 'kodepos', 'nohp', 'norekening', 'bank', 'cabang', 'atasnama', 'status', 'created_at', 'updated_at',
+        'id', 'idperm_karyawan', 'nopeserta', 'name', 'name_pensiun', 'alamat', 'kelurahan', 'rt', 'rw', 'kota', 'kodepos', 'nohp', 'norekening', 'bank', 'cabang', 'atasnama', 'status', 'jenis', 'created_at', 'updated_at',
     ];
 
     public function biodata()
