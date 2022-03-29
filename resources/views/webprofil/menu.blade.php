@@ -51,7 +51,7 @@
                     <ul>
                         <li><a href="{!! url('profil/visimisi') !!}">Visi & Misi </a></li>
                         <li><a href="{!! url('profil/sejarah') !!}">Sejarah Pendirian</a></li>
-                        <li><a href="https://sig.id/id/profil-perusahaan/">Pendiri</a></li>
+                        {{--  <li><a href="https://sig.id/id/profil-perusahaan/">Pendiri</a></li>  --}}
                         <li><a href="{!! url('profil/struktur') !!}">Struktur Organisasi</a></li>
                         <li><a href="{!! url('profil/budaya') !!}">Budaya Kerja</a></li>
                     </ul>
