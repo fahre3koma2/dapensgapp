@@ -70,7 +70,9 @@ use App\Http\Controllers\Dapen\PengkinianController;
 
     Route::post('laporankirim', [LaporanController::class, 'laporankirim'])->name('laporankirim');
     Route::get('terimaberita/{id}', [LaporanController::class, 'terimaberita'])->name('terimaberita');
+    Route::get('laporberitaduka-cetak/{id}', [LaporanController::class, 'laporberitadukacetak'])->name('laporberitaduka-cetak');
     Route::get('terimapesan/{id}', [LaporanController::class, 'terimapesan'])->name('terimapesan');
+    Route::get('laporkontakkami-cetak/{id}', [LaporanController::class, 'laporkontakkamicetak'])->name('laporkontakkami-cetak');
 
     //Berita
     Route::get('berita/galeri', [BeritaController::class, 'galeri'])->name('galeri');

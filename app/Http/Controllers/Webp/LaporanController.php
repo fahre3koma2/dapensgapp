@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Laporan;
 use App\Models\Admin\KontakKami;
 
+use File;
+use Carbon\Carbon;
+use PDF;
+use Carbon\CarbonPeriod;
+
 class LaporanController extends Controller
 {
     /**
@@ -208,6 +213,17 @@ class LaporanController extends Controller
         return view('webprofil.layanan.terimaberitaduka', $data);
     }
 
+    public function laporberitadukacetak($id)
+    {
+
+        $berita = Laporan::query()->find(decrypt($id));
+
+        $pdf = PDF::loadview('admin.layanan.laporan.cetakberitaduka', ['berita' => $berita]);
+
+        return $pdf->download('laporan-beritaduka-pdf.pdf');
+        
+    }
+
     public function terimapesan($id)
     {
         $menu = 'Kontak';
@@ -222,6 +238,16 @@ class LaporanController extends Controller
 
         return view('webprofil.layanan.terimapesan', $data);
     }
+
+    public function laporkontakkamicetak($id)
+    {
+
+        $berita = KontakKami::query()->find(decrypt($id));
+
+        $pdf = PDF::loadview('admin.layanan.laporan.cetakkontakkami', ['berita' => $berita]);
+        return $pdf->download('laporan-kontakkami-pdf.pdf');
+    }
+    
 
     public function kontakkirim(Request $request)
     {

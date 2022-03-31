@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Biodata;
+use App\Models\BiodataUpdate;
 use App\Models\Admin\PermohonanKaryawan;
 use App\Models\Admin\PermohonanAnak;
 use App\Models\Admin\PermohonanDudaJanda;
@@ -214,20 +215,40 @@ class PermohonanController extends Controller
     {
         $type = $request->except('_token');
 
+
         if ($type['jenis'] == 'normal') {
             $mohon = PermohonanKaryawan::query()->with(['lampiran'])->find(decrypt($id));
         } elseif ($type['jenis'] == 'anak') {
             $mohon = PermohonanAnak::query()->with(['lampiran'])->find(decrypt($id));
         } elseif ($type['jenis'] == 'dudajanda') {
             $mohon = PermohonanDudaJanda::query()->with(['lampiran'])->find(decrypt($id));
+
+            $bio1  = Biodata::where('nopeserta', $mohon->nopeserta)->first();
+            $bio2  = BiodataUpdate::where([['nopeserta', $mohon->nopeserta], ['tampil', 1], ['verifikasi', 1]])->first();
+
+            if ($bio1->jenis == 'N') {
+                if ($bio1->sex == 'L') {
+                    $bio['jenis'] = 'J';
+                } else {
+                    $bio['jenis'] = 'U';
+                }
+            } else {
+                $bio['jenis'] = $bio1->jenis;
+            }
+
         } elseif ($type['jenis'] == 'rekening') {
             $mohon = PermohonanRekening::query()->with(['lampiran'])->find(decrypt($id));
         }
 
         $data['status'] = 2;
-
+      
         $mohon->update($data);
-
+        $bio1->update($bio);
+        
+        if(!empty($bio2)){
+            $bio2->update($bio);
+        }
+            
         $data = [
             'mohon' => $mohon,
         ];

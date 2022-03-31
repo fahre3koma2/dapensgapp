@@ -65,10 +65,16 @@
             </select>
             <span class="fa fa-id-badge form-control-feedback" aria-hidden="true"></span> </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
         <div class="form-group has-feedback">
-            <label class="control-label">Tempat Lahir</label>
-            <input class="form-control" type="text" name="tempat_lahir" value="{{ $user->tempat_lahir }}" {{ $edit ? '' : 'disabled' }}>
+            <label class="control-label">RT</label>
+            <input class="form-control" type="text" name="rt" value="{{ $user->rt }}" {{ $edit ? '' : 'disabled' }}>
+            <span class="fa fa-tablet form-control-feedback" aria-hidden="true"></span> </div>
+        </div>
+        <div class="col-md-3">
+        <div class="form-group has-feedback">
+            <label class="control-label">RW</label>
+            <input class="form-control" type="text" name="rw" value="{{ $user->rw }}" {{ $edit ? '' : 'disabled' }}>
             <span class="fa fa-tablet form-control-feedback" aria-hidden="true"></span> </div>
         </div>
         <div class="col-md-6">

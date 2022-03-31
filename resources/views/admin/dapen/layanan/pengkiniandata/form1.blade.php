@@ -129,6 +129,25 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
+                    <label>Email : <span style="color:red"> <strong>*</strong></span></label>
+                    <input class="form-control" type="text" name="email_user" value="{{ $user->email_user }}" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Jenis Kelamin : <span style="color:red"> <strong>*</strong></span></label>
+                        <div class="c-inputs-stacked">
+                            <label class="inline custom-control custom-radio block">
+                            <input type="radio" name="sex" value="L" {{ $user->sex == 'L' ? 'checked' : '' }} required>
+                            <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Laki - Laki</span> </label>
+                            <label class="inline custom-control custom-radio block">
+                            <input type="radio" name="sex" value="P" {{ $user->sex == 'P' ? 'checked' : '' }} required>
+                            <span class="custom-control-indicator"></span> <span class="custom-control-description ml-0">Perempuan</span> </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label>Status Perkawinan : <span style="color:red"> <strong>*</strong></span></label>
                         <div class="c-inputs-stacked">
                             <label class="inline custom-control custom-radio block">

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Biodata;
+use App\Models\BiodataUpdate;
 use App\Models\Admin\PermohonanKaryawan;
 use App\Models\Admin\PermohonanDudaJanda;
 use App\Models\Admin\LampiranDudaJanda;

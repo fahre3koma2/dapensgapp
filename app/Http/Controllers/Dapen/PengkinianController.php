@@ -104,7 +104,7 @@ class PengkinianController extends Controller
         } else {
             $nama = $user;
         }
-
+        
             $menu = 'permohonan';
             $edit = false;
             $mohon = null;
@@ -469,7 +469,7 @@ class PengkinianController extends Controller
     {
         $mohon = BiodataUpdate::query()->with(['lampiran'])->find(decrypt($id));
 
-        if (is_null($mohon->lampiran->file_kk)) {
+        if (is_null($mohon->lampiran->file_kk) || is_null($mohon->lampiran->file_surat_nikah) || is_null($mohon->lampiran->file_surat_kematian) || is_null($mohon->lampiran->file_lain1) || is_null($mohon->lampiran->file_lain2)) {
 
             // Alert::warning('Gagal', 'File Lampiran Usulan harus lengkap');
             alert()->warning('File Lampiran Usulan harus lengkap', 'Gagal');

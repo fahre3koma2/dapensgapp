@@ -205,7 +205,7 @@
                     <td>3. </td>
                     <td>Surat Nikah</td>
                     <td>
-                        @if($user->lampiran->file_nikah)
+                        @if($user->lampiran->file_surat_nikah)
                             <i class="fa fa-check"></i>
                         @else
                             <i class="fa fa-times"></i>

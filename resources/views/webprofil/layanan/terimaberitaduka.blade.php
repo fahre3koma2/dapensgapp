@@ -54,7 +54,7 @@
                   </div>
                 </div>
                 <div class="price_bottom">
-                  <div class="center"> <a href="{!! url('/') !!}" class="btn main_bt">Kembali ke Home</a> </div>
+                  <div class="center"> <a href="{!! url('laporberitaduka-cetak', Crypt::encrypt($berita->id)) !!}" class="btn main_bt">Cetak Laporan</a> </div>
                 </div>
               </div>
             </div>
