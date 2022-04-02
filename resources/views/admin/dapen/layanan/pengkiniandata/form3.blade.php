@@ -72,7 +72,7 @@
                             </td>
                         </tr>
 
-                        <tr>
+                        {{--  <tr>
                             <td> <p class="font-weight-bold"> Surat Keterangan Meninggal </p>
                                 <ol style="list-style:square">
                                     <li>Ukuran maksimum 300KB</li>
@@ -214,7 +214,7 @@
                                 {{ Form::close() }}
                                 @endif
                             </td>
-                        </tr>
+                        </tr>  --}}
 
                         {{--  <tr>
                             <td> <p class="font-weight-bold"> Kartu Tanda Penduduk (KTP) </p>

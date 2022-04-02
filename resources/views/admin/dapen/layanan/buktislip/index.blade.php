@@ -50,7 +50,7 @@
                         <th scope="col" width="10%">Bulan-Tahun</th>
                         <th scope="col" width="20%">No Pensiun</th>
                         <th scope="col">Nama Pensiun</th>
-                        <th scope="col" width="5%">Aksi</th>
+                        {{--  <th scope="col" width="5%">Aksi</th>  --}}
                     </tr>
                     </thead>
                     <tbody>
@@ -59,7 +59,7 @@
                         <td>{{ Carbon\Carbon::parse($year.'-'.$month.'-01')->isoFormat('MMMM Y')  }}</td>
                         <td>{{ $user->biodata->nopeserta }}</td>
                         <td>{{ $user->biodata->berhak }}</td>
-                        <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/'.$user->biodata->nopeserta.'_MP'.$month.''.$year.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
+                        {{--  <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/'.$user->biodata->nopeserta.'_MP'.$month.''.$year.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>  --}}
                         {{--  @if($month == '12')
                         <td> <a href="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/SLIPGAJI_DES'.$year.''.$user->biodata->nopeserta.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
                         @elseif($month == '01')
@@ -72,6 +72,9 @@
                     </tr>
                     </tbody>
                 </table>
+                <center>
+                <embed src="{{ url('/dapen/slipgaji/'.$month.'-'.$year.'/'.$user->biodata->nopeserta.'_MP'.$month.''.$year.'.pdf') }}" width="800" height="320"></embed>
+                <center>
                 </div>
             </div>
         </div>

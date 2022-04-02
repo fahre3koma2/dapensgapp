@@ -190,7 +190,7 @@
                         @endif
                     </td>
                   </tr>
-                  <tr>
+                  {{--  <tr>
                     <td>2. </td>
                     <td>Surat Keterangan Meninggal</td>
                     <td>
@@ -233,7 +233,7 @@
                             <i class="fa fa-times"></i>
                         @endif
                     </td>
-                  </tr>
+                  </tr>  --}}
                 </tbody>
               </table>
             </div>
