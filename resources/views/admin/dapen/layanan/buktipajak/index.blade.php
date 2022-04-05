@@ -50,7 +50,7 @@
                         <th scope="col" width="10%">Tahun</th>
                         <th scope="col" width="20%">No Pensiun</th>
                         <th scope="col">Nama Pensiun</th>
-                        {{--  <th scope="col" width="5%">Aksi</th>  --}}
+                        <th scope="col" width="5%">Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -60,12 +60,12 @@
                         <td>{{ $user->biodata->nopeserta }}</td>
                         <td>{{ $user->biodata->berhak }}</td>
                         {{--  <td> <a href="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.'_BUPOT'.$tahun.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>  --}}
-                        {{--  <td> <a href="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.''.$user->biodata->jenis.'_1721A1_'.$tahun.'.pdf') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>  --}}
+                        <td> <a href="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.''.$user->biodata->jenis.'_1721A1_'.$tahun.'.PDF') }}" target="_blank" class="btn btn-sm btn-primary btn-block">Download</a> </td>
                     </tr>
                     </tbody>
                 </table>
                 <center>
-                    <embed src="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.''.$user->biodata->jenis.'_1721A1_'.$tahun.'.pdf') }}" width="800" height="800"></embed>
+                    <embed src="{{ url('/dapen/buktipotong/'.$tahun.'/'.$user->biodata->nopeserta.''.$user->biodata->jenis.'_1721A1_'.$tahun.'.PDF') }}" width="800" height="800"></embed>
                 <center>
                 </div>
             </div>
